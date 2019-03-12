@@ -9,7 +9,8 @@ from pathlib import Path
 MOD_NAME = "MomoTweak"
 MOD_DIRECTORY = "\\Mod"
 INFO = "\\info.json"
-IS_ZIP = True
+# factorio don't load this zip file.
+IS_ZIP = False
 FactorioPath = ["C:\\Program Files (x86)\\Steam\\steamapps\\common\\Factorio\\bin\\x64\\factorio.exe",
                 "C:\Program Files (x86)\Steam\factorio.exe"]
         
@@ -33,6 +34,12 @@ def ZipDirectory(version):
         if (IS_ZIP):
                 shutil.make_archive(MOD_NAME + "_" + version, 'zip', directory)
                 return MOD_NAME + "_" + version + ".zip"
+        else:
+                target_dir = FactorioModsPath + "\\" + MOD_NAME + "_" + version
+                if os.path.isdir(target_dir) :
+                        shutil.rmtree(target_dir)
+                shutil.copytree(directory, target_dir)
+                return MOD_NAME + "_" + version
         return ""
         
 def GetVersion():
@@ -56,12 +63,13 @@ def MoveZipOut(zip_name):
 def RunFactorio():
         for factorio in FactorioPath :
                 if os.path.isfile(factorio) :
-                        subprocess.call(factorio)
+                        os.startfile(factorio)
                         print("Run Factorio")
                         return 0
 Init()
 zipName = ZipDirectory(GetVersion())
-MoveZipOut(zipName)
+if IS_ZIP:
+        MoveZipOut(zipName)
 print("Export Completed")
 time.sleep(.500)
 RunFactorio()

@@ -51,7 +51,7 @@ if data.raw["tool"]["more-science-pack-1"] and
     {get_science(3), x + 1},
     {get_science(4), x + 1},
     {"electronic-circuit", 2}
-  }, 7, target_tech)) --"automation-2"
+  }, 7, unlock_tech) --"automation-2"
   
   bobmods.lib.recipe.remove_ingredient(namerecipe, "iron-plate")
   -- green

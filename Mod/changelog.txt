@@ -1,5 +1,6 @@
 v. 0.17.4
 - lamp now use glass
+- add fix for omnilib
 
 v. 0.17.3
 - fix remove ingredient count limit
