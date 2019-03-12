@@ -26,12 +26,13 @@ def Init():
   GitPath = os.path.dirname(path)
   global FactorioModsPath
   FactorioModsPath = str(Path(GitPath).parent)
-  print("Init Factorio Mod Path = " + FactorioModsPath)
+  print("Init")
+  print("Factorio Mod Path = " + FactorioModsPath)
   print("GitPath = " + GitPath)
 
 def ZipDirectory(version):
   directory = GitPath + MOD_DIRECTORY
-  print("Start zipping Directory at :" + directory)
+  print("Start export Directory :" + directory)
   if (IS_ZIP):
     shutil.make_archive(MOD_NAME + "_" + version, 'zip', directory)
     return MOD_NAME + "_" + version + ".zip"
@@ -70,7 +71,7 @@ def RunFactorio():
     if os.path.isfile(factorio) :
       os.startfile(factorio)
       print("Run Factorio")
-	  return
+      return
   print("No Factorio in path.")
 
 # =======================================================================================
