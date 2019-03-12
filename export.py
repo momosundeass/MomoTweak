@@ -14,6 +14,7 @@ FACTORIO = "factorio.exe"
 # factorio don't load this zip file.
 IS_ZIP = False
 FactorioPath = ["C:\\Program Files (x86)\\Steam\\steamapps\\common\\Factorio\\bin\\x64\\factorio.exe",
+                "G:\\SteamLibrary\\steamapps\\common\\Factorio\\bin\\x64\\factorio.exe", 
                 "C:\\Program Files (x86)\\Steam\\factorio.exe"]
         
 # variable
