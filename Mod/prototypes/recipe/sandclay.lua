@@ -34,7 +34,6 @@ if data.raw.item["solid-clay"] and data.raw.item["solid-coke"] then
             {type="fluid", name="water-yellow-waste", amount=80}
             }
     }
-    
   })
   bobmods.lib.tech.add_recipe_unlock("angels-coal-processing", "momo-clay-coke")
   bobmods.lib.tech.add_recipe_unlock("angels-coal-processing-2", "momo-clay-coke-2")

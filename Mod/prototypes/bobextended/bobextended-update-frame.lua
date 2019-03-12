@@ -41,15 +41,6 @@ bobmods.lib.tech.add_recipe_unlock(momoTweak.get_tech_of_recipe("electric-engine
 bobmods.lib.tech.add_recipe_unlock("automation-3", "advanced-structure-components")
 bobmods.lib.tech.add_recipe_unlock("automation-5", "anotherworld-structure-components")
 
--- pycoal compatible
-if momoTweak.pycoal then
-	newRecipe("basic", 15, "-pycoal").ingredients = {
-	  {"lead-plate", 7},{"tin-plate", 14},{"stone-brick", 14}
-	}
-	bobmods.lib.tech.add_recipe_unlock("automation-2", "basic-structure-components-pycoal")
-end
-
-
 -- assign machine
 local norecipe = 0
 local nomachine = 0
@@ -233,11 +224,6 @@ assign("strand-casting-machine-4", 4, 1)
 assign("beacon", 2, 5, true)
 assign("beacon-2", 3, 8, true)
 assign("beacon-3", 4, 3, true)
-
--- py
-if momoTweak.pycoal then
-	assign("automated-factory", 2, 6)
-end
 
 log("MTKL bobExtended Frame => ".. norecipe .." no Recipe " .. nomachine .. " not found machine." )
 for i, text in pairs(err) do

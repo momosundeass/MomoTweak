@@ -1,9 +1,8 @@
 require("prototypes.angel-tweak")
-require("prototypes.assembler-upgrade")
-
 require("prototypes.game-progress")
 
 -- recipe tweak ------------------------------
+require("prototypes.recipe.assembler-recipe")
 require("prototypes.recipe.sandclay")
 require("prototypes.recipe.bobs-electrolysis")
 require("prototypes.recipe.logistic")

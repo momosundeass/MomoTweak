@@ -29,7 +29,7 @@ function changeboard3 ()
 	momoTweak.replace_with_ingredient("module-processor-board-3", "fibreglass-board", {ele.unit[4], 4})
 	momoTweak.set_amount_ingredient("module-processor-board-3", {"gold-plate", 6})
 
-	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"module-processor-board-2", 2})
+	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"module-processor-board-2", 4})
 	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"solder-alloy", 12})
 	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"module-circuit-board", 2})
 	bobmods.lib.recipe.replace_ingredient("module-processor-board-3", "copper-plate", "aluminium-plate")
