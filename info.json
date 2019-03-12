@@ -1,0 +1,37 @@
+{
+  "name": "MomoTweak",
+  "version": "0.17.4",
+  "factorio_version": "0.17",
+  "title": "MomoTweak",
+  "author": "Momosundeass",
+  "contact": "",
+  "homepage": "",
+  "description": "Add more complex crafting for science compatible with Bob's Angel's +30 new Science Pack mod && Tweak for some mod",
+  "dependencies": [
+	  "base >= 0.17.0",
+	  "boblibrary >= 0.17.0",
+	  "bobassembly >= 0.17.0",
+	  "bobelectronics >= 0.17.0",
+	  "boblogistics >= 0.17.1",
+	  "bobmining >= 0.17.0",
+	  "bobmodules >= 0.17.1",
+	  "bobores >= 0.17.0",
+	  "bobplates >= 0.17.0",
+	  "bobpower >= 0.17.0",
+	  "bobrevamp >= 0.17.0",
+	  "bobtech >= 0.17.1",
+	  "bobwarfare >= 0.17.0",
+	  "angelspetrochem >= 0.8.1",
+	  "angelsrefining >= 0.10.3",
+	  "angelssmelting >= 0.5.3",
+	  
+	  "? MoreSciencePacks >= 0.1.04",
+	  
+	  "? bobvehicleequipment >= 0.17.0",
+	  "? bobinserters >= 0.17.1",
+	  "? bobenemies >= 0.17.1",
+	  "? ShinyIcons >= 0.17.1",
+	  "? Bio_Industries >= 0.17.5",
+	  "? omnilib >= 3.0.4"
+  ]
+}

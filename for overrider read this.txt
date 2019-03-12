@@ -1,0 +1,19 @@
+If you want to override my recipe and don't know what the recipe name?
+
+I have solution for you
+
+call momoTweak.find_recipe_from_result( "result_item_name" )
+
+or momoTweak.find_recipe_from_ingredient( "ingredient_item_name" )
+
+EXAMPLE:
+
+momoTweak.find_recipe_from_ingredient("coal")
+
+use it in data-final-fixes.lua on your mod not mine
+ 
+run the game get an error close it
+
+then check log file search for 
+
+ MTKL Recipe finder 
