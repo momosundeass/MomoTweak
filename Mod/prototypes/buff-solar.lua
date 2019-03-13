@@ -1,3 +1,20 @@
+
+local function AddGlass(recipe, amount) 
+	momoTweak.replace_with_ingredient(recipe, "glass", {"glass", amount})
+end
+
+AddGlass("solar-panel", 8)
+AddGlass("solar-panel-larnge", 16)
+AddGlass("solar-panel-small", 4)
+
+AddGlass("solar-panel-2", 20)
+AddGlass("solar-panel-large-2", 40)
+AddGlass("solar-panel-small-2", 10)
+
+AddGlass("solar-panel-3", 42)
+AddGlass("solar-panel-large-3", 84)
+AddGlass("solar-panel-small-3", 21)
+
 if settings.startup["momo-buff-solar"].value then
 	function buff(solar, base, multiple)
 		if data.raw["solar-panel"][solar] then

@@ -31,7 +31,7 @@ momoTweak.createRecipe(sci_cat, {{"movement-pack", 2}},
   {
     {belt, 2},
     {"inserter", 1},
-    {"tin-plate", 5}
+    {"glass", 5}
   }, 3, tech_sci_2)
 
 local tech_sci_3 = momoTweak.get_tech_of_recipe(momoTweak.sci3)
@@ -89,8 +89,9 @@ momoTweak.createRecipe(sci_cat, {{"cpy", 4}}, {
 
 momoTweak.createRecipe(sci_cat, {{"product-sci", 1}}, {
   {"solar-panel-2", 1},
-  {"bob-area-mining-drill-1", 1},
+  {"assembling-machine-2", 1},
   {"electric-furnace", 1},
+  {"chemical-plant-2", 1},
   {"pre-cyan-sci", 3}
 }, 14, tech_sci_pro)
 
@@ -168,12 +169,11 @@ bobmods.lib.recipe.add_ingredient(momoTweak.sci3, {"bronze-pack", 3})
 ------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------
-bobmods.lib.recipe.remove_ingredient(momoTweak.sciProduction, "electric-mining-drill")
-bobmods.lib.recipe.remove_ingredient(momoTweak.sciProduction, "electric-furnace")
-
-bobmods.lib.recipe.add_ingredient(momoTweak.sciProduction, {"cpy", 4})
-bobmods.lib.recipe.add_ingredient(momoTweak.sciProduction, {"product-sci", 1})
-bobmods.lib.recipe.add_ingredient(momoTweak.sciProduction, {"cyan-sci", 2})
+data.raw.recipe[momoTweak.sciProduction].ingredients = {
+	{"cpy", 4},
+	{"product-sci", 1},
+	{"cyan-sci", 2},
+}
 
 ------------------------------------------------------------------------------------------
 
