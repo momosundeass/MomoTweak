@@ -109,7 +109,7 @@ data:extend(
    },
    {
     type = "bool-setting",
-    name = "momo-enable-bob-extend-tech",
+    name = "momo-enable-bob-extend-ele",
     setting_type = "startup",
     default_value = true,
     order = "bf",
