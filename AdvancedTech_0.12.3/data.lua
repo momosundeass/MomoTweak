@@ -1,0 +1,15 @@
+require("prototypes.category")
+require("prototypes.item")
+require("prototypes.recipe")
+require("prototypes.recipe-override")
+require("prototypes.technology")
+
+require("prototypes.module-component-item")
+require("prototypes.module-component-recipe")
+require("prototypes.module-item")
+require("prototypes.module-recipe")
+require("prototypes.technology-override")
+
+require("prototypes.end-game-tech.item")
+require("prototypes.end-game-tech.technology")
+require("prototypes.end-game-tech.entity")
