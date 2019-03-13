@@ -15,18 +15,18 @@ end
 
 -- create Recipe -------------------------------------------
 newRecipe("basic", 15).ingredients = {
-  {"lead-plate", 7},{"glass", 12},{"stone-brick", 14}
+  {"lead-plate", 7},{"plate-pack-1", 4},{"stone-brick", 14}
 }
 newRecipe("intermediate", 30).ingredients = {
-  {"basic-structure-components", 1},{"brass-gear-wheel", 4},{"cobalt-plate", 3},{"invar-alloy", 14}
+  {"basic-structure-components", 2},{"brass-gear-wheel", 4},{"cobalt-plate", 3},{"invar-alloy", 14}
 }
 newRecipe("advanced", 60).ingredients = {
   {"intermediate-structure-components", 2},{"tungsten-plate", 13},{"aluminium-plate", 16},
-  {"titanium-plate", 22},{"cobalt-steel-alloy", 10},{"plastic-bar", 80}
+  {"titanium-plate", 22},{"cobalt-steel-alloy", 10},{"advanced-plastics", 80}
 }
 newRecipe("anotherworld", 120).ingredients = {
   {"advanced-structure-components", 3},
-  {"plastic-bar", 800},
+  {"advanced-plastics", 800},
   {"tungsten-carbide", 300},
   {"titanium-bearing", 200},
   {"ceramic-bearing", 300},

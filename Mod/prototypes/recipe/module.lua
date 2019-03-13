@@ -32,6 +32,7 @@ function changeboard3 ()
 	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"module-processor-board-2", 4})
 	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"solder-alloy", 12})
 	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"module-circuit-board", 2})
+	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"advanced-plastics", 4})
 	bobmods.lib.recipe.replace_ingredient("module-processor-board-3", "copper-plate", "aluminium-plate")
 	
 	data.raw.recipe["module-processor-board-3"].result_count = 2

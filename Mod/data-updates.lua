@@ -1,3 +1,7 @@
+-- additional item ---------------------------
+require("prototypes.advanced-plastics")
+-- -------------------------------------------
+
 require("prototypes.angel-tweak")
 require("prototypes.game-progress")
 

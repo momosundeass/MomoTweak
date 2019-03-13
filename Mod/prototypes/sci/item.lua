@@ -32,3 +32,6 @@ momoTweak.newsciItem("cpy")
 momoTweak.newsciItem("logistic-express")
 momoTweak.newsciItem("py-nxag-matrix")
 momoTweak.newsciItem("py-superconductor")
+
+
+momoTweak.newsciItem("plate-pack-1")

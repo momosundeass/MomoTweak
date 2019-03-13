@@ -32,6 +32,7 @@
 	  "? bobenemies >= 0.17.1",
 	  "? ShinyIcons >= 0.17.1",
 	  "? Bio_Industries >= 0.17.5",
+	  "? SpaceMod >= 0.4.1",
 	  "? omnilib >= 3.0.4"
   ]
 }

@@ -197,5 +197,18 @@ bobmods.lib.recipe.add_ingredient(momoTweak.sciTech, {"py-superconductor", 5})
 bobmods.lib.recipe.add_ingredient(momoTweak.sciTech, {"solar-panel-equipment-3", 2})
 ------------------------------------------------------------------------------------------
 
+local tech = tech_sci_2
+momoTweak.createRecipe("advanced-crafting", 
+	{{"plate-pack-1", 1}}, 
+	{
+		{"lead-plate", 2}, 
+		{"glass", 3}
+}, 2, tech, "lead")
+momoTweak.createRecipe("advanced-crafting", 
+	{{"plate-pack-1", 1}}, 
+	{
+		{"tin-plate", 2}, 
+		{"glass", 3}
+}, 2, tech, "tin")
 
 

@@ -8,14 +8,20 @@ if data.raw["tool"]["more-science-pack-1"] then
   bobmods.lib.recipe.add_ingredient("more-science-pack-5", {ele.circuit[1], 2})
 
   bobmods.lib.recipe.add_ingredient("more-science-pack-6", {"solder-alloy", 9})
+  bobmods.lib.recipe.add_ingredient("more-science-pack-6", {"plate-pack-1", 1})
+  
+  bobmods.lib.recipe.add_ingredient("more-science-pack-7", {"plate-pack-1", 1})
   
   bobmods.lib.recipe.remove_ingredient("more-science-pack-8", "electronic-circuit")
-  bobmods.lib.recipe.add_ingredient("more-science-pack-8", {"lead-plate", 1})
+  bobmods.lib.recipe.add_ingredient("more-science-pack-8", {"plate-pack-1", 1})
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-9", {"brass-alloy", 3})
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"chemical-boiler", 1})
+  bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"plate-pack-1", 1})
+  
   bobmods.lib.recipe.replace_ingredient("chemical-boiler", "pipe", "copper-pipe")
+  
   if data.raw.item["carbon"] then
     bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"carbon", 2})
   end
@@ -75,6 +81,7 @@ if data.raw["tool"]["more-science-pack-1"] then
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-28", {"tungsten-axe", 1})
   bobmods.lib.recipe.add_ingredient("more-science-pack-28", {"titanium-chest", 3})
+  bobmods.lib.recipe.add_ingredient("more-science-pack-28", {"advanced-plastics", 5})
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-29", {"silver-zinc-battery", 30})
   bobmods.lib.recipe.add_ingredient("more-science-pack-29", {"bob-construction-robot-4", 3})
