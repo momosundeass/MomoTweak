@@ -4,7 +4,7 @@ local function AddGlass(recipe, amount)
 end
 
 AddGlass("solar-panel", 8)
-AddGlass("solar-panel-larnge", 16)
+AddGlass("solar-panel-large", 16)
 AddGlass("solar-panel-small", 4)
 
 AddGlass("solar-panel-2", 20)
