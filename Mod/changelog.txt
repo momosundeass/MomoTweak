@@ -3,6 +3,7 @@ v. 0.17.4
 - add fix for omnilib
 - move some code around to match it category
 - balance some recipe
+- fix crash when already have burner assembly machine
 
 v. 0.17.3
 - fix remove ingredient count limit

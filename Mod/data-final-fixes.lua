@@ -1,6 +1,6 @@
 -- disable chemical plant from angel's petro
 
-data.raw.item['assembling-machine-0'].subgroup = data.raw.item["assembling-machine-1"].subgroup
+data.raw.item[momoTweak.burner].subgroup = data.raw.item["assembling-machine-1"].subgroup
 
 local cat_override = "bob-distillery"
 

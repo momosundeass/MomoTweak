@@ -1,11 +1,11 @@
   data:extend({
     {
       type = "assembling-machine",
-      name = "assembling-machine-0",
+      name = momoTweak.burner,
       icon = "__MomoTweak__/graphics/icons/burner-assembling-machine.png",
       icon_size = 32,
       flags = {"placeable-neutral", "placeable-player", "player-creation"},
-      minable = {hardness = 0.25, mining_time = 0.5, result = "assembling-machine-0"},
+      minable = {hardness = 0.25, mining_time = 0.5, result = momoTweak.burner},
       max_health = 200,
       corpse = "big-remnants",
       dying_explosion = "medium-explosion",
@@ -111,20 +111,20 @@
 
     {
       type = "item",
-      name = "assembling-machine-0",
+      name = momoTweak.burner,
       icon = "__MomoTweak__/graphics/icons/burner-assembling-machine.png",
       icon_size = 32,
       subgroup = data.raw.item["assembling-machine-1"].subgroup,
-      order = "a[assembling-machine-0]",
-      place_result = "assembling-machine-0",
+      order = "a[momoTweak.burner]",
+      place_result = momoTweak.burner,
       stack_size = 50
     },
 
     {
       type = "recipe",
-      name = "assembling-machine-0",
+      name = momoTweak.burner,
       ingredients = {{"stone-furnace", 1}, {"iron-gear-wheel", 3}, {"iron-plate", 9}},
-      result = "assembling-machine-0"
+      result = momoTweak.burner
     }
   })
 
