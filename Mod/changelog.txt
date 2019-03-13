@@ -1,7 +1,8 @@
 v. 0.17.5
 - add advanced-plastics and plate-pack-1 back
 - balanced science recipe to match version 0.17
-- balanced some recipe
+- balanced robot recipe
+- include glass into some recipe
 
 v. 0.17.4
 - lamp now use glass
