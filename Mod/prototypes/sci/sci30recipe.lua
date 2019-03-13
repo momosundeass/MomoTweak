@@ -70,9 +70,13 @@ if data.raw["tool"]["more-science-pack-1"] then
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-23", {ele.comp[3], 7})
   
+  bobmods.lib.recipe.add_ingredient("more-science-pack-24", {"robot-brain-construction-4", 1})
+  bobmods.lib.recipe.add_ingredient("more-science-pack-24", {"robot-brain-logistic-4", 1})
+  
+  bobmods.lib.recipe.add_ingredient("more-science-pack-25", {"silicon", 8})
   -- nitinol for sci 24 25 26 27 28
-  for i=24,28 do
-    bobmods.lib.recipe.add_ingredient("more-science-pack-"..i, {"nitinol-gear-wheel", 2})
+  for i=26,28 do
+    bobmods.lib.recipe.add_ingredient("more-science-pack-"..i, {"nitinol-gear-wheel", 3})
   end
   
   
