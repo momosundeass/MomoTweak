@@ -19,6 +19,7 @@ momoTweak.ele.cable[1] = "copper-cable"
 momoTweak.ele.cable[2] = "tinned-copper-cable"
 momoTweak.ele.cable[3] = "insulated-cable"
 momoTweak.ele.cable[4] = "gilded-copper-cable"
+momoTweak.ele.cable[5] = "angels-wire-silver"
 
 momoTweak.ele.circuit = {}
 momoTweak.ele.circuit[1] = "basic-circuit-board"
