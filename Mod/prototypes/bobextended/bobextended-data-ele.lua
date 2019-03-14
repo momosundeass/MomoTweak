@@ -49,6 +49,12 @@ momoTweak.newElecItem(momoTweak.ele.memory.b, 400)
 momoTweak.ele.memory.c = momoTweak.elePrefix .. "memory-c"
 momoTweak.newElecItem(momoTweak.ele.memory.c, 200)
 
+momoTweak.ele.memory.c = momoTweak.elePrefix .. "advanced-wire"
+momoTweak.newElecItem(momoTweak.ele.memory.c, 400)
+
+momoTweak.ele.memory.c = momoTweak.elePrefix .. "coil"
+momoTweak.newElecItem(momoTweak.ele.memory.c, 400)
+
 
 
 
