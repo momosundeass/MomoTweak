@@ -7,39 +7,44 @@ momoTweak.set_amount_ingredient("module-circuit-board", {"copper-plate", 5})
 momoTweak.replace_with_ingredient("module-circuit-board", "phenolic-board", {ele.circuit[2], 4})
 bobmods.lib.recipe.add_ingredient("module-circuit-board", {"silver-plate", 3})
 
---module-processor-board
 
-momoTweak.set_amount_ingredient("module-processor-board", {"copper-plate", 6})
+local mem_a = "copper_plate"
+if (data.raw.item[ele.memory.a]) then
+	mem_a = ele.memory.a
+end
+
+--module-processor-board
+momoTweak.set_amount_ingredient("module-processor-board", {mem_a, 6})
 momoTweak.replace_with_ingredient("module-processor-board", "phenolic-board", {ele.unit[2], 4})
 momoTweak.replace_with_ingredient("module-processor-board","tin-plate", {"silicon-wafer", 8})
 bobmods.lib.recipe.add_ingredient("module-processor-board", {"tinned-copper-cable", 6})
 
 --module-processor-board-2
+momoTweak.set_amount_ingredient("module-processor-board-2", {mem_a, 6})
+
 bobmods.lib.recipe.add_ingredient("module-processor-board-2", {"module-processor-board", 4})
 momoTweak.replace_with_ingredient("module-processor-board-2", "fibreglass-board", {ele.unit[3], 4})
+
 bobmods.lib.recipe.remove_ingredient("module-processor-board-2", "gold-plate")
 bobmods.lib.recipe.add_ingredient("module-processor-board-2", {"silver-plate", 8})
-momoTweak.set_amount_ingredient("module-processor-board-2", {"copper-plate", 6})
-
-
 bobmods.lib.recipe.add_ingredient("module-processor-board-2", {"solder-alloy", 8})
 
 --module-processor-board-3
-function changeboard3 ()
-	momoTweak.replace_with_ingredient("module-processor-board-3", "fibreglass-board", {ele.unit[4], 4})
-	momoTweak.set_amount_ingredient("module-processor-board-3", {"gold-plate", 6})
+momoTweak.replace_with_ingredient("module-processor-board-3", "fibreglass-board", {ele.unit[4], 4})
+momoTweak.set_amount_ingredient("module-processor-board-3", {"gold-plate", 6})
 
-	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"module-processor-board-2", 4})
-	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"solder-alloy", 12})
-	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"module-circuit-board", 2})
-	bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"advanced-plastics", 4})
-	bobmods.lib.recipe.replace_ingredient("module-processor-board-3", "copper-plate", "aluminium-plate")
-	
-	data.raw.recipe["module-processor-board-3"].result_count = 2
-	-- bobmods.lib.recipe.set_result("module-processor-board-3", {"module-processor-board-3", 2})
+local mem_a_3 = {"solder-alloy", 12}
+if (data.raw.item[ele.memory.a3]) then
+	mem_a_3 = {ele.memory.a3, 4}
 end
+bobmods.lib.recipe.add_ingredient("module-processor-board-3", mem_a_3)
+bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"module-processor-board-2", 4})
+bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"module-circuit-board", 2})
+bobmods.lib.recipe.add_ingredient("module-processor-board-3", {"advanced-plastics", 4})
 
-pcall(changeboard3)
+bobmods.lib.recipe.replace_ingredient("module-processor-board-3", "copper-plate", "aluminium-plate")
+	
+data.raw.recipe["module-processor-board-3"].result_count = 2
 
 local function getingredient(recipe)
   if data.raw.recipe[recipe].ingredients then
