@@ -12,6 +12,21 @@ function fixGem()
   local gemGroup = data.raw["item-subgroup"]["bob-gems-ore"].group
   local polishingCompoundSubgroup = data.raw.recipe["polishing-compound"].subgroup
   data.raw["item-subgroup"][polishingCompoundSubgroup].group = gemGroup
+  
+  local refGroup = "bob-resource-products"
+  local markSubgroup = {}
+  
+  for i, sg in pairs(data.raw["item-subgroup"]) do
+	if sg.group == gemGroup then 
+		table.insert(markSubgroup, sg.name)
+	end
+  end
+  
+  for i, sg in pairs(markSubgroup) do    
+    if (data.raw["item-subgroup"][sg]) then
+		data.raw["item-subgroup"][sg].group = refGroup
+	end
+  end
 end
 
 function fixEQ()
@@ -21,6 +36,7 @@ function fixEQ()
   data.raw["item-subgroup"][target].group = eqGroup
 end
 
+fixGem()
 if pcall(fixGem) then
   log("MTKL fix gem group complete~")
 else
