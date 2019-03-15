@@ -40,3 +40,9 @@ momoTweak.ele.unit[1] = "electronic-circuit"
 momoTweak.ele.unit[2] = "advanced-circuit"
 momoTweak.ele.unit[3] = "processing-unit"
 momoTweak.ele.unit[4] = "advanced-processing-unit"
+
+momoTweak.module = {}
+momoTweak.module.board = {}
+momoTweak.module.board.a = "module-processor-board"
+momoTweak.module.board.b = "module-processor-board-2"
+momoTweak.module.board.c = "module-processor-board-3"
