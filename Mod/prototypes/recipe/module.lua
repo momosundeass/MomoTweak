@@ -13,7 +13,7 @@ if (data.raw.item[ele.memory.a]) then
 	mem_a = ele.memory.a
 end
 
-local moduleBoard = momoTweak.ele.module.board
+local moduleBoard = momoTweak.module.board
 
 --module-processor-board
 bobmods.lib.recipe.remove_ingredient(moduleBoard.a, "copper-plate")

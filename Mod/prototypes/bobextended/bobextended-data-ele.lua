@@ -4,14 +4,26 @@ local itemgroup = data.raw["item-subgroup"][itemref.subgroup].group
 data:extend({
 {
 	type="item-subgroup",
-	name= "momo-electronics",
+	name= "momo-electronics-1",
 	group= itemgroup,
 	order= "e-a0"
+},
+{
+	type="item-subgroup",
+	name= "momo-electronics-2",
+	group= itemgroup,
+	order= "e-a1"
+},
+{
+	type="item-subgroup",
+	name= "momo-electronics-3",
+	group= itemgroup,
+	order= "e-a2"
 }
 })
 
 local ICON = "__MomoTweak__/graphics/icons/electronics/"
-local subgroup = "momo-electronics"
+local subgroup = "momo-electronics-1"
 
 momoTweak.elePrefix = "momo-electronics-"
 local count = 1
@@ -41,7 +53,7 @@ function momoTweak.newElecItem64(Name, Size)
       icon = ICON .. iconname .. ".png",
       icon_size = 64,
       subgroup = subgroup,
-      order = "g" .. count,
+      order = "f[" .. count .. "]",
       stack_size = Size
     }
   })
@@ -74,7 +86,9 @@ momoTweak.ele.misc.coil = momoTweak.elePrefix .. "coil"
 momoTweak.newElecItem(momoTweak.ele.misc.coil, 400)
 
 local ele = momoTweak.ele
+subgroup = "momo-electronics-2"
 
+count = 0
 ele.controller = {}
 ele.controller.a = momoTweak.elePrefix .. "control-a-red"
 momoTweak.newElecItem64(ele.controller.a, 500)
@@ -88,6 +102,7 @@ momoTweak.newElecItem64(ele.controller.c, 500)
 ele.controller.d = momoTweak.elePrefix .. "control-d-green"
 momoTweak.newElecItem64(ele.controller.d, 500)
 
+subgroup = "momo-electronics-3"
 
 
 

@@ -3,15 +3,35 @@
 local ELE = momoTweak.ele
 local MEM = momoTweak.ele.memory
 local CON = momoTweak.ele.controller
+local JUN = momoTweak.ele.junction
 local category = data.raw.recipe[ELE.unit[2]].category
 
 local function result(name, amount)
 	return {{name, amount}}
 end
+
+--[[----------------------------------------------------------------------
+
+					MEM => CON
+					
+					MEM => JUN
+
+----------------------------------------------------------------------]]--
+
+
+--------------------------------------------------------------------------
 --------------------------------------------------------------------------
 
 -- MEMORY ----------------------------------------------------------------
--- MEM a
+--[[
+   basic chain 
+   MEM.a > MEM.b
+             v
+           MEM.c
+             ^
+   MEM.a > MEM.a2
+   MEM.a > MEM.a3
+]]--
 momoTweak.createRecipe(category, 
 	result(MEM.a, 2),
 	{
@@ -50,7 +70,6 @@ momoTweak.createRecipe(category,
 
 bobmods.lib.recipe.add_ingredient(ELE.unit[4], {MEM.a3, 8})
 
--- MEM b
 momoTweak.createRecipe(category, 
 	result(MEM.b, 1), 
 	{
@@ -62,7 +81,6 @@ momoTweak.createRecipe(category,
 )
 bobmods.lib.recipe.add_ingredient(ELE.unit[2], {MEM.b, 2})
 
--- MEM c
 momoTweak.createRecipe(category, 
 	result(MEM.c, 2), 
 	{
@@ -80,9 +98,19 @@ bobmods.lib.recipe.remove_ingredient(ELE.unit[4], ELE.comp[1])
 bobmods.lib.recipe.remove_ingredient(ELE.unit[4], ELE.comp[2])
 bobmods.lib.recipe.add_ingredient(ELE.unit[4], {MEM.c, 8})
 
---------------------------------------------------------------------------
+-- -----------------------------------------------------------------------
 
 -- CONTROLLER ------------------------------------------------------------
+
+--[[
+	         MEM.a
+			  v
+	CON.a => CON.b
+	
+	         MEM.a2
+			  v
+	CON.c => CON.d
+]]--
 momoTweak.createRecipe(category, 
 	result(CON.a, 4),
 	{
@@ -93,17 +121,51 @@ momoTweak.createRecipe(category,
 )
 
 momoTweak.replace_with_ingredient(ELE.circuit[2], "tin-plate", {CON.a, 1})
-bobmods.lib.recipe.add_ingredient(ELE.comp[3], {CON.a, 2})
+bobmods.lib.recipe.add_ingredient(ELE.circuit[3], {CON.a, 2})
 
 momoTweak.createRecipe(category, 
 	result(CON.b, 4),
 	{
-		{CON.a, 4},
+		{CON.a, 8},
 		{MEM.a, 2},
+		{ELE.comp[1], 12},
 		{"silicon-wafer", 2},
 		{"solder", 2}
 	}, 2, momoTweak.get_tech_of_recipe(ELE.unit[2])
 )
+momoTweak.replace_with_ingredient(ELE.unit[2], ELE.comp[1], {CON.b, 2})
 
+momoTweak.createRecipe(category, 
+	result(CON.c, 2),
+	{
+		{ELE.circuit[2], 1},
+		{ELE.comp[2], 12},
+		{"silicon-wafer", 2},
+		{"gold-plate", 4},
+		{"solder", 2}
+	}, 2, momoTweak.get_tech_of_recipe(ELE.unit[3])
+)
+momoTweak.replace_with_ingredient(ELE.circuit[4], "gold-plate", {CON.c, 1})
+momoTweak.replace_with_ingredient(ELE.unit[3], ELE.comp[2], {CON.c, 1})
 
+momoTweak.createRecipe(category, 
+	result(CON.d, 2),
+	{
+		{CON.c, 4},
+		{MEM.a2, 2},
+		{ELE.comp[3], 8},
+		{"silicon-wafer", 6},
+		{"silicon-nitride", 2},
+		{"solder", 4}
+	}, 2, momoTweak.get_tech_of_recipe(ELE.unit[4])
+)
+momoTweak.replace_with_ingredient(ELE.unit[4], ELE.comp[3], {CON.d, 1})
+-- -------------------------------------------------------------------------------------
+
+-- JUNCTION ----------------------------------------------------------------------------
+--[[
+	MEM.a => JUN.a
+			   v
+	MEM.b => JUN.b
+]]--
 
