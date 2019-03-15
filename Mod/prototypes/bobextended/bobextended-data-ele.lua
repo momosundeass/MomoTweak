@@ -41,7 +41,7 @@ function momoTweak.newElecItem64(Name, Size)
       icon = ICON .. iconname .. ".png",
       icon_size = 64,
       subgroup = subgroup,
-      order = "f" .. count,
+      order = "g" .. count,
       stack_size = Size
     }
   })
@@ -65,11 +65,13 @@ momoTweak.newElecItem(momoTweak.ele.memory.b, 400)
 momoTweak.ele.memory.c = momoTweak.elePrefix .. "memory-c"
 momoTweak.newElecItem(momoTweak.ele.memory.c, 200)
 
-momoTweak.ele.memory.c = momoTweak.elePrefix .. "advanced-wire"
-momoTweak.newElecItem(momoTweak.ele.memory.c, 400)
+momoTweak.ele.misc = {}
 
-momoTweak.ele.memory.c = momoTweak.elePrefix .. "coil"
-momoTweak.newElecItem(momoTweak.ele.memory.c, 400)
+momoTweak.ele.misc.adv_wire = momoTweak.elePrefix .. "advanced-wire"
+momoTweak.newElecItem(momoTweak.ele.misc.adv_wire, 400)
+
+momoTweak.ele.misc.coil = momoTweak.elePrefix .. "coil"
+momoTweak.newElecItem(momoTweak.ele.misc.coil, 400)
 
 local ele = momoTweak.ele
 

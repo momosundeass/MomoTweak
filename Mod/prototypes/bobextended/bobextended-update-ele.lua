@@ -2,12 +2,15 @@
 
 local ELE = momoTweak.ele
 local MEM = momoTweak.ele.memory
+local CON = momoTweak.ele.controller
 local category = data.raw.recipe[ELE.unit[2]].category
 
 local function result(name, amount)
 	return {{name, amount}}
 end
+--------------------------------------------------------------------------
 
+-- MEMORY ----------------------------------------------------------------
 -- MEM a
 momoTweak.createRecipe(category, 
 	result(MEM.a, 2),
@@ -76,3 +79,31 @@ bobmods.lib.recipe.add_ingredient(ELE.unit[3], {MEM.c, 2})
 bobmods.lib.recipe.remove_ingredient(ELE.unit[4], ELE.comp[1])
 bobmods.lib.recipe.remove_ingredient(ELE.unit[4], ELE.comp[2])
 bobmods.lib.recipe.add_ingredient(ELE.unit[4], {MEM.c, 8})
+
+--------------------------------------------------------------------------
+
+-- CONTROLLER ------------------------------------------------------------
+momoTweak.createRecipe(category, 
+	result(CON.a, 4),
+	{
+		{ELE.circuit[1], 1},
+		{"tin-plate", 4},
+		{"solder", 2}
+	}, 2, momoTweak.get_tech_of_recipe(ELE.circuit[2])
+)
+
+momoTweak.replace_with_ingredient(ELE.circuit[2], "tin-plate", {CON.a, 1})
+bobmods.lib.recipe.add_ingredient(ELE.comp[3], {CON.a, 2})
+
+momoTweak.createRecipe(category, 
+	result(CON.b, 4),
+	{
+		{CON.a, 4},
+		{MEM.a, 2},
+		{"silicon-wafer", 2},
+		{"solder", 2}
+	}, 2, momoTweak.get_tech_of_recipe(ELE.unit[2])
+)
+
+
+
