@@ -33,6 +33,8 @@
 	  "? ShinyIcons >= 0.17.1",
 	  "? Bio_Industries >= 0.17.5",
 	  "? SpaceMod >= 0.4.1",
+	  "? LB-Modular-Chests >= 0.17.7",
+	  
 	  "? omnilib >= 3.0.4"
   ]
 }

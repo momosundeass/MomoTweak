@@ -9,6 +9,13 @@ end
 if data.raw.recipe["modular-chest"] then
   bobmods.lib.recipe.add_ingredient("modular-chest", {"fast-splitter", 1})
   bobmods.lib.recipe.add_ingredient("modular-chest", {"fast-transport-belt", 2})
+  bobmods.lib.recipe.add_ingredient("modular-steel-chest", {"fast-splitter", 1})
+  bobmods.lib.recipe.add_ingredient("modular-steel-chest", {"fast-transport-belt", 2})
+  data.raw.recipe["modular-chest"].enabled = false
+  data.raw.recipe["modular-steel-chest"].enabled = false
+  local unlock_tech = momoTweak.get_tech_of_recipe("train-stop")
+  bobmods.lib.tech.add_recipe_unlock(unlock_tech, "modular-chest")
+  bobmods.lib.tech.add_recipe_unlock(unlock_tech, "modular-steel-chest")
 end
 
 if mods["underground-pipe-pack"] then
