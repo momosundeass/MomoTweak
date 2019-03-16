@@ -102,7 +102,13 @@ momoTweak.newElecItem64(ele.controller.c, 500)
 ele.controller.d = momoTweak.elePrefix .. "control-d-green"
 momoTweak.newElecItem64(ele.controller.d, 500)
 
-subgroup = "momo-electronics-3"
+ele.junction = {}
+
+ele.junction.a = momoTweak.elePrefix .. "junction-red"
+momoTweak.newElecItem64(ele.junction.a, 500)
+
+ele.junction.b = momoTweak.elePrefix .. "junction-green"
+momoTweak.newElecItem64(ele.junction.b, 500)
 
 
 

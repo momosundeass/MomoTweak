@@ -35,7 +35,7 @@ end
 momoTweak.createRecipe(category, 
 	result(MEM.a, 2),
 	{
-		{ELE.cable[1], 1},
+		{ELE.cable[1], 2},
 		{"nickel-plate", 1}
 	}, 2, momoTweak.get_tech_of_recipe(ELE.board[2])
 )
@@ -62,7 +62,7 @@ momoTweak.createRecipe(category,
 	result(MEM.a3, 1),
 	{
 	    {MEM.a, 8},
-	    {ELE.cable[5], 2},
+	    {ELE.cable[5], 4},
 		{"silicon-nitride", 4},
 		{"cpy", 1}
 	}, 10, momoTweak.get_tech_of_recipe(ELE.unit[4])
@@ -140,7 +140,7 @@ momoTweak.createRecipe(category,
 	{
 		{ELE.circuit[2], 1},
 		{ELE.comp[2], 12},
-		{"silicon-wafer", 2},
+		{ELE.cable[2], 4},
 		{"gold-plate", 4},
 		{"solder", 2}
 	}, 2, momoTweak.get_tech_of_recipe(ELE.unit[3])
@@ -164,8 +164,32 @@ momoTweak.replace_with_ingredient(ELE.unit[4], ELE.comp[3], {CON.d, 1})
 
 -- JUNCTION ----------------------------------------------------------------------------
 --[[
-	MEM.a => JUN.a
-			   v
-	MEM.b => JUN.b
+	MEM.a2 => JUN.a
+			    v
+	MEM.b  => JUN.b
 ]]--
 
+momoTweak.createRecipe(category, 
+	result(JUN.a, 1),
+	{
+		{MEM.a2, 2},
+		{ELE.comp[3], 4},
+		{"silicon-wafer", 3},
+		{"gold-plate", 2},
+		{"solder", 2}
+	}, 2, momoTweak.get_tech_of_recipe(ELE.unit[3])
+)
+momoTweak.replace_with_ingredient(ELE.unit[3], ELE.comp[3], {JUN.a, 1})
+
+momoTweak.createRecipe(category, 
+	result(JUN.b, 1),
+	{
+		{MEM.b, 2},
+		{ELE.comp[4], 2},
+		{"silicon-wafer", 4},
+		{"silicon-nitride", 2},
+	    {ELE.cable[4], 4},
+		{"solder", 4}
+	}, 2, momoTweak.get_tech_of_recipe(ELE.unit[4])
+)
+momoTweak.replace_with_ingredient(ELE.unit[4], ELE.comp[4], {JUN.b, 1})
