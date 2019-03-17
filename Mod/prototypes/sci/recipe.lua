@@ -12,6 +12,12 @@ if  data.raw["assembling-machine"]["angels-chemical-plant"] and settings.startup
 end
 local ele = momoTweak.ele
 
+momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 3}},
+	{
+		{"glass", 4},
+		{"coal", 1}
+	}, 4, "optics")
+
 local tech_sci_2 = momoTweak.get_techs_of_recipe(momoTweak.sci2)[2]
 momoTweak.createRecipe(sci_cat, {{"red-sci", 5}},
   {
@@ -210,5 +216,4 @@ momoTweak.createRecipe("advanced-crafting",
 		{"tin-plate", 2}, 
 		{"glass", 3}
 }, 2, tech, "tin")
-
 

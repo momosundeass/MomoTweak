@@ -45,12 +45,11 @@ if data.raw["tool"]["more-science-pack-1"] then
   bobmods.lib.recipe.replace_ingredient("more-science-pack-17", "medium-electric-pole", "medium-electric-pole-3")
   bobmods.lib.recipe.replace_ingredient("more-science-pack-17", "big-electric-pole", "big-electric-pole-3")
   
-  -- silver 16 21 23 24 25
+  -- silver 16 21 23 25
   bobmods.lib.recipe.add_ingredient("more-science-pack-16", {"silver-plate", 8})
   bobmods.lib.recipe.add_ingredient("more-science-pack-21", {"silver-plate", 8})
-  for i=23,25 do
-    bobmods.lib.recipe.add_ingredient("more-science-pack-"..i, {"silver-plate", 4})
-  end
+  bobmods.lib.recipe.add_ingredient("more-science-pack-23", {"silver-plate", 4})
+  bobmods.lib.recipe.add_ingredient("more-science-pack-25", {"silver-plate", 4})
   
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-17", {"cobalt-plate", 4})

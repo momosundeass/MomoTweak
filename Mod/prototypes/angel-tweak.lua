@@ -13,9 +13,10 @@ if data.raw.item["solid-sand"] then data.raw.item["solid-sand"].stack_size = 100
 if data.raw.item["solid-clay"] then data.raw.item["solid-clay"].stack_size = 500 end
 if data.raw.item["solid-mud"] then data.raw.item["solid-mud"].stack_size = 500 end
 
-if data.raw.item["glass"] then
-	data.raw.item["glass"].stack_size = 300 
-end
+data.raw.item["glass"].stack_size = 300 
+
+momoTweak.replace_with_ingredient("seafloor-pump", momoTweak.ele.unit[1], {momoTweak.ele.circuit[1], 4})
+momoTweak.replace_with_ingredient("washing-plant", momoTweak.ele.unit[1], {momoTweak.ele.circuit[1], 4})
 
 function momoTweak.ReworkAngelIndGroup() 
 	if mods["angelsindustries"] then

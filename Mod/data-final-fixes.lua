@@ -55,6 +55,7 @@ if data.raw.technology["angels-advanced-chemistry-4"] and settings.startup["momo
 end
 
 require("prototypes.sci.sci30result-preset")
+require("prototypes.sci.vial-recipe")
 
 momoTweak.ReworkAngelIndGroup()
 

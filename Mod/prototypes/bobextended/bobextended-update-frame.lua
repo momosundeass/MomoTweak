@@ -174,6 +174,13 @@ assign("electro-whinning-cell", 1, 2)
 assign("electro-whinning-cell-2", 2, 3)
 assign("electro-whinning-cell-3", 3, 3)
 
+assign("washing-plant-2", 1, 3)
+
+assign("hydro-plant-2", 1, 2)
+assign("hydro-plant-3", 2, 2)
+
+assign("salination-plant-2", 2, 1)
+
 -- angel smelting
 assign("blast-furnace", 1, 2)
 assign("blast-furnace-2", 2, 3)

@@ -16,6 +16,9 @@ function momoTweak.newsciItem(Name)
     }
   })
 end
+
+momoTweak.newsciItem("momo-vial")
+
 momoTweak.newsciItem("red-sci")
 momoTweak.newsciItem("building-pack")
 momoTweak.newsciItem("pre-dark-sci")

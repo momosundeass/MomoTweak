@@ -124,6 +124,11 @@ function momoTweak.convert_results(recipePro)
 	end
 	return results
 end
+
+function momoTweak.get_result_amount(recipe)
+	return momoTweak.convert_results(data.raw.recipe[recipe])[1].amount
+end
+
 function momoTweak.genRecipeNameFromResult(result)
 	local item = bobmods.lib.item.basic_item(result)
 	return "momo-" .. item.name .. "-N" .. item.amount
