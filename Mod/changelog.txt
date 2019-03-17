@@ -2,11 +2,12 @@ v. 0.17.5
 - add advanced-plastics and plate-pack-1 back
 - balanced science recipe to match version 0.17
 - balanced robot recipe
-- include glass into some recipe
-- move gem to bob raw material
 - add bob extended electronics
+- add bob extended melt ore to slag
+- include glass into some recipe
 - add modular chest support
 - add lead ammo crafting 
+- move gem to bob raw material
 
 v. 0.17.4
 - lamp now use glass

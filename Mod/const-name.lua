@@ -46,3 +46,22 @@ momoTweak.module.board = {}
 momoTweak.module.board.a = "module-processor-board"
 momoTweak.module.board.b = "module-processor-board-2"
 momoTweak.module.board.c = "module-processor-board-3"
+
+momoTweak.ore = {}
+momoTweak.ore.iron       = "iron-ore"
+momoTweak.ore.copper     = "copper-ore"
+momoTweak.ore.tin        = "tin-ore"
+momoTweak.ore.quartz     = "quartz"
+momoTweak.ore.lead       = "lead-ore"
+momoTweak.ore.nickel     = "nickel-ore"
+momoTweak.ore.gold       = "gold-ore"
+
+momoTweak.ore.silver     = "silver-ore"
+momoTweak.ore.zinc       = "zinc-ore"
+momoTweak.ore.cobalt     = "cobalt-ore"
+momoTweak.ore.aluminium  = "bauxite-ore"
+momoTweak.ore.titanium   = "rutile-ore"
+momoTweak.ore.tungsten   = "tungsten-ore"
+
+momoTweak.angel = {}
+momoTweak.angel.slag = "slag"

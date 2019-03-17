@@ -114,6 +114,13 @@ data:extend(
     default_value = true,
     order = "bf",
    },
+   {
+    type = "bool-setting",
+    name = "momo-enable-bob-extend-slag",
+    setting_type = "startup",
+    default_value = true,
+    order = "bg",
+   },
    -- {
     -- type = "bool-setting",
     -- name = "momo-enable-bob-extend-int",
