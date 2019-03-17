@@ -6,6 +6,7 @@ v. 0.17.5
 - move gem to bob raw material
 - add bob extended electronics
 - add modular chest support
+- add lead ammo crafting 
 
 v. 0.17.4
 - lamp now use glass

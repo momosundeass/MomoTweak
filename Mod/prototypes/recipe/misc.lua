@@ -12,3 +12,12 @@ bobmods.lib.recipe.add_ingredient("lab-2", {"decider-combinator", 10})
 bobmods.lib.recipe.add_ingredient("lab-module", {"rubber", 75})
 bobmods.lib.recipe.add_ingredient("lab-module", {"arithmetic-combinator", 15})
 bobmods.lib.recipe.add_ingredient("lab-module", {"decider-combinator", 15})
+
+
+-- ammo
+local category = data.raw.recipe["firearm-magazine"].category
+momoTweak.createRecipe(category, {{"firearm-magazine", 1}},
+	{
+		{"lead-plate", 3},
+		{"iron-plate", 1}
+	}, 1, momoTweak.get_tech_of_recipe("piercing-rounds-magazine"))
