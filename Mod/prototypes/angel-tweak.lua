@@ -17,6 +17,8 @@ data.raw.item["glass"].stack_size = 300
 
 momoTweak.replace_with_ingredient("seafloor-pump", momoTweak.ele.unit[1], {momoTweak.ele.circuit[1], 4})
 momoTweak.replace_with_ingredient("washing-plant", momoTweak.ele.unit[1], {momoTweak.ele.circuit[1], 4})
+momoTweak.replace_with_ingredient("seafloor-pump", "steel-plate", {"iron-plate", 6})
+momoTweak.replace_with_ingredient("washing-plant", "steel-plate", {"iron-plate", 12})
 
 function momoTweak.ReworkAngelIndGroup() 
 	if mods["angelsindustries"] then
