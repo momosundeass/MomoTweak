@@ -1,5 +1,5 @@
 if not momoTweak then momoTweak = {} end
-
+momoTweak.settings = {}
 IsLoadBobextended = true
 
 require("function")
