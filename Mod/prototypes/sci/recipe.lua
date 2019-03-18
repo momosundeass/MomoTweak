@@ -12,11 +12,25 @@ if  data.raw["assembling-machine"]["angels-chemical-plant"] and settings.startup
 end
 local ele = momoTweak.ele
 
+-- ------------------------ Vial -----------------------------------------------
+
+-- ------------------------ Vial -----------------------------------------------
+local removedtechs = momoTweak.get_techs_of_recipe("mixing-furnace")
+for	i, t in pairs(removedtechs) do
+	bobmods.lib.tech.remove_recipe_unlock(t, "mixing-furnace")
+end
+bobmods.lib.tech.add_recipe_unlock("optics", "mixing-furnace")
+
 momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 3}},
 	{
 		{"glass", 4},
 		{"coal", 1}
 	}, 4, "optics")
+	
+-- ------------------------ Vial -----------------------------------------------
+
+-- ------------------------ Vial -----------------------------------------------
+
 
 local tech_sci_2 = momoTweak.get_techs_of_recipe(momoTweak.sci2)[2]
 momoTweak.createRecipe(sci_cat, {{"red-sci", 5}},

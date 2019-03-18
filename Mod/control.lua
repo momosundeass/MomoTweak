@@ -1,4 +1,5 @@
-local debugmode = settings.startup["momo-is-debug-mode"].value;
+local debugmode = settings.startup["momo-is-debug-mode"].value
+local factor = settings.startup["momo-evo-reduce-factor"].value
 
 script.on_event(defines.events.on_player_created, function(event)
   if debugmode then
@@ -13,6 +14,7 @@ script.on_event("momo-debug", function(e)
 	-- check bar item
 		local logging = ""
 		for pi, p in pairs(game.players) do
+			p.print("evolution decrease factor = " .. factor)
 			p.print("||||| N player index " .. pi)
 			local slot = 1
 			for name, count in pairs(p.get_main_inventory().get_contents()) do
@@ -35,7 +37,7 @@ local function printToAll(text)
 	end
 end
 
-local factor = settings.startup["momo-evo-reduce-factor"].value
+
 script.on_nth_tick(3600, function(e)
 	if factor ~= 0 then
 		local current_evo = game.forces.enemy.evolution_factor

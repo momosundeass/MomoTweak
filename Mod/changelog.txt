@@ -1,3 +1,6 @@
+v. 0.17.7
+- hot fix add unlock mixing furnace to optics research
+
 v. 0.17.6
 - hot fix can't start when bobextended electronics disable
 
