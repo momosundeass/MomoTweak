@@ -21,3 +21,8 @@ momoTweak.createRecipe(category, {{"firearm-magazine", 1}},
 		{"lead-plate", 3},
 		{"iron-plate", 1}
 	}, 1, momoTweak.get_tech_of_recipe("piercing-rounds-magazine"))
+	
+	
+if data.raw.recipe["bi_recipe_basic_dart_magazine"] then
+	momoTweak.replace_with_ingredient("bi_recipe_basic_dart_magazine", "wood", {"wood", 2})
+end
