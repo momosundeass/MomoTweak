@@ -1,12 +1,28 @@
 if settings.startup["momo-enable-progress-battery"].value then
-  bobmods.lib.recipe.add_ingredient("lithium-ion-battery", {"battery", 1})
-  bobmods.lib.recipe.add_ingredient("silver-zinc-battery", {"lithium-ion-battery", 2})
-  momoTweak.set_amount_ingredient("silver-zinc-battery", {"silver-oxide", 4})
-  bobmods.lib.recipe.add_ingredient("medium-electric-pole", {"small-electric-pole", 1})
+  local battery = momoTweak.batterys
+  bobmods.lib.recipe.add_ingredient(momoTweak.electricPole.medium, {momoTweak.electricPole.wood, 1})
+  
+  bobmods.lib.recipe.add_ingredient(battery.lithium, {battery.basic, 1})
+  bobmods.lib.recipe.add_ingredient(battery.silver, {battery.lithium, 2})
+  momoTweak.set_amount_ingredient(battery.silver, {"silver-oxide", 4})
   data.raw.recipe["lithium"].energy_required = 7
   data.raw.recipe["lithium-water-electrolysis"].energy_required = 7
   momoTweak.set_amount_ingredient("lithium", {"lithium-chloride", 3})
   momoTweak.set_amount_ingredient("lithium-water-electrolysis", {"lithium-chloride", 2})
+  
+  local electricPole = momoTweak.electricPole
+  bobmods.lib.recipe.add_ingredient(electricPole.get_medium    (2), {battery.basic, 2})
+  bobmods.lib.recipe.add_ingredient(electricPole.get_big       (2), {battery.basic, 2})
+  bobmods.lib.recipe.add_ingredient(electricPole.get_substation(2), {battery.basic, 5})
+  
+  bobmods.lib.recipe.add_ingredient(electricPole.get_medium    (3), {battery.lithium, 2})
+  bobmods.lib.recipe.add_ingredient(electricPole.get_big       (3), {battery.lithium, 2})
+  bobmods.lib.recipe.add_ingredient(electricPole.get_substation(3), {battery.lithium, 5})
+  
+  bobmods.lib.recipe.add_ingredient(electricPole.get_medium    (4), {battery.silver, 2})
+  bobmods.lib.recipe.add_ingredient(electricPole.get_big       (4), {battery.silver, 2})
+  bobmods.lib.recipe.add_ingredient(electricPole.get_substation(4), {battery.silver, 5})
+  
 end
   
 if settings.startup["momo-enable-progress-electronics"].value then

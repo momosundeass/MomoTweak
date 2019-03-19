@@ -7,7 +7,6 @@ momoTweak.sciTech = "utility-science-pack"
 momoTweak.sciLogistic = "advanced-logistic-science-pack"
 momoTweak.sciSpace = "space-science-pack"
 
-
 momoTweak.ele = {}
 momoTweak.ele.board = {}
 momoTweak.ele.board[1] = "wooden-board"
@@ -65,3 +64,28 @@ momoTweak.ore.tungsten   = "tungsten-ore"
 
 momoTweak.angel = {}
 momoTweak.angel.slag = "slag"
+
+momoTweak.batterys = {}
+momoTweak.batterys.basic = "battery"
+momoTweak.batterys.lithium = "lithium-ion-battery"
+momoTweak.batterys.silver = "silver-zinc-battery"
+
+momoTweak.electricPole = {}
+momoTweak.electricPole.wood = "small-electric-pole"
+momoTweak.electricPole.medium = "medium-electric-pole"
+
+function momoTweak.electricPole.get_medium(level)
+	if level == 1 then return momoTweak.electricPole.medium end
+	return "medium-electric-pole-" .. level
+end
+momoTweak.electricPole.big = "big-electric-pole"
+function momoTweak.electricPole.get_big(level)
+	if level == 1 then return momoTweak.electricPole.big end
+	return "big-electric-pole-" .. level
+end
+momoTweak.electricPole.sub = "substation"
+function momoTweak.electricPole.get_substation(level)
+	if level == 1 then return momoTweak.electricPole.sub end
+	return "substation-" .. level
+end
+
