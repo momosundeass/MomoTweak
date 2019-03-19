@@ -42,7 +42,7 @@ momoTweak.createRecipe(sci_cat, {{"red-sci", 5}},
 
 momoTweak.createRecipe("crafting", {{"building-pack", 1}},
   {
-    {"iron-gear-wheel", 3},
+    {"iron-stick", 5},
     {"stone-furnace", 1}
   }, 6, true)
   
@@ -51,7 +51,7 @@ momoTweak.createRecipe(sci_cat, {{"movement-pack", 2}},
   {
     {belt, 2},
     {"inserter", 1},
-    {"glass", 5}
+    {"glass", 2}
   }, 3, tech_sci_2)
 
 local tech_sci_3 = momoTweak.get_tech_of_recipe(momoTweak.sci3)
