@@ -44,7 +44,7 @@ if data.raw["tool"]["more-science-pack-1"] and
   local namerecipe = ""
   local cat = "momo-sci-recipe"
   local unlock_tech = find_tech({4, 3, 2, 1})
-  if mods["omnilib"] then unlock_tech = "automation-2" end
+  if mods["omnilib"] then unlock_tech = "electronics" end
   namerecipe = momoTweak.createRecipe(cat, {{"b1", 3}}, {
     {get_science(1), x + 2},
     {get_science(2), x + 1},
