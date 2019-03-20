@@ -133,6 +133,15 @@ function momoTweak.genRecipeNameFromResult(result)
 	local item = bobmods.lib.item.basic_item(result)
 	return "momo-" .. item.name .. "-N" .. item.amount
 end
+
+function momoTweak.assign_ingredients(recipe, ingredients)
+	local recipePrototype = data.raw.recipe[recipe]
+	if (recipePrototype.expensive) then
+		recipePrototype.expensive.ingredients = ingredients
+	end
+	recipePrototype.ingredients = ingredients
+end
+
 function momoTweak.createRecipe(cat ,results, ingredients, energy, tech, extraname)
   local result = bobmods.lib.item.basic_item(results[1])
   local namegen = momoTweak.genRecipeNameFromResult(result)
@@ -165,8 +174,6 @@ function momoTweak.createRecipe(cat ,results, ingredients, energy, tech, extrana
 				  ingredients = ingredients,
 				  results = results,
 				  main_product = result.name
-				  -- icon = data.raw[result.type][result.name].icon,
-				  -- icon_size = 32
 		  }})
 	end
   

@@ -16,9 +16,11 @@ require("prototypes.recipe.misc")
 -- -------------------------------------------
 
 -- recipe science ------------------------------
-require("prototypes.sci.recipe")
-require("prototypes.sci.sci30recipe")
-require("prototypes.sci.sci30extreme")
+if not IsScienceCostM then
+	require("prototypes.sci.recipe")
+	require("prototypes.sci.sci30recipe")
+	require("prototypes.sci.sci30extreme")
+end
 -- ---------------------------------------------
 
 

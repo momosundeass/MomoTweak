@@ -33,6 +33,9 @@ momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 3}},
 
 
 local tech_sci_2 = momoTweak.get_techs_of_recipe(momoTweak.sci2)[2]
+if (IsScienceCostM) then
+	tech_sci_2 = momoTweak.get_tech_of_recipe(momoTweak.sci2)
+end
 momoTweak.createRecipe(sci_cat, {{"red-sci", 5}},
   {
     {momoTweak.sci1, 2},
@@ -123,9 +126,17 @@ momoTweak.createRecipe(sci_cat, {{"cyan-sci", 3}}, {
   
 }, 14, tech_sci_3)
 
+local ings = {}
+if(data.raw.recipe[momoTweak.sciLogistic].ingredients) then
+	ings = data.raw.recipe[momoTweak.sciLogistic].ingredients
+else
+	ings = data.raw.recipe[momoTweak.sciLogistic].expensive.ingredients
+end
+
 momoTweak.createRecipe(sci_cat, {{"logistic-express", 1}}, 
-  data.raw.recipe[momoTweak.sciLogistic].ingredients, 14, "logistics-3"
-)
+	ings, 14, "logistics-3"
+	)
+
 local tech_high = momoTweak.get_tech_of_recipe(momoTweak.sciTech)
 momoTweak.createRecipe(sci_cat, {{"pre-high-sci", 1}}, 
   {
@@ -189,21 +200,21 @@ bobmods.lib.recipe.add_ingredient(momoTweak.sci3, {"bronze-pack", 3})
 ------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------
-data.raw.recipe[momoTweak.sciProduction].ingredients = {
+momoTweak.assign_ingredients(momoTweak.sciProduction, {
 	{"cpy", 4},
 	{"product-sci", 1},
 	{"cyan-sci", 2},
-}
+})
 
 ------------------------------------------------------------------------------------------
 
-data.raw.recipe[momoTweak.sciLogistic].ingredients = {
+momoTweak.assign_ingredients(momoTweak.sciLogistic, {
   {"logistic-express", 1},
   {"cpy", 5},
   {"pre-cyan-sci", 4},
   {"green-sci", 6},
   {"building-pack", 5},
-}
+})
 
 ------------------------------------------------------------------------------------------
 bobmods.lib.recipe.remove_ingredient(momoTweak.sciTech, "silicon-nitride")
