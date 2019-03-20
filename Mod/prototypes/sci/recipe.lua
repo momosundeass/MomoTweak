@@ -124,16 +124,15 @@ momoTweak.createRecipe(sci_cat, {{"cyan-sci", 3}}, {
   
 }, 14, tech_sci_3)
 
-local ings = {}
-if(data.raw.recipe[momoTweak.sciLogistic].ingredients) then
-	ings = data.raw.recipe[momoTweak.sciLogistic].ingredients
-else
-	ings = momoTweak.get_expensive_ingredients(momoTweak.sciLogistic)
+
+local ings = momoTweak.get_ingredients(momoTweak.sciLogistic)
+if IsScienceCostM then
+	ings = momoTweak.sciLogistic_ingredients
 end
 
 momoTweak.createRecipe(sci_cat, {{"logistic-express", 1}}, 
-	ings, 14, "logistics-3"
-	)
+	momoTweak.deepcopy(ings), 14, momoTweak.sciLogistic_unlockTech
+)
 
 local tech_high = momoTweak.get_tech_of_recipe(momoTweak.sciTech)
 momoTweak.createRecipe(sci_cat, {{"pre-high-sci", 1}}, 
@@ -240,6 +239,7 @@ momoTweak.assign_ingredients(momoTweak.sciLogistic, {
 })
 ifSCT_add(momoTweak.sciLogistic, {"sct-logistic", 1})
 ifNotSCT_add(momoTweak.sciLogistic, {"building-pack", 5})
+
 
 ------------------------------------------------------------------------------------------
 bobmods.lib.recipe.remove_ingredient(momoTweak.sciTech, "silicon-nitride")

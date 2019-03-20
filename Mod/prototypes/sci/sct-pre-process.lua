@@ -43,7 +43,7 @@ data.raw.recipe[recipe].subgroup = data.raw.recipe[item].subgroup
 
 item = momoTweak.sciLogistic
 recipe = momoTweak.createRecipe(sci_cat, {{"sct-logistic", 1}}, 
-	momoTweak.deepcopy(momoTweak.get_ingredients(item)), 10, momoTweak.get_tech_of_recipe("logistic-express")
+	momoTweak.deepcopy(momoTweak.get_ingredients(item)), 10, momoTweak.sciLogistic_unlockTech
 )
 data.raw.recipe[recipe].subgroup = data.raw.recipe[item].subgroup
 bobmods.lib.recipe.add_ingredient(recipe, {"building-pack", 5})
