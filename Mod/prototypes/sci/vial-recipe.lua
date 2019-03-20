@@ -13,3 +13,5 @@ if data.raw["tool"]["more-science-pack-1"] then
 		bobmods.lib.recipe.add_ingredient(recipe, {"momo-vial", momoTweak.get_result_amount(recipe)})
 	end
 end
+
+log("MTKL => finished add vial")

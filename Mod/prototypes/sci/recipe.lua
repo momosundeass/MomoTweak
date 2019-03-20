@@ -33,9 +33,7 @@ momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 3}},
 
 
 local tech_sci_2 = momoTweak.get_techs_of_recipe(momoTweak.sci2)[2]
-if (IsScienceCostM) then
-	tech_sci_2 = momoTweak.get_tech_of_recipe(momoTweak.sci2)
-end
+
 momoTweak.createRecipe(sci_cat, {{"red-sci", 5}},
   {
     {momoTweak.sci1, 2},
@@ -130,7 +128,7 @@ local ings = {}
 if(data.raw.recipe[momoTweak.sciLogistic].ingredients) then
 	ings = data.raw.recipe[momoTweak.sciLogistic].ingredients
 else
-	ings = data.raw.recipe[momoTweak.sciLogistic].expensive.ingredients
+	ings = momoTweak.get_expensive_ingredients(momoTweak.sciLogistic)
 end
 
 momoTweak.createRecipe(sci_cat, {{"logistic-express", 1}}, 
@@ -169,34 +167,60 @@ momoTweak.createRecipe(sci_cat, {{"py-superconductor", 4}},
     
   }, 14, tech_high)
 
+if IsScienceCostM then
+	local function clearUp(itemref, recipe)
+		for i, ing in pairs(momoTweak.get_gen_recipe(itemref).ingredients) do
+			bobmods.lib.recipe.remove_ingredient(recipe, ing[0])
+		end
+		
+		bobmods.lib.recipe.add_ingredient(recipe, itemref)
+	end
+	
+	clearUp({"sct-2"         , 1}, momoTweak.sci2)
+	clearUp({"sct-3"         , 1}, momoTweak.sci3)
+	clearUp({"sct-gun"       , 1}, momoTweak.sciGun)
+	clearUp({"sct-high"      , 1}, momoTweak.sciTech)
+	clearUp({"sct-production", 1}, momoTweak.sciProduction)
+	clearUp({"sct-logistic"  , 1}, momoTweak.sciLogistic)
+end
 
- -- Science 2 ----------------------------------------------------------------------------
+local function ifNotSCT_add(recipe, item)
+	if not IsScienceCostM then
+		bobmods.lib.recipe.add_ingredient(recipe, item)
+	end
+end
+local function ifSCT_add(recipe, item)
+	if IsScienceCostM then
+		bobmods.lib.recipe.add_ingredient(recipe, item)
+	end
+end
+
+-- Science 2 ----------------------------------------------------------------------------
 bobmods.lib.recipe.remove_ingredient(momoTweak.sci2, "transport-belt")
 bobmods.lib.recipe.remove_ingredient(momoTweak.sci2, "basic-transport-belt")
 bobmods.lib.recipe.remove_ingredient(momoTweak.sci2, "inserter")
 
-bobmods.lib.recipe.add_ingredient(momoTweak.sci2, {"building-pack", 2})
 bobmods.lib.recipe.add_ingredient(momoTweak.sci2, {"red-sci", 3})
-bobmods.lib.recipe.add_ingredient(momoTweak.sci2, {"movement-pack", 3})
+ifNotSCT_add(momoTweak.sci2, {"building-pack", 2})
+ifNotSCT_add(momoTweak.sci2, {"movement-pack", 3})
 ------------------------------------------------------------------------------------------
 
-------------------------------------------------------------------------------------------
+-- gun sci -------------------------------------------------------------------------
 bobmods.lib.recipe.remove_ingredient(momoTweak.sciGun, "grenade")
 bobmods.lib.recipe.remove_ingredient(momoTweak.sciGun, "piercing-rounds-magazineds-magazine")
 
-bobmods.lib.recipe.add_ingredient(momoTweak.sciGun, {"pre-dark-sci", 1})
+ifNotSCT_add(momoTweak.sciGun, {"pre-dark-sci", 1})
 bobmods.lib.recipe.add_ingredient(momoTweak.sciGun, {"red-sci", 6})
 ------------------------------------------------------------------------------------------
 
 -- science-pack-3 ----------------------------------------------------------------------
-
 bobmods.lib.recipe.remove_ingredient(momoTweak.sci3, "battery")
 bobmods.lib.recipe.remove_ingredient(momoTweak.sci3, "advanced-circuit")
 bobmods.lib.recipe.remove_ingredient(momoTweak.sci3, "bronze-alloy")
 
 bobmods.lib.recipe.add_ingredient(momoTweak.sci3, {"dark-chip", 8})
 bobmods.lib.recipe.add_ingredient(momoTweak.sci3, {"green-sci", 6})
-bobmods.lib.recipe.add_ingredient(momoTweak.sci3, {"bronze-pack", 3})
+ifNotSCT_add(momoTweak.sci3, {"bronze-pack", 3})
 ------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------
@@ -205,7 +229,7 @@ momoTweak.assign_ingredients(momoTweak.sciProduction, {
 	{"product-sci", 1},
 	{"cyan-sci", 2},
 })
-
+ifSCT_add(momoTweak.sciProduction, {"sct-production", 1})
 ------------------------------------------------------------------------------------------
 
 momoTweak.assign_ingredients(momoTweak.sciLogistic, {
@@ -213,8 +237,9 @@ momoTweak.assign_ingredients(momoTweak.sciLogistic, {
   {"cpy", 5},
   {"pre-cyan-sci", 4},
   {"green-sci", 6},
-  {"building-pack", 5},
 })
+ifSCT_add(momoTweak.sciLogistic, {"sct-logistic", 1})
+ifNotSCT_add(momoTweak.sciLogistic, {"building-pack", 5})
 
 ------------------------------------------------------------------------------------------
 bobmods.lib.recipe.remove_ingredient(momoTweak.sciTech, "silicon-nitride")

@@ -1,6 +1,7 @@
 -- disable chemical plant from angel's petro
 
 if IsScienceCostM then
+	require("prototypes.sci.sct-pre-process")
 	require("prototypes.sci.recipe")
 	require("prototypes.sci.sci30recipe")
 	require("prototypes.sci.sci30extreme")

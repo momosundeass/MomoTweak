@@ -134,10 +134,35 @@ function momoTweak.genRecipeNameFromResult(result)
 	return "momo-" .. item.name .. "-N" .. item.amount
 end
 
+function momoTweak.get_gen_recipe(result)
+	return data.raw.recipe[momoTweak.genRecipeNameFromResult(result)]
+end
+
+function momoTweak.get_ingredients(recipe)
+	local recipePrototype = data.raw.recipe[recipe]
+	if (recipePrototype.ingredients) then
+		return recipePrototype.ingredients
+	else 
+		return recipePrototype.expensive.ingredients
+	end
+end
+
+function momoTweak.get_expensive_ingredients(recipe)
+	local recipePrototype = data.raw.recipe[recipe]
+	if (recipePrototype.expensive.ingredients) then
+		return recipePrototype.expensive.ingredients
+	else 
+		return recipePrototype.ingredients
+	end
+end
+
 function momoTweak.assign_ingredients(recipe, ingredients)
 	local recipePrototype = data.raw.recipe[recipe]
 	if (recipePrototype.expensive) then
 		recipePrototype.expensive.ingredients = ingredients
+	end
+	if (recipePrototype.normal) then
+		recipePrototype.normal.ingredients = ingredients
 	end
 	recipePrototype.ingredients = ingredients
 end
