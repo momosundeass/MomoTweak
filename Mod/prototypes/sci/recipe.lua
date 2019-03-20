@@ -190,7 +190,7 @@ local function ifNotSCT_add(recipe, item)
 end
 local function ifSCT_add(recipe, item)
 	if IsScienceCostM then
-		bobmods.lib.recipe.add_ingredient(recipe, item)
+		table.insert(data.raw.recipe[recipe].ingredients, item)
 	end
 end
 

@@ -1,6 +1,15 @@
 for i, sci in pairs({momoTweak.sci2, momoTweak.sci3, momoTweak.sciGun,
  momoTweak.sciProduction, momoTweak.sciTech, momoTweak.sciLogistic}) do
-	bobmods.lib.recipe.add_ingredient(sci, {"momo-vial", momoTweak.get_result_amount(sci)})
+	if (data.raw.recipe[sci]) then
+		if (IsScienceCostM) then
+			table.insert(momoTweak.get_ingredients(sci), {"momo-vial", momoTweak.get_result_amount(sci)})
+		else 
+			bobmods.lib.recipe.add_ingredient(sci, {"momo-vial", momoTweak.get_result_amount(sci)})
+		end
+	else
+		log("MTKL => no recipe with name :: " .. sci)
+	end
+	
 end
 
 local function getRecipe(number)
