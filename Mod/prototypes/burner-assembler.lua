@@ -89,7 +89,7 @@
         }
       },
       energy_usage = "160kW",
-      ingredient_count = 2,
+      ingredient_count = 50,
       open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
       close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
       vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
