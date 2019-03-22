@@ -5,6 +5,7 @@ momoTweak.sciGun = "military-science-pack"
 momoTweak.sciProduction = "production-science-pack"
 momoTweak.sciTech = "utility-science-pack"
 momoTweak.sciLogistic = "advanced-logistic-science-pack"
+momoTweak.sciLogistic_unlockTech = "logistics-3"
 momoTweak.sciSpace = "space-science-pack"
 
 momoTweak.ele = {}

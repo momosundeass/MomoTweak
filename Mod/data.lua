@@ -2,6 +2,8 @@ if not momoTweak then momoTweak = {} end
 momoTweak.settings = {}
 IsLoadBobextended = true
 
+IsScienceCostM = mods["ScienceCostTweakerM"]
+
 require("function")
 require("const-name")
 require("prototypes.sci.item")

@@ -16,12 +16,14 @@ require("prototypes.recipe.misc")
 -- -------------------------------------------
 
 -- recipe science ------------------------------
-require("prototypes.sci.recipe")
-require("prototypes.sci.sci30recipe")
-require("prototypes.sci.sci30extreme")
+if not IsScienceCostM then
+	require("prototypes.sci.recipe")
+	require("prototypes.sci.sci30recipe")
+	require("prototypes.sci.sci30extreme")
+end
+
+momoTweak.sciLogistic_ingredients = momoTweak.get_ingredients(momoTweak.sciLogistic)
 -- ---------------------------------------------
-
-
 
 if settings.startup["momo-harder-module"].value then
   require("prototypes.recipe.module")

@@ -1,5 +1,13 @@
 -- disable chemical plant from angel's petro
 
+if IsScienceCostM then
+	require("prototypes.sci.sct-pre-process")
+	require("prototypes.sci.recipe")
+	require("prototypes.sci.sci30recipe")
+	require("prototypes.sci.sci30extreme")
+end
+require("prototypes.sci.final-fix")
+
 data.raw.item[momoTweak.burner].subgroup = data.raw.item["assembling-machine-1"].subgroup
 
 local cat_override = "bob-distillery"
@@ -7,6 +15,8 @@ local cat_override = "bob-distillery"
 if settings.startup["momo-30-sci-extreme"].value then
 	cat_override = "momo-sci-recipe"
 end
+
+
 
 if data.raw.technology["angels-advanced-chemistry-4"] and settings.startup["momo-fix-angels-chemistry-machine"].value then 
 	bobmods.lib.tech.remove_recipe_unlock("electrolysis-1", "bob-distillery")
