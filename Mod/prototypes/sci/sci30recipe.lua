@@ -90,12 +90,14 @@ if data.raw["tool"]["more-science-pack-1"] then
   bobmods.lib.recipe.add_ingredient("more-science-pack-29", {"bob-construction-robot-4", 3})
   bobmods.lib.recipe.add_ingredient("more-science-pack-29", {"bob-logistic-robot-5", 1})
   
-  local items = {}
-  for i, ing in pairs(data.raw.recipe["more-science-pack-30"].ingredients) do
-    local item = bobmods.lib.item.basic_item(ing)
-	if item ~= nil then table.insert(items, {item.name, item.amount * 5}) end
+  if (data.raw.recipe["more-science-pack-30"]) then
+	  local items = {}
+	  for i, ing in pairs(momoTweak.get_ingredients("more-science-pack-30")) do
+		local item = bobmods.lib.item.basic_item(ing)
+		if item ~= nil then table.insert(items, {item.name, item.amount * 5}) end
+	  end
+	  data.raw.recipe["more-science-pack-30"].ingredients = items
+	  bobmods.lib.recipe.add_ingredient("more-science-pack-30", {"heat-shield-tile", 5})
+	  bobmods.lib.recipe.add_ingredient("more-science-pack-30", {ele.unit[4], 25})
   end
-  data.raw.recipe["more-science-pack-30"].ingredients = items
-  bobmods.lib.recipe.add_ingredient("more-science-pack-30", {"heat-shield-tile", 5})
-  bobmods.lib.recipe.add_ingredient("more-science-pack-30", {ele.unit[4], 25})
 end
