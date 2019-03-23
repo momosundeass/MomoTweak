@@ -35,6 +35,10 @@ if IsLoadBobextended then
 	require("prototypes.bobextended.bobextended-update")
 end
 
+if (mods["angelsbioprocessing"]) then
+	momoTweak.angel_bio_update()
+end
+
 require("prototypes.buff-solar")
 
 require("prototypes.misc")
