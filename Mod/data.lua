@@ -19,6 +19,10 @@ else
 	require("prototypes.burner-assembler")
 end
 
+if (mods["angelsbioprocessing"]) then
+	require("prototypes.angel-bio")
+end
+
 data:extend({
 {
   	type = "custom-input",

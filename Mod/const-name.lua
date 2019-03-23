@@ -8,6 +8,8 @@ momoTweak.sciLogistic = "advanced-logistic-science-pack"
 momoTweak.sciLogistic_unlockTech = "logistics-3"
 momoTweak.sciSpace = "space-science-pack"
 
+momoTweak.recipe = {}
+
 momoTweak.ele = {}
 momoTweak.ele.board = {}
 momoTweak.ele.board[1] = "wooden-board"
@@ -40,6 +42,7 @@ momoTweak.ele.unit[1] = "electronic-circuit"
 momoTweak.ele.unit[2] = "advanced-circuit"
 momoTweak.ele.unit[3] = "processing-unit"
 momoTweak.ele.unit[4] = "advanced-processing-unit"
+
 
 momoTweak.module = {}
 momoTweak.module.board = {}

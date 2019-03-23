@@ -25,6 +25,7 @@
 	  "angelsrefining >= 0.10.3",
 	  "angelssmelting >= 0.5.3",
 	  
+	  "? angelsbioprocessing >= 0.6.1",
 	  "? MoreSciencePacks >= 0.1.04",
 	  "? ScienceCostTweakerM >= 0.17.6",
 	  "? underground-pipe-pack >= 0.17.0",

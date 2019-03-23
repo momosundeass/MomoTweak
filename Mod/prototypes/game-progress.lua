@@ -31,9 +31,10 @@ if settings.startup["momo-enable-progress-electronics"].value then
   bobmods.lib.recipe.add_ingredient("advanced-processing-unit", {"processing-unit", 1})
   
   bobmods.lib.recipe.add_ingredient("phenolic-board", {"copper-plate", 2})
+  momoTweak.recipe.tin_board2 = "momo-phenolic-tin"
   data:extend({{
     type="recipe", 
-  	name="momo-phenolic-tin", 
+  	name=momoTweak.recipe.tin_board2, 
   	enabled = "false",
   	energy_required = 0.5,
   	category = data.raw.recipe["phenolic-board"].category,
@@ -45,7 +46,7 @@ if settings.startup["momo-enable-progress-electronics"].value then
   	result="phenolic-board", result_count=2,
   	}})
   local tech = momoTweak.get_tech_of_recipe("phenolic-board")
-  bobmods.lib.tech.add_recipe_unlock(tech, "momo-phenolic-tin")
+  bobmods.lib.tech.add_recipe_unlock(tech, momoTweak.recipe.tin_board2)
   -- x3 glass on fibreglass board
   data.raw.recipe["fibreglass-board"].ingredients = {{"plastic-bar", 1}, {"glass", 3}, {"electronic-components", 2}}
   if data.raw.recipe["angels-glass-fiber-board"] then

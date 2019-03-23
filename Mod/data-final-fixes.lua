@@ -16,8 +16,6 @@ if settings.startup["momo-30-sci-extreme"].value then
 	cat_override = "momo-sci-recipe"
 end
 
-
-
 if data.raw.technology["angels-advanced-chemistry-4"] and settings.startup["momo-fix-angels-chemistry-machine"].value then 
 	bobmods.lib.tech.remove_recipe_unlock("electrolysis-1", "bob-distillery")
 	if settings.startup["momo-30-sci-extreme"].value == false then
@@ -66,6 +64,9 @@ end
 
 require("prototypes.sci.sci30result-preset")
 require("prototypes.sci.vial-recipe")
+if (mods["angelsbioprocessing"]) then
+	momoTweak.angel_bio_final()
+end
 
 momoTweak.ReworkAngelIndGroup()
 
