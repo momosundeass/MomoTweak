@@ -37,8 +37,8 @@ momoTweak.createRecipe(category,
 	result(MEM.a, 2),
 	{
 		{ELE.cable[1], 2},
-		{"nickel-plate", 1}
-	}, 2 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.board[2])
+		{"lead-plate", 1}
+	}, 2 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.comp[1])
 )
 
 bobmods.lib.recipe.add_ingredient(ELE.unit[1], {MEM.a, 2})
@@ -50,6 +50,7 @@ momoTweak.createRecipe(category,
 	{
 		{ELE.comp[1], 3},
 		{MEM.a, 4},
+		{"nickel-plate", 2},
 		{"silicon-wafer", 2}
 	}, 8 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[3])
 )

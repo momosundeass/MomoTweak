@@ -21,11 +21,17 @@ for	i, t in pairs(removedtechs) do
 end
 bobmods.lib.tech.add_recipe_unlock("optics", "mixing-furnace")
 
-momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 3}},
+momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 2}},
 	{
-		{"glass", 4},
+		{"glass", 8},
 		{"coal", 1}
 	}, 4, "optics")
+
+momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 2}},
+	{
+		{"glass", 8},
+		{"solid-coke", 1}
+	}, 4, momoTweak.get_tech_of_recipe("coal-crushed"), "coke")
 	
 -- ------------------------ Vial -----------------------------------------------
 
