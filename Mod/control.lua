@@ -37,19 +37,35 @@ local function printToAll(text)
 	end
 end
 
+local function buildVariable()
+	if not (global.momoTweak) then
+		global.momoTweak = {}
+		if not (global.momoTweak.last_evo) then
+			global.momoTweak.last_evo = 0
+		end
+	end
+end
 
 script.on_nth_tick(3600, function(e)
 	if factor ~= 0 then
-		local current_evo = game.forces.enemy.evolution_factor
-		local reduce = 0.00005 * factor
+		buildVariable()
 		
+		local current_evo = game.forces.enemy.evolution_factor
+		local progress = 1
 		if current_evo >= 0.8 then
-			reduce = current_evo * 0.0009 * factor
+			progress = factor * 18
 		elseif current_evo >= 0.6 then
-			reduce = current_evo * 0.0003 * factor
+			progress = factor * 6
 		elseif current_evo >= 0.3 then
-			reduce = current_evo * 0.0001 * factor
+			progress = factor * 2
 		end
+		
+		local reduceByRate = math.max(0, (current_evo - global.momoTweak.last_evo) * progress * 0.01)
+		local reduce = (0.00005 * progress) + reduceByRate
 		game.forces.enemy.evolution_factor = current_evo - reduce
+		global.momoTweak.last_evo = game.forces.enemy.evolution_factor
+		if (debugmode) then
+			printToAll("Evolution reduce by " .. reduce .. " |Rate: " .. reduceByRate)
+		end
 	end
 end)

@@ -1,6 +1,6 @@
 {
   "name": "MomoTweak",
-  "version": "0.17.9",
+  "version": "0.17.10",
   "factorio_version": "0.17",
   "title": "MomoTweak",
   "author": "Momosundeass",
@@ -27,6 +27,7 @@
 	  
 	  "? MoreSciencePacks >= 0.1.04",
 	  "? ScienceCostTweakerM >= 0.17.6",
+	  "? underground-pipe-pack >= 0.17.0",
 	  
 	  "? bobvehicleequipment >= 0.17.0",
 	  "? bobinserters >= 0.17.1",

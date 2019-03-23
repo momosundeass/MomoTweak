@@ -1,3 +1,8 @@
+v. 0.17.10
+- fix when player don't have MSP-30
+- advanced fluid handling can be unlock early
+- improve evolution reduction feature
+
 v. 0.17.9
 - add compatibility with ScienceCostTweak
 
