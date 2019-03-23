@@ -1,3 +1,7 @@
+v. 0.17.11
+- fix unable to craft memory unit 1
+- balance vial recipe
+
 v. 0.17.10
 - fix when player don't have MSP-30
 - advanced fluid handling can be unlock early
