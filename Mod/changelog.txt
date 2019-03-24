@@ -1,3 +1,7 @@
+v. 0.17.12
+- balanced exporation token recipe from wood
+- basic structure components now unlock at steel tech 
+
 v. 0.17.11
 - fix unable to craft memory unit 1
 - balance vial recipe

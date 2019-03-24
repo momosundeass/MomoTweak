@@ -36,7 +36,7 @@ newRecipe("anotherworld", 120).ingredients = {
 }
 
 -- assign tech
-bobmods.lib.tech.add_recipe_unlock("automation-2", "basic-structure-components")
+bobmods.lib.tech.add_recipe_unlock(momoTweak.get_tech_of_recipe_no_demo("steel-plate"), "basic-structure-components")
 bobmods.lib.tech.add_recipe_unlock(momoTweak.get_tech_of_recipe("electric-engine-unit"), "intermediate-structure-components")
 bobmods.lib.tech.add_recipe_unlock("automation-3", "advanced-structure-components")
 bobmods.lib.tech.add_recipe_unlock("automation-5", "anotherworld-structure-components")

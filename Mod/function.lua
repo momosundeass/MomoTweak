@@ -288,6 +288,15 @@ function momoTweak.get_techs_of_recipe(recipe)
 	return results
 end
 
+function momoTweak.get_tech_of_recipe_no_demo(recipe)
+	local finded = momoTweak.get_techs_of_recipe(recipe)
+	for	i, name in pairs(finded) do
+		if not (string.match(name, "demo")) then
+			return name
+		end
+	end
+end
+
 function momoTweak.deepcopy(orig)
 	local orig_type = type(orig)
     local copy
