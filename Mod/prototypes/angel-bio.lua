@@ -89,7 +89,7 @@ function momoTweak.angel_bio_update()
 	end
 	
 	momoTweak.createRecipe(procss_category, {{token, 1}}, {
-		{tree, 9}
+		{tree, 35}
 	}, 300, aboretum_tech)
 	
 	local board2 = momoTweak.ele.board[2]
@@ -98,10 +98,12 @@ function momoTweak.angel_bio_update()
 	end
 	
 	momoTweak.createRecipe("crafting", {{"bio-grade-1", 1}}, {
+		{token, 2},
 		{"bio-temp", 2},
 	}, 3, aboretum_tech2)
 	
 	momoTweak.createRecipe("crafting", {{"bio-grade-2", 1}}, {
+		{token, 2},
 		{"red-cellulose-fiber", 18},
 		{"bio-swamp", 1},
 		{"bio-desert", 2}
@@ -109,10 +111,13 @@ function momoTweak.angel_bio_update()
 	
 	momoTweak.createRecipe("crafting", {{"bio-grade-3", 1}}, {
 		{"blue-cellulose-fiber", 18},
+		{token, 2},
 		{"bio-grade-1", 3},
 		{"bio-desert", 4},
 		{"bio-swamp", 4}
 	}, 3, aboretum_tech3)
+	
+	
 end
 
 function momoTweak.angel_bio_final()
