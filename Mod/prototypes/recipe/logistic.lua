@@ -1,4 +1,6 @@
-momoTweak.replace_with_ingredient("transport-belt", "tin-plate", {"tin-plate", 3})
+if data.raw.item["basic-transport-belt"] then
+	momoTweak.replace_with_ingredient("transport-belt", "tin-plate", {"tin-plate", 3})
+end
 
 bobmods.lib.recipe.add_ingredient("underground-belt", {"stone-brick", 5})
 bobmods.lib.recipe.add_ingredient("fast-underground-belt", {"stone-brick", 7})
