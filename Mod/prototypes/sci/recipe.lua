@@ -23,13 +23,13 @@ bobmods.lib.tech.add_recipe_unlock("optics", "mixing-furnace")
 
 momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 2}},
 	{
-		{"glass", 8},
+		{"glass", 6},
 		{"coal", 1}
 	}, 4, "optics")
 
 momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 2}},
 	{
-		{"glass", 8},
+		{"glass", 6},
 		{"solid-coke", 1}
 	}, 4, momoTweak.get_tech_of_recipe("coal-crushed"), "coke")
 	
