@@ -1,3 +1,6 @@
+v. 0.17.14
+- improve bobextended frame 1 unlock function 
+
 v. 0.17.13
 - remove tin-plate from transport-belt if player don't have basic-transport-belt
 - balance vial recipe again
