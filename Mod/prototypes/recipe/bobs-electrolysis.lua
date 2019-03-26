@@ -13,7 +13,7 @@ if data.raw.fluid["liquid-molten-silicon"] then
     }
   })
   bobmods.lib.tech.add_recipe_unlock("silicon-processing", "momo-silicon-plate")
-  data.raw.recipe["angels-plate-silicon"].category = data.raw.recipe["lithium"].category
+  -- data.raw.recipe["angels-plate-silicon"].category = data.raw.recipe["lithium"].category
   
   bobmods.lib.recipe.add_ingredient("module-contact", {"silicon", 4})
   bobmods.lib.recipe.add_ingredient("low-density-structure", {"silicon", 10})
