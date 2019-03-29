@@ -89,7 +89,8 @@ function momoTweak.angel_bio_update()
 	end
 	
 	momoTweak.createRecipe(procss_category, {{token, 1}}, {
-		{tree, 35}
+		{tree, 35},
+		{"momo-vial", 1}
 	}, 300, aboretum_tech)
 	
 	local board2 = momoTweak.ele.board[2]
@@ -125,6 +126,17 @@ function momoTweak.angel_bio_final()
 	bobmods.lib.recipe.add_ingredient(momoTweak.sciProduction, {"bio-grade-2", 1})
 	bobmods.lib.recipe.add_ingredient(momoTweak.sciLogistic, {"bio-grade-2", 1})
 	bobmods.lib.recipe.add_ingredient(momoTweak.sciTech, {"bio-grade-3", 1})
+
+	if (IsScienceCostM) then
+		local pack = "sct-bio-science-pack"
+		bobmods.lib.recipe.add_ingredient(pack, {"momo-vial", momoTweak.get_result_amount(pack)})
+		bobmods.lib.recipe.add_ingredient(pack, {"red-sci", 2})
+		bobmods.lib.recipe.add_ingredient(pack, {"b1", 1})
+		local sample = "sct-bio-ground-sample"
+		bobmods.lib.recipe.add_ingredient(sample, {"plate-pack-1", 1})
+		bobmods.lib.recipe.add_ingredient(sample, {"solid-alginic-acid", 2})
+	end
+	
 end
 
 momoTweak.angel_bio_data()
