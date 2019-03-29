@@ -43,23 +43,25 @@ if data.raw.technology["angels-advanced-chemistry-4"] and settings.startup["momo
 	  
 	  if not dirty then log("MTKL => no standalone category for angels chem.") end
 	  
-	  data.raw["assembling-machine"]["angels-chemical-plant"].crafting_categories = {cat_override}
-	  data.raw["assembling-machine"]["angels-chemical-plant-2"].crafting_categories = {cat_override}
-	  data.raw["assembling-machine"]["angels-chemical-plant-3"].crafting_categories = {cat_override}
-	  data.raw["assembling-machine"]["angels-chemical-plant-4"].crafting_categories = {cat_override}
+	  if (data.raw["recipe-category"][cat_override]) then		  
+		  data.raw["assembling-machine"]["angels-chemical-plant"].crafting_categories = {cat_override}
+		  data.raw["assembling-machine"]["angels-chemical-plant-2"].crafting_categories = {cat_override}
+		  data.raw["assembling-machine"]["angels-chemical-plant-3"].crafting_categories = {cat_override}
+		  data.raw["assembling-machine"]["angels-chemical-plant-4"].crafting_categories = {cat_override}
 
-	  data.raw["assembling-machine"]["angels-chemical-plant"]  .ingredient_count = 50
-	  data.raw["assembling-machine"]["angels-chemical-plant-2"].ingredient_count = 50
-	  data.raw["assembling-machine"]["angels-chemical-plant-3"].ingredient_count = 50
-	  data.raw["assembling-machine"]["angels-chemical-plant-4"].ingredient_count = 50
-	  
-	  
-	  data.raw["assembling-machine"]["chemical-plant"].crafting_categories = chemBase
-	  data.raw["assembling-machine"]["chemical-plant-2"].crafting_categories = chemBase
-	  data.raw["assembling-machine"]["chemical-plant-3"].crafting_categories = chemBase
-	  data.raw["assembling-machine"]["chemical-plant-4"].crafting_categories = chemBase
-	  
-	  momoTweak.angelChemPlanTweak()
+	      data.raw["assembling-machine"]["angels-chemical-plant"]  .ingredient_count = 50
+	      data.raw["assembling-machine"]["angels-chemical-plant-2"].ingredient_count = 50
+	      data.raw["assembling-machine"]["angels-chemical-plant-3"].ingredient_count = 50
+	      data.raw["assembling-machine"]["angels-chemical-plant-4"].ingredient_count = 50
+	      
+	      
+	      data.raw["assembling-machine"]["chemical-plant"].crafting_categories = chemBase
+	      data.raw["assembling-machine"]["chemical-plant-2"].crafting_categories = chemBase
+	      data.raw["assembling-machine"]["chemical-plant-3"].crafting_categories = chemBase
+	      data.raw["assembling-machine"]["chemical-plant-4"].crafting_categories = chemBase
+	      
+	      momoTweak.angelChemPlanTweak()
+	end
 end
 
 require("prototypes.sci.sci30result-preset")

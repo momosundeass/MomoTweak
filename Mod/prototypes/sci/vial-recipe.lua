@@ -1,15 +1,21 @@
 for i, sci in pairs({momoTweak.sci2, momoTweak.sci3, momoTweak.sciGun,
  momoTweak.sciProduction, momoTweak.sciTech, momoTweak.sciLogistic}) do
 	if (data.raw.recipe[sci]) then
-		if (IsScienceCostM) then
-			table.insert(momoTweak.get_ingredients(sci), {"momo-vial", momoTweak.get_result_amount(sci)})
-		else 
-			bobmods.lib.recipe.add_ingredient(sci, {"momo-vial", momoTweak.get_result_amount(sci)})
-		end
+		bobmods.lib.recipe.add_ingredient(sci, {"momo-vial", momoTweak.get_result_amount(sci)})
 	else
 		log("MTKL => no recipe with name :: " .. sci)
 	end
-	
+end
+
+if (IsScienceCostM) then
+	for i, sci in pairs({momoTweak.sciLogistic, momoTweak.sciProduction}) do
+		if (data.raw.recipe[sci]) then
+			bobmods.lib.recipe.remove_ingredient(sci, "momo-vial")
+			table.insert(data.raw.recipe[sci].ingredients, {"momo-vial", momoTweak.get_result_amount(sci)})
+		else
+			log("MTKL => [Science Cost Tweak] no recipe with name :: " .. sci)
+		end
+	end
 end
 
 local function getRecipe(number)

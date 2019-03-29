@@ -37,6 +37,13 @@ data:extend(
     name = "momo-harder-module",
     setting_type = "startup",
     default_value = true,
+    order = "a8",
+   },
+   {
+    type = "bool-setting",
+    name = "momo-harder-logistic",
+    setting_type = "startup",
+    default_value = true,
     order = "a9",
    },
    {
