@@ -21,7 +21,7 @@ end
 if mods["underground-pipe-pack"] then
 	-- small-pipe-coupler
 	-- underground-pipe-segment-t1
-	data.raw.technology["advanced-underground-piping"].prerequisites = {momoTweak.get_tech_of_recipe_no_demo(momoTweak.sci2)}
+	data.raw.technology["advanced-underground-piping"].prerequisites = {momoTweak.sci2_unlockTech}
 	
 	data:extend({{
 		type = "item-subgroup",

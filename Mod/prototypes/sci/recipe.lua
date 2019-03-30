@@ -38,8 +38,7 @@ momoTweak.createRecipe("mixing-furnace", {{"momo-vial", 2}},
 -- ------------------------ Vial -----------------------------------------------
 
 
-local tech_sci_2 = momoTweak.get_tech_of_recipe_no_demo(momoTweak.sci2)
-
+local tech_sci_2 = momoTweak.sci2_unlockTech
 momoTweak.createRecipe(sci_cat, {{"red-sci", 5}},
   {
     {momoTweak.sci1, 2},
