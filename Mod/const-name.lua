@@ -1,5 +1,6 @@
 momoTweak.sci1 = "automation-science-pack"
 momoTweak.sci2 = "logistic-science-pack"
+momoTweak.sci2_unlockTech = "logistic-science-pack"
 momoTweak.sci3 = "chemical-science-pack"
 momoTweak.sciGun = "military-science-pack"
 momoTweak.sciProduction = "production-science-pack"

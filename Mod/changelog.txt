@@ -1,3 +1,6 @@
+v. 0.17.17
+- fix missing recipe
+
 v. 0.17.16
 - fix error when player not have recipe-category bob-distillery
 - add complex crafting for angel bio process science pack
