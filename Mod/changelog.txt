@@ -1,3 +1,6 @@
+v. 0.17.18
+- fix recipe missing machine
+
 v. 0.17.17
 - fix missing recipe
 
