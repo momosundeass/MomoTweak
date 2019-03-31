@@ -73,7 +73,7 @@ if data.raw["tool"]["more-science-pack-1"] and
   
   
   unlock_tech = find_tech({9, 10})
-  if mods["omnilib"] then unlock_tech = "electric-energy-accumulators-1" end
+  if mods["omnilib"] then unlock_tech = "electric-energy-accumulators" end
   namerecipe = momoTweak.createRecipe(cat, {{"b3", 3}}, {
     {"b1", 1},
     {"b2", 1},
@@ -81,7 +81,7 @@ if data.raw["tool"]["more-science-pack-1"] and
     {get_science(10), x + 2},
     {"engine-unit", 2},
     {"advanced-circuit", 2}
-  }, 15, unlock_tech  ) -- "electric-energy-accumulators-1"
+  }, 15, unlock_tech  ) -- "electric-energy-accumulators"
   bobmods.lib.recipe.remove_ingredient(namerecipe, "iron-plate")
   
   -- cyan
