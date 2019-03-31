@@ -1,15 +1,4 @@
-data:extend(
-{
-  {
-    type = "recipe-category",
-    name = "momo-sci-recipe"
-  }
-})
-
-local sci_cat = "crafting"
-if  data.raw["assembling-machine"]["angels-chemical-plant"] and settings.startup["momo-fix-angels-chemistry-machine"].value then
-  sci_cat = "momo-sci-recipe"
-end
+local sci_cat = momoTweak.getSciCategory()
 local ele = momoTweak.ele
 
 -- ------------------------ Vial -----------------------------------------------

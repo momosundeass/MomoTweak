@@ -1,5 +1,6 @@
 v. 0.17.19
 - fix electric-energy-accumulators-1 => electric-energy-accumulators
+- add function to get momo sci category
 
 v. 0.17.18
 - fix recipe missing machine

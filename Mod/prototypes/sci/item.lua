@@ -57,3 +57,4 @@ if (IsScienceCostM) then
 	momoTweak.newsciItem("sct-logistic")
 	momoTweak.newsciItem("sct-high")
 end
+
