@@ -23,6 +23,22 @@ if (mods["angelsbioprocessing"]) then
 	require("prototypes.angel-bio")
 end
 
+data:extend(
+{
+  {
+    type = "recipe-category",
+    name = "momo-sci-recipe"
+  }
+})
+
+function momoTweak.getSciCategory()
+	if  data.raw["assembling-machine"]["angels-chemical-plant"] and settings.startup["momo-fix-angels-chemistry-machine"].value then
+		return "momo-sci-recipe"
+	else
+		return "crafting"
+	end
+end
+
 data:extend({
 {
   	type = "custom-input",
@@ -31,3 +47,4 @@ data:extend({
   	consuming = "script-only"
   }
 })
+

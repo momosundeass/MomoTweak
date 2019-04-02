@@ -16,6 +16,9 @@ if data.raw["tool"]["more-science-pack-1"] then
   bobmods.lib.recipe.add_ingredient("more-science-pack-8", {"plate-pack-1", 1})
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-9", {"brass-alloy", 3})
+  -- temp fix
+  log("MTKL => :WARNING: this should be temporary fix")
+  bobmods.lib.tech.add_recipe_unlock(momoTweak.get_tech_of_recipe("solar-panel"), "more-science-pack-9")
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"chemical-boiler", 1})
   bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"plate-pack-1", 1})

@@ -2,10 +2,7 @@ local ref = data.raw.recipe[momoTweak.sci1].subgroup
 data.raw["item-subgroup"]["momo-science-materials"].group = data.raw["item-subgroup"][ref].group
 data.raw["item-subgroup"]["momo-science-materials"].order = "zzz"
 
-local sci_cat = "crafting"
-if  data.raw["assembling-machine"]["angels-chemical-plant"] and settings.startup["momo-fix-angels-chemistry-machine"].value then
-  sci_cat = "momo-sci-recipe"
-end
+local sci_cat = momoTweak.getSciCategory()
 
 local item = momoTweak.sci2
 local recipe = momoTweak.createRecipe(sci_cat, {{"sct-2", 1}}, 
