@@ -1,3 +1,7 @@
+v. 0.17.20
+- decrease overall cost in harder logistic
+- add time evolution reduction
+
 v. 0.17.19
 - fix electric-energy-accumulators-1 => electric-energy-accumulators
 - add function to get momo sci category

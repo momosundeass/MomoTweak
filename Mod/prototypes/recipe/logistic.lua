@@ -2,7 +2,7 @@ local harder = settings.startup["momo-harder-logistic"].value
 local mul = 1
 local rubberMul = 1 
 if (harder) then
-	mul = 3
+	mul = 2
 	rubberMul = 4
 	if data.raw.item["basic-transport-belt"] then
 		momoTweak.replace_with_ingredient("transport-belt", "tin-plate", {"tin-plate", 3 * mul})
@@ -15,8 +15,6 @@ if (harder) then
 	momoTweak.replace_with_ingredient("fast-underground-belt", "bronze-alloy", {"bronze-alloy", 16 * mul})
 	bobmods.lib.recipe.add_ingredient("fast-underground-belt", {"stone-brick", 7 * mul})
 	momoTweak.replace_with_ingredient("fast-splitter", "bronze-alloy", {"bronze-alloy", 10 * mul})
-
-	mul = 2
 
 	-- cobalt-steel-gear-wheel  cobalt-steel-bearing  aluminium-plate 
 	momoTweak.replace_with_ingredient("express-transport-belt", "cobalt-steel-gear-wheel", {"cobalt-steel-gear-wheel", 3 * mul})
