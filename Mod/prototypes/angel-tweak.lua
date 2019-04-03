@@ -48,4 +48,13 @@ function momoTweak.angelChemPlanTweak()
 	end
 end
 
+function momoTweak.ReworkPressureTank()
+	if (data.raw["storage-tank"]["angels-pressure-tank-1"]) then
+		data.raw["storage-tank"]["angels-pressure-tank-1"].fluid_box.base_area = data.raw["storage-tank"]["angels-pressure-tank-1"].fluid_box.base_area / 7 
+	end
+	data.raw["storage-tank"]["angels-storage-tank-1"].fluid_box.base_area = 600
+	data.raw["storage-tank"]["angels-storage-tank-2"].fluid_box.base_area = 400
+	data.raw["storage-tank"]["angels-storage-tank-3"].fluid_box.base_area = 100
+end
+
 

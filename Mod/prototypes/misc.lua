@@ -73,4 +73,12 @@ if mods["underground-pipe-pack"] then
 			{"underground-pipe-segment-t2", 6}
 		}, 0.5, tech, j))
 	end
+	-- 80-overflow-valve  80-top-up-valve  check-valve
+	local valves = {"80-overflow-valve", "80-top-up-valve", "check-valve"}
+	for i, valve in pairs(valves) do 
+		local removedtechs = momoTweak.get_techs_of_recipe(valve)
+		for	i, tech in pairs(removedtechs) do
+			bobmods.lib.tech.remove_recipe_unlock(tech, valve)
+		end
+	end
 end

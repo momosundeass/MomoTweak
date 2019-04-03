@@ -101,21 +101,44 @@ function momoTweak.angel_bio_update()
 	momoTweak.createRecipe("crafting", {{"bio-grade-1", 1}}, {
 		{token, 2},
 		{"bio-temp", 2},
-	}, 3, aboretum_tech2)
+	}, 3, aboretum_tech2, "1")
+	momoTweak.createRecipe("crafting", {{"bio-grade-1", 1}}, {
+		{token, 2},
+		{"bio-swamp", 2},
+	}, 3, aboretum_tech2, "2")
+	momoTweak.createRecipe("crafting", {{"bio-grade-1", 1}}, {
+		{token, 2},
+		{"bio-desert", 2},
+	}, 3, aboretum_tech2, "3")
 	
 	momoTweak.createRecipe("crafting", {{"bio-grade-2", 1}}, {
 		{token, 2},
 		{"red-cellulose-fiber", 18},
 		{"bio-swamp", 1},
-		{"bio-desert", 2}
-	}, 3, aboretum_tech3)
+		{"bio-desert", 1}
+	}, 3, aboretum_tech3, "1")
+	
+	momoTweak.createRecipe("crafting", {{"bio-grade-2", 1}}, {
+		{token, 2},
+		{"red-cellulose-fiber", 18},
+		{"bio-temp", 1},
+		{"bio-desert", 1}
+	}, 3, aboretum_tech3, "2")
+	
+	momoTweak.createRecipe("crafting", {{"bio-grade-2", 1}}, {
+		{token, 2},
+		{"red-cellulose-fiber", 18},
+		{"bio-temp", 1},
+		{"bio-swamp", 1}
+	}, 3, aboretum_tech3, "3")
 	
 	momoTweak.createRecipe("crafting", {{"bio-grade-3", 1}}, {
 		{"blue-cellulose-fiber", 18},
 		{token, 2},
 		{"bio-grade-1", 3},
-		{"bio-desert", 4},
-		{"bio-swamp", 4}
+		{"bio-temp", 3},
+		{"bio-desert", 3},
+		{"bio-swamp", 3}
 	}, 3, aboretum_tech3)
 	
 	

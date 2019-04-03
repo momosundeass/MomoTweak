@@ -69,5 +69,6 @@ if (mods["angelsbioprocessing"]) then
 end
 
 momoTweak.ReworkAngelIndGroup()
+momoTweak.ReworkPressureTank()
 
 require("fix");

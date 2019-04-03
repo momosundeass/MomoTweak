@@ -40,10 +40,26 @@ end
 local function buildVariable()
 	if not (global.momoTweak) then
 		global.momoTweak = {}
-		if not (global.momoTweak.last_evo) then
-			global.momoTweak.last_evo = 0
-		end
 	end
+	if not (global.momoTweak.last_evo) then
+		global.momoTweak.last_evo = 0
+	end
+	if not (global.momoTweak.counter) then
+		global.momoTweak.counter = 0
+	end
+end
+
+local function addition_reduce_cal(current_evo, factor, progress)
+	local counter = global.momoTweak.counter
+	local result = progress * 0.000005 * counter
+	
+	counter = counter + 1
+	if (counter >= 10) then
+		counter = 0
+	end
+	
+	global.momoTweak.counter = counter;
+	return result
 end
 
 script.on_nth_tick(3600, function(e)
@@ -60,12 +76,21 @@ script.on_nth_tick(3600, function(e)
 			progress = factor * 2
 		end
 		
+		local addition_reduce = 0
+		if (current_evo >= 0.4) then
+			addition_reduce = addition_reduce_cal(current_evo, factor, progress)
+		end
+		
 		local reduceByRate = math.max(0, (current_evo - global.momoTweak.last_evo) * progress * 0.01)
-		local reduce = (0.00005 * progress) + reduceByRate
+		
+		local reduce = (0.00005 * progress) + reduceByRate + addition_reduce
+		
 		game.forces.enemy.evolution_factor = current_evo - reduce
 		global.momoTweak.last_evo = game.forces.enemy.evolution_factor
 		if (debugmode) then
-			printToAll("Evolution reduce by " .. reduce .. " |Rate: " .. reduceByRate)
+			local logtext = "Evolution reduce by " .. string.format("%.5f", reduce) .. " | Rate: " .. string.format("%.5f", reduceByRate) .. " | Counter: " .. global.momoTweak.counter
+			printToAll(logtext)
+			log(logtext)
 		end
 	end
 end)
