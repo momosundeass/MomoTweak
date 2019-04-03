@@ -2,6 +2,8 @@ v. 0.17.20
 - decrease overall cost in harder logistic
 - add time evolution reduction
 - balanced recipe for angel-bio compatibility
+- balanced angels storage tank
+- remove redundant valve from angels and advanced fluid handling
 
 v. 0.17.19
 - fix electric-energy-accumulators-1 => electric-energy-accumulators
