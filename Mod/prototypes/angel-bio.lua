@@ -141,6 +141,7 @@ function momoTweak.angel_bio_update()
 		{"bio-swamp", 3}
 	}, 3, aboretum_tech3)
 	
+	bobmods.lib.recipe.add_ingredient("solid-alginic-acid", {"algae-green", 6})
 	
 end
 
