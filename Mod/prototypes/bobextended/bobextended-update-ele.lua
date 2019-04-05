@@ -139,7 +139,7 @@ momoTweak.createRecipe(category,
 		{CON.a, 8},
 		{MEM.a, 2},
 		{"lithium", 1 * generalFactor},
-		{"sivler-plate", 2 * generalFactor},
+		{"silver-plate", 2 * generalFactor},
 	}, 3 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[2])
 )
 momoTweak.replace_with_ingredient(ELE.unit[2], ELE.comp[1], {CON.b, 2})
