@@ -2,6 +2,10 @@ momoTweak.settings.isFrame = false
 momoTweak.settings.isBelt = false
 momoTweak.settings.isEletronics = false
 
+if not momoTweak.extended then
+	momoTweak.extended = {}
+end
+
 if settings.startup["momo-enable-bob-extend"].value then
 	if settings.startup["momo-enable-bob-extend-frame"].value then
 		momoTweak.settings.isFrame = true
