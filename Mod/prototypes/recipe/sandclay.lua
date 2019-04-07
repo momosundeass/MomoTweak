@@ -11,7 +11,7 @@ if data.raw.item["solid-clay"] and data.raw.item["solid-coke"] then
           energy_required = 2,
           category = "chemical-furnace",
           subgroup = data.raw.recipe["solid-coke"].subgroup,
-          ingredients = {{"coal-crushed", 4}, {"solid-clay", 5}},
+          ingredients = {{"coal-crushed", 4}, {"solid-clay", 3}},
           result = "solid-coke",
           result_count = 5
     },
@@ -26,7 +26,7 @@ if data.raw.item["solid-clay"] and data.raw.item["solid-coke"] then
           subgroup = data.raw.recipe["solid-coke"].subgroup,
           ingredients = {
               {type="item", name="coal-crushed", amount=4}, 
-              {type="item", name="solid-clay", amount=5},
+              {type="item", name="solid-clay", amount=3},
               {type="fluid", name="water-purified", amount=50}
             },
           results = {
