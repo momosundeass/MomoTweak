@@ -86,11 +86,12 @@ momoTweak.createRecipe(sci_cat, {{"dark-chip", 4}},
   
 local tech_sci_pro = momoTweak.get_tech_of_recipe(momoTweak.sciProduction)
 momoTweak.createRecipe(sci_cat, {{"pre-cyan-sci", 4}}, {
-  {momoTweak.sci3, 1},
-  {"green-sci", 6},
-  {"red-sci", 4},
-  {ele.circuit[2], 4},
-  {"solder", 6}
+    {momoTweak.sci3, 1},
+    {"green-sci", 6},
+    {"red-sci", 4},
+    {ele.circuit[2], 4},
+    {"solder", 6},
+    {"lithium-ion-battery", 3}
 }, 12, tech_sci_pro)
 
 momoTweak.createRecipe(sci_cat, {{"cpy", 4}}, {
@@ -115,7 +116,6 @@ momoTweak.createRecipe(sci_cat, {{"cyan-sci", 3}}, {
   {momoTweak.sci3, 1},
   {"pre-cyan-sci", 4},
   {"bronze-pack", 2},
-  
 }, 14, tech_sci_3)
 
 
@@ -152,6 +152,7 @@ momoTweak.createRecipe(sci_cat, {{"py-nxag-matrix", 2}},
   
 momoTweak.createRecipe(sci_cat, {{"py-superconductor", 4}},
   {
+    {"silver-zinc-battery", 2},
     {"plastic-bar", 7},
     {"silver-plate", 12},
     {"bronze-pack", 8},
