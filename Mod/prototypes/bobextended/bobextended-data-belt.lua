@@ -1,3 +1,8 @@
+momoTweak.extended.belt = {}
+momoTweak.extended.belt.map = {}
+momoTweak.extended.belt.map.a = "underground-belt"
+momoTweak.extended.belt.map.purple = "turbo-underground-belt"
+momoTweak.extended.belt.map.green = "ultimate-underground-belt"
 data:extend({
 	{
 		type="item-subgroup",
@@ -190,6 +195,9 @@ local function recipe(class, order, mixer, tech)
 	})
 	bobmods.lib.tech.add_recipe_unlock(tech, namegen(class))
 	bobmods.lib.tech.add_recipe_unlock(tech, namegen(class).."-backward")
+	
+	momoTweak.extended.belt[class] = namegen(class)
+	momoTweak.extended.belt[class .. "-backward"] = namegen(class) .. "-backward"
 end
 
 if settings.startup["bobmods-logistics-ugdistanceoverhaul"].value == true then

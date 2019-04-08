@@ -98,7 +98,7 @@ momoTweak.createRecipe(category,
 		{MEM.a2, 2},
 		{ELE.board[2], 2},
 		{ELE.comp[3], 4},
-		{"gold-plate", 1 * generalFactor}
+		{"silver-plate", 3 * generalFactor}
 	}, 8 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[3])
 )
 
@@ -125,7 +125,7 @@ momoTweak.createRecipe(category,
 	result(CON.a, 4),
 	{
 		{ELE.circuit[1], 1},
-		{"tin-plate", 4 * generalFactor},
+		{"tin-plate", 1 * generalFactor},
 		{"solder", 2 * generalFactor}
 	}, 2 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.circuit[2])
 )
@@ -138,9 +138,8 @@ momoTweak.createRecipe(category,
 	{
 		{CON.a, 8},
 		{MEM.a, 2},
-		{ELE.comp[1], 12},
-		{"silicon-wafer", 2 * generalFactor},
-		{"solder", 2 * generalFactor}
+		{"lithium", 1 * generalFactor},
+		{"silver-plate", 2 * generalFactor},
 	}, 3 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[2])
 )
 momoTweak.replace_with_ingredient(ELE.unit[2], ELE.comp[1], {CON.b, 2})
@@ -149,7 +148,7 @@ momoTweak.createRecipe(category,
 	result(CON.c, 2),
 	{
 		{ELE.circuit[2], 1},
-		{ELE.comp[2], 12},
+		{ELE.comp[2], 6},
 		{ELE.cable[2], 4 * copperFactor},
 		{"gold-plate", 3 * generalFactor},
 		{"solder", 2 * generalFactor}
@@ -163,7 +162,7 @@ momoTweak.createRecipe(category,
 	{
 		{CON.c, 4},
 		{MEM.a2, 2},
-		{ELE.comp[3], 8},
+		{ELE.comp[3], 4},
 		{"silicon-wafer", 6 * generalFactor},
 		{"silicon-nitride", 2},
 		{"solder", 4 * generalFactor}
@@ -186,7 +185,7 @@ momoTweak.createRecipe(category,
 		{ELE.comp[3], 4},
 		{"silicon-wafer", 3 * generalFactor},
 		{"gold-plate", 2 * generalFactor},
-		{"solder", 2 * generalFactor}
+		{"lithium", 2 * generalFactor}
 	}, 6 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[3])
 )
 momoTweak.replace_with_ingredient(ELE.unit[3], ELE.comp[3], {JUN.a, 1})
@@ -199,7 +198,7 @@ momoTweak.createRecipe(category,
 		{"silicon-wafer", 4 * generalFactor},
 		{"silicon-nitride", 2},
 	    {ELE.cable[4], 4 * copperFactor},
-		{"solder", 4 * generalFactor}
+		{"silver-plate", 3 * generalFactor}
 	}, 8 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[4])
 )
 momoTweak.replace_with_ingredient(ELE.unit[4], ELE.comp[4], {JUN.b, 1})

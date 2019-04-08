@@ -62,7 +62,25 @@ local function addition_reduce_cal(current_evo, factor, progress)
 	return result
 end
 
-script.on_nth_tick(3600, function(e)
+local function evolution_nulifier(current_evo, last_evo, factor)
+	local rand = (current_evo * 100101477) * (last_evo * 100045587)
+	local chance = (1 + (factor - 0.7)) * (last_evo * 50)
+	local null = 0
+	if ((rand % 100) <= chance) then null = current_evo - last_evo end
+	if (debugmode) then
+		local function fixed(number, fix) 
+			fix = fix or "%.0f"
+			return string.format(fix, number) 
+		end
+		local text = "Random: " ..fixed(rand % 100).. " - " ..fixed(chance).. " | null => " .. null
+		printToAll(text)
+	end
+	return null
+end
+
+local rate = 3600
+
+script.on_nth_tick(rate, function(e)
 	if factor ~= 0 then
 		buildVariable()
 		
@@ -81,9 +99,14 @@ script.on_nth_tick(3600, function(e)
 			addition_reduce = addition_reduce_cal(current_evo, factor, progress)
 		end
 		
+		local null = 0
+		if (current_evo >= 0.5) then
+			null = evolution_nulifier(current_evo, global.momoTweak.last_evo, factor)
+		end
+		
 		local reduceByRate = math.max(0, (current_evo - global.momoTweak.last_evo) * progress * 0.01)
 		
-		local reduce = (0.00005 * progress) + reduceByRate + addition_reduce
+		local reduce = (0.00005 * progress) + reduceByRate + addition_reduce + null
 		
 		game.forces.enemy.evolution_factor = current_evo - reduce
 		global.momoTweak.last_evo = game.forces.enemy.evolution_factor

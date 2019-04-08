@@ -1,0 +1,13 @@
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __bobores__/graphics/icons/iron-ore.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __base__/graphics/icons/copper-ore.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-tin.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-silica.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-lead.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-nickel.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-silver.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-zinc.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-rutile.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-tungsten.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-cobalt.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-gold.png
+  15.375 Script @__MomoTweak__/prototypes/bobextended/bobextended-update-slag.lua:43: MTKL __angelssmelting__/graphics/icons/ore-bauxite.png

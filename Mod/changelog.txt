@@ -1,3 +1,12 @@
+v. 0.17.21
+- add green algae to solid alginic acid
+- fix higher tier bobextended underground belt don't unlock
+- adjust bobextended electronics recipe 
+- adjust clay coke recipe
+- add battery to some science
+- add evolution nullifier
+- add recipe cellulose fiber from wood plup
+
 v. 0.17.20
 - decrease overall cost in harder logistic
 - add time evolution reduction

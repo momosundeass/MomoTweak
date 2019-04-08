@@ -141,6 +141,15 @@ function momoTweak.angel_bio_update()
 		{"bio-swamp", 3}
 	}, 3, aboretum_tech3)
 	
+	bobmods.lib.recipe.add_ingredient("solid-alginic-acid", {"algae-green", 6})
+	
+	--- wood pulp to cellulose-fiber
+	if (data.raw.item["bi-woodpulp"]) then
+		momoTweak.createRecipe("crafting", {{"cellulose-fiber", 4}}, {
+			{"bi-woodpulp", 4}
+		}, 2.5, momoTweak.get_tech_of_recipe("cellulose-fiber-raw-wood"))
+	end
+	
 	
 end
 
