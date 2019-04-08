@@ -111,7 +111,7 @@ script.on_nth_tick(rate, function(e)
 		global.momoTweak.last_evo = game.forces.enemy.evolution_factor
 		if (debugmode) then
 			local logtext = "Evolution reduce by " .. string.format("%.5f", reduce) .. " | Rate: " .. string.format("%.5f", reduceByRate) 
-				  .. " | Counter: " .. global.momoTweak.counter .. "=>" string.format("%.5f", addition_reduce)
+				  .. " | Counter: " .. global.momoTweak.counter .. "=>" .. string.format("%.5f", addition_reduce)
 			printToAll(logtext)
 			log(logtext)
 		end
