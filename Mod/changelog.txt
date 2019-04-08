@@ -1,3 +1,6 @@
+v. 0.17.22
+- improve addition evolution reduce function
+
 v. 0.17.21
 - add green algae to solid alginic acid
 - fix higher tier bobextended underground belt don't unlock

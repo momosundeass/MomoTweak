@@ -51,14 +51,13 @@ end
 
 local function addition_reduce_cal(current_evo, factor, progress)
 	local counter = global.momoTweak.counter
-	local result = progress * 0.000005 * counter
-	
 	counter = counter + 1
+	local result = progress * 0.000005 * counter
 	if (counter >= 10) then
 		counter = 0
 	end
 	
-	global.momoTweak.counter = counter;
+	global.momoTweak.counter = counter
 	return result
 end
 
@@ -111,7 +110,8 @@ script.on_nth_tick(rate, function(e)
 		game.forces.enemy.evolution_factor = current_evo - reduce
 		global.momoTweak.last_evo = game.forces.enemy.evolution_factor
 		if (debugmode) then
-			local logtext = "Evolution reduce by " .. string.format("%.5f", reduce) .. " | Rate: " .. string.format("%.5f", reduceByRate) .. " | Counter: " .. global.momoTweak.counter
+			local logtext = "Evolution reduce by " .. string.format("%.5f", reduce) .. " | Rate: " .. string.format("%.5f", reduceByRate) 
+				  .. " | Counter: " .. global.momoTweak.counter .. "=>" string.format("%.5f", addition_reduce)
 			printToAll(logtext)
 			log(logtext)
 		end
