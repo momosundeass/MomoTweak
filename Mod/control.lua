@@ -49,10 +49,24 @@ local function buildVariable()
 	end
 end
 
+local evolution_offset = 0.00005
+local addition_evo_offset = 0.4
+
+local function fixed(number, fix) 
+	fix = fix or "%.0f"
+	return string.format(fix, number) 
+end
+local function fixed_percent(number) 
+	fix = "%.4f"
+	number = number * 100
+	return string.format(fix, number) 
+end
+
 local function addition_reduce_cal(current_evo, factor, progress)
 	local counter = global.momoTweak.counter
 	counter = counter + 1
-	local result = progress * 0.000005 * counter
+	local result = progress * (evolution_offset / 5) * counter * ((current_evo - addition_evo_offset) / 0.1)
+	result = math.max(0, result)
 	if (counter >= 10) then
 		counter = 0
 	end
@@ -67,10 +81,6 @@ local function evolution_nulifier(current_evo, last_evo, factor)
 	local null = 0
 	if ((rand % 100) <= chance) then null = current_evo - last_evo end
 	if (debugmode) then
-		local function fixed(number, fix) 
-			fix = fix or "%.0f"
-			return string.format(fix, number) 
-		end
 		local text = "Random: " ..fixed(rand % 100).. " - " ..fixed(chance).. " | null => " .. null
 		printToAll(text)
 	end
@@ -94,7 +104,7 @@ script.on_nth_tick(rate, function(e)
 		end
 		
 		local addition_reduce = 0
-		if (current_evo >= 0.4) then
+		if (current_evo >= addition_evo_offset) then
 			addition_reduce = addition_reduce_cal(current_evo, factor, progress)
 		end
 		
@@ -105,13 +115,13 @@ script.on_nth_tick(rate, function(e)
 		
 		local reduceByRate = math.max(0, (current_evo - global.momoTweak.last_evo) * progress * 0.01)
 		
-		local reduce = (0.00005 * progress) + reduceByRate + addition_reduce + null
+		local reduce = (evolution_offset * progress) + reduceByRate + addition_reduce + null
 		
 		game.forces.enemy.evolution_factor = current_evo - reduce
 		global.momoTweak.last_evo = game.forces.enemy.evolution_factor
 		if (debugmode) then
-			local logtext = "Evolution reduce by " .. string.format("%.5f", reduce) .. " | Rate: " .. string.format("%.5f", reduceByRate) 
-				  .. " | Counter: " .. global.momoTweak.counter .. "=>" .. string.format("%.5f", addition_reduce)
+			local logtext = "Evolution reduce by " .. fixed_percent(reduce) .. " | Rate: " .. fixed_percent(reduceByRate) 
+				  .. " | Counter: " .. global.momoTweak.counter .. "=>" .. fixed_percent(addition_reduce)
 			printToAll(logtext)
 			log(logtext)
 		end
