@@ -27,6 +27,10 @@ bobmods.lib.recipe.add_ingredient("cannon-shell", {"zinc-plate", 2})
 bobmods.lib.recipe.add_ingredient("explosive-cannon-shell", {"zinc-plate", 3})
 bobmods.lib.recipe.add_ingredient("scatter-cannon-shell", {"zinc-plate", 4})
 
+momoTweak.replace_with_ingredient("bob-gun-turret-2", "steel-plate", {"bronze-alloy", 40})
+momoTweak.replace_with_ingredient("bob-sniper-turret-2", "steel-plate", {"bronze-alloy", 40})
+momoTweak.replace_with_ingredient("bob-sniper-turret-2", "steel-gear-wheel", {"brass-gear-wheel", 20})
+
 --laser-turret  bob-laser-turret-2  bob-laser-turret-3  bob-laser-turret-4  bob-laser-turret-5
 momoTweak.replace_with_ingredient("laser-turret", "steel-plate", {"nickel-plate", 25})
 momoTweak.replace_with_ingredient("bob-laser-turret-2", "steel-plate", {"zinc-plate", 40})
