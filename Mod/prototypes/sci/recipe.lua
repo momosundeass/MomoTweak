@@ -56,6 +56,7 @@ momoTweak.createRecipe(sci_cat, {{"green-sci", 4}},
     {momoTweak.sci2, 2},
     {ele.unit[2], 2},
     {"silicon-wafer", 7},
+	{"silver-plate", 5}
   }, 12, tech_sci_3)
   
 
@@ -72,8 +73,9 @@ momoTweak.createRecipe(sci_cat, {{"pre-dark-sci", 2}},
   {
     {momoTweak.sci2, 1},
     {"piercing-rounds-magazine", 2},
-    {"grenade", 2},
-    {"dark-chip", 3}
+    {"grenade", 1},
+    {"dark-chip", 3},
+	{"nickel-plate", 5}
   }, 10, tech_sci_mil)
   
 momoTweak.createRecipe(sci_cat, {{"dark-chip", 4}},
@@ -99,7 +101,8 @@ momoTweak.createRecipe(sci_cat, {{"cpy", 4}}, {
   {"insulated-cable", 6},
   {"solder", 6},
   {ele.board[2], 4},
-  {"robot-brain-logistic", 2}
+  {"robot-brain-logistic", 2},
+  {"zinc-plate", 12}
   
 }, 10, tech_sci_pro)
 

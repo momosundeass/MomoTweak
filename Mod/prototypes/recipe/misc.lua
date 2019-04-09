@@ -22,7 +22,15 @@ momoTweak.createRecipe(category, {{"firearm-magazine", 1}},
 		{"iron-plate", 1}
 	}, 1, momoTweak.get_tech_of_recipe("piercing-rounds-magazine"))
 	
+-- cannon-shell  explosive-cannon-shell  scatter-cannon-shell
+bobmods.lib.recipe.add_ingredient("cannon-shell", {"zinc-plate", 2})
+bobmods.lib.recipe.add_ingredient("explosive-cannon-shell", {"zinc-plate", 3})
+bobmods.lib.recipe.add_ingredient("scatter-cannon-shell", {"zinc-plate", 4})
+
 	
 if data.raw.recipe["bi_recipe_basic_dart_magazine"] then
 	momoTweak.replace_with_ingredient("bi_recipe_basic_dart_magazine", "wood", {"wood", 2})
 end
+
+bobmods.lib.recipe.add_ingredient("grinding-wheel", {"zinc-plate", 4})
+bobmods.lib.recipe.add_ingredient("polishing-wheel ", {"nickel-plate", 5})
