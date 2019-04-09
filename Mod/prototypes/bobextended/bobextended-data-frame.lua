@@ -22,6 +22,13 @@ data:extend({{
   
 -- create Item -------------------------------------------
 
+momoTweak.extended.frame = {}
+momoTweak.extended.frame.basic        = "basic-structure-components"
+momoTweak.extended.frame.intermediate = "intermediate-structure-components"
+momoTweak.extended.frame.advanced     = "advanced-structure-components"
+momoTweak.extended.frame.anotherworld = "anotherworld-structure-components"
+
+
 createSC("basic")
 createSC("intermediate")
 createSC("advanced")
