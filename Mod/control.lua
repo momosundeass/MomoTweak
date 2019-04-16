@@ -1,6 +1,8 @@
 local debugmode = settings.startup["momo-is-debug-mode"].value
 local factor = settings.startup["momo-evo-reduce-factor"].value
 
+require("control-function")
+
 script.on_event(defines.events.on_player_created, function(event)
   if debugmode then
       for _, player in pairs(game.players) do
@@ -11,21 +13,23 @@ script.on_event(defines.events.on_player_created, function(event)
 
 script.on_event("momo-debug", function(e)
 	if debugmode then
-	-- check bar item
+
 		local logging = ""
-		for pi, p in pairs(game.players) do
+		local p = game.players[1]
+		-- for pi, p in pairs(game.players) do
 			p.print("evolution decrease factor = " .. factor)
-			p.print("||||| N player index " .. pi)
 			local slot = 1
+			local items = {}
 			for name, count in pairs(p.get_main_inventory().get_contents()) do
 				p.print("["..slot.."]" .. name .. " " .. count)
 				logging = logging .. " " .. name .. " "
+				table.insert(items, name)
 				slot = slot + 1
 			end
 			p.print("QUICK-BAR loop complete!!!")
+			p.print(momoTweakControl.debug(items, p))
 			log("MTKL " .. logging)
-		end
-	-- check bar item
+		-- end
 	else
 		for pi, p in pairs(game.players) do p.print("Someone try to cheat!!!!!!!!!!!!") end
 	end
