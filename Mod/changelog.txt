@@ -1,3 +1,10 @@
+v. 0.17.23
+- higher tier science pack need to craft in higher tier assembling machine
+
+v. 0.17.22
+- improve addition evolution reduce function
+- most recipe now use more interesting material to craft
+
 v. 0.17.21
 - add green algae to solid alginic acid
 - fix higher tier bobextended underground belt don't unlock

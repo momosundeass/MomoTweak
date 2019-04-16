@@ -122,4 +122,55 @@ ProcessInfa(door)
 ProcessInfa(antenna)
 ProcessInfa(chargepad)
 
-----
+bobmods.lib.recipe.add_ingredient(toolL .. "-2", {"zinc-plate", 3})
+bobmods.lib.recipe.add_ingredient(toolL .. "-3", {"zinc-plate", 5})
+bobmods.lib.recipe.add_ingredient(toolL .. "-4", {"zinc-plate", 9})
+
+bobmods.lib.recipe.add_ingredient(toolC .. "-2", {"silver-plate", 3})
+bobmods.lib.recipe.add_ingredient(toolC .. "-3", {"silver-plate", 5})
+bobmods.lib.recipe.add_ingredient(toolC .. "-4", {"silver-plate", 9})
+
+
+bobmods.lib.recipe.add_ingredient("flying-robot-frame", {"zinc-plate", 6})
+
+bobmods.lib.recipe.add_ingredient(door, {"nickel-plate", 15})
+bobmods.lib.recipe.add_ingredient(antenna, {"nickel-plate", 4})
+bobmods.lib.recipe.add_ingredient(chargepad, {"nickel-plate", 2})
+
+bobmods.lib.recipe.add_ingredient(door, {"nickel-plate", 20})
+bobmods.lib.recipe.add_ingredient(chargepad, {"nickel-plate", 2})
+
+
+local types = {"passive-provider", "active-provider", "storage", "requester", "buffer"}
+for i, t in pairs(types) do
+	bobmods.lib.recipe.add_ingredient("logistic-chest-" .. t, {"cobalt-plate", 3})
+end
+
+for i, t in pairs(types) do
+	bobmods.lib.recipe.add_ingredient("logistic-chest-" .. t .. "-2", {"cobalt-plate", 5})
+end
+
+for i, t in pairs(types) do
+	bobmods.lib.recipe.add_ingredient("logistic-chest-" .. t .. "-3", {"cobalt-plate", 9})
+end
+--logistic-chest-passive-provider  logistic-chest-active-provider  logistic-chest-storage  logistic-chest-requester  logistic-chest-buffer  
+--logistic-chest-passive-provider-2  logistic-chest-active-provider-2  logistic-chest-storage-2  logistic-chest-requester-2  logistic-chest-buffer-2  
+--logistic-chest-passive-provider-3  logistic-chest-active-provider-3  logistic-chest-storage-3  logistic-chest-requester-3  logistic-chest-buffer-3 
+
+--- power pole
+--medium-electric-pole-3  medium-electric-pole-4  
+--big-electric-pole-3  big-electric-pole-4  
+--substation-3  substation-4 
+
+bobmods.lib.recipe.add_ingredient("medium-electric-pole-3", {"cobalt-plate", 3})
+bobmods.lib.recipe.add_ingredient("medium-electric-pole-4", {"cobalt-plate", 5})
+
+bobmods.lib.recipe.add_ingredient("big-electric-pole-3", {"cobalt-plate", 12})
+bobmods.lib.recipe.add_ingredient("big-electric-pole-4", {"cobalt-plate", 20})
+
+bobmods.lib.recipe.add_ingredient("substation-3", {"cobalt-plate", 10})
+bobmods.lib.recipe.add_ingredient("substation-4", {"cobalt-plate", 25})
+
+bobmods.lib.recipe.add_ingredient("electric-engine-unit", {"cobalt-plate", 5})
+bobmods.lib.recipe.add_ingredient("storage-tank-3", {"cobalt-plate", 25})
+bobmods.lib.recipe.add_ingredient("storage-tank-4", {"tungsten-plate", 25})

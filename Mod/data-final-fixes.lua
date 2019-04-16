@@ -64,6 +64,8 @@ end
 
 require("prototypes.sci.sci30result-preset")
 require("prototypes.sci.vial-recipe")
+require("prototypes.machine-restriction")
+
 if (mods["angelsbioprocessing"]) then
 	momoTweak.angel_bio_final()
 end
