@@ -12,6 +12,7 @@ require("prototypes.recipe.bobs-electrolysis")
 require("prototypes.recipe.logistic")
 require("prototypes.recipe.miner")
 require("prototypes.recipe.misc")
+require("prototypes.recipe.angels-machine")
 
 -- -------------------------------------------
 

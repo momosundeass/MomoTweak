@@ -1,3 +1,6 @@
+v. 0.17.24
+- angels machine now use more varient pipe
+
 v. 0.17.23
 - higher tier science pack need to craft in higher tier assembling machine
 
