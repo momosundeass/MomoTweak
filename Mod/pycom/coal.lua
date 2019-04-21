@@ -11,14 +11,6 @@ data.raw.recipe[momoTweak.sci3].order = "3"
 data.raw.recipe[momoTweak.sciProduction].subgroup = subG
 data.raw.recipe[momoTweak.sciProduction].order = "4"
 
--- scienced recipe
-momoTweak.replace_with_ingredient("flask", "raw-wood", {"copper-plate", 3})
-momoTweak.createRecipe("advanced-crafting", {{"flask", 1}}, {
-	{"iron-plate", 2},
-	{"copper-plate", 1},
-	{"glass", 7}
-}, 2, "automation-2")
-
 momoTweak.set_amount_ingredient("equipment-chassi", {"bronze-alloy", 6})
 momoTweak.set_amount_ingredient("equipment-chassi", {"iron-plate", 7})
 momoTweak.set_amount_ingredient("lens", {"glass", 9})
