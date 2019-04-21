@@ -70,6 +70,8 @@ if (mods["angelsbioprocessing"]) then
 	momoTweak.angel_bio_final()
 end
 
+require("pycom.final")
+
 momoTweak.ReworkAngelIndGroup()
 momoTweak.ReworkPressureTank()
 
