@@ -13,8 +13,7 @@ local recipe = momoTweak.createRecipe(sci_cat, {{"sct-2", 1}},
 	{
 		{"sct-t2-instruments", 1},
 		{"sct-t2-reaction-nodes", 1}
-	}
-	5, momoTweak.get_tech_of_recipe_no_demo(item)
+	}, 5, momoTweak.get_tech_of_recipe_no_demo(item)
 )
 data.raw.recipe[recipe].subgroup = data.raw.recipe[item].subgroup
 bobmods.lib.recipe.add_ingredient(recipe, {"building-pack", 2})
