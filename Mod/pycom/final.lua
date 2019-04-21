@@ -14,5 +14,8 @@ if (momoTweak.py.coal) then
 			data.raw.tool[momoTweak.sciTech].icon_size = 32
 		end
 	end
-	
+end
+
+if (momoTweak.py.ht) then
+	require("pyhigh_ui")
 end

@@ -22,7 +22,8 @@ require("prototypes.recipe.angels-machine")
 -- -------------------------------------------
 
 -- recipe science ------------------------------
-if not IsScienceCostM then
+momoTweak.load_sci_recipe_in_update = ( not IsScienceCostM ) and ( not momoTweak.py.coal )
+if momoTweak.load_sci_recipe_in_update then
 	require("prototypes.sci.recipe")
 	require("prototypes.sci.sci30recipe")
 	require("prototypes.sci.sci30extreme")

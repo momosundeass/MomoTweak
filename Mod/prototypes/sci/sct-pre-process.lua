@@ -76,8 +76,8 @@ local recipes = momoTweak.sct.recipe
 momoTweak.add_ingredients(recipes["sct-2"], {
 	{"sct-t2-instruments", 1},
 	{"sct-t2-reaction-nodes", 1},
-	{"building-pack", 2},
-	{"movement-pack", 3},
+	{"building-pack", 1},
+	{"movement-pack", 2},
 })
 	
 momoTweak.add_ingredients(recipes["sct-gun"], {
@@ -103,9 +103,9 @@ momoTweak.add_ingredients(recipes["sct-high"], {
 	{"sct-htech-random"  , 1}
 })
 
-momoTweak.add_ingredients(recipes["sct-high"], {
+momoTweak.add_ingredients(recipes["sct-logistic"], {
 	{"sct-logistic-cargo-unit" , 1},
 	{"sct-logistic-memory-unit", 1},
-	{"building-pack", 5}
+	{"movement-pack", 3}
 })
 
