@@ -44,4 +44,6 @@ require("prototypes.buff-solar")
 
 require("prototypes.misc")
 
+require("pycom.update")
+
 
