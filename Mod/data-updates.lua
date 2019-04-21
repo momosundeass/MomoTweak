@@ -1,3 +1,8 @@
+
+if IsScienceCostM or momoTweak.py.coal then
+	require("prototypes.sci.sct-pre-recipe")
+end
+
 -- additional item ---------------------------
 require("prototypes.advanced-plastics")
 -- -------------------------------------------

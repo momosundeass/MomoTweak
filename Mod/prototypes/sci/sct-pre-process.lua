@@ -1,13 +1,13 @@
-local ref = data.raw.recipe[momoTweak.sci1].subgroup 
-data.raw["item-subgroup"]["momo-science-materials"].group = data.raw["item-subgroup"][ref].group
-data.raw["item-subgroup"]["momo-science-materials"].order = "zzz"
+-- local ref = data.raw.recipe[momoTweak.sci1].subgroup 
+-- data.raw["item-subgroup"]["momo-science-materials"].group = data.raw["item-subgroup"][ref].group
+-- data.raw["item-subgroup"]["momo-science-materials"].order = "zzz"
 
-local sci_cat = momoTweak.getSciCategory()
+-- local sci_cat = momoTweak.getSciCategory()
 
 -- sci 1
 		-- {"sct-t1-ironcore", 1},
 		-- {"sct-t1-magnet-coils", 2}
-
+--[[
 local item = momoTweak.sci2
 local recipe = momoTweak.createRecipe(sci_cat, {{"sct-2", 1}}, 
 	{
@@ -69,3 +69,43 @@ data.raw.recipe[recipe].subgroup = data.raw.recipe[item].subgroup
 bobmods.lib.recipe.add_ingredient(recipe, {"building-pack", 5})
 
 log("MTKL => finished sct pre process")
+]]--
+
+local recipes = momoTweak.sct.recipe
+
+momoTweak.add_ingredients(recipes["sct-2"], {
+	{"sct-t2-instruments", 1},
+	{"sct-t2-reaction-nodes", 1},
+	{"building-pack", 2},
+	{"movement-pack", 3},
+})
+	
+momoTweak.add_ingredients(recipes["sct-gun"], {
+	{"sct-mil-plating", 1},
+	{"sct-mil-circuit3", 1},
+	{"pre-dark-sci", 1}
+})
+
+momoTweak.add_ingredients(recipes["sct-3"], {
+	{"sct-t3-femto-lasers",   1},
+	{"sct-t3-atomic-sensors", 1},
+	{"bronze-pack", 3}
+})
+	
+momoTweak.add_ingredients(recipes["sct-production"], {
+	{"sct-prod-bioprocessor", 1},
+	{"sct-prod-overclocker" , 1}
+})
+
+momoTweak.add_ingredients(recipes["sct-high"], {
+	{"sct-htech-capbank" , 1},
+	{"sct-htech-injector", 1}, 
+	{"sct-htech-random"  , 1}
+})
+
+momoTweak.add_ingredients(recipes["sct-high"], {
+	{"sct-logistic-cargo-unit" , 1},
+	{"sct-logistic-memory-unit", 1},
+	{"building-pack", 5}
+})
+
