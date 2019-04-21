@@ -33,21 +33,19 @@ if data.raw["tool"]["more-science-pack-1"] then
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-12", {"mixing-furnace", 1})
   
-  -- zinc for sci 13, 14
   bobmods.lib.recipe.add_ingredient("more-science-pack-13", {"zinc-plate", 12})
   bobmods.lib.recipe.add_ingredient("more-science-pack-14", {"zinc-plate", 5})
   
-  bobmods.lib.recipe.add_ingredient("more-science-pack-16", {"flying-robot-frame", 2})
-  
-  
   bobmods.lib.recipe.add_ingredient("more-science-pack-15", {"glass", 12})
-  bobmods.lib.recipe.replace_ingredient("more-science-pack-17", "medium-electric-pole", "medium-electric-pole-3")
-  bobmods.lib.recipe.replace_ingredient("more-science-pack-17", "big-electric-pole", "big-electric-pole-3")
+	
+  bobmods.lib.recipe.add_ingredient("more-science-pack-16", {"flying-robot-frame", 2})
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-16", {"silver-plate", 8})
   bobmods.lib.recipe.add_ingredient("more-science-pack-21", {"silver-plate", 8})
   bobmods.lib.recipe.add_ingredient("more-science-pack-25", {"silver-plate", 4})
   
+  bobmods.lib.recipe.replace_ingredient("more-science-pack-17", "medium-electric-pole", "medium-electric-pole-3")
+  bobmods.lib.recipe.replace_ingredient("more-science-pack-17", "big-electric-pole", "big-electric-pole-3")
   bobmods.lib.recipe.add_ingredient("more-science-pack-17", {momoTweak.ele.unit[2], 3})
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-18", {ele.board[3], 20})
@@ -56,7 +54,7 @@ if data.raw["tool"]["more-science-pack-1"] then
   bobmods.lib.recipe.add_ingredient("more-science-pack-20", {"electric-chemical-mixing-furnace", 1})
   
   bobmods.lib.recipe.add_ingredient("more-science-pack-21", {"shot", 18})
-  --22
+
   momoTweak.set_amount_ingredient("more-science-pack-22", {"express-transport-belt", 6})
   momoTweak.set_amount_ingredient("more-science-pack-22", {"express-underground-belt", 2})
   
