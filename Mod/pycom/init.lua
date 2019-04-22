@@ -12,3 +12,10 @@ end
 if mods["pyhightech"] then
 	momoTweak.py.ht = true
 end
+
+-- py compatibility are close for now
+local loadpycom = false
+
+momoTweak.py.coal = loadpycom
+momoTweak.py.fusion = loadpycom
+momoTweak.py.ht = loadpycom
