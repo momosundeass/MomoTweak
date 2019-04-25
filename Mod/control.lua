@@ -81,7 +81,7 @@ end
 
 local function evolution_nulifier(current_evo, last_evo, factor)
 	local rand = (current_evo * 100101477) * (last_evo * 100045587)
-	local chance = (1 + (factor - 0.7)) * (last_evo * 50)
+	local chance = (1 + (factor - 0.7)) * (last_evo * 38)
 	local null = 0
 	if ((rand % 100) <= chance) then null = current_evo - last_evo end
 	if (debugmode) then

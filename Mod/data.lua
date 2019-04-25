@@ -6,6 +6,7 @@ IsScienceCostM = mods["ScienceCostTweakerM"]
 
 require("function")
 require("const-name")
+require("pycom.init")
 require("prototypes.sci.item")
 
 if IsLoadBobextended then

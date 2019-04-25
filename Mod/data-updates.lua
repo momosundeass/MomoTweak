@@ -1,3 +1,8 @@
+
+if IsScienceCostM or momoTweak.py.coal then
+	require("prototypes.sci.sct-pre-recipe")
+end
+
 -- additional item ---------------------------
 require("prototypes.advanced-plastics")
 -- -------------------------------------------
@@ -12,11 +17,13 @@ require("prototypes.recipe.bobs-electrolysis")
 require("prototypes.recipe.logistic")
 require("prototypes.recipe.miner")
 require("prototypes.recipe.misc")
+require("prototypes.recipe.angels-machine")
 
 -- -------------------------------------------
 
 -- recipe science ------------------------------
-if not IsScienceCostM then
+momoTweak.load_sci_recipe_in_update = ( not IsScienceCostM ) and ( not momoTweak.py.coal )
+if momoTweak.load_sci_recipe_in_update then
 	require("prototypes.sci.recipe")
 	require("prototypes.sci.sci30recipe")
 	require("prototypes.sci.sci30extreme")
@@ -42,5 +49,7 @@ end
 require("prototypes.buff-solar")
 
 require("prototypes.misc")
+
+require("pycom.update")
 
 

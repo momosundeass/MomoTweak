@@ -49,7 +49,7 @@ momoTweak.newsciItem("py-superconductor") -- 15
 momoTweak.newsciItem("plate-pack-1")
 
 
-if (IsScienceCostM) then
+if (IsScienceCostM or momoTweak.py.coal) then
 	momoTweak.newsciItem("sct-2")
 	momoTweak.newsciItem("sct-gun")
 	momoTweak.newsciItem("sct-3")

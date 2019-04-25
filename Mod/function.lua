@@ -46,6 +46,12 @@ function momoTweak.set_all_ingredient(recipe, ingredients)
   end
 end
 
+function momoTweak.add_ingredients(recipe, ingredients)
+	for i, ing in pairs(ingredients) do
+		bobmods.lib.recipe.add_ingredient(recipe, ing)
+	end
+end
+
 function momoTweak.find_recipe_from_ingredient(ingredient) 
 	for i,recipe in pairs(data.raw.recipe) do
 		if recipe.ingredients then

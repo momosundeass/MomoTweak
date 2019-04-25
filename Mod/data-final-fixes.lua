@@ -1,5 +1,7 @@
-if IsScienceCostM then
-	require("prototypes.sci.sct-pre-process")
+if not momoTweak.load_sci_recipe_in_update then
+	if (IsScienceCostM) then
+		require("prototypes.sci.sct-pre-process")
+	end
 	require("prototypes.sci.recipe")
 	require("prototypes.sci.sci30recipe")
 	require("prototypes.sci.sci30extreme")
@@ -69,6 +71,8 @@ require("prototypes.machine-restriction")
 if (mods["angelsbioprocessing"]) then
 	momoTweak.angel_bio_final()
 end
+
+require("pycom.final")
 
 momoTweak.ReworkAngelIndGroup()
 momoTweak.ReworkPressureTank()
