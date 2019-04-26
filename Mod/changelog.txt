@@ -1,3 +1,8 @@
+v. 0.17.25
+- adjust bobExtended electronics ingredients
+- move some recipe to bob's electrolysis machine
+
+
 v. 0.17.24
 - angels machine now use more varient pipe
 - nerf evolution nullifier

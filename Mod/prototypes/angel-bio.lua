@@ -171,6 +171,10 @@ function momoTweak.angel_bio_final()
 	
 end
 
+function momoTweak.angel_electrolysis_recipe()
+	data.raw.recipe["solid-alginic-acid"].category = "electrolysis"
+end
+
 momoTweak.angel_bio_data()
 
 

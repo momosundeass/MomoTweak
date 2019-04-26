@@ -44,7 +44,7 @@ end
 momoTweak.createRecipe(category, 
 	result(MEM.a, 2),
 	{
-		{ELE.cable[1], 2 * copperFactor},
+		{ELE.cable[1], 1 * copperFactor},
 		{"lead-plate", 1}
 	}, 2 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.comp[1])
 )
@@ -57,7 +57,7 @@ momoTweak.createRecipe(category,
 	result(MEM.a2, 1),
 	{
 		{ELE.comp[1], 3},
-		{MEM.a, 4},
+		{MEM.a, 2},
 		{"nickel-plate", 2 * generalFactor},
 		{"silicon-wafer", 2 * generalFactor}
 	}, 8 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[3])
@@ -72,7 +72,7 @@ momoTweak.createRecipe(category,
 	result(MEM.a3, 1),
 	{
 	    {MEM.a, 8},
-	    {ELE.cable[5], 4 * copperFactor},
+	    {ELE.cable[5], 2 * copperFactor},
 		{"silicon-nitride", 4},
 		{"cpy", 1}
 	}, 10 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[4])
