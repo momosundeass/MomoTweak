@@ -3,7 +3,7 @@ local ele = momoTweak.ele
 bobmods.lib.recipe.set_result("module-contact", {"module-contact", 2})
 
 momoTweak.set_amount_ingredient("module-circuit-board", {"tin-plate", 4})
-momoTweak.set_amount_ingredient("module-circuit-board", {"copper-plate", 5})
+momoTweak.set_amount_ingredient("module-circuit-board", {"copper-plate", 3})
 momoTweak.replace_with_ingredient("module-circuit-board", "phenolic-board", {ele.circuit[2], 4})
 bobmods.lib.recipe.add_ingredient("module-circuit-board", {"silver-plate", 3})
 

@@ -32,7 +32,7 @@ momoTweak.createRecipe(sci_cat, {{"red-sci", 5}},
   {
     {momoTweak.sci1, 2},
     {ele.circuit[1], 3},
-	{"copper-plate", 3}
+	{"copper-plate", 1}
   }, 5, tech_sci_2)
 
 momoTweak.createRecipe("crafting", {{"building-pack", 1}},

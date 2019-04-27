@@ -1,21 +1,24 @@
+v. 0.17.28
+- adjust some recipe that use copper plate
+---------------------------------------------------------------------------------------------------
 v. 0.17.25
 - adjust bobExtended electronics ingredients
 - move some recipe to bob's electrolysis machine
 - can now craft molten liquid copper from gold
 - fix missing technology from angel's bio
-
+---------------------------------------------------------------------------------------------------
 v. 0.17.24
 - angels machine now use more varient pipe
 - nerf evolution nullifier
 - [WIP] init py compatibility.(not have effect yet)
-
+---------------------------------------------------------------------------------------------------
 v. 0.17.23
 - higher tier science pack need to craft in higher tier assembling machine
-
+---------------------------------------------------------------------------------------------------
 v. 0.17.22
 - improve addition evolution reduce function
 - most recipe now use more interesting material to craft
-
+---------------------------------------------------------------------------------------------------
 v. 0.17.21
 - add green algae to solid alginic acid
 - fix higher tier bobextended underground belt don't unlock
@@ -24,19 +27,19 @@ v. 0.17.21
 - add battery to some science
 - add evolution nullifier
 - add recipe cellulose fiber from wood plup
-
+---------------------------------------------------------------------------------------------------
 v. 0.17.20
 - decrease overall cost in harder logistic
 - add time evolution reduction
 - balanced recipe for angel-bio compatibility
 - balanced angels storage tank
 - remove redundant valve from angels and advanced fluid handling
-
+---------------------------------------------------------------------------------------------------
 v. 0.17.19
 - fix electric-energy-accumulators-1 => electric-energy-accumulators
 - add function to get momo sci category
 - add temp fix for MSP-9
-
+---------------------------------------------------------------------------------------------------
 v. 0.17.18
 - fix recipe missing machine
 
