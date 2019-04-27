@@ -13,13 +13,13 @@ local aboretum_category = "angels-arboretum"
 local press_category = "bio-pressing"
 local procss_category = "bio-processor"
 
-local aboretum_tech = "bio-aboretum-1"
-local aboretum_tech2 = "bio-aboretum-2"
-local aboretum_tech3 = "bio-aboretum-3"
+local aboretum_tech = "bio-arboretum-1"
+local aboretum_tech2 = "bio-arboretum-2"
+local aboretum_tech3 = "bio-arboretum-3"
 local biome_tech = {}
-biome_tech.temp = "bio-aboretum-temperate"
-biome_tech.desert = "bio-aboretum-desert"
-biome_tech.swamp = "bio-aboretum-swamp"
+biome_tech.temp = "bio-arboretum-temperate"
+biome_tech.desert = "bio-arboretum-desert"
+biome_tech.swamp = "bio-arboretum-swamp"
 
 local catalyst = {}
 catalyst.metal = "catalyst-metal-carrier"
@@ -169,6 +169,10 @@ function momoTweak.angel_bio_final()
 		bobmods.lib.recipe.add_ingredient(sample, {"solid-alginic-acid", 2})
 	end
 	
+end
+
+function momoTweak.angel_electrolysis_recipe()
+	data.raw.recipe["solid-alginic-acid"].category = "electrolysis"
 end
 
 momoTweak.angel_bio_data()

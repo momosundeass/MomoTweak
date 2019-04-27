@@ -1,6 +1,7 @@
 -- cable
 local multipler = settings.startup["momo-expensive-wire-electronics"].value
 local copperL = "liquid-molten-copper"
+
 if multipler ~= 1 then
 momoTweak.multiple_amount_ingredient("copper-cable", "copper-plate", multipler)
 	if data.raw.item["angels-wire-coil-copper"] then
@@ -25,7 +26,7 @@ momoTweak.multiple_amount_ingredient("copper-cable", "copper-plate", multipler)
 end
 
 -- Copper recipe -----------------------------------------------------
-if data.raw.fluid[copperL] then
+if data.raw.fluid[copperL] and multipler > 1 then
 	data:extend({
 		{
 			  type = "recipe",
@@ -39,32 +40,66 @@ if data.raw.fluid[copperL] then
 				  {"ingot-silver", 12}
 			  },
 			  results = {
-				{type="fluid", name=copperL, amount=240}
+				  {type="fluid", name=copperL, amount=240}
 			  }
-		}
-	})
-	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-2", "momo-copper-molten-silver")
-	if data.raw.item["ingot-magnesium"] then
-		data:extend({
+		},
 		{
 			  type = "recipe",
-			  name = "momo-copper-molten-magnesium-tin",
+			  name = "momo-copper-molten-gold",
 			  enabled = "false",
 			  energy_required = 4,
 			  category = "induction-smelting",
 			  subgroup = "angels-copper-casting",
 			  ingredients = {
 				  {"ingot-copper", 12},
-				  {"ingot-tin", 18},
-				  {"ingot-magnesium", 6}
+				  {"ingot-gold", 6}
 			  },
 			  results = {
-				{type="fluid", name=copperL, amount=360}
+				  {type="fluid", name=copperL, amount=180}
 			  }
-		}
-	  })
-		bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-2", "momo-copper-molten-magnesium-tin")
-	 end
+		},
+	})
+	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-2", "momo-copper-molten-silver")
+	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-2", "momo-copper-molten-gold")
+	
+	if data.raw.item["ingot-magnesium"] then
+		data:extend({
+			{
+				type = "recipe",
+				name = "momo-copper-molten-magnesium-tin",
+				enabled = "false",
+				energy_required = 4,
+				category = "induction-smelting",
+				subgroup = "angels-copper-casting",
+				ingredients = {
+					{"ingot-copper", 12},
+					{"ingot-tin", 18},
+					{"ingot-magnesium", 6}
+				},
+				results = {
+					{type="fluid", name=copperL, amount=360}
+				}
+			},
+			{
+				type = "recipe",
+				name = "momo-copper-molten-magnesium-gold",
+				enabled = "false",
+				energy_required = 4,
+				category = "induction-smelting",
+				subgroup = "angels-copper-casting",
+				ingredients = {
+					{"ingot-copper", 6},
+					{"ingot-gold", 12},
+					{"ingot-magnesium", 12}
+				},
+				results = {
+					{type="fluid", name=copperL, amount=300}
+				}
+			},
+	    })
+	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-3", "momo-copper-molten-magnesium-tin")
+	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-3", "momo-copper-molten-magnesium-gold")
+	end
 end
 
 -- Platinum ore -----------------------------------------------------
