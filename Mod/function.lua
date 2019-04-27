@@ -212,7 +212,7 @@ function momoTweak.createRecipe(cat ,results, ingredients, energy, tech, extrana
     if data.raw["technology"][tech] then
       bobmods.lib.tech.add_recipe_unlock(tech, namegen)
     else 
-      error("No tech with name => ".. tech)
+      log("MTLK :Warning: No tech with name => ".. tech)
     end
   end
   

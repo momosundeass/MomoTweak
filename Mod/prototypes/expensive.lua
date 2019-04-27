@@ -45,14 +45,14 @@ if data.raw.fluid[copperL] and multipler > 1 then
 		},
 		{
 			  type = "recipe",
-			  name = "momo-copper-molten-lead",
+			  name = "momo-copper-molten-gold",
 			  enabled = "false",
 			  energy_required = 4,
 			  category = "induction-smelting",
 			  subgroup = "angels-copper-casting",
 			  ingredients = {
 				  {"ingot-copper", 12},
-				  {"ingot-lead", 6}
+				  {"ingot-gold", 6}
 			  },
 			  results = {
 				  {type="fluid", name=copperL, amount=180}
@@ -60,7 +60,7 @@ if data.raw.fluid[copperL] and multipler > 1 then
 		},
 	})
 	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-2", "momo-copper-molten-silver")
-	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-2", "momo-copper-molten-lead")
+	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-2", "momo-copper-molten-gold")
 	
 	if data.raw.item["ingot-magnesium"] then
 		data:extend({
@@ -82,15 +82,15 @@ if data.raw.fluid[copperL] and multipler > 1 then
 			},
 			{
 				type = "recipe",
-				name = "momo-copper-molten-magnesium-lead",
+				name = "momo-copper-molten-magnesium-gold",
 				enabled = "false",
 				energy_required = 4,
 				category = "induction-smelting",
 				subgroup = "angels-copper-casting",
 				ingredients = {
-					{"ingot-copper", 18},
-					{"ingot-lead", 6},
-					{"ingot-magnesium", 6}
+					{"ingot-copper", 6},
+					{"ingot-gold", 12},
+					{"ingot-magnesium", 12}
 				},
 				results = {
 					{type="fluid", name=copperL, amount=300}
@@ -98,7 +98,7 @@ if data.raw.fluid[copperL] and multipler > 1 then
 			},
 	    })
 	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-3", "momo-copper-molten-magnesium-tin")
-	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-3", "momo-copper-molten-magnesium-lead")
+	bobmods.lib.tech.add_recipe_unlock("angels-copper-smelting-3", "momo-copper-molten-magnesium-gold")
 	end
 end
 

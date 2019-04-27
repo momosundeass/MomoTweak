@@ -1,7 +1,8 @@
 v. 0.17.25
 - adjust bobExtended electronics ingredients
 - move some recipe to bob's electrolysis machine
-
+- can now craft molten liquid copper from gold
+- fix missing technology from angel's bio
 
 v. 0.17.24
 - angels machine now use more varient pipe
