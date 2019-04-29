@@ -6,6 +6,7 @@ if not momoTweak.load_sci_recipe_in_update then
 	require("prototypes.sci.sci30recipe")
 	require("prototypes.sci.sci30extreme")
 	momoTweak.sct.add_to_technology()
+	momoTweak.sct.post_process_recipe()
 end
 require("prototypes.sci.final-fix")
 
@@ -66,6 +67,9 @@ if settings.startup["momo-fix-angels-chemistry-machine"].value then
 end
 
 require("prototypes.sci.sci30result-preset")
+if not momoTweak.load_sci_recipe_in_update then
+	momoTweak.sct.increase_science_pack_amount()
+end
 require("prototypes.sci.vial-recipe")
 require("prototypes.machine-restriction")
 

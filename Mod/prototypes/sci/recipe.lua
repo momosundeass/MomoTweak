@@ -238,7 +238,6 @@ momoTweak.assign_ingredients(momoTweak.sciLogistic, {
 ifSCT_add(momoTweak.sciLogistic, {"sct-logistic", 1})
 ifNotSCT_add(momoTweak.sciLogistic, {"building-pack", 5})
 
-
 ------------------------------------------------------------------------------------------
 bobmods.lib.recipe.remove_ingredient(momoTweak.sciTech, "silicon-nitride")
 bobmods.lib.recipe.remove_ingredient(momoTweak.sciTech, "electric-engine-unit")
