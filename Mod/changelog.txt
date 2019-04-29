@@ -1,5 +1,12 @@
-v. 0.17.28
+v. 0.17.26
+
+- TODO : check for sct-logistic technology unlock
+- TODO : check for missing bob-logistic-4, 5 in data 
+- TODO : Multiple result count for science if sct or py load
+
 - adjust some recipe that use copper plate
+- fix missing technology for sct-materials recipe
+- fix varient recipe bugs
 ---------------------------------------------------------------------------------------------------
 v. 0.17.25
 - adjust bobExtended electronics ingredients

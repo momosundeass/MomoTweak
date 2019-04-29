@@ -212,7 +212,9 @@ function momoTweak.createRecipe(cat ,results, ingredients, energy, tech, extrana
     if data.raw["technology"][tech] then
       bobmods.lib.tech.add_recipe_unlock(tech, namegen)
     else 
-      log("MTLK :Warning: No tech with name => ".. tech)
+	  if tech ~= false then
+         log("MTLK :Warning: No tech with name => " .. tostring(tech))
+	  end
     end
   end
   
@@ -295,8 +297,8 @@ function momoTweak.get_techs_of_recipe(recipe)
 end
 
 function momoTweak.get_tech_of_recipe_no_demo(recipe)
-	local finded = momoTweak.get_techs_of_recipe(recipe)
-	for	i, name in pairs(finded) do
+	local found = momoTweak.get_techs_of_recipe(recipe)
+	for	i, name in pairs(found) do
 		if not (string.match(name, "demo")) then
 			return name
 		end

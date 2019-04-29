@@ -3,35 +3,55 @@ momoTweak.sct.recipe = {}
 
 local sci_cat = momoTweak.getSciCategory()
 
-local scts =    {"sct-2",        "sct-gun",        "sct-3",        "sct-production",        "sct-logistic",        "sct-high"}
-local refSci =  {momoTweak.sci2, momoTweak.sciGun, momoTweak.sci3, momoTweak.sciProduction, momoTweak.sciLogistic, momoTweak.sciTech}
-local timeMap = {5,              8,                10,             10,                      10,                    15}
+local scts =       {"sct-2",        "sct-gun",        "sct-3",        "sct-production",        "sct-logistic",        "sct-high"}
+local refSciPack = {momoTweak.sci2, momoTweak.sciGun, momoTweak.sci3, momoTweak.sciProduction, momoTweak.sciLogistic, momoTweak.sciTech}
+local timeMap =    {5,              8,                10,             10,                      10,                    15}
 
-local ref = data.raw.recipe[momoTweak.sci1].subgroup 
+
+local refSubgroup = data.raw.recipe[momoTweak.sci1].subgroup 
 
 if (momoTweak.py.coal) then
-	ref = "science-pack"
+	refSubgroup = "science-pack"
 	data:extend({
 		{
 			type = "item-subgroup",
 			name = "science-pack-py-com",
-			group = data.raw["item-subgroup"][ref].group,
+			group = data.raw["item-subgroup"][refSubgroup].group,
 			order = "zzzzz"
 		}
 	})
-	for i, sci in pairs(refSci) do
+	for i, sci in pairs(refSciPack) do
 		data.raw.recipe[sci].subgroup = "science-pack-py-com"
 	end
 end
 
-data.raw["item-subgroup"]["momo-science-materials"].group = data.raw["item-subgroup"][ref].group
+data.raw["item-subgroup"]["momo-science-materials"].group = data.raw["item-subgroup"][refSubgroup].group
 data.raw["item-subgroup"]["momo-science-materials"].order = "zzz"
 
 for i, item in pairs(scts) do
-	momoTweak.sct.recipe[item] = momoTweak.createRecipe(sci_cat, {{item, 1}}, 
+	momoTweak.sct.recipe[item] = momoTweak.createRecipe(
+		sci_cat, 
+		{{item, 1}}, 
 		{}, 
-		timeMap[i], momoTweak.get_tech_of_recipe_no_demo(refSci[i])
+		timeMap[i], 
+		false
 	)
-	data.raw.recipe[momoTweak.sct.recipe[item]].subgroup = data.raw.recipe[refSci[i]].subgroup
+	data.raw.recipe[momoTweak.sct.recipe[item]].subgroup = data.raw.recipe[refSciPack[i]].subgroup
+end
+
+function momoTweak.sct.add_to_technology()
+	local refTech = {
+		momoTweak.get_tech_of_recipe_no_demo(refSciPack[1]),
+		momoTweak.get_tech_of_recipe(refSciPack[2]),
+		momoTweak.get_tech_of_recipe(refSciPack[3]),
+		momoTweak.get_tech_of_recipe(refSciPack[4]),
+		momoTweak.get_tech_of_recipe(refSciPack[5]),
+		momoTweak.get_tech_of_recipe(refSciPack[6]),
+	}
+	local count = 1
+	for i, recipe in pairs(momoTweak.sct.recipe) do
+		bobmods.lib.tech.add_recipe_unlock(refTech[count], recipe)
+		count = count + 1
+	end
 end
 

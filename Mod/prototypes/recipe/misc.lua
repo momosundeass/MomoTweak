@@ -57,6 +57,6 @@ if data.raw.recipe["bi_recipe_basic_dart_magazine"] then
 end
 
 bobmods.lib.recipe.add_ingredient("grinding-wheel", {"zinc-plate", 4})
-bobmods.lib.recipe.add_ingredient("polishing-wheel ", {"nickel-plate", 5})
+bobmods.lib.recipe.add_ingredient("polishing-wheel", {"nickel-plate", 5})
 
 

@@ -5,6 +5,7 @@ if not momoTweak.load_sci_recipe_in_update then
 	require("prototypes.sci.recipe")
 	require("prototypes.sci.sci30recipe")
 	require("prototypes.sci.sci30extreme")
+	momoTweak.sct.add_to_technology()
 end
 require("prototypes.sci.final-fix")
 

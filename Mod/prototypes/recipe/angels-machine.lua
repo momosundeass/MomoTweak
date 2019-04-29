@@ -34,8 +34,8 @@ momoTweak.replace_with_ingredient("advanced-chemical-plant", "pipe", {"bronze-pi
 momoTweak.replace_with_ingredient("angels-electrolyser-2",     "steel-pipe", {"bronze-pipe", 39})
 momoTweak.replace_with_ingredient("angels-chemical-plant-2",   "steel-pipe", {"bronze-pipe", 15})
 momoTweak.replace_with_ingredient("chemical-plant-2",          "steel-pipe", {"bronze-pipe", 8})
-momoTweak.replace_with_ingredient("oil-refinery-2 ",           "steel-pipe", {"bronze-pipe", 36})
-momoTweak.replace_with_ingredient("liquifier-2 ",              "steel-pipe", {"bronze-pipe", 8})
+momoTweak.replace_with_ingredient("oil-refinery-2",           "steel-pipe", {"bronze-pipe", 36})
+momoTweak.replace_with_ingredient("liquifier-2",              "steel-pipe", {"bronze-pipe", 8})
 
 
 momoTweak.replace_with_ingredient("angels-air-filter-2",       "steel-pipe", {"plastic-pipe", 30})
