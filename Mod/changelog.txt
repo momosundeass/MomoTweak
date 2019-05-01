@@ -2,6 +2,8 @@ v. 0.17.26
 - adjust some recipe that use copper plate
 - fix missing technology for sct-materials recipe
 - fix varient recipe bugs
+- fix crash when not load angel's bio
+- fix crash when sct and omnilin load together
 ---------------------------------------------------------------------------------------------------
 v. 0.17.25
 - adjust bobExtended electronics ingredients

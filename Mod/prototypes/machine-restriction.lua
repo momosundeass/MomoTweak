@@ -17,11 +17,13 @@ local crafting_2 = "momo-pack-crafting-level-2"
 local crafting_3 = "momo-pack-crafting-level-3"
 local crafting_4 = "momo-pack-crafting-level-4"
 
+table.insert(data.raw["assembling-machine"]["assembling-machine-2"].crafting_categories, crafting_2)
 table.insert(data.raw["assembling-machine"]["assembling-machine-3"].crafting_categories, crafting_2)
 table.insert(data.raw["assembling-machine"]["assembling-machine-4"].crafting_categories, crafting_2)
 table.insert(data.raw["assembling-machine"]["assembling-machine-5"].crafting_categories, crafting_2)
 table.insert(data.raw["assembling-machine"]["assembling-machine-6"].crafting_categories, crafting_2)
 
+table.insert(data.raw["assembling-machine"]["assembling-machine-3"].crafting_categories, crafting_3)
 table.insert(data.raw["assembling-machine"]["assembling-machine-4"].crafting_categories, crafting_3)
 table.insert(data.raw["assembling-machine"]["assembling-machine-5"].crafting_categories, crafting_3)
 table.insert(data.raw["assembling-machine"]["assembling-machine-6"].crafting_categories, crafting_3)

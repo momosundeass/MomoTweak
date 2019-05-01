@@ -166,7 +166,7 @@ momoTweak.createRecipe(sci_cat, {{"py-superconductor", 4}},
 
 if IsScienceCostM then
 	local function clearUp(itemref, recipe)
-		for i, ing in pairs(momoTweak.get_gen_recipe(itemref).ingredients) do
+		for i, ing in pairs(momoTweak.get_gen_recipe(itemref).ingredients or momoTweak.get_gen_recipe(itemref).normal.ingredients) do
 			bobmods.lib.recipe.remove_ingredient(recipe, ing[0])
 		end
 		
