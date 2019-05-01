@@ -133,13 +133,9 @@ bobmods.lib.recipe.add_ingredient(toolC .. "-4", {"silver-plate", 9})
 
 bobmods.lib.recipe.add_ingredient("flying-robot-frame", {"zinc-plate", 6})
 
-bobmods.lib.recipe.add_ingredient(door, {"nickel-plate", 15})
-bobmods.lib.recipe.add_ingredient(antenna, {"nickel-plate", 4})
-bobmods.lib.recipe.add_ingredient(chargepad, {"nickel-plate", 2})
-
-bobmods.lib.recipe.add_ingredient(door, {"nickel-plate", 20})
-bobmods.lib.recipe.add_ingredient(chargepad, {"nickel-plate", 2})
-
+bobmods.lib.recipe.add_ingredient(door      .. "-1", {"nickel-plate", 15})
+bobmods.lib.recipe.add_ingredient(antenna   .. "-1", {"nickel-plate", 4})
+bobmods.lib.recipe.add_ingredient(chargepad .. "-1", {"nickel-plate", 2})
 
 local types = {"passive-provider", "active-provider", "storage", "requester", "buffer"}
 for i, t in pairs(types) do

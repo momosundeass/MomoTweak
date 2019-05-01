@@ -103,9 +103,10 @@ momoTweak.add_ingredients(recipes["sct-high"], {
 	{"sct-htech-random"  , 1}
 })
 
-momoTweak.add_ingredients(recipes["sct-logistic"], {
-	{"sct-logistic-cargo-unit" , 1},
-	{"sct-logistic-memory-unit", 1},
-	{"movement-pack", 3}
-})
-
+function momoTweak.sct.post_process_recipe() 
+	bobmods.lib.recipe.remove_ingredient(momoTweak.sciLogistic, "sct-logistic")
+	momoTweak.add_ingredients(momoTweak.genRecipeNameFromResult({"logistic-express", 1}), {
+		{"movement-pack", 3},
+		{"fast-inserter", 2}
+	})
+end

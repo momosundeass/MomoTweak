@@ -19,7 +19,6 @@ momoTweak.replace_with_ingredient("casting-machine-2",         "steel-pipe", {"b
 momoTweak.replace_with_ingredient("hydro-plant-2", "pipe", {"bronze-pipe", 48})
 
 momoTweak.replace_with_ingredient("washing-plant", "pipe", {"stone-pipe", 30})
-momoTweak.replace_with_ingredient("washing-plant-2", "steel-pipe", {"bronze-pipe", 30})
 -- angels-air-filter  separator  gas-refinery-small  advanced-chemical-plant  chemical-plant 
 
 momoTweak.replace_with_ingredient("angels-air-filter",       "pipe", {"stone-pipe", 25})
@@ -34,8 +33,8 @@ momoTweak.replace_with_ingredient("advanced-chemical-plant", "pipe", {"bronze-pi
 momoTweak.replace_with_ingredient("angels-electrolyser-2",     "steel-pipe", {"bronze-pipe", 39})
 momoTweak.replace_with_ingredient("angels-chemical-plant-2",   "steel-pipe", {"bronze-pipe", 15})
 momoTweak.replace_with_ingredient("chemical-plant-2",          "steel-pipe", {"bronze-pipe", 8})
-momoTweak.replace_with_ingredient("oil-refinery-2 ",           "steel-pipe", {"bronze-pipe", 36})
-momoTweak.replace_with_ingredient("liquifier-2 ",              "steel-pipe", {"bronze-pipe", 8})
+momoTweak.replace_with_ingredient("oil-refinery-2",           "steel-pipe", {"bronze-pipe", 36})
+momoTweak.replace_with_ingredient("liquifier-2",              "steel-pipe", {"bronze-pipe", 8})
 
 
 momoTweak.replace_with_ingredient("angels-air-filter-2",       "steel-pipe", {"plastic-pipe", 30})

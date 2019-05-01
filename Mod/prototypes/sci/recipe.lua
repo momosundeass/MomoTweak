@@ -32,7 +32,7 @@ momoTweak.createRecipe(sci_cat, {{"red-sci", 5}},
   {
     {momoTweak.sci1, 2},
     {ele.circuit[1], 3},
-	{"copper-plate", 3}
+	{"copper-plate", 1}
   }, 5, tech_sci_2)
 
 momoTweak.createRecipe("crafting", {{"building-pack", 1}},
@@ -166,7 +166,7 @@ momoTweak.createRecipe(sci_cat, {{"py-superconductor", 4}},
 
 if IsScienceCostM then
 	local function clearUp(itemref, recipe)
-		for i, ing in pairs(momoTweak.get_gen_recipe(itemref).ingredients) do
+		for i, ing in pairs(momoTweak.get_gen_recipe(itemref).ingredients or momoTweak.get_gen_recipe(itemref).normal.ingredients) do
 			bobmods.lib.recipe.remove_ingredient(recipe, ing[0])
 		end
 		
@@ -237,7 +237,6 @@ momoTweak.assign_ingredients(momoTweak.sciLogistic, {
 })
 ifSCT_add(momoTweak.sciLogistic, {"sct-logistic", 1})
 ifNotSCT_add(momoTweak.sciLogistic, {"building-pack", 5})
-
 
 ------------------------------------------------------------------------------------------
 bobmods.lib.recipe.remove_ingredient(momoTweak.sciTech, "silicon-nitride")
