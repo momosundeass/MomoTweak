@@ -50,7 +50,12 @@ end
 
 function momoTweak.ReworkPressureTank()
 	if (data.raw["storage-tank"]["angels-pressure-tank-1"]) then
-		data.raw["storage-tank"]["angels-pressure-tank-1"].fluid_box.base_area = data.raw["storage-tank"]["angels-pressure-tank-1"].fluid_box.base_area / 7 
+		momoTweak.replace_with_ingredient("angels-pressure-tank-1", "steel-plate", {"steel-plate", 50})
+		momoTweak.replace_with_ingredient("angels-pressure-tank-1", "stone-brick", {"stone-brick", 70})
+		bobmods.lib.recipe.add_ingredient("angels-pressure-tank-1", {momoTweak.ele.circuit[1], 20})
+		if (settings.startup["momo-enable-bob-extend-frame"].value) then+
+			bobmods.lib.recipe.add_ingredient("angels-pressure-tank-1", {"basic-structure-components", 4})
+		end
 	end
 	data.raw["storage-tank"]["angels-storage-tank-1"].fluid_box.base_area = 600
 	data.raw["storage-tank"]["angels-storage-tank-2"].fluid_box.base_area = 400
