@@ -138,7 +138,7 @@ momoTweak.createRecipe(category,
 	{
 		{CON.a, 8},
 		{MEM.a, 2},
-		{"lithium", 1 * generalFactor},
+		{"lead-plate", 1 * generalFactor},
 		{"silver-plate", 2 * generalFactor},
 	}, 3 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[2])
 )
@@ -151,7 +151,7 @@ momoTweak.createRecipe(category,
 		{ELE.comp[2], 6},
 		{ELE.cable[2], 4 * copperFactor},
 		{"gold-plate", 3 * generalFactor},
-		{"solder", 2 * generalFactor}
+		{"lithium", 2 * generalFactor}
 	}, 4 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[3])
 )
 momoTweak.replace_with_ingredient(ELE.circuit[4], "gold-plate", {CON.c, 1})
@@ -165,7 +165,7 @@ momoTweak.createRecipe(category,
 		{ELE.comp[3], 4},
 		{"silicon-wafer", 6 * generalFactor},
 		{"silicon-nitride", 2},
-		{"solder", 4 * generalFactor}
+		{"lithium", 4 * generalFactor}
 	}, 4 * SPEEDFACTOR, momoTweak.get_tech_of_recipe(ELE.unit[4])
 )
 momoTweak.replace_with_ingredient(ELE.unit[4], ELE.comp[3], {CON.d, 1})

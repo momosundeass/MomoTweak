@@ -1,6 +1,7 @@
 v. 0.17.27
 - add more ingredients to angels-pressure-tank recipe
 - reverse angels-pressure-tank fluid box size
+- fix Controller modular can now craft from lead plate instead of lithium  
 ---------------------------------------------------------------------------------------------------
 v. 0.17.26 
 - adjust some recipe that use copper plate
