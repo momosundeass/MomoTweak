@@ -1,3 +1,6 @@
+v. 0.17.28
+- remove temp fix for sci - 9
+---------------------------------------------------------------------------------------------------
 v. 0.17.27
 - add more ingredients to angels-pressure-tank recipe
 - reverse angels-pressure-tank fluid box size
