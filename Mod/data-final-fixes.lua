@@ -76,9 +76,9 @@ require("prototypes.machine-restriction")
 if (mods["angelsbioprocessing"]) then
 	momoTweak.angel_bio_final()
 end
+momoTweak.angelChemFluidPower()
 
 require("pycom.final")
-
 momoTweak.ReworkAngelIndGroup()
 momoTweak.ReworkPressureTank()
 
