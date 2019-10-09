@@ -1,6 +1,6 @@
 {
   "name": "MomoTweak",
-  "version": "0.17.28",
+  "version": "0.17.29",
   "factorio_version": "0.17",
   "title": "MomoTweak",
   "author": "Momosundeass",
@@ -39,9 +39,8 @@
 	  "? LB-Modular-Chests >= 0.17.7",
 	  
 	  "? pycoalprocessing >= 1.1.5",
-	  "? pyfusionenergy_1.2.0",
+	  "? pyfusionenergy >= 1.2.0",
 	  "? pyhightech >= 1.1.2",
-	  "? PyCoalTBaA >= 0.0.47",
 	  
 	  "? omnilib >= 3.0.4"
   ]
