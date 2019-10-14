@@ -62,6 +62,11 @@ function momoTweak.ReworkPressureTank()
 	data.raw["storage-tank"]["angels-storage-tank-3"].fluid_box.base_area = 100
 end
 
+local function setFluid(fluid, fuel, emissions)
+	data.raw.fluid[fluid].fuel_value = fuel
+	data.raw.fluid[fluid].emissions_multiplier = emissions
+end
+
 function momoTweak.angelChemFluidPower()
 	setFluid("light-oil", "1.5MJ", 2)
 	-- data.raw.fluid["light-oil"].fuel_value = "1.5MJ" --"3MJ"
@@ -69,11 +74,6 @@ function momoTweak.angelChemFluidPower()
 	-- data.raw.fluid["heavy-oil"].fuel_value = "1MJ" --"2MJ"
 	-- data.raw.fluid["heavy-oil"].emissions_multiplier = 3
 	-- data.raw.fluid["petroleum-gas"].fuel_value = "2.3MJ" --"4.6MJ"
-end
-
-local function setFluid(fluid, fuel, emissions)
-	data.raw.fluid[fluid].fuel_value = fuel
-	data.raw.fluid[fluid].emissions_multiplier = emissions
 end
 
 
