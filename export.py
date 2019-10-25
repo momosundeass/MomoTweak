@@ -96,8 +96,8 @@ momoTweakDirectoryName = ExportModDirectory(GetVersion(momoTweak), momoTweak)
 easyEvo = MOD("MomoEasyEvolution", "\\MomoEasyEvolution")
 momoEasyEvoDirectoryName = ExportModDirectory(GetVersion(easyEvo), easyEvo)
 
-irEx = MOD("MomoIRExpanded", "\\MomoIRExpanded")
-momoIRExpandedDirectoryName = ExportModDirectory(GetVersion(irEx), irEx)
+irTweak = MOD("MomoIRTweak", "\\MomoIRTweak")
+momoIRTweakDirectoryName = ExportModDirectory(GetVersion(irTweak), irTweak)
 
 print("\nExport Completed")
 time.sleep(.500)
