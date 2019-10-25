@@ -96,6 +96,9 @@ momoTweakDirectoryName = ExportModDirectory(GetVersion(momoTweak), momoTweak)
 easyEvo = MOD("MomoEasyEvolution", "\\MomoEasyEvolution")
 momoEasyEvoDirectoryName = ExportModDirectory(GetVersion(easyEvo), easyEvo)
 
+irEx = MOD("MomoIRExpanded", "\\MomoIRExpanded")
+momoIRExpandedDirectoryName = ExportModDirectory(GetVersion(irEx), irEx)
+
 print("\nExport Completed")
 time.sleep(.500)
 if not (FindFactorio()):
