@@ -6,8 +6,6 @@ import subprocess
 from pathlib import Path
 
 # const
-MOD_NAME = "MomoTweak"
-MOD_DIRECTORY = "\\Mod"
 INFO = "\\info.json"
 FACTORIO = "factorio.exe"
 
@@ -21,6 +19,15 @@ FactorioPath = ["C:\\Program Files (x86)\\Steam\\steamapps\\common\\Factorio\\bi
 FactorioModsPath = ""
 GitPath = ""
 
+# class
+class MOD:
+  Name = ""
+  Directory = ""
+  def __init__(self, name, directory):
+    self.Name = name
+    self.Directory = directory
+# end of class
+    
 def Init():
   path = os.path.realpath(__file__)
   global GitPath
@@ -31,22 +38,24 @@ def Init():
   print("Factorio Mod Path = " + FactorioModsPath)
   print("GitPath = " + GitPath)
 
-def ZipDirectory(version):
-  directory = GitPath + MOD_DIRECTORY
-  print("Start export Directory :" + directory)
+# Will return mod directory name
+def ExportModDirectory(version, mod):
+  directory = GitPath + mod.Directory
+  print("\nStart export Mod : " + mod.Name)
+  print("Directory :" + directory)
   if (IS_ZIP):
-    shutil.make_archive(MOD_NAME + "_" + version, 'zip', directory)
-    return MOD_NAME + "_" + version + ".zip"
+    shutil.make_archive(mod.Name + "_" + version, 'zip', directory)
+    return modName + "_" + version + ".zip"
   else:
-    target_dir = FactorioModsPath + "\\" + MOD_NAME + "_" + version
+    target_dir = FactorioModsPath + "\\" + mod.Name + "_" + version
     if os.path.isdir(target_dir) :
       shutil.rmtree(target_dir)
     shutil.copytree(directory, target_dir)
-    return MOD_NAME + "_" + version
+    return mod.Name + "_" + version
   return ""
         
-def GetVersion():
-  json_data = open(GitPath + MOD_DIRECTORY + INFO).read()
+def GetVersion(mod):
+  json_data = open(GitPath + mod.Directory + INFO).read()
   info = json.loads(json_data)
   version = info["version"]
   print ("Read " + INFO + " get version = " + version)
@@ -80,13 +89,20 @@ def RunFactorio():
 # == Program ===================================================================
 
 Init()
-zipName = ZipDirectory(GetVersion())
-if IS_ZIP:
-  MoveZipOut(zipName)
-print("Export Completed")
+
+momoTweak = MOD("MomoTweak", "\\Mod")
+momoTweakDirectoryName = ExportModDirectory(GetVersion(momoTweak), momoTweak)
+
+easyEvo = MOD("MomoEasyEvolution", "\\MomoEasyEvolution")
+momoEasyEvoDirectoryName = ExportModDirectory(GetVersion(easyEvo), easyEvo)
+
+print("\nExport Completed")
 time.sleep(.500)
 if not (FindFactorio()):
-  RunFactorio()
-
+  print("\nRun factorio")
+  #RunFactorio()
+else:
+  print("\nFactorio already running please close") 
+    
 time.sleep(5.000)
 
