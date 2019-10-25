@@ -1,0 +1,1 @@
+data.raw.technology["automation"].research_unit_count = 4

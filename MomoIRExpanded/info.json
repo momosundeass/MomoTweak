@@ -1,0 +1,12 @@
+{
+  "name": "MomoIRExpanded",
+  "version": "0.17.1",
+  "factorio_version": "0.17",
+  "title": "Momo Industrial Revolution Krastorio Expanded",
+  "author": "Momosundeass",
+  "dependencies": [
+	  "base >= 0.17.0",
+	  "IndustrialRevolution >= 1.0.6",
+	  "Krastorio >= 1.4.37"
+  ]
+}
