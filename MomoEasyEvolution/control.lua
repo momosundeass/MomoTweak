@@ -1,5 +1,6 @@
-local debugMode = false
-local factor = 0.7
+local isPrint = settings.startup["momo-isPrint"].value
+local factor =  settings.startup["momo-evolutionReductFactor"].value
+
 local evolution_offset = 0.00005
 local addition_evo_offset = 0.4
 local rate = 3600
@@ -10,6 +11,11 @@ local function InitVariable()
 	if not (global.momoEasyEvo.Counter) then global.momoEasyEvo.Counter = 0 end
 end
 
+local function PrintToAll(text)
+	for i, p in pairs(game.players) do
+		p.print(text)
+	end
+end
 local function fixed(number, fix) 
 	fix = fix or "%.0f"
 	return string.format(fix, number) 
@@ -38,13 +44,12 @@ local function evolution_nulifier(current_evo, last_evo, factor)
 	local chance = (1 + (factor - 0.7)) * (last_evo * 38)
 	local null = 0
 	if ((rand % 100) <= chance) then null = current_evo - last_evo end
-	if (debugMode) then
+	if (isPrint) then
 		local text = "Random: " ..fixed(rand % 100).. " - " ..fixed(chance).. " | null => " .. null
+		PrintToAll(text)
 	end
 	return null
 end
-
-local rate = 3600
 
 script.on_nth_tick(rate, function(e)
 	if factor ~= 0 then
@@ -76,10 +81,10 @@ script.on_nth_tick(rate, function(e)
 		
 		game.forces.enemy.evolution_factor = current_evo - reduce
 		global.momoEasyEvo.LastEvolution = game.forces.enemy.evolution_factor
-		if (debugmode) then
+		if (isPrint) then
 			local logtext = "Evolution reduce by " .. fixed_percent(reduce) .. " | Rate: " .. fixed_percent(reduceByRate) 
 				  .. " | Counter: " .. global.momoEasyEvo.Counter .. "=>" .. fixed_percent(addition_reduce)
-			log(logtext)
+			PrintToAll(logtext)
 		end
 	end
 end)

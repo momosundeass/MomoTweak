@@ -102,8 +102,7 @@ momoIRTweakDirectoryName = ExportModDirectory(GetVersion(irTweak), irTweak)
 print("\nExport Completed")
 time.sleep(.500)
 if not (FindFactorio()):
-  print("\nRun factorio")
-  #RunFactorio()
+  RunFactorio()
 else:
   print("\nFactorio already running please close") 
     
