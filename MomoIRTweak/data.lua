@@ -1,6 +1,11 @@
 if not momoIRTweak then momoIRTweak = {} end
+require("function.helper")
 require("function.item")
-require("function.recipes")
+require("function.recipe")
+require("function.technology")
+
+-- flag to make mod only dump data to log
+momoIRTweak.DumpOnly = false
 
 if not momoIRTweak.science then momoIRTweak.science = {} end
 momoIRTweak.science.pack1 = "automation-science-pack"

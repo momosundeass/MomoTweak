@@ -15,7 +15,6 @@ local function CreateBoolSetting(settingName, defaultValue)
 end
 
 local function CreateIntSetting(settingName, defaultValue)
-
 	data:extend({{
 		type = "int-setting",
 		name = settingName,
@@ -41,4 +40,7 @@ CreateBoolSetting("momo-tieredComputer", true)
 
 CreateIntSetting("momo-automationTechnologyCount", 10)
 CreateIntSetting("momo-technologiesTimeMultiplier", 1)
+
+CreateBoolSetting("momo-removeLongInserter", true)
+
 CreateBoolSetting("momo-debug", false)
