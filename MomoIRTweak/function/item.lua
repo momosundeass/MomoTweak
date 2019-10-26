@@ -1,3 +1,5 @@
+momoIRTweak.itemOrder = 0
+
 function momoIRTweak.FastItem(itemName, itemAmount)
 	return {type="item", name=itemName, amount=itemAmount}
 end
@@ -14,20 +16,14 @@ function momoIRTweak.NewItem(itemName, itemSubgroup, maxStack)
 		icon = ICON .. itemName .. ".png",
         icon_size = 32,
 		subgroup = itemSubgroup,
-		order = "item[" .. itemName .. "]",
+		order = "item[" .. momoIRTweak.itemOrder .. "]",
 		stack_size = maxStack
 	}})
+	momoIRTweak.itemOrder = momoIRTweak.itemOrder + 1
+	return data.raw.item[itemName]
 end
 
 local ICON = "__MomoIRTweak__/graphics/icons/"
 function momoIRTweak.NewScienceMaterialsItem(itemName)
-	data:extend({{
-		type = "item",
-		name = itemName,
-		icon = ICON .. itemName .. ".png",
-        icon_size = 32,
-		subgroup = itemSubgroup,
-		order = "item[" .. itemName .. "]",
-		stack_size = 50
-	}})
+	return momoIRTweak.NewItem(itemName, momoIRTweak.science.materialSubgroup, 50)
 end

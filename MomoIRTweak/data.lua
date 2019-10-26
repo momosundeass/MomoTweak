@@ -15,6 +15,10 @@ momoIRTweak.science.packMilitary = "military-science-pack"
 momoIRTweak.science.packProduction = "production-science-pack"
 momoIRTweak.science.packUtility = "utility-science-pack"
 
+momoIRTweak.science.materialSubgroup = "momo-science-materials"
+
+if not momoIRTweak.item then momoIRTweak.item = {} end
+
 data:extend({{
   	type = "custom-input",
   	name = "momo-debug",
@@ -22,11 +26,16 @@ data:extend({{
   	consuming = "script-only"
 }})
 
-local sciencePackSubgroupName = data.raw.tool[momoIRTweak.science.pack1].subgroup
-local refSubgroup = data.raw["item-subgroup"][sciencePackSubgroupName]
+local refSubgroup = data.raw["item-subgroup"]["intermediate-product"]
 data:extend({{
 	type = "item-subgroup",
-	name = "momo-science-materials",
+	name = momoIRTweak.science.materialSubgroup,
 	group = refSubgroup.group,
 	order = refSubgroup.order .. "zzzz"
 }})
+
+
+
+if not (momoIRTweak.DumpOnly) then
+	require("prototypes.data-science-materials")
+end
