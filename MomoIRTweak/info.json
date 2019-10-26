@@ -6,7 +6,9 @@
   "author": "Momosundeass",
   "dependencies": [
 	  "base >= 0.17.0",
+	  "stdlib >= 1.3.0",
 	  "IndustrialRevolution >= 1.0.6",
-	  "Krastorio >= 1.4.37"
+	  "Krastorio >= 1.4.37",
+	  "?bobinserters >= 0.17.10"
   ]
 }
