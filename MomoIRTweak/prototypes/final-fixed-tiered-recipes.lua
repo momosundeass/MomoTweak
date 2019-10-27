@@ -50,6 +50,18 @@ if (settings.startup["momo-tieredAssembler"].value) then
 	AddIng("advanced-assembler", ITEM("assembling-machine-3", 1))
 end
 
+if (settings.startup["momo-tieredFurnace"].value) then
+	AddIng("bronze-furnace", ITEM("stone-age-furnace", 1))
+	AddIng("iron-furnace", ITEM("bronze-furnace", 1))
+	AddIng("steel-age-furnace", ITEM("iron-furnace", 1))
+	AddIng("k-advanced-furnace", ITEM("steel-age-furnace", 5))	
+end
+
+if (settings.startup["momo-tieredCrusher"].value) then
+	AddIng("iron-grinder", ITEM("bronze-grinder", 1))
+	AddIng("steel-grinder", ITEM("iron-grinder", 1))
+end
+
 if (settings.startup["momo-tieredComputer"].value) then
 	AddIng("computer-mk2", ITEM("computer-mk1", 1))
 	AddIng("computer-mk2-2", ITEM("computer-mk1", 1))

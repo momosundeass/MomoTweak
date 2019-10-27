@@ -36,6 +36,8 @@ CreateBoolSetting("momo-tieredBelt", true)
 CreateBoolSetting("momo-tieredInserter", true)
 CreateBoolSetting("momo-tieredMotor", true)
 CreateBoolSetting("momo-tieredAssembler", true)
+CreateBoolSetting("momo-tieredFurnace", true)
+CreateBoolSetting("momo-tieredCrusher", true)
 CreateBoolSetting("momo-tieredComputer", true)
 
 CreateIntSetting("momo-automationTechnologyCount", 10)
