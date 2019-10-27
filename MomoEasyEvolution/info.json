@@ -1,7 +1,12 @@
 {
-  "name": "MomoEasyEvolution",
-  "version": "0.17.1",
-  "factorio_version": "0.17",
-  "title": "Momo Easy Evolution",
-  "author": "Momosundeass"
+	"name": "MomoEasyEvolution",
+	"version": "0.17.1",
+	"factorio_version": "0.17",
+	"title": "Momo Easy Evolution",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "Bitter evolution will decrease overtime base on current bitter evolution",
+	"dependencies": [
+		"base >= 0.17.0"
+	]
 }

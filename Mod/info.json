@@ -4,8 +4,7 @@
   "factorio_version": "0.17",
   "title": "MomoTweak",
   "author": "Momosundeass",
-  "contact": "",
-  "homepage": "",
+  "homepage": "https://github.com/momosundeass/MomoTweak",
   "description": "Add more complex crafting for science compatible with Bob's Angel's +30 new Science Pack mod && Tweak for some mod",
   "dependencies": [
 	  "base >= 0.17.0",
