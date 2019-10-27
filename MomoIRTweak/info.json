@@ -5,7 +5,7 @@
 	"title": "Momo Industrial Revolution Krastorio Tweak",
 	"author": "Momosundeass",
 	"homepage": "https://github.com/momosundeass/MomoTweak",
-	"description": "Add more complex crafting for science compatible require Industrial Revolution & Krastorio, Tweak for some mod",
+	"description": "Add more complex science crafting for Industrial Revolution & Krastorio, Tweak for some mod",
 	"dependencies": [
 		"base >= 0.17.0",
 		"stdlib >= 1.3.0",

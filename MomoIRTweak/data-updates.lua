@@ -3,10 +3,13 @@ if not (momoIRTweak.DumpOnly) then
 	-- write updates here
 	require("prototypes.updates-science-materials")
 	
-	if (settings.startup["momo-removeLongInserter"].value) then
-		require("prototypes.remove-long-inserter")
+	if (mods["bobinserters"]) then
+		require("compatibility.bobinserters")
 	end
-
+	
+	if (mods["underground-pipe-pack"]) then
+		require("compatibility.underground-pipe-pack")
+	end
 
 
 end

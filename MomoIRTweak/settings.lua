@@ -42,5 +42,6 @@ CreateIntSetting("momo-automationTechnologyCount", 10)
 CreateIntSetting("momo-technologiesTimeMultiplier", 1)
 
 CreateBoolSetting("momo-removeLongInserter", true)
+CreateBoolSetting("momo-moveUndergroundPipePack", true)
 
 CreateBoolSetting("momo-debug", false)
