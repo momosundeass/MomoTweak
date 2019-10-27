@@ -4,6 +4,10 @@ function momoIRTweak.FastItem(itemName, itemAmount)
 	return {type="item", name=itemName, amount=itemAmount}
 end
 
+function momoIRTweak.FastFluid(fluidName, fluidAmount)
+	return {type="fluid", name=fluidName, amount=fluidAmount}
+end
+
 function momoIRTweak.FastSciencePack(itemName, itemAmount)
 	return {itemName, itemAmount}
 end

@@ -9,7 +9,6 @@ local SCI = momoIRTweak.science
 local ingredients = table.deep_copy(data.raw.recipe[SCI.pack2].ingredients)
 local recipe = momoIRTweak.NewRecipe("crafting", item.spp1.name, 1, ingredients, 4)
 Rep(SCI.pack2, {ITEM(item.spp1.name, 1), ITEM(item.vial.name, 1)})
-recipe.enabled = true
 
 -- this need to hard code cause there are demo tech
 momoIRTweak.AddUnlockEffect("logistic-science-pack", recipe.name)

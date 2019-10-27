@@ -5,6 +5,8 @@ if not (momoIRTweak.DumpOnly) then
 	require("prototypes.final-fixed-technogies")
 	require("prototypes.final-fixed-tiered-recipes")
 	
+	require("prototypes.matter-to-science-pack")
+	
 	-- adjust subgroup
 	local refSubgroup = data.raw["item-subgroup"]["intermediate-product"]
 	data.raw["item-subgroup"][momoIRTweak.science.materialSubgroup].group = refSubgroup.group
