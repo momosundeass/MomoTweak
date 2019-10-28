@@ -1,4 +1,8 @@
 if not momoIRTweak then momoIRTweak = {} end
+if not momoIRTweak.dir then momoIRTweak.dir = {} end
+if not momoIRTweak.item then momoIRTweak.item = {} end
+if not momoIRTweak.science then momoIRTweak.science = {} end
+
 require("function.helper")
 require("function.item")
 require("function.recipe")
@@ -6,8 +10,6 @@ require("function.technology")
 
 -- flag to make mod only dump data to log
 momoIRTweak.DumpOnly = false
-
-if not momoIRTweak.science then momoIRTweak.science = {} end
 momoIRTweak.science.pack1 = "automation-science-pack"
 momoIRTweak.science.pack2 = "logistic-science-pack"
 momoIRTweak.science.pack3 = "chemical-science-pack"
@@ -17,7 +19,7 @@ momoIRTweak.science.packUtility = "utility-science-pack"
 
 momoIRTweak.science.materialSubgroup = "momo-science-materials"
 
-if not momoIRTweak.item then momoIRTweak.item = {} end
+momoIRTweak.science.isHarderPack = settings.startup["momo-harderSciencePackRecipe"].value
 
 data:extend({{
   	type = "custom-input",

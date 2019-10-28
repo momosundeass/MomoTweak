@@ -14,6 +14,17 @@ local function CreateBoolSetting(settingName, defaultValue)
 	}})
 end
 
+local function CreateStringSetting(settingName, defaultValue)
+	data:extend({{
+		type = "string-setting",
+		name = settingName,
+		setting_type = "startup",
+		default_value = defaultValue,
+		order = AutoOrder(),
+		allow_blank = true,
+	}}) 
+end
+
 local function CreateIntSetting(settingName, defaultValue)
 	data:extend({{
 		type = "int-setting",
@@ -21,8 +32,7 @@ local function CreateIntSetting(settingName, defaultValue)
 		setting_type = "startup",
 		default_value = defaultValue,
 		order = AutoOrder(),
-	}})
-	   
+	}}) 
 end
 
 
@@ -31,7 +41,13 @@ end
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 
+CreateBoolSetting("momo-useHighResolution", true)
+
+---------------------------------------------------------------------------------------------------
+CreateStringSetting("momo-headerRecipe", "")
+
 CreateBoolSetting("momo-tieredSciencePack", true)
+CreateBoolSetting("momo-harderSciencePackRecipe", true)
 CreateBoolSetting("momo-tieredBelt", true)
 CreateBoolSetting("momo-tieredInserter", true)
 CreateBoolSetting("momo-tieredMotor", true)
@@ -40,10 +56,19 @@ CreateBoolSetting("momo-tieredFurnace", true)
 CreateBoolSetting("momo-tieredCrusher", true)
 CreateBoolSetting("momo-tieredComputer", true)
 
+---------------------------------------------------------------------------------------------------
+CreateStringSetting("momo-headerTechnology", "")
+
 CreateIntSetting("momo-automationTechnologyCount", 10)
 CreateIntSetting("momo-technologiesTimeMultiplier", 1)
 
+---------------------------------------------------------------------------------------------------
+CreateStringSetting("momo-headerCompatibility", "")
+
 CreateBoolSetting("momo-removeLongInserter", true)
 CreateBoolSetting("momo-moveUndergroundPipePack", true)
+
+---------------------------------------------------------------------------------------------------
+CreateStringSetting("momo-headerDebug", "")
 
 CreateBoolSetting("momo-debug", false)

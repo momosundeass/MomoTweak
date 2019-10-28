@@ -1,4 +1,5 @@
 -- using 
+local AddIng = momoIRTweak.AddOrUpdateToRecipe
 local Rep = momoIRTweak.ReplaceIngredients
 local ITEM = momoIRTweak.FastItem
 local item = momoIRTweak.item
@@ -37,3 +38,21 @@ recipe = momoIRTweak.NewRecipe("advanced-crafting", item.spp3.name, 1, ingredien
 Rep(SCI.packUtility, {ITEM(item.spp3.name, 1), ITEM(item.vial.name, 5)})
 tech = momoIRTweak.FindTechnologyFromRecipe(SCI.packUtility)
 momoIRTweak.AddUnlockEffect(tech, recipe.name)
+
+
+if (SCI.isHarderPack) then
+	AddIng(item.spp1.name, ITEM("transport-belt", 1))
+	
+	AddIng(item.spp2.name, ITEM("computer-mk1", 1))
+	AddIng(item.spp2.name, ITEM("inserter", 2))
+	
+	AddIng(item.spp3.name, ITEM("assembling-machine-2", 2))
+	AddIng(item.spp3.name, ITEM("advanced-battery", 3))
+	AddIng(item.spp3.name, ITEM("uranium-fuel-cell", 1))
+	
+	AddIng(item.sppMilitary.name, {"pistol", 1})
+	
+	AddIng(item.sppProduction.name, ITEM("controller-mk3", 3))
+	AddIng(item.sppProduction.name, ITEM("junction-box", 2))
+	
+end
