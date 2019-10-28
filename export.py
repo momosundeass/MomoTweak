@@ -103,6 +103,7 @@ print("\nExport Completed")
 time.sleep(.500)
 if not (FindFactorio()):
   RunFactorio()
+  print("")
 else:
   print("\nFactorio already running please close") 
     

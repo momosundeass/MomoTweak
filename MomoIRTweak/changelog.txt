@@ -1,9 +1,21 @@
-v. 0.17.2
-- add tiered recipe for crusher
-- add tiered recipe for furnace
-- vial now use glass ingot
+---------------------------------------------------------------------------------------------------
+Version: 0.17.3
+Date: 2019.10.28
+  Change:
+	- add HD icons
+	- add harder science pack recipe
 ---------------------------------------------------------------------------------------------------
 
-v. 0.17.1
-- first release!
+Version: 0.17.2
+Date: 2019.10.27
+  Change:
+	- add tiered recipe for crusher
+	- add tiered recipe for furnace
+	- vial now use glass ingot
+---------------------------------------------------------------------------------------------------
+
+Version: 0.17.1
+Date: 2019.10.27
+  Init:
+	- first release!
 ---------------------------------------------------------------------------------------------------
