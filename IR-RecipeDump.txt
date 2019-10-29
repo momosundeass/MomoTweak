@@ -5,6 +5,7 @@
       1:
          name: copper-plate
          type: item
+
          amount: 1
    show_amount_in_title: false
    always_show_products: false

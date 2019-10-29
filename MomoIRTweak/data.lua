@@ -4,9 +4,11 @@ if not momoIRTweak.item then momoIRTweak.item = {} end
 if not momoIRTweak.science then momoIRTweak.science = {} end
 
 require("function.helper")
+require("function.subgroup")
 require("function.item")
 require("function.recipe")
 require("function.technology")
+
 
 -- flag to make mod only dump data to log
 momoIRTweak.DumpOnly = false
@@ -36,8 +38,7 @@ data:extend({{
 	order = refSubgroup.order .. "zzzz"
 }})
 
-
-
 if not (momoIRTweak.DumpOnly) then
-	require("prototypes.data-science-materials")
+	require("prototypes.items.science-materials")
+	require("prototypes.items.electronics")
 end

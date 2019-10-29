@@ -1,16 +1,25 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.4
+Date: 2019.10.29
+  Add:
+	- add harder electronic recipe
+  Change:
+    - final tier transport belt now harder to craft
+	- production science processor now easy to craft
+---------------------------------------------------------------------------------------------------
 Version: 0.17.3
 Date: 2019.10.28
-  Change:
+  Add:
 	- add HD icons
 	- add harder science pack recipe
 ---------------------------------------------------------------------------------------------------
 
 Version: 0.17.2
 Date: 2019.10.27
-  Change:
+  Add:
 	- add tiered recipe for crusher
 	- add tiered recipe for furnace
+  Change:
 	- vial now use glass ingot
 ---------------------------------------------------------------------------------------------------
 

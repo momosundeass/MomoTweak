@@ -3,6 +3,8 @@ momoIRTweak.itemOrder = 0
 momoIRTweak.dir.icon = "__MomoIRTweak__/graphics/icons/"
 momoIRTweak.dir.iconSize = 32
 
+momoIRTweak.dir.baseIcon = "__base__/graphics/icons/"
+
 if (settings.startup["momo-useHighResolution"].value) then
 	momoIRTweak.dir.iconSize = 64
 else
@@ -38,6 +40,14 @@ function momoIRTweak.NewItem(itemName, itemSubgroup, maxStack)
 	momoIRTweak.itemOrder = momoIRTweak.itemOrder + 1
 	return data.raw.item[itemName]
 end
+
+function momoIRTweak.NewItemBaseIcon(itemName, iconDir, itemSubgroup, maxStack)
+	local item = momoIRTweak.NewItem(itemName, itemSubgroup, maxStack)
+	item.icon = iconDir .. ".png"
+	item.icon_size = 32
+	return item
+end
+
 
 function momoIRTweak.NewScienceMaterialsItem(itemName)
 	return momoIRTweak.NewItem(itemName, momoIRTweak.science.materialSubgroup, 50)

@@ -2,6 +2,8 @@ if not (momoIRTweak.DumpOnly) then
 
 	-- write updates here
 	require("prototypes.updates-science-materials")
+	require("prototypes.updates-electronics")
+	
 	
 	if (mods["bobinserters"]) then
 		require("compatibility.bobinserters")
@@ -10,6 +12,8 @@ if not (momoIRTweak.DumpOnly) then
 	if (mods["underground-pipe-pack"]) then
 		require("compatibility.underground-pipe-pack")
 	end
+	
+	
 
 
 end
