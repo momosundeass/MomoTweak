@@ -41,20 +41,5 @@ if (settings.startup["momo-harderElectronics"].value) then
 	tech = momoIRTweak.FindTechnologyFromRecipe("controller-mk3")
 	momoIRTweak.AddUnlockEffect(tech, eles.pcb3.name)
 	
-	
-	--- module
-	AddIng("speed-module", ITEM(eles.pcb1.name, 8))
-	AddIng("speed-module-2", ITEM(eles.pcb2.name, 8))
-	AddIng("speed-module-3", ITEM(eles.pcb3.name, 8))
-	
-	AddIng("productivity-module", ITEM(eles.pcb1.name, 16))
-	AddIng("productivity-module-2", ITEM(eles.pcb2.name, 16))
-	AddIng("productivity-module-3", ITEM(eles.pcb3.name, 16))
-	
-	AddIng("effectivity-module", ITEM(eles.pcb1.name, 6))
-	AddIng("effectivity-module-2", ITEM(eles.pcb2.name, 6))
-	AddIng("effectivity-module-3", ITEM(eles.pcb3.name, 6))
-	
-	
 	--- 
 end
