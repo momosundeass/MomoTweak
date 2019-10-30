@@ -9,7 +9,7 @@ local AddIng = momoIRTweak.AddToRecipe
 if (settings.startup["momo-harderElectronics"].value) then
 	---- SPEED
 	-- 1
-	AddIng("program-speed-module", ITEM(eles.pcb1.name, 4)))
+	AddIng("program-speed-module", ITEM(eles.pcb1.name, 4))
 	
 	-- 2
 	AddIng("program-speed-module-2", ITEM(eles.pcb2.name, 8))
