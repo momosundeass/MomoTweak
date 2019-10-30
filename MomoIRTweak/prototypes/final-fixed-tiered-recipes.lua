@@ -68,3 +68,8 @@ if (settings.startup["momo-tieredComputer"].value) then
 	AddIng("computer-mk3", ITEM("computer-mk2", 1))
 	AddIng("computer-mk3-2", ITEM("computer-mk2", 1))
 end
+
+if (settings.startup["momo-tiredBot"].value) then
+	AddIng("logistic-robot", ITEM("steambot"), 1)
+	AddIng("construction-robot", ITEM("steambot"), 1)
+end

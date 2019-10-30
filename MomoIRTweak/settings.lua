@@ -55,7 +55,10 @@ CreateBoolSetting("momo-tieredAssembler", true)
 CreateBoolSetting("momo-tieredFurnace", true)
 CreateBoolSetting("momo-tieredCrusher", true)
 CreateBoolSetting("momo-tieredComputer", true)
+CreateBoolSetting("momo-tieredBot", true)
 CreateBoolSetting("momo-harderElectronics", true)
+CreateBoolSetting("momo-harderModule", true)
+-- CreateBoolSetting("momo-harderEngineUnit", true)
 
 ---------------------------------------------------------------------------------------------------
 CreateStringSetting("momo-headerTechnology", "")
