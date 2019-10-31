@@ -4,6 +4,7 @@ Date: 2019.10.30
   Add:
     - tiered bot recipe
 	- harder module recipe
+	- increase rubber use
   Fix:
 	- electronic to module recipe
 ---------------------------------------------------------------------------------------------------

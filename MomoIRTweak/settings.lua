@@ -58,6 +58,7 @@ CreateBoolSetting("momo-tieredComputer", true)
 CreateBoolSetting("momo-tieredBot", true)
 CreateBoolSetting("momo-harderElectronics", true)
 CreateBoolSetting("momo-harderModule", true)
+CreateBoolSetting("momo-increaseRubberUse", true)
 -- CreateBoolSetting("momo-harderEngineUnit", true)
 
 ---------------------------------------------------------------------------------------------------

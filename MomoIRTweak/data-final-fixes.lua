@@ -9,6 +9,7 @@ if not (momoIRTweak.DumpOnly) then
 	require("prototypes.final-fixed-tiered-recipes")
 	require("prototypes.final-fixed-recipe")
 	require("prototypes.final-fixed-electronics")
+	require("prototypes.final-fixed-rubber")
 	
 	require("prototypes.matter-to-science-pack")
 	

@@ -1,4 +1,12 @@
+-- pipe  steel-pipe  
+-- small-pipe-coupler  medium-pipe-coupler  large-pipe-coupler  
+-- underground-pipe-segment-t1  underground-pipe-segment-t2  underground-pipe-segment-t3  
+-- chromium-plate-heavy 
 
+--- using 
+local ITEM = momoIRTweak.FastItem
+local AddIng = momoIRTweak.AddToRecipe
+local Rep = momoIRTweak.ReplaceIngredients
 
 local subgroups = data.raw["item-subgroup"]
 
@@ -7,7 +15,21 @@ local refGroup = subgroups[refItem.subgroup].group
 
 -- recipe
 momoIRTweak.RemoveFromRecipe("swivel-joint", "iron-gear-wheel")
-momoIRTweak.AddToRecipe("swivel-joint", momoIRTweak.FastItem("tin-gear-wheel", 1))
+AddIng("swivel-joint", ITEM("tin-gear-wheel", 1))
+
+Rep("underground-pipe-segment-t1", {
+	ITEM("pipe", 1)
+})
+
+Rep("underground-pipe-segment-t2", {
+	ITEM("underground-pipe-segment-t1", 1),
+	ITEM("steel-pipe", 1)
+})
+Rep("underground-pipe-segment-t3", {
+	ITEM("underground-pipe-segment-t2", 1),
+	ITEM("chromium-plate-heavy", 3)
+})
+
 
 -- move 
 if (settings.startup["momo-moveUndergroundPipePack"].value) then
