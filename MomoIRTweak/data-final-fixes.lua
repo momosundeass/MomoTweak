@@ -4,6 +4,9 @@ if not (momoIRTweak.DumpOnly) then
 	local Subgroup = momoIRTweak.GetSubgroupFromItem
 	
 	-- write final fixed here
+	
+	require("prototypes.misc-recipe")
+	
 	require("prototypes.final-fixed-science-materials")
 	require("prototypes.final-fixed-technogies")
 	require("prototypes.final-fixed-tiered-recipes")
