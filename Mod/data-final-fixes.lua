@@ -83,3 +83,18 @@ momoTweak.ReworkAngelIndGroup()
 momoTweak.ReworkPressureTank()
 
 require("fix");
+
+	
+local count = 0
+for	c, r in pairs(data.raw.recipe) do
+	count = count + 1
+end
+
+log("Total recipe = " .. count)
+
+count = 0
+for	c, t in pairs(data.raw.technology) do
+	count = count + 1
+end
+
+log("Total technology = " .. count)

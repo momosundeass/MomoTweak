@@ -16,6 +16,20 @@ if not (momoIRTweak.DumpOnly) then
 	-- adjust subgroup
 	local refSubgroup = data.raw["item-subgroup"]["intermediate-product"]
 	data.raw["item-subgroup"][momoIRTweak.science.materialSubgroup].group = refSubgroup.group
+	
+	local count = 0
+	for	c, r in pairs(data.raw.recipe) do
+		count = count + 1
+	end
+	
+	log("Total recipe = " .. count)
+	
+	count = 0
+	for	c, t in pairs(data.raw.technology) do
+		count = count + 1
+	end
+	
+	log("Total technology = " .. count)
 else
 	momoIRTweak.DumpRecipes()
 	momoIRTweak.DumpTechnologies()
