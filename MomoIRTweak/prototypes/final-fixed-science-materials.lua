@@ -4,41 +4,42 @@ local Rep = momoIRTweak.ReplaceIngredients
 local Rem = momoIRTweak.RemoveFromRecipe
 local ITEM = momoIRTweak.FastItem
 local item = momoIRTweak.item
+local NewRecipe = momoIRTweak.NewRecipe
+local Unlock = momoIRTweak.AddUnlockEffect
 
 local table = require('__stdlib__/stdlib/utils/table')
 
 local SCI = momoIRTweak.science
+local tech = momoIRTweak.technology
+local eles = momoIRTweak.electronics
+
 local ingredients = table.deep_copy(data.raw.recipe[SCI.pack2].ingredients)
-local recipe = momoIRTweak.NewRecipe("crafting", item.spp1.name, 1, ingredients, 4)
+local recipe = NewRecipe("crafting", item.spp1.name, 1, ingredients, 4)
 Rep(SCI.pack2, {ITEM(item.spp1.name, 1), ITEM(item.vial.name, 1)})
 
 -- this need to hard code cause there are demo tech
-momoIRTweak.AddUnlockEffect("logistic-science-pack", recipe.name)
-momoIRTweak.AddUnlockEffect("demo-science-pack", recipe.name)
+Unlock("logistic-science-pack", recipe.name)
+Unlock("demo-science-pack", recipe.name)
 
 ingredients = table.deep_copy(data.raw.recipe[SCI.packMilitary].ingredients)
-recipe = momoIRTweak.NewRecipe("advanced-crafting", item.sppMilitary.name, 1, ingredients, 6)
+recipe = NewRecipe("advanced-crafting", item.sppMilitary.name, 1, ingredients, 6)
 Rep(SCI.packMilitary, {ITEM(item.sppMilitary.name, 1), ITEM(item.vial.name, 1)})
-local tech = momoIRTweak.FindTechnologyFromRecipe(SCI.packMilitary)
-momoIRTweak.AddUnlockEffect(tech, recipe.name)
+Unlock(tech.military, recipe.name)
 
 ingredients = table.deep_copy(data.raw.recipe[SCI.pack3].ingredients)
-recipe = momoIRTweak.NewRecipe("advanced-crafting", item.spp2.name, 1, ingredients, 20)
+recipe = NewRecipe("advanced-crafting", item.spp2.name, 1, ingredients, 20)
 Rep(SCI.pack3, {ITEM(item.spp2.name, 1), ITEM(item.vial.name, 5)})
-tech = momoIRTweak.FindTechnologyFromRecipe(SCI.pack3)
-momoIRTweak.AddUnlockEffect(tech, recipe.name)
+Unlock(tech.pack3, recipe.name)
 
 ingredients = table.deep_copy(data.raw.recipe[SCI.packProduction].ingredients)
-recipe = momoIRTweak.NewRecipe("advanced-crafting", item.sppProduction.name, 1, ingredients, 20)
+recipe = NewRecipe("advanced-crafting", item.sppProduction.name, 1, ingredients, 20)
 Rep(SCI.packProduction, {ITEM(item.sppProduction.name, 1), ITEM(item.vial.name, 5)})
-tech = momoIRTweak.FindTechnologyFromRecipe(SCI.packProduction)
-momoIRTweak.AddUnlockEffect(tech, recipe.name)
+Unlock(tech.production, recipe.name)
 
 ingredients = table.deep_copy(data.raw.recipe[SCI.packUtility].ingredients)
-recipe = momoIRTweak.NewRecipe("advanced-crafting", item.spp3.name, 1, ingredients, 20)
+recipe = NewRecipe("advanced-crafting", item.spp3.name, 1, ingredients, 20)
 Rep(SCI.packUtility, {ITEM(item.spp3.name, 1), ITEM(item.vial.name, 5)})
-tech = momoIRTweak.FindTechnologyFromRecipe(SCI.packUtility)
-momoIRTweak.AddUnlockEffect(tech, recipe.name)
+Unlock(tech.utility, recipe.name)
 
 
 if (SCI.isHarderPack) then
@@ -56,5 +57,32 @@ if (SCI.isHarderPack) then
 	
 	AddIng(item.sppProduction.name, ITEM("controller-mk2", 3))
 	AddIng(item.sppProduction.name, ITEM("junction-box", 2))
+	
+	AddIng(SCI.packMilitary, ITEM(item.productionBox, 1))
+	AddIng(SCI.pack3, ITEM(item.scienceBlueprint1, 5))
+	AddIng(SCI.packProduction, ITEM(item.scienceBlueprint2, 5))
+	
+	AddIng(SCI.packUtility, ITEM(item.scienceBlueprint3, 5))
+	AddIng(SCI.packUtility, ITEM(item.gpu, 6))
+	
+	
+	---- k data
+	AddIng(SCI.k1, ITEM(item.gpu, 1))
+	AddIng(SCI.k2, ITEM(item.gpu, 1))
+	AddIng(SCI.kMilitary, ITEM(item.gpu, 1))
+	AddIng(SCI.k3, ITEM(item.gpu, 2))
+	
+	
+	AddIng(SCI.kProductionUtility, ITEM(item.gpu, 6))
+	AddIng(SCI.kMatter, ITEM(item.gpu, 4))
+	AddIng(SCI.kSpace, ITEM(item.gpu, 6))
+	
+	if (eles.isHarder) then
+		
+		AddIng(SCI.kEmpty, ITEM(eles.pcb2, 1))
+		AddIng(SCI.kProductionUtility, ITEM("controller-mk3", 1))
+		AddIng(SCI.kMatter, ITEM("controller-mk3", 1))
+		AddIng(SCI.kSpace, ITEM("controller-mk3", 2))
+	end
 	
 end

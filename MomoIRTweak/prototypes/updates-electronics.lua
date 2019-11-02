@@ -1,6 +1,6 @@
-if (settings.startup["momo-harderElectronics"].value) then
+if (momoIRTweak.electronics.isHarder) then
 	--using 
-	local eles = momoIRTweak.eletronics
+	local eles = momoIRTweak.electronics
 	local ITEM = momoIRTweak.FastItem
 	local AddIng = momoIRTweak.AddToRecipe
 	
@@ -15,7 +15,7 @@ if (settings.startup["momo-harderElectronics"].value) then
 	
 	momoIRTweak.NewRecipe("advanced-crafting", eles.pcb2.name, 1, {
 		ITEM(eles.pcb1.name, 1),
-		ITEM("gold-cable", 1),
+		ITEM("k-silicon-wafer", 1),
 		ITEM("tin-plate", 1),
 		ITEM("tin-rivet", 1)
 	}, 1).enabled = isUnlock

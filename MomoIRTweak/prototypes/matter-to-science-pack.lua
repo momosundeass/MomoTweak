@@ -8,11 +8,28 @@ ConvertMatter("matter-to-automation-science-pack", 20, 10)
 
 ConvertMatter("matter-to-logistic-science-pack", 45, 20)
 
-ConvertMatter("matter-to-military-science-pack", 80, 33)
+local values = {}
+values.military = 80
+values.chemical = 150
+values.production = 600
+values.utility = 600
 
-ConvertMatter("matter-to-chemical-science-pack", 150, 52)
+if (momoIRTweak.science.isHarderPack) then
+	
+	
+	
+	if (momoIRTweak.electronics.isHarder) then
+		values.military = values.military + 25
+		values.production = values.production + 100
+		values.utility = values.utility + 200
+	end
+end
 
-ConvertMatter("matter-to-production-science-pack", 600, 100)
+ConvertMatter("matter-to-military-science-pack", values.military, 33)
 
-ConvertMatter("matter-to-utility-science-pack", 600, 80)
+ConvertMatter("matter-to-chemical-science-pack", values.chemical, 52)
+
+ConvertMatter("matter-to-production-science-pack", values.production, 100)
+
+ConvertMatter("matter-to-utility-science-pack", values.utility, 80)
 

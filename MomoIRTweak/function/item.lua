@@ -15,14 +15,23 @@ momoIRTweak.dir.icon = momoIRTweak.dir.icon .. momoIRTweak.dir.iconSize .. "/"
 
 -- --------------------------------------------- Fast item
 function momoIRTweak.FastItem(itemName, itemAmount)
+	if type(itemName) == "table" then
+		itemName = itemName.name
+	end
 	return {type="item", name=itemName, amount=itemAmount}
 end
 
 function momoIRTweak.FastFluid(fluidName, fluidAmount)
+	if type(fluidName) == "table" then
+		fluidName = fluidName.name
+	end
 	return {type="fluid", name=fluidName, amount=fluidAmount}
 end
 
 function momoIRTweak.FastSciencePack(itemName, itemAmount)
+	if type(itemName) == "table" then
+		itemName = itemName.name
+	end
 	return {itemName, itemAmount}
 end
 -- --------------------------------------------- Fast item

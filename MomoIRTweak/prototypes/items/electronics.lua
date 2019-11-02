@@ -2,10 +2,8 @@
 local NewBase = momoIRTweak.NewItemBaseIcon
 local NewItem = momoIRTweak.NewItem
 local Subgroup = momoIRTweak.GetSubgroupFromItem
-
 local refSubgroup = momoIRTweak.subgroups["intermediate-product"]
-if not momoIRTweak.eletronics then momoIRTweak.eletronics = {} end
-local eles = momoIRTweak.eletronics
+local eles = momoIRTweak.electronics
 
 eles.irSubgroup = "deadlock-electronics"
 eles.momoSubgroup = "momo-electronics"

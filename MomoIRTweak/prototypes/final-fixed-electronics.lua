@@ -1,12 +1,12 @@
 	--using 
-local eles = momoIRTweak.eletronics
+local eles = momoIRTweak.electronics
 local ITEM = momoIRTweak.FastItem
 local AddIng = momoIRTweak.AddToRecipe
 
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
-if (settings.startup["momo-harderElectronics"].value) then
+if (momoIRTweak.electronics.isHarder) then
 	---- SPEED
 	-- 1
 	AddIng("program-speed-module", ITEM(eles.pcb1.name, 4))
