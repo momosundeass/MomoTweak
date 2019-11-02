@@ -15,11 +15,14 @@ values.production = 600
 values.utility = 600
 
 if (momoIRTweak.science.isHarderPack) then
-	
-	
+		values.military = values.military + 50
+		values.chemical = values.chemical + 130
+		values.production = values.production + 150
+		values.utility = values.utility + 300
 	
 	if (momoIRTweak.electronics.isHarder) then
 		values.military = values.military + 25
+		values.chemical = values.chemical + 75
 		values.production = values.production + 100
 		values.utility = values.utility + 200
 	end

@@ -33,6 +33,10 @@ function momoIRTweak.ReplaceIngredients(name, newIngredients)
 	data.raw.recipe[name].ingredients = newIngredients
 end
 
+function momoIRTweak.ReplaceWith(recipeName, targetItem, newItem)
+	Recipe(recipeName):replace_ingredient(targetItem, newItem, true)
+end
+
 -- Warning this function may take half a year to finish
 function momoIRTweak.DumpRecipes()
 	momoIRTweak.dumpRecipesText = "Recipe dump \n"

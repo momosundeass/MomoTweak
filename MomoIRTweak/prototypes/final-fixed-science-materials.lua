@@ -78,7 +78,6 @@ if (SCI.isHarderPack) then
 	AddIng(SCI.kSpace, ITEM(item.gpu, 6))
 	
 	if (eles.isHarder) then
-		
 		AddIng(SCI.kEmpty, ITEM(eles.pcb2, 1))
 		AddIng(SCI.kProductionUtility, ITEM("controller-mk3", 1))
 		AddIng(SCI.kMatter, ITEM("controller-mk3", 1))

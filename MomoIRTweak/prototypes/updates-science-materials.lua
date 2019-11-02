@@ -39,7 +39,7 @@ if (sci.isHarderPack) then
 	
 	recipe = NewRecipe("advanced-crafting", item.scienceBlueprint1.name, 3, {
 		ITEM(item.productionBox, 1),
-		ITEM("copper-foil", 3),
+		ITEM("glass-plate", 3),
 		ITEM("electronic-circuit", 1)
 	}, 20)
 	Unlock(tech.pack3, recipe.name)
@@ -71,7 +71,7 @@ if (sci.isHarderPack) then
 	Unlock(techController, recipe.name) 
 	
 	
-	if (eles.isHarderPack) then
+	if (eles.isHarder) then
 		AddIng(item.scienceBlueprint1.name, ITEM(eles.pcb1, 3))
 		AddIng(item.scienceBlueprint2.name, ITEM(eles.pcb2, 5))
 		AddIng(item.scienceBlueprint2.name, ITEM(eles.pcb3, 2))

@@ -4,6 +4,8 @@ local ITEM = momoIRTweak.FastItem
 local SCI = momoIRTweak.FastSciencePack
 local Rem = momoIRTweak.RemoveFromRecipe 
 
+local machine = momoIRTweak.machine
+
 -- for some reason this need to direct insert to table
 -- if call form stdlib it will duplicated
 local function AddIngredientToNormal(recipeName, ingredient)
@@ -51,10 +53,10 @@ if (settings.startup["momo-tieredAssembler"].value) then
 end
 
 if (settings.startup["momo-tieredFurnace"].value) then
-	AddIng("bronze-furnace", ITEM("stone-age-furnace", 1))
-	AddIng("iron-furnace", ITEM("bronze-furnace", 1))
-	AddIng("steel-age-furnace", ITEM("iron-furnace", 1))
-	AddIng("k-advanced-furnace", ITEM("steel-age-furnace", 5))	
+	AddIng(machine.furnace2, ITEM(machine.furnace1, 1))
+	AddIng(machine.furnace3, ITEM(machine.furnace2, 1))
+	AddIng(machine.furnace4, ITEM(machine.furnace3, 1))
+	AddIng(machine.furnace5, ITEM(machine.furnace4, 5))	
 end
 
 if (settings.startup["momo-tieredCrusher"].value) then
