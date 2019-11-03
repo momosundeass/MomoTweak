@@ -46,20 +46,30 @@ AddIng(machine.evaporator, ITEM(machine.incinerator2, 1))
 AddIng(machine.oliRefinery, ITEM(machine.incinerator1, 1))
 AddIng(machine.chemicalPlant1, ITEM(machine.incinerator1, 1))
 
-Repi(machine.chemicalPlant2, "processing-unit", ITEM("computer-mk3", 20))
+Repi(machine.chemicalPlant2, "processing-unit", ITEM("computer-mk3", 5))
+AddIng(machine.chemicalPlant2, ITEM("controller-mk3", 20))
 
-Repi(machine.quantumComputer, "processing-unit", ITEM("computer-mk3", 50))
+Repi(machine.quantumComputer, "processing-unit", ITEM("computer-mk3", 15))
+AddIng(machine.quantumComputer, ITEM("controller-mk3", 50))
 
-Repi(machine.beacon2, "processing-unit", ITEM("computer-mk3", 10))
+Repi(machine.beacon2, "processing-unit", ITEM("computer-mk3", 3))
+AddIng(machine.beacon2, ITEM("controller-mk3", 10))
+
 Repi(machine.beacon1, "computer-mk3", ITEM("computer-mk3", 3))
 
-Repi(machine.server1, "processing-unit", ITEM("computer-mk3", 10))
+Repi(machine.server1, "processing-unit", ITEM("computer-mk3", 3))
+AddIng(machine.server1, ITEM("controller-mk3", 10))
 
-Repi(machine.stabilizer, "processing-unit", ITEM("computer-mk3", 10))
 
-Repi(machine.matterFactory, "processing-unit", ITEM("computer-mk3", 50))
-Repi(machine.matterConverter, "processing-unit", ITEM("computer-mk3", 20))
-Repi(machine.matterAssembler, "processing-unit", ITEM("computer-mk3", 20))
+Repi(machine.stabilizer, "processing-unit", ITEM("computer-mk3", 3))
+AddIng(machine.stabilizer, ITEM("controller-mk3", 10))
+
+Repi(machine.matterFactory, "processing-unit", ITEM("computer-mk3", 20))
+AddIng(machine.matterFactory, ITEM("controller-mk3", 50))
+Repi(machine.matterConverter, "processing-unit", ITEM("computer-mk3", 5))
+AddIng(machine.matterConverter, ITEM("controller-mk3", 20))
+Repi(machine.matterAssembler, "processing-unit", ITEM("computer-mk3", 5))
+AddIng(machine.matterAssembler, ITEM("controller-mk3", 20))
 
 --- antimatter 500
 

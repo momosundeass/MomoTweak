@@ -39,7 +39,7 @@ if (sci.isHarderPack) then
 	
 	recipe = NewRecipe("advanced-crafting", item.scienceBlueprint1.name, 3, {
 		ITEM(item.productionBox, 1),
-		ITEM("glass-plate", 3),
+		ITEM("glass-plate", 6),
 		ITEM("electronic-circuit", 1)
 	}, 20)
 	Unlock(tech.pack3, recipe.name)

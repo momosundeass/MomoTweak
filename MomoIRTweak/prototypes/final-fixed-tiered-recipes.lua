@@ -37,6 +37,14 @@ if (settings.startup["momo-tieredBelt"].value) then
 	AddIng("fast-transport-belt", ITEM("transport-belt", 1))
 	AddIngredientToNormal("express-transport-belt", ITEM("fast-transport-belt", 1))
 	AddIng("k-transport-belt", ITEM("express-transport-belt", 2))
+
+	AddIng("fast-underground-belt", ITEM("underground-belt", 1))
+	AddIng("express-underground-belt", ITEM("fast-underground-belt", 1))
+	AddIng("k-underground-belt", ITEM("express-underground-belt", 1))
+	
+	AddIng("fast-splitter", ITEM("splitter", 1))
+	AddIng("express-splitter", ITEM("fast-splitter", 1))
+	AddIng("k-splitter", ITEM("express-splitter", 1))
 end
 
 if (settings.startup["momo-tieredMotor"].value) then
@@ -66,9 +74,9 @@ end
 
 if (settings.startup["momo-tieredComputer"].value) then
 	AddIng("computer-mk2", ITEM("computer-mk1", 1))
-	AddIng("computer-mk2-2", ITEM("computer-mk1", 1))
+	AddIng("computer-mk2-2", ITEM("computer-mk1", 2))
 	AddIng("computer-mk3", ITEM("computer-mk2", 1))
-	AddIng("computer-mk3-2", ITEM("computer-mk2", 1))
+	AddIng("computer-mk3-2", ITEM("computer-mk2", 2))
 end
 
 if (settings.startup["momo-tieredBot"].value) then
