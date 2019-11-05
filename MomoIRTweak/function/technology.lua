@@ -44,7 +44,7 @@ function momoIRTweak.AddUnlockEffect(technologyName, recipeName)
 			recipe = recipeName
 		})
 	else
-		log ("MIRTL => no technology with name : " .. tostring(technologyName))
+		log ("MIRTL => no technology with name to add unlock : " .. tostring(technologyName))
 	end
 end
 
@@ -59,7 +59,83 @@ function momoIRTweak.RemoveUnlockRecipeEffect(technologyName, recipeName)
 			end
 		end
 	else
-		log ("MIRTL => no technology with name : " .. tostring(technologyName))
+		log ("MIRTL => no technology with name to remove unlock : " .. tostring(technologyName))
 	end
 	return false
 end
+
+function momoIRTweak.IsTechnologyHasIngredient(technology, ingredientToCheck)
+	local technologyName = momoIRTweak.GetName(technology)
+	local tech = data.raw.technology[technologyName]
+	
+	if (tech) then
+		for index, ingredient in pairs(tech.unit.ingredients) do
+			if (ingredient[1] == ingredientToCheck) then
+				return true
+			end
+		end
+	else
+		log ("MIRTL => no technology with name to check ingredient : " .. tostring(technologyName))
+		return false
+	end
+	
+	return false
+end
+
+function momoIRTweak.ReplaceUnitIngredientsWith(technology, tableMapping)
+	local technologyName = momoIRTweak.GetName(technology)
+	local tech = data.raw.technology[technologyName]
+	
+	if (tech) then
+		for _, ingredient in pairs(tech.unit.ingredients) do
+			local name = ingredient[1]
+			
+			if tableMapping[name] then
+				local replacer = tableMapping[name]
+				local oldAmount = 0
+				
+				if (momoIRTweak.IsTechnologyHasIngredient(technology, replacer)) then
+					for index, unitIngredient in pairs(tech.unit.ingredients) do
+						if (unitIngredient[1] == replacer) then
+							oldAmount = oldAmount + unitIngredient[2]
+							tech.unit.ingredients[index] = nil
+						end
+					end	
+				end
+				
+				ingredient[1] = replacer
+				ingredient[2] = ingredient[2] + oldAmount				
+			end
+		end
+		
+		return true
+	else
+		log ("MIRTL => no technology with name to replace ingredients : " .. tostring(technologyName))
+		
+		return false
+	end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -73,6 +73,7 @@ CreateStringSetting("momo-headerCompatibility", "")
 
 CreateBoolSetting("momo-removeLongInserter", true)
 CreateBoolSetting("momo-moveUndergroundPipePack", true)
+CreateBoolSetting("momo-spaceEx", true)
 
 ---------------------------------------------------------------------------------------------------
 CreateStringSetting("momo-headerDebug", "")

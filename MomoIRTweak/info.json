@@ -1,6 +1,6 @@
 {
 	"name": "MomoIRTweak",
-	"version": "0.17.8",
+	"version": "0.17.9",
 	"factorio_version": "0.17",
 	"title": "Momo Industrial Revolution Krastorio Tweak",
 	"author": "Momosundeass",
@@ -12,6 +12,7 @@
 		"IndustrialRevolution >= 1.0.6",
 		"Krastorio >= 1.4.37",
 		"? bobinserters >= 0.17.10",
-		"? underground-pipe-pack >= 0.17.0"
+		"? underground-pipe-pack >= 0.17.0",
+		"? SpaceMod >= 0.4.4"
 	]
 }
