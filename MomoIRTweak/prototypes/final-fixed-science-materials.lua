@@ -1,11 +1,11 @@
 -- using 
-local AddIng = momoIRTweak.AddOrUpdateToRecipe
-local Rep = momoIRTweak.ReplaceIngredients
-local Rem = momoIRTweak.RemoveFromRecipe
+local AddIng = momoIRTweak.recipe.AddOrUpdateIngredient
+local Rep = momoIRTweak.recipe.ReplaceAllIngredient
+local Rem = momoIRTweak.recipe.RemoveIngredient
 local ITEM = momoIRTweak.FastItem
 local item = momoIRTweak.item
-local NewRecipe = momoIRTweak.NewRecipe
-local Unlock = momoIRTweak.AddUnlockEffect
+local NewRecipe = momoIRTweak.recipe.NewRecipe
+local Unlock = momoIRTweak.technology.AddUnlockEffect
 
 local table = require('__stdlib__/stdlib/utils/table')
 

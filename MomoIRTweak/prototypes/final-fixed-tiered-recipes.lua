@@ -1,8 +1,8 @@
 --using 
-local AddIng = momoIRTweak.AddOrUpdateToRecipe
+local AddIng = momoIRTweak.recipe.AddOrUpdateIngredient
 local ITEM = momoIRTweak.FastItem
 local SCI = momoIRTweak.FastSciencePack
-local Rem = momoIRTweak.RemoveFromRecipe 
+local Rem = momoIRTweak.recipe.RemoveIngredient 
 
 local machine = momoIRTweak.machine
 

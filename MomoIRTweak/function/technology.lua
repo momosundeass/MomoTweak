@@ -1,3 +1,6 @@
+if not momoIRTweak.technology then momoIRTweak.technology = {} end
+
+
 function momoIRTweak.DumpTechnologies()
 	momoIRTweak.dumpRecipesText = "Technology dump \n"
 	for	i, r in pairs(data.raw.technology) do
@@ -7,7 +10,7 @@ function momoIRTweak.DumpTechnologies()
 	log("MIRTL => " .. momoIRTweak.dumpText)
 end
 
-function momoIRTweak.FindTechnologyFromRecipe(recipeName)
+function momoIRTweak.technology.FindFromRecipe(recipeName)
 	for i, t in pairs(data.raw.technology) do
 		if (t.effects) then
 			for j, e in pairs(t.effects) do
@@ -21,7 +24,7 @@ function momoIRTweak.FindTechnologyFromRecipe(recipeName)
 	end
 end
 
-function momoIRTweak.FindTechnologiesFromRecipe(recipeName)
+function momoIRTweak.technology.FindAllFromRecipe(recipeName)
 	local results = {}
 	for i, t in pairs(data.raw.technology) do
 		if (t.effects) then
@@ -37,7 +40,7 @@ function momoIRTweak.FindTechnologiesFromRecipe(recipeName)
 	return results
 end
 
-function momoIRTweak.AddUnlockEffect(technologyName, recipeName)
+function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName)
 	if (data.raw.technology[technologyName]) then
 		table.insert(data.raw.technology[technologyName].effects, {
 			type = "unlock-recipe",
@@ -48,7 +51,7 @@ function momoIRTweak.AddUnlockEffect(technologyName, recipeName)
 	end
 end
 
-function momoIRTweak.RemoveUnlockRecipeEffect(technologyName, recipeName)
+function momoIRTweak.technology.RemoveUnlockEffect(technologyName, recipeName)
 	if (data.raw.technology[technologyName]) then
 		for i, e in pairs(data.raw.technology[technologyName].effects) do
 			if (e.type == "unlock-recipe") then
@@ -64,7 +67,7 @@ function momoIRTweak.RemoveUnlockRecipeEffect(technologyName, recipeName)
 	return false
 end
 
-function momoIRTweak.IsTechnologyHasIngredient(technology, ingredientToCheck)
+function momoIRTweak.technology.HasIngredient(technology, ingredientToCheck)
 	local technologyName = momoIRTweak.GetName(technology)
 	local tech = data.raw.technology[technologyName]
 	
@@ -82,7 +85,7 @@ function momoIRTweak.IsTechnologyHasIngredient(technology, ingredientToCheck)
 	return false
 end
 
-function momoIRTweak.ReplaceUnitIngredientsWith(technology, tableMapping)
+function momoIRTweak.technology.ReplaceIngredient(technology, tableMapping)
 	local technologyName = momoIRTweak.GetName(technology)
 	local tech = data.raw.technology[technologyName]
 	
@@ -94,7 +97,7 @@ function momoIRTweak.ReplaceUnitIngredientsWith(technology, tableMapping)
 				local replacer = tableMapping[name]
 				local oldAmount = 0
 				
-				if (momoIRTweak.IsTechnologyHasIngredient(technology, replacer)) then
+				if (momoIRTweak.technology.HasIngredient(technology, replacer)) then
 					for index, unitIngredient in pairs(tech.unit.ingredients) do
 						if (unitIngredient[1] == replacer) then
 							oldAmount = oldAmount + unitIngredient[2]

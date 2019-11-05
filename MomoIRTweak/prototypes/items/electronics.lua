@@ -1,6 +1,6 @@
 -- using
-local NewBase = momoIRTweak.NewItemBaseIcon
-local NewItem = momoIRTweak.NewItem
+local NewBase = momoIRTweak.item.NewItemBaseIcon
+local NewItem = momoIRTweak.item.NewItem
 local Subgroup = momoIRTweak.GetSubgroupFromItem
 local refSubgroup = momoIRTweak.subgroups["intermediate-product"]
 local eles = momoIRTweak.electronics

@@ -2,7 +2,7 @@
 --- using
 
 local ITEM = momoIRTweak.FastItem
-local AddIng = momoIRTweak.AddToRecipe
+local AddIng = momoIRTweak.recipe.AddIngredient
 
 
 AddIng("k-transport-belt", ITEM("steel-rod", 1))

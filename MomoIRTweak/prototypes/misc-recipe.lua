@@ -2,10 +2,10 @@
 
 
 --- using 
-local Rem = momoIRTweak.RemoveFromRecipe
-local AddIng = momoIRTweak.AddToRecipe
+local Rem = momoIRTweak.recipe.RemoveIngredient
+local AddIng = momoIRTweak.recipe.AddIngredient
 local ITEM = momoIRTweak.FastItem
-local Repi = momoIRTweak.ReplaceWith
+local Repi = momoIRTweak.recipe.ReplaceIngredient
 
 local machine = momoIRTweak.machine
 

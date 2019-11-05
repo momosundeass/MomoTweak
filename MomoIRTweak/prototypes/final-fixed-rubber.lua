@@ -2,7 +2,7 @@
 
 if (settings.startup["momo-increaseRubberUse"]) then
 	--- using
-	local AddIng = momoIRTweak.AddToRecipe
+	local AddIng = momoIRTweak.recipe.AddIngredient
 	local ITEM = momoIRTweak.FastItem
 	
 	local rubber = function (amount) return ITEM("rubber-natural", amount) end

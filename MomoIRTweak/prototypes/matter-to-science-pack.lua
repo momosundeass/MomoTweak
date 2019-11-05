@@ -1,7 +1,7 @@
 local function ConvertMatter(recipeName, matterAmount, timeUse)
 	local matter = data.raw.recipe[recipeName]
 	matter.energy_require = timeUse
-	momoIRTweak.AddOrUpdateToRecipe(recipeName, momoIRTweak.FastFluid("k-matter", matterAmount))
+	momoIRTweak.recipe.AddOrUpdateIngredient(recipeName, momoIRTweak.FastFluid("k-matter", matterAmount))
 end
 
 ConvertMatter("matter-to-automation-science-pack", 20, 10)

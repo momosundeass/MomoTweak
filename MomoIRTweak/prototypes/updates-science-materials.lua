@@ -1,29 +1,29 @@
 --- using
-local AddIng = momoIRTweak.AddOrUpdateToRecipe
-local Rep = momoIRTweak.ReplaceIngredients
-local Rem = momoIRTweak.RemoveFromRecipe
+local AddIng = momoIRTweak.recipe.AddOrUpdateIngredient
+local Rep = momoIRTweak.recipe.ReplaceAllIngredient
+local Rem = momoIRTweak.recipe.RemoveIngredient
 local ITEM = momoIRTweak.FastItem
 local item = momoIRTweak.item
-local NewRecipe = momoIRTweak.NewRecipe
-local Unlock = momoIRTweak.AddUnlockEffect
+local NewRecipe = momoIRTweak.recipe.NewRecipe
+local Unlock = momoIRTweak.technology.AddUnlockEffect
 
 
 local tech = momoIRTweak.technology
 local sci = momoIRTweak.science
 local eles = momoIRTweak.electronics
 
-tech.military = momoIRTweak.FindTechnologyFromRecipe(sci.packMilitary)
-tech.pack3 = momoIRTweak.FindTechnologyFromRecipe(sci.pack3)
-tech.production = momoIRTweak.FindTechnologyFromRecipe(sci.packProduction)
-tech.utility = momoIRTweak.FindTechnologyFromRecipe(sci.packUtility)
+tech.military = momoIRTweak.technology.FindFromRecipe(sci.packMilitary)
+tech.pack3 = momoIRTweak.technology.FindFromRecipe(sci.pack3)
+tech.production = momoIRTweak.technology.FindFromRecipe(sci.packProduction)
+tech.utility = momoIRTweak.technology.FindFromRecipe(sci.packUtility)
 
 local recipe = {}
 if (sci.isHarderPack) then
-	recipe = momoIRTweak.NewRecipe("smelting-2", "momo-science-vial", 2, {
+	recipe = momoIRTweak.recipe.NewRecipe("smelting-2", "momo-science-vial", 2, {
 		momoIRTweak.FastItem("glass-ingot", 5)
 	}, 26.6)
 else
-	recipe = momoIRTweak.NewRecipe("smelting", "momo-science-vial", 3, {
+	recipe = momoIRTweak.recipe.NewRecipe("smelting", "momo-science-vial", 3, {
 		momoIRTweak.FastItem("glass-ingot", 5)
 	}, 26.6)
 end
@@ -67,7 +67,7 @@ if (sci.isHarderPack) then
 		ITEM("k-ram", 2),
 		ITEM("k-circuit-board", 1)
 	}, 40)
-	local techController = momoIRTweak.FindTechnologyFromRecipe("controller-mk3")
+	local techController = momoIRTweak.technology.FindFromRecipe("controller-mk3")
 	Unlock(techController, recipe.name) 
 	
 	

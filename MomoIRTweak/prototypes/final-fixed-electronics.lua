@@ -1,7 +1,7 @@
 	--using 
 local eles = momoIRTweak.electronics
 local ITEM = momoIRTweak.FastItem
-local AddIng = momoIRTweak.AddToRecipe
+local AddIng = momoIRTweak.recipe.AddIngredient
 
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------

@@ -5,8 +5,8 @@
 
 --- using 
 local ITEM = momoIRTweak.FastItem
-local AddIng = momoIRTweak.AddToRecipe
-local Rep = momoIRTweak.ReplaceIngredients
+local AddIng = momoIRTweak.recipe.AddIngredient
+local Rep = momoIRTweak.recipe.ReplaceAllIngredient
 
 local subgroups = data.raw["item-subgroup"]
 
@@ -14,7 +14,7 @@ local refItem = data.raw.item["swivel-joint"]
 local refGroup = subgroups[refItem.subgroup].group
 
 -- recipe
-momoIRTweak.RemoveFromRecipe("swivel-joint", "iron-gear-wheel")
+momoIRTweak.recipe.RemoveIngredient("swivel-joint", "iron-gear-wheel")
 AddIng("swivel-joint", ITEM("tin-gear-wheel", 1))
 
 Rep("underground-pipe-segment-t1", {

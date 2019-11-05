@@ -36,7 +36,20 @@ function momoIRTweak.FastSciencePack(itemName, itemAmount)
 end
 -- --------------------------------------------- Fast item
 
-function momoIRTweak.NewItem(itemName, itemSubgroup, maxStack)
+if not momoIRTweak.item then momoIRTweak.item = {} end
+
+function momoIRTweak.item.CastToBasic(item) 
+	local typeItem = "item"
+	if item.type then typeItem = item.type end
+	local name = ""
+	if item.name then name = item.name else name = item[1] end
+	local amount = 0
+	if item.amount then amount = item.amount else amount = item[2] end
+
+	return {type=typeItem, name=name, amount=amount}
+end
+
+function momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
 	data:extend({{
 		type = "item",
 		name = itemName,
@@ -50,14 +63,14 @@ function momoIRTweak.NewItem(itemName, itemSubgroup, maxStack)
 	return data.raw.item[itemName]
 end
 
-function momoIRTweak.NewItemBaseIcon(itemName, iconDir, itemSubgroup, maxStack)
-	local item = momoIRTweak.NewItem(itemName, itemSubgroup, maxStack)
+function momoIRTweak.item.NewItemBaseIcon(itemName, iconDir, itemSubgroup, maxStack)
+	local item = momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
 	item.icon = iconDir .. ".png"
 	item.icon_size = 32
 	return item
 end
 
 
-function momoIRTweak.NewScienceMaterialsItem(itemName)
-	return momoIRTweak.NewItem(itemName, momoIRTweak.science.materialSubgroup, 50)
+function momoIRTweak.item.NewScienceMaterialsItem(itemName)
+	return momoIRTweak.item.NewItem(itemName, momoIRTweak.science.materialSubgroup, 50)
 end
