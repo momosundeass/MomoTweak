@@ -35,7 +35,7 @@ for	i, technology in pairs(spaceExTechnologies) do
 	momoIRTweak.ReplaceUnitIngredientsWith(technology, momoIRTweak.science.kMapping)
 	
 	if (momoIRTweak.IsTechnologyHasIngredient(technology, momoIRTweak.science.k3)) then
-		table.insert(data.raw.technology[technology].unit.ingredients, {momoIRTweak.science.kMatter, 1})
+		table.insert(data.raw.technology[technology].unit.ingredients, {momoIRTweak.science.kMatter, 3})
 	end
 end
 
