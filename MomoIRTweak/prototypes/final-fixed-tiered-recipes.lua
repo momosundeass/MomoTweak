@@ -13,7 +13,7 @@ local function AddIngredientToNormal(recipeName, ingredient)
 	table.insert(r.normal.ingredients, ingredient)
 end
 
-if (settings.startup["momo-tieredSciencePack"].value) then
+if (momoIRTweak.science.isTiered) then
 	local sci = momoIRTweak.science
 	AddIng(sci.pack2, SCI(sci.pack1, 1))
 	AddIng(sci.pack3, SCI(sci.pack2, 1))
@@ -24,6 +24,7 @@ if (settings.startup["momo-tieredSciencePack"].value) then
 	AddIng(sci.packProduction, SCI(sci.pack2, 1))
 		
 	AddIng(sci.packUtility, SCI(sci.pack2, 2))
+	AddIng(sci.packUtility, SCI(sci.packMilitary, 1))
 	AddIng(sci.packUtility, SCI(sci.pack3, 1))
 end
 

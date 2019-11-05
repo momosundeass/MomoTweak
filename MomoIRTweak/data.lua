@@ -19,6 +19,7 @@ momoIRTweak.DumpOnly = false
 
 -- load settings
 momoIRTweak.science.isHarderPack = settings.startup["momo-harderSciencePackRecipe"].value
+momoIRTweak.science.isTiered = settings.startup["momo-tieredSciencePack"].value
 momoIRTweak.electronics.isHarder = settings.startup["momo-harderElectronics"].value
 
 --- subgroup
