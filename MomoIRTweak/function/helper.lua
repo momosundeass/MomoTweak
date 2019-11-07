@@ -1,7 +1,7 @@
 momoIRTweak.dumpText = ""
 momoIRTweak.indentAmount = 0
 
-function momoIRTweak.Log(str) then
+function momoIRTweak.Log(str)
 	log("MIRTL => " .. str)
 end
 
