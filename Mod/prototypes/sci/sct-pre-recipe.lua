@@ -1,7 +1,7 @@
 momoTweak.sct = {}
 momoTweak.sct.recipe = {}
 
-local sci_cat = momoTweak.getSciCategory()
+local sci_cat = momoTweak.GetScienceCraftingCategory()
 
 local scts =       {"sct-2",        "sct-gun",        "sct-3",        "sct-production",        "sct-logistic",        "sct-high"}
 local refSciPack = {momoTweak.sci2, momoTweak.sciGun, momoTweak.sci3, momoTweak.sciProduction, momoTweak.sciLogistic, momoTweak.sciTech}

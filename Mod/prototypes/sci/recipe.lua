@@ -1,4 +1,4 @@
-local sci_cat = momoTweak.getSciCategory()
+local sci_cat = momoTweak.GetScienceCraftingCategory()
 local ele = momoTweak.ele
 
 -- ------------------------ Vial -----------------------------------------------
@@ -123,8 +123,8 @@ momoTweak.createRecipe(sci_cat, {{"cyan-sci", 3}}, {
 
 
 local ings = momoTweak.get_ingredients(momoTweak.sciLogistic)
-if IsScienceCostM then
-	ings = momoTweak.sciLogistic_ingredients
+if momoTweak.mods.sct then
+	ings = momoTweak.logisticSciencePackIngredients
 end
 
 momoTweak.createRecipe(sci_cat, {{"logistic-express", 1}}, 
@@ -164,7 +164,7 @@ momoTweak.createRecipe(sci_cat, {{"py-superconductor", 4}},
     
   }, 14, tech_high)
 
-if IsScienceCostM then
+if momoTweak.mods.sct then
 	local function clearUp(itemref, recipe)
 		-- this is temporary fix for omnilib
 		for i, ing in pairs(momoTweak.get_gen_recipe(itemref).ingredients or momoTweak.get_gen_recipe(itemref).normal.ingredients) do
@@ -183,12 +183,12 @@ if IsScienceCostM then
 end
 
 local function ifNotSCT_add(recipe, item)
-	if not IsScienceCostM then
+	if not momoTweak.mods.sct then
 		bobmods.lib.recipe.add_ingredient(recipe, item)
 	end
 end
 local function ifSCT_add(recipe, item)
-	if IsScienceCostM then
+	if momoTweak.mods.sct then
 		table.insert(data.raw.recipe[recipe].ingredients, item)
 	end
 end

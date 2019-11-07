@@ -42,7 +42,7 @@ if data.raw["tool"]["more-science-pack-1"] and
   
   -- recipe
   local namerecipe = ""
-  local cat = momoTweak.getSciCategory()
+  local cat = momoTweak.GetScienceCraftingCategory()
   local unlock_tech = find_tech({4, 3, 2, 1})
   if mods["omnilib"] then unlock_tech = "electronics" end
   namerecipe = momoTweak.createRecipe(cat, {{"b1", 3}}, {

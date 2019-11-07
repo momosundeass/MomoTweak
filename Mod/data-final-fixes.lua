@@ -1,5 +1,5 @@
-if not momoTweak.load_sci_recipe_in_update then
-	if (IsScienceCostM) then
+if not momoTweak.isLoadScienceRecipeInUpdates then
+	if (momoTweak.mods.sct) then
 		require("prototypes.sci.sct-pre-process")
 	end
 	require("prototypes.sci.recipe")
@@ -67,22 +67,23 @@ if settings.startup["momo-fix-angels-chemistry-machine"].value then
 end
 
 require("prototypes.sci.sci30result-preset")
-if not momoTweak.load_sci_recipe_in_update then
+if not momoTweak.isLoadScienceRecipeInUpdates then
 	momoTweak.sct.increase_science_pack_amount()
 end
 require("prototypes.sci.vial-recipe")
 require("prototypes.machine-restriction")
 
-if (mods["angelsbioprocessing"]) then
-	momoTweak.angel_bio_final()
+if (momoTweak.mods.angelBio) then
+	momoTweak.AngelBioFinalFixed()
 end
+
 momoTweak.angelChemFluidPower()
 
 require("pycom.final")
 momoTweak.ReworkAngelIndGroup()
 momoTweak.ReworkPressureTank()
 
-require("fix");
+require("fix")
 
 	
 local count = 0

@@ -1,5 +1,5 @@
 
-if IsScienceCostM or momoTweak.py.coal then
+if momoTweak.mods.sct or momoTweak.py.coal then
 	require("prototypes.sci.sct-pre-recipe")
 end
 
@@ -22,14 +22,14 @@ require("prototypes.recipe.angels-machine")
 -- -------------------------------------------
 
 -- recipe science ------------------------------
-momoTweak.load_sci_recipe_in_update = ( not IsScienceCostM ) and ( not momoTweak.py.coal )
-if momoTweak.load_sci_recipe_in_update then
+momoTweak.isLoadScienceRecipeInUpdates = ( not momoTweak.mods.sct ) and ( not momoTweak.py.coal )
+if momoTweak.isLoadScienceRecipeInUpdates then
 	require("prototypes.sci.recipe")
 	require("prototypes.sci.sci30recipe")
 	require("prototypes.sci.sci30extreme")
 end
 
-momoTweak.sciLogistic_ingredients = momoTweak.get_ingredients(momoTweak.sciLogistic)
+momoTweak.logisticSciencePackIngredients = momoTweak.get_ingredients(momoTweak.sciLogistic)
 -- ---------------------------------------------
 
 if settings.startup["momo-harder-module"].value then
@@ -38,12 +38,12 @@ end
 
 require("prototypes.expensive")
 
-if IsLoadBobextended then
+if momoTweak.settings.isLoadBobExtended then
 	require("prototypes.bobextended.bobextended-update")
 end
 
-if (mods["angelsbioprocessing"]) then
-	momoTweak.angel_bio_update()
+if (momoTweak.mods.angelBio) then
+	momoTweak.AngelBioUpdate()
 end
 
 require("prototypes.buff-solar")

@@ -7,7 +7,7 @@ for i, sci in pairs({momoTweak.sci2, momoTweak.sci3, momoTweak.sciGun,
 	end
 end
 
-if (IsScienceCostM) then
+if (momoTweak.mods.sct) then
 	for i, sci in pairs({momoTweak.sciLogistic, momoTweak.sciProduction}) do
 		if (data.raw.recipe[sci]) then
 			bobmods.lib.recipe.remove_ingredient(sci, "momo-vial")

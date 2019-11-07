@@ -59,7 +59,7 @@ local function bio_item(Name)
 	count = count + 1
 end
 
-function momoTweak.angel_bio_data()
+function momoTweak.AngelBioData()
 	bio_item("momo-oil-pack")
 
 	bio_item("bio-grade-1")
@@ -73,7 +73,7 @@ end
 
 local biome = {"temp", "swamp", "desert"}
 
-function momoTweak.angel_bio_update()
+function momoTweak.AngelBioUpdate()
 	for i, name in pairs({"temp", "swamp", "desert"}) do
 		momoTweak.createRecipe(aboretum_category, {{garden[name], 1}}, {
 			{seed[name], 20},
@@ -153,13 +153,13 @@ function momoTweak.angel_bio_update()
 	
 end
 
-function momoTweak.angel_bio_final()
+function momoTweak.AngelBioFinalFixed()
 	bobmods.lib.recipe.add_ingredient(momoTweak.sci3, {"bio-grade-1", 1})
 	bobmods.lib.recipe.add_ingredient(momoTweak.sciProduction, {"bio-grade-2", 1})
 	bobmods.lib.recipe.add_ingredient(momoTweak.sciLogistic, {"bio-grade-2", 1})
 	bobmods.lib.recipe.add_ingredient(momoTweak.sciTech, {"bio-grade-3", 1})
 
-	if (IsScienceCostM) then
+	if (momoTweak.mods.sct) then
 		local pack = "sct-bio-science-pack"
 		bobmods.lib.recipe.add_ingredient(pack, {"momo-vial", momoTweak.get_result_amount(pack)})
 		bobmods.lib.recipe.add_ingredient(pack, {"red-sci", 2})
@@ -175,7 +175,7 @@ function momoTweak.angel_electrolysis_recipe()
 	data.raw.recipe["solid-alginic-acid"].category = "electrolysis"
 end
 
-momoTweak.angel_bio_data()
+momoTweak.AngelBioData()
 
 
 

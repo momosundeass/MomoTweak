@@ -2,7 +2,7 @@
 -- data.raw["item-subgroup"]["momo-science-materials"].group = data.raw["item-subgroup"][ref].group
 -- data.raw["item-subgroup"]["momo-science-materials"].order = "zzz"
 
--- local sci_cat = momoTweak.getSciCategory()
+-- local sci_cat = momoTweak.GetScienceCraftingCategory()
 
 -- sci 1
 		-- {"sct-t1-ironcore", 1},
