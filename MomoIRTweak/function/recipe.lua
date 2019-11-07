@@ -68,6 +68,6 @@ function momoIRTweak.DumpRecipes()
 		momoIRTweak.PrintTable(r)
 		momoIRTweak.dumpText = momoIRTweak.dumpText .. "\n"
 	end
-	log("MIRTL => " .. momoIRTweak.dumpText)
+	momoIRTweak.Log(momoIRTweak.dumpText)
 end
 

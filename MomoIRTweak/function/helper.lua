@@ -1,6 +1,10 @@
 momoIRTweak.dumpText = ""
 momoIRTweak.indentAmount = 0
 
+function momoIRTweak.Log(str) then
+	log("MIRTL => " .. str)
+end
+
 function momoIRTweak.GetName(obj) 
 	if (type(obj) == "table") then
 		return obj.name

@@ -7,7 +7,7 @@ function momoIRTweak.DumpTechnologies()
 		momoIRTweak.PrintTable(r)
 		momoIRTweak.dumpText = momoIRTweak.dumpText .. "\n"
 	end
-	log("MIRTL => " .. momoIRTweak.dumpText)
+	momoIRTweak.Log(momoIRTweak.dumpText)
 end
 
 function momoIRTweak.technology.FindFromRecipe(recipeName)
@@ -47,7 +47,7 @@ function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName)
 			recipe = recipeName
 		})
 	else
-		log ("MIRTL => no technology with name to add unlock : " .. tostring(technologyName))
+		momoIRTweak.Log("no technology with name to add unlock : " .. tostring(technologyName))
 	end
 end
 
@@ -62,7 +62,7 @@ function momoIRTweak.technology.RemoveUnlockEffect(technologyName, recipeName)
 			end
 		end
 	else
-		log ("MIRTL => no technology with name to remove unlock : " .. tostring(technologyName))
+		momoIRTweak.Log("no technology with name to remove unlock : " .. tostring(technologyName))
 	end
 	return false
 end
@@ -78,7 +78,7 @@ function momoIRTweak.technology.HasIngredient(technology, ingredientToCheck)
 			end
 		end
 	else
-		log ("MIRTL => no technology with name to check ingredient : " .. tostring(technologyName))
+		momoIRTweak.Log("no technology with name to check ingredient : " .. tostring(technologyName))
 		return false
 	end
 	
@@ -113,7 +113,7 @@ function momoIRTweak.technology.ReplaceIngredient(technology, tableMapping)
 		
 		return true
 	else
-		log ("MIRTL => no technology with name to replace ingredients : " .. tostring(technologyName))
+		momoIRTweak.Log("no technology with name to replace ingredients : " .. tostring(technologyName))
 		
 		return false
 	end
