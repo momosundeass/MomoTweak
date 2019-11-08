@@ -27,11 +27,18 @@ momoIRTweak.science.kMapping[momoIRTweak.science.packProduction] = momoIRTweak.s
 momoIRTweak.science.kMapping[momoIRTweak.science.packUtility]    = momoIRTweak.science.kProductionUtility
 momoIRTweak.science.kMapping[momoIRTweak.science.packSpace]      = momoIRTweak.science.kSpace
 
+momoIRTweak.machine.assembler1 = "assembling-machine-1"
+momoIRTweak.machine.assembler2 = "assembling-machine-2"
+momoIRTweak.machine.assembler3 = "assembling-machine-3"
+momoIRTweak.machine.assembler4 = "advanced-assembler"
+
 momoIRTweak.machine.furnace1 = "stone-age-furnace"
 momoIRTweak.machine.furnace2 = "bronze-furnace"
 momoIRTweak.machine.furnace3 = "iron-furnace"
 momoIRTweak.machine.furnace4 = "steel-age-furnace"
 momoIRTweak.machine.furnace5 = "k-advanced-furnace"
+
+momoIRTweak.machine.pumpjack = "pumpjack"
 
 momoIRTweak.machine.filtration1 = "steel-cleaner"
 momoIRTweak.machine.filtration2 = "k-filtration-plant"

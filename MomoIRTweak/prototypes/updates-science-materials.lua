@@ -31,9 +31,9 @@ recipe.enabled = true
 
 if (sci.isHarderPack) then
 	recipe = NewRecipe("advanced-crafting", item.productionBox.name, 1, {
-		ITEM("tin-plate", 2),
+		ITEM("tin-plate", 1),
 		ITEM("tin-tube", 1),
-		ITEM("rubber-natural", 2)
+		ITEM("rubber-natural", 1)
 	}, 6)
 	Unlock(tech.military, recipe.name)
 	

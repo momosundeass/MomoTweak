@@ -67,14 +67,21 @@ if (SCI.isHarderPack) then
 	
 	
 	---- k data
-	AddIng(SCI.k1, ITEM(item.gpu, 1))
-	AddIng(SCI.k2, ITEM(item.gpu, 1))
-	AddIng(SCI.kMilitary, ITEM(item.gpu, 1))
-	AddIng(SCI.k3, ITEM(item.gpu, 2))
+	AddIng(SCI.k1, ITEM("bronze-plate", 1))
 	
+	AddIng(SCI.k2, ITEM(item.gpu, 1))
+	AddIng(SCI.k2, ITEM("glass-plate", 3))
+	
+	AddIng(SCI.kMilitary, ITEM(item.gpu, 1))
+	
+	AddIng(SCI.k3, ITEM(item.gpu, 2))
+	AddIng(SCI.k3, ITEM(momoIRTweak.machine.pumpjack, 1))
 	
 	AddIng(SCI.kProductionUtility, ITEM(item.gpu, 6))
+	AddIng(SCI.kProductionUtility, ITEM(momoIRTweak.machine.assembler3, 1))
+	
 	AddIng(SCI.kMatter, ITEM(item.gpu, 4))
+	
 	AddIng(SCI.kSpace, ITEM(item.gpu, 6))
 	
 	if (eles.isHarder) then
