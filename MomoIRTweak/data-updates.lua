@@ -13,7 +13,7 @@ if not (momoIRTweak.DumpOnly) then
 		require("compatibility.underground-pipe-pack")
 	end
 	
-	if (mods["SpaceMod"] and settings.startup["momo-spaceEx"].value) then
+	if (mods["SpaceMod"]) then
 		require("compatibility.space-extension-mod")
 	end
 	
