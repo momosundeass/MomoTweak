@@ -1,4 +1,4 @@
-if momoIRTweak.updates.ScienceMaterials()
+function momoIRTweak.updates.ScienceMaterials()
 --- using
 	local AddIng = momoIRTweak.recipe.AddOrUpdateIngredient
 	local Rep = momoIRTweak.recipe.ReplaceAllIngredient

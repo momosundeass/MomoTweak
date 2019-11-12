@@ -1,4 +1,4 @@
-function momoIRTWeak.finalFixes.Technogies()
+function momoIRTweak.finalFixes.Technogies()
 	data.raw.technology["automation"].unit.count = settings.startup["momo-automationTechnologyCount"].value
 
 	for i, t in pairs(data.raw.technology) do

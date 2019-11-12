@@ -1,3 +1,4 @@
+local table = require('__stdlib__/stdlib/utils/table')
 function momoIRTweak.finalFixes.ScienceMaterials()
 	-- using 
 	local AddIng = momoIRTweak.recipe.AddOrUpdateIngredient
@@ -7,8 +8,6 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 	local item = momoIRTweak.item
 	local NewRecipe = momoIRTweak.recipe.NewRecipe
 	local Unlock = momoIRTweak.technology.AddUnlockEffect
-
-	local table = require('__stdlib__/stdlib/utils/table')
 
 	local SCI = momoIRTweak.science
 	local tech = momoIRTweak.technology
