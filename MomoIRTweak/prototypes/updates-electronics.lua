@@ -22,15 +22,15 @@ if (momoIRTweak.electronics.isHarder) then
 	
 	momoIRTweak.recipe.NewRecipe("advanced-crafting", eles.pcb3.name, 1, {
 		ITEM(eles.pcb2.name, 1),
-		ITEM("glass-plate", 2),
+		ITEM(eles.pcb1.name, 1), 
 		ITEM("gold-foil", 1),
 		ITEM("glass-cable", 1),
 		ITEM("chromium-rivet", 1)
 	}, 1).enabled = isUnlock
 	
 	AddIng("controller-mk1", ITEM(eles.pcb1.name, 8))
-	AddIng("controller-mk2", ITEM(eles.pcb2.name, 8))
-	AddIng("controller-mk3", ITEM(eles.pcb3.name, 8))
+	AddIng("controller-mk2", ITEM(eles.pcb2.name, 6))
+	AddIng("controller-mk3", ITEM(eles.pcb3.name, 4))
 	
 	local tech = momoIRTweak.technology.FindFromRecipe("controller-mk1")
 	momoIRTweak.technology.AddUnlockEffect(tech, eles.pcb1.name)

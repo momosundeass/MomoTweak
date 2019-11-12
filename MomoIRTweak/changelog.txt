@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.11
+Date: 2019.11.11
+  Fixed:
+    - Move require file out of settings if() 
+---------------------------------------------------------------------------------------------------
+Version: 0.17.10
+Date: 2019.11.11
+  Balanced:
+    - Processing Circuit Board now also require Simple Circuit Board to craft
+	- Military Science Kit now use less materials to craft
+	- add ingredients to k-science-pack
+  Graphics:
+    - new Graphics Processor Array icon
+---------------------------------------------------------------------------------------------------
 Version: 0.17.9
 Date: 2019.11.5
   Add:
