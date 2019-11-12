@@ -1,19 +1,24 @@
+require("bobextended-update-frame")
+require("bobextended-update-gem")
+require("bobextended-update-ele")
+require("bobextended-update-slag")
+
 function momoTweak.require.ExtendedUpdate()
 	if settings.startup["momo-enable-bob-extend"].value then
 		if settings.startup["momo-enable-bob-extend-frame"].value then
-			require("bobextended-update-frame")
+			momoTweak.require.ExtendedFrameUpdate()			
 		end
 		
 		if settings.startup["momo-enable-bob-extend-gem"].value > 0 then
-			require("bobextended-update-gem")
+			momoTweak.require.ExtendedGemUpdate()			
 		end
 		
 		if settings.startup["momo-enable-bob-extend-ele"].value then
-			require("bobextended-update-ele")
+			momoTweak.require.ExtendedEleUpdate()
 		end
 		
 		if settings.startup["momo-enable-bob-extend-slag"].value then
-			require("bobextended-update-slag")
+			momoTweak.require.ExtendedSlagUpdate()
 		end
 		
 		if (momoTweak.extended.belt) then

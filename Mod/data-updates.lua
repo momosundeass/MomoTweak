@@ -25,7 +25,7 @@ require("prototypes.sci.sci30extreme")
 require("prototypes.bobextended.bobextended-update")
 
 if momoTweak.mods.sct or momoTweak.py.coal then
-	momoTweak.require.SctPrePrecipe()
+	momoTweak.require.SctPreRecipe()
 end
 
 -- recipe science ------------------------------

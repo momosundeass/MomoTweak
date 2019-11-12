@@ -16,5 +16,6 @@ if (momoTweak.py.coal) then
 end
 
 if (momoTweak.py.ht) then
-	require("pyhigh_ui")
+	-- still not support py.
+	-- require("pyhigh_ui")
 end

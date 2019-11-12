@@ -1,14 +1,18 @@
+require("prototypes.sci.sct-pre-process")
+
 if not momoTweak.isLoadScienceRecipeInUpdates then
 	if (momoTweak.mods.sct) then
-		require("prototypes.sci.sct-pre-process")
+		momoTweak.require.SctPreProcess()
 	end
 	
 	momoTweak.require.SciRecipe()
 	momoTweak.require.Sci30Recipe()
 	momoTweak.require.Sci30Extreme()
 	
-	momoTweak.sct.add_to_technology()
-	momoTweak.sct.post_process_recipe()
+	if (momoTweak.mods.sct) then
+		momoTweak.sct.AddToTechnology()
+		momoTweak.sct.PostProcessRecipe()
+	end
 end
 
 require("prototypes.sci.final-fix")

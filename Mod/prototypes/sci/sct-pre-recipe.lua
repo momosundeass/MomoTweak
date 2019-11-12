@@ -1,4 +1,4 @@
-function momoTweak.require.SctPrePrecipe()
+function momoTweak.require.SctPreRecipe()
 	momoTweak.sct = {}
 	momoTweak.sct.recipe = {}
 
@@ -44,7 +44,7 @@ function momoTweak.require.SctPrePrecipe()
 
 	-- No longer use this recipes["sct-logistic"]
 
-	function momoTweak.sct.add_to_technology()
+	function momoTweak.sct.AddToTechnology()
 		local refTech = {
 			momoTweak.get_tech_of_recipe_no_demo(refSciPack[1]),
 			momoTweak.get_tech_of_recipe(refSciPack[2]),
