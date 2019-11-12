@@ -1,20 +1,28 @@
+require("prototypes.misc-recipe")
+require("prototypes.final-fixed-science-materials")
+require("prototypes.final-fixed-technogies")
+require("prototypes.final-fixed-tiered-recipes")
+require("prototypes.final-fixed-recipe")
+require("prototypes.final-fixed-electronics")
+require("prototypes.final-fixed-rubber")
+require("prototypes.matter-to-science-pack")
+
 if not (momoIRTweak.DumpOnly) then
-	
 	--using
 	local Subgroup = momoIRTweak.GetSubgroupFromItem
 	
 	-- write final fixed here
+	momoIRTweak.finalFixes.MiscRecipe()
+
+	momoIRTweak.finalFixes.ScienceMaterials()
+	momoIRTweak.finalFixes.Technogies()
+	momoIRTweak.finalFixes.TieredRecipes()
+	momoIRTweak.finalFixes.Recipe()
+	momoIRTweak.finalFixes.Electronics()
+	momoIRTweak.finalFixes.Rubber()
 	
-	require("prototypes.misc-recipe")
 	
-	require("prototypes.final-fixed-science-materials")
-	require("prototypes.final-fixed-technogies")
-	require("prototypes.final-fixed-tiered-recipes")
-	require("prototypes.final-fixed-recipe")
-	require("prototypes.final-fixed-electronics")
-	require("prototypes.final-fixed-rubber")
-	
-	require("prototypes.matter-to-science-pack")
+	momoIRTweak.finalFixes.MatterToScience()
 	
 	-- adjust subgroup
 	local refSubgroup = data.raw["item-subgroup"]["intermediate-product"]
