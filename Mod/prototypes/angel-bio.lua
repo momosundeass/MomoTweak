@@ -1,3 +1,5 @@
+if not momoTweak.angelBio then momoTweak.angelBio = {} end
+
 local tree = "solid-tree"
 local seed = {}
 seed.temp = "tree-temperate-seed"
@@ -33,47 +35,44 @@ product.temp =   {"temperate-1", "temperate-2", "temperate-3", "temperate-4", "t
 product.desert = {"desert-1",    "desert-2",    "desert-3",    "desert-4",    "desert-5"}
 product.swamp =  {"swamp-1",     "swamp-2",     "swamp-3",     "swamp-4",     "swamp-5"}
 
-local refsubgroup = data.raw["item-subgroup"][data.raw.item["temperate-1"].subgroup]
-data:extend({
-{
-	type = "item-subgroup",
-	name = "momo-bio-materials",
-	group = refsubgroup.group,
-	order = "zzzzz"
-}
-})
-local ICON = "__MomoTweak__/graphics/icons/"
-local count = 0
-local function bio_item(Name)
-	data:extend({
-    {
-        type = "item",
-        name = Name,
-        icon = ICON .. Name .. ".png",
-        icon_size = 32,
-        subgroup = "momo-bio-materials",
-        order = "f[" .. count .. "]",
-        stack_size = 200
-    }
-    })
-	count = count + 1
-end
-
-function momoTweak.AngelBioData()
-	bio_item("momo-oil-pack")
-
-	bio_item("bio-grade-1")
-	bio_item("bio-grade-2")
-	bio_item("bio-grade-3")
-	
-	bio_item("bio-temp")
-	bio_item("bio-desert")
-	bio_item("bio-swamp")
-end
-
 local biome = {"temp", "swamp", "desert"}
 
-function momoTweak.AngelBioUpdate()
+function momoTweak.angelBio.Data()
+	local ICON = "__MomoTweak__/graphics/icons/"
+	local count = 0
+	local function AddBioItem(Name)
+		data:extend({{
+			type = "item",
+			name = Name,
+			icon = ICON .. Name .. ".png",
+			icon_size = 32,
+			subgroup = "momo-bio-materials",
+			order = "f[" .. count .. "]",
+			stack_size = 200
+		}})
+		count = count + 1
+	end
+
+	momoTweak.angelBio.refSubgroup = data.raw["item-subgroup"][data.raw.item["temperate-1"].subgroup]
+	data:extend({{
+		type = "item-subgroup",
+		name = "momo-bio-materials",
+		group = momoTweak.angelBio.refSubgroup.group,
+		order = "zzzzz"
+	}})
+	
+	AddBioItem("momo-oil-pack")
+
+	AddBioItem("bio-grade-1")
+	AddBioItem("bio-grade-2")
+	AddBioItem("bio-grade-3")
+	
+	AddBioItem("bio-temp")
+	AddBioItem("bio-desert")
+	AddBioItem("bio-swamp")
+end
+
+function momoTweak.angelBio.Update()
 	for i, name in pairs({"temp", "swamp", "desert"}) do
 		momoTweak.createRecipe(aboretum_category, {{garden[name], 1}}, {
 			{seed[name], 20},
@@ -153,7 +152,7 @@ function momoTweak.AngelBioUpdate()
 	
 end
 
-function momoTweak.AngelBioFinalFixed()
+function momoTweak.angelBio.FinalFixed()
 	bobmods.lib.recipe.add_ingredient(momoTweak.sci3, {"bio-grade-1", 1})
 	bobmods.lib.recipe.add_ingredient(momoTweak.sciProduction, {"bio-grade-2", 1})
 	bobmods.lib.recipe.add_ingredient(momoTweak.sciLogistic, {"bio-grade-2", 1})
@@ -174,9 +173,6 @@ end
 function momoTweak.angel_electrolysis_recipe()
 	data.raw.recipe["solid-alginic-acid"].category = "electrolysis"
 end
-
-momoTweak.AngelBioData()
-
 
 
 

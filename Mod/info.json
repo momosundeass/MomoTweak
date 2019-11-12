@@ -36,11 +36,6 @@
 	  "? Bio_Industries >= 0.17.5",
 	  "? SpaceMod >= 0.4.1",
 	  "? LB-Modular-Chests >= 0.17.7",
-	  
-	  "? pycoalprocessing >= 1.1.5",
-	  "? pyfusionenergy >= 1.2.0",
-	  "? pyhightech >= 1.1.2",
-	  
 	  "? omnilib >= 3.0.4"
   ]
 }
