@@ -1,20 +1,26 @@
+require("prototypes.updates-science-materials")
+require("prototypes.updates-electronics")
+
+require("compatibility.bobinserters")
+require("compatibility.underground-pipe-pack")
+require("compatibility.space-extension-mod")
+
 if not (momoIRTweak.DumpOnly) then
 
 	-- write updates here
-	require("prototypes.updates-science-materials")
-	require("prototypes.updates-electronics")
-	
+	momoIRTweak.updates.ScienceMaterials()
+	momoIRTweak.updates.Electronics()
 	
 	if (mods["bobinserters"]) then
-		require("compatibility.bobinserters")
+		momoIRTweak.compatibility.BobInserters()
 	end
 	
-	if (mods["underground-pipe-pack"]) then
-		require("compatibility.underground-pipe-pack")
+	if (mods["underground-pipe-pack"]) then		
+		momoIRTweak.compatibility.UndergroundPipePack()
 	end
 	
 	if (mods["SpaceMod"]) then
-		require("compatibility.space-extension-mod")
+		momoIRTweak.compatibility.SpaceX()
 	end
 	
 	

@@ -5,6 +5,9 @@ if not momoIRTweak.science then momoIRTweak.science = {} end
 if not momoIRTweak.electronics then momoIRTweak.electronics = {} end
 if not momoIRTweak.technology then momoIRTweak.technology = {} end
 if not momoIRTweak.machine then momoIRTweak.machine = {} end
+if not momoIRTweak.updates then momoIRTweak.updates = {} end
+if not momoIRTweak.finalFixes then momoIRTweak.finalFixes = {} end
+if not momoIRTweak.compatibility then momoIRTweak.compatibility = {} end
 
 require("function.helper")
 require("function.subgroup")
@@ -13,6 +16,8 @@ require("function.recipe")
 require("function.technology")
 
 require("naming")
+require("prototypes.items.science-materials")
+require("prototypes.items.electronics")
 
 -- flag to make mod only dump data to log
 momoIRTweak.DumpOnly = false
@@ -41,6 +46,6 @@ data:extend({{
 }})
 
 if not (momoIRTweak.DumpOnly) then
-	require("prototypes.items.science-materials")
-	require("prototypes.items.electronics")
+	momoIRTweak.item.InitElectronics()
+	momoIRTweak.item.InitScienceMaterials()
 end

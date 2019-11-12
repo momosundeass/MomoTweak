@@ -1,22 +1,25 @@
-local item = momoIRTweak.item
 
-item.vial = momoIRTweak.item.NewScienceMaterialsItem("momo-science-vial")
+function momoIRTweak.item.InitScienceMaterials()
+	local item = momoIRTweak.item
 
-item.spp1 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-1")
+	item.vial = momoIRTweak.item.NewScienceMaterialsItem("momo-science-vial")
 
-item.sppMilitary = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-military")
+	item.spp1 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-1")
 
-item.spp2 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-2")
+	item.sppMilitary = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-military")
 
-item.sppProduction = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-production")
+	item.spp2 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-2")
 
-item.spp3 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-3")
+	item.sppProduction = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-production")
+
+	item.spp3 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-processor-pack-3")
 
 
-item.scienceBlueprint1 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-blueprint-1")
-item.scienceBlueprint2 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-blueprint-2")
-item.scienceBlueprint3 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-blueprint-3")
+	item.scienceBlueprint1 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-blueprint-1")
+	item.scienceBlueprint2 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-blueprint-2")
+	item.scienceBlueprint3 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-blueprint-3")
 
-item.productionBox = momoIRTweak.item.NewScienceMaterialsItem("momo-production-box")
+	item.productionBox = momoIRTweak.item.NewScienceMaterialsItem("momo-production-box")
 
-item.gpu = momoIRTweak.item.NewScienceMaterialsItem("momo-science-gpu")
+	item.gpu = momoIRTweak.item.NewScienceMaterialsItem("momo-science-gpu")
+end
