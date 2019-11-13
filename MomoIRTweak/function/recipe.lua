@@ -1,20 +1,45 @@
 local Recipe = require("__stdlib__/stdlib/data/recipe")
 
 if not momoIRTweak.recipe then momoIRTweak.recipe = {} end
+momoIRTweak.recipe.prefixName = "momo-"
 
 function momoIRTweak.recipe.NewRecipe(categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
-	data:extend({{
+local prototype = momoIRTweak.recipe.BuildPrototype(resultItemName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	data:extend({prototype})
+	return data.raw.recipe[resultItemName]
+end
+
+function momoIRTweak.recipe.BuildPrototype(prototypeName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	return {
 		type = "recipe",
 		enabled = false,
 		category = categoryCrafting,
-		name = resultItemName,
+		name = prototypeName,
 		ingredients = ingredients,
 		result = resultItemName,
 		result_count = resultAmount,
-		energy_required = timeUse,
-	}})
-	
-	return data.raw.recipe[resultItemName]
+		energy_required = timeUse
+	}
+end
+
+function momoIRTweak.recipe.NewRecipePrefix(categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	local name = momoIRTweak.recipe.prefixName .. resultItemName
+	local prototype = momoIRTweak.recipe.BuildPrototype(name, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse) 
+	data:extend({prototype})
+	return data.raw.recipe[name]
+end
+
+function momoIRTweak.recipe.ChangePrototypeResults(prototype, newName, results)
+	if (type(prototype) == "table") then
+		prototype.name = newName
+		prototype.results = results
+		prototype.result = nil
+		prototype.result_count = nil
+		prototype.main_product = results[1].name
+		return prototype
+	else
+		error("parameter #1[prototype] isn't table. (" .. newName ..")")
+	end
 end
 
 function momoIRTweak.recipe.AddIngredient(name, ingredient)
@@ -56,6 +81,24 @@ function momoIRTweak.recipe.GetIngredient(recipeName, ingredientName)
 			if (item.name == ingredientName) then
 				return item
 			end
+		end
+	end
+	return false
+end
+
+function momoIRTweak.recipe.GetCraftingMachineTint(recipeName)
+	if (data.raw.recipe[recipeName]) then
+		return data.raw.recipe[recipeName].crafting_machine_tint
+	end
+	return false
+end
+
+function momoIRTweak.recipe.SetCraftingMachineTint(recipeName, machineTintTable)
+	if (data.raw.recipe[recipeName]) then
+		if (type(machineTintTable) == "table") then
+			data.raw.recipe[recipeName].crafting_machine_tint = machineTintTable
+		else
+			error ("parameter #2 [machineTintTable] isn't table. (" .. recipeName .. ")")
 		end
 	end
 	return false

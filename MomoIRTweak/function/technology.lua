@@ -40,6 +40,15 @@ function momoIRTweak.technology.FindAllFromRecipe(recipeName)
 	return results
 end
 
+function momoIRTweak.technology.AddUnitCount(technologyName, addAmount)
+	if (data.raw.technology[technologyName]) then
+		local data = data.raw.technology[technologyName]
+		data.unit.count = data.unit.count + addAmount
+	else
+		momoIRTweak.Log("no technology with name to add unit : " .. tostring(technologyName))
+	end
+end
+
 function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName)
 	if (data.raw.technology[technologyName]) then
 		table.insert(data.raw.technology[technologyName].effects, {
