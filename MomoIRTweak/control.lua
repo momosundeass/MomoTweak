@@ -12,6 +12,7 @@ script.on_event("momo-debug", function(e)
 			slot = slot + 1
 		end
 		
+		p.color = {r = 0, g = 204/255, b = 153/255, a = 1}
 		for i, item in ipairs(items) do
 			p.print(item)
 		end
