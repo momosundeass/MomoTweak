@@ -40,7 +40,7 @@ function momoIRTweak.updates.ScienceMaterials()
 		
 		recipe = NewRecipe("advanced-crafting", item.productionBox2.name, 1, {
 			ITEM(item.productionBox.name, 1),
-			ITEM("stone-brick", 6),
+			ITEM("stone-brick", 7),
 			ITEM("bronze-plate", 2)
 		}, 5)
 		Unlock(tech.production, recipe.name)
