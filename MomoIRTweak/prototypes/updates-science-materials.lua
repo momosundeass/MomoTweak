@@ -38,6 +38,13 @@ function momoIRTweak.updates.ScienceMaterials()
 		}, 6)
 		Unlock(tech.military, recipe.name)
 		
+		recipe = NewRecipe("advanced-crafting", item.productionBox2.name, 1, {
+			ITEM(item.productionBox.name, 1),
+			ITEM("stone-brick", 6),
+			ITEM("bronze-plate", 2)
+		}, 5)
+		Unlock(tech.production, recipe.name)
+		
 		recipe = NewRecipe("advanced-crafting", item.scienceBlueprint1.name, 3, {
 			ITEM(item.productionBox, 1),
 			ITEM("glass-plate", 6),
@@ -46,7 +53,7 @@ function momoIRTweak.updates.ScienceMaterials()
 		Unlock(tech.pack3, recipe.name)
 		
 		recipe = NewRecipe("advanced-crafting", item.scienceBlueprint2.name, 5, {
-			ITEM(item.productionBox, 3),
+			ITEM(item.productionBox2, 3),
 			ITEM("gold-foil", 5),
 			ITEM("advanced-battery", 3),
 			ITEM("magnetron", 1)
@@ -54,7 +61,7 @@ function momoIRTweak.updates.ScienceMaterials()
 		Unlock(tech.production, recipe.name)
 		
 		recipe = NewRecipe("advanced-crafting", item.scienceBlueprint3.name, 3, {
-			ITEM(item.productionBox, 5),
+			ITEM(item.productionBox2, 5),
 			ITEM("k-ram", 6),
 			ITEM("k-processor", 3),
 			ITEM("glass-cable-heavy", 4),
