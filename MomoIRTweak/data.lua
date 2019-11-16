@@ -14,10 +14,13 @@ require("function.subgroup")
 require("function.item")
 require("function.recipe")
 require("function.technology")
+momoIRTweak.InitItemsLib("__MomoIRTweak__/graphics/icons/", settings.startup["momo-useHighResolution"].value)
 
 require("naming")
+require("prototypes.items.items")
 require("prototypes.items.science-materials")
 require("prototypes.items.electronics")
+
 
 -- flag to make mod only dump data to log
 momoIRTweak.DumpOnly = false
@@ -46,6 +49,7 @@ data:extend({{
 }})
 
 if not (momoIRTweak.DumpOnly) then
+	momoIRTweak.item.AddItems()
 	momoIRTweak.item.InitElectronics()
 	momoIRTweak.item.InitScienceMaterials()
 end

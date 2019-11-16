@@ -104,6 +104,17 @@ function momoIRTweak.recipe.SetCraftingMachineTint(recipeName, machineTintTable)
 	return false
 end
 
+function momoIRTweak.recipe.SetTime(recipeName, newTime)
+	local recipe = data.raw.recipe[recipeName]
+	if recipe then
+		if recipe.normal then
+			recipe.normal.energy_required = newTime
+			recipe.expensive.energy_required = newTime
+		else
+			recipe.energy_required = newTime
+		end
+	end
+end
 -- Warning this function may take half a year to finish
 function momoIRTweak.DumpRecipes()
 	momoIRTweak.dumpRecipesText = "Recipe dump \n"

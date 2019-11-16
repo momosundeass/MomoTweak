@@ -1,13 +1,41 @@
--- smelting-3 grinding-2 coke-smelting chemistry
--- rubber-wood  wood  wood-sapling  rubber-sapling  k-coke 
 
 -- using
+local items = momoIRTweak.item
 local ITEM = momoIRTweak.FastItem
 local Fluid = momoIRTweak.FastFluid
+local SetTime = momoIRTweak.recipe.SetTime
 local NewRecipe = momoIRTweak.recipe.NewRecipe
 local NewRecipePrefix = momoIRTweak.recipe.NewRecipePrefix
 local NewPrototype = momoIRTweak.recipe.BuildPrototype
 local tech = momoIRTweak.technology
+
+function momoIRTweak.updates.NerfEnrichedOre()
+	SetTime("enriched-copper", 40)
+	SetTime("enriched-iron", 40)
+end
+
+function momoIRTweak.updates.EffectiveCopperIron()
+	local unlockTech = "advanced-assembler"
+	local refSubgroup = momoIRTweak.GetSubgroupFromRecipe("advanced-copper-pure")
+	
+	local function NewEffectiveRecipe(itemName, baseItem)
+		local get = NewRecipePrefix("advanced-assembler", baseItem.name, 12, {
+			ITEM(itemName .. "-powder", 4),
+			ITEM("enriched-" .. itemName, 2)
+		}, 38.4)
+		get.subgroup = refSubgroup
+		tech.AddUnlockEffect(unlockTech, get.name)
+		
+		local result = NewRecipePrefix("smelting-5", itemName .. "-scrap", 12, {
+			ITEM(baseItem, 12),
+		}, 38.4)
+		result.subgroup = refSubgroup
+		tech.AddUnlockEffect(unlockTech, result.name)
+	end
+	
+	NewEffectiveRecipe("copper", items.packedCopper)
+	NewEffectiveRecipe("iron", items.packedIron)
+end
 
 function momoIRTweak.updates.WoodToCokeRecipe()
 	local unlockTech = data.raw.technology["advanced-oil-processing"]

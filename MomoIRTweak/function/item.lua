@@ -1,17 +1,21 @@
 momoIRTweak.itemOrder = 0
 
-momoIRTweak.dir.icon = "__MomoIRTweak__/graphics/icons/"
+momoIRTweak.dir.baseIconPath = ""
+momoIRTweak.dir.icon = ""
 momoIRTweak.dir.iconSize = 32
 
 momoIRTweak.dir.baseIcon = "__base__/graphics/icons/"
 
-if (settings.startup["momo-useHighResolution"].value) then
-	momoIRTweak.dir.iconSize = 64
-else
-	momoIRTweak.dir.iconSize = 32
+function momoIRTweak.InitItemsLib(iconLocation, isHighRes)
+	momoIRTweak.dir.baseIconPath = iconLocation 
+	momoIRTweak.dir.icon = iconLocation
+	if (isHighRes) then
+		momoIRTweak.dir.iconSize = 64
+	else
+		momoIRTweak.dir.iconSize = 32
+	end
+	momoIRTweak.dir.icon = momoIRTweak.dir.icon .. momoIRTweak.dir.iconSize .. "/"
 end
-
-momoIRTweak.dir.icon = momoIRTweak.dir.icon .. momoIRTweak.dir.iconSize .. "/"
 
 -- --------------------------------------------- Fast item
 function momoIRTweak.FastItem(itemName, itemAmount)
@@ -66,6 +70,13 @@ end
 function momoIRTweak.item.NewItemBaseIcon(itemName, iconDir, itemSubgroup, maxStack)
 	local item = momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
 	item.icon = iconDir .. ".png"
+	item.icon_size = 32
+	return item
+end
+
+function momoIRTweak.item.NewItemFixedSize(itemName, iconSize, itemSubgroup, maxStack)
+	local item = momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
+	item.icon = momoIRTweak.dir.baseIconPath .. iconSize .. "/" .. itemName .. ".png"
 	item.icon_size = 32
 	return item
 end

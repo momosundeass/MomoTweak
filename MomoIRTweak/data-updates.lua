@@ -12,9 +12,14 @@ if not (momoIRTweak.DumpOnly) then
 	-- write updates here
 	momoIRTweak.updates.ScienceMaterials()
 	momoIRTweak.updates.Electronics()
+	momoIRTweak.updates.NerfEnrichedOre()
 	
 	if (settings.startup["momo-woodToCokeRecipe"].value) then
 		momoIRTweak.updates.WoodToCokeRecipe()
+	end
+	
+	if (settings.startup["momo-effectiveIronCopper"].value) then
+		momoIRTweak.updates.EffectiveCopperIron()
 	end
 	
 	if (mods["bobinserters"]) then
