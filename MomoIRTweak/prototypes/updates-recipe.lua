@@ -10,8 +10,8 @@ local NewPrototype = momoIRTweak.recipe.BuildPrototype
 local tech = momoIRTweak.technology
 
 function momoIRTweak.updates.NerfEnrichedOre()
-	SetTime("enriched-copper", 40)
-	SetTime("enriched-iron", 40)
+	SetTime("enriched-copper", 86.8)
+	SetTime("enriched-iron", 86.8)
 end
 
 function momoIRTweak.updates.EffectiveCopperIron()
