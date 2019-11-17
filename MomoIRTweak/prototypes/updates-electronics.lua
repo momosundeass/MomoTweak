@@ -11,22 +11,22 @@ function momoIRTweak.updates.Electronics()
 		momoIRTweak.recipe.NewRecipe("crafting", eles.pcb1.name, 3, {
 			ITEM("wood-beam", 3),
 			ITEM("copper-cable", 1),
-			ITEM("tin-rivet", 1)
+			ITEM("tin-rivet", 2)
 		}, 3).enabled = isUnlock
 		
 		
-		momoIRTweak.recipe.NewRecipe("advanced-crafting", eles.pcb2.name, 1, {
-			ITEM(eles.pcb1.name, 1),
-			ITEM("k-silicon-wafer", 1),
-			ITEM("tin-plate", 2),
-			ITEM("tin-rivet", 1)
+		momoIRTweak.recipe.NewRecipe("advanced-crafting", eles.pcb2.name, 2, {
+			ITEM(eles.pcb1.name, 2),
+			ITEM("k-silicon-wafer", 2),
+			ITEM("tin-plate", 3),
+			ITEM("tin-rivet", 2)
 		}, 1).enabled = isUnlock
 		
 		momoIRTweak.recipe.NewRecipe("advanced-crafting", eles.pcb3.name, 1, {
+			ITEM(eles.pcb1.name, 2), 
 			ITEM(eles.pcb2.name, 1),
-			ITEM(eles.pcb1.name, 1), 
 			ITEM("gold-foil", 1),
-			ITEM("solder", 1),
+			ITEM("solder", 2),
 			ITEM("chromium-rivet", 1)
 		}, 1).enabled = isUnlock
 		
