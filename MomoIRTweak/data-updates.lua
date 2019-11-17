@@ -1,6 +1,7 @@
 require("prototypes.updates-science-materials")
 require("prototypes.updates-electronics")
 require("prototypes.updates-recipe")
+require("prototypes.updates-wood-process")
 
 require("compatibility.bobinserters")
 require("compatibility.underground-pipe-pack")
@@ -16,7 +17,7 @@ if not (momoIRTweak.DumpOnly) then
 	momoIRTweak.updates.HarderConcrete()
 	
 	if (settings.startup["momo-woodToCokeRecipe"].value) then
-		momoIRTweak.updates.WoodToCokeRecipe()
+		momoIRTweak.updates.WoodProcess()
 	end
 	
 	if (settings.startup["momo-effectiveIronCopper"].value) then

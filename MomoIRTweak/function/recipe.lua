@@ -115,6 +115,22 @@ function momoIRTweak.recipe.SetTime(recipeName, newTime)
 		end
 	end
 end
+
+function momoIRTweak.recipe.GetResultWithAmount(itemName, amountMin, amountMax)
+	local item = {}
+	item.name = itemName
+	item.amount_min = amountMin
+    item.amount_max = amountMax
+	return item
+end
+
+function momoIRTweak.recipe.SetEmissions(recipeName, multiplier)
+	local recipe = data.raw.recipe[recipeName]
+	if recipe then
+		recipe.emissions_multiplier = multiplier
+	end
+end
+
 -- Warning this function may take half a year to finish
 function momoIRTweak.DumpRecipes()
 	momoIRTweak.dumpRecipesText = "Recipe dump \n"

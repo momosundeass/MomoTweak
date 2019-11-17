@@ -72,3 +72,5 @@ momoIRTweak.machine.matterConverter = "matter-converter"
 momoIRTweak.machine.matterAssembler = "matter-assembler"
 
 momoIRTweak.machine.attimatterReactor = "antimatter-reactor-prototype"
+
+momoIRTweak.machine.forestry2 = "iron-forestry"
