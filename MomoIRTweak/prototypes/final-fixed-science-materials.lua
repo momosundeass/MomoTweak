@@ -65,6 +65,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		AddIng(SCI.packUtility, ITEM(item.scienceBlueprint3, 5))
 		AddIng(SCI.packUtility, ITEM(item.gpu, 6))
 		
+		AddIng("k-experimental-data", ITEM("imersite-glass", 6))
 		
 		---- k data
 		AddIng(SCI.k1, ITEM("bronze-plate", 1))

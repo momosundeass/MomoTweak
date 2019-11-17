@@ -66,7 +66,7 @@ function momoIRTweak.updates.ScienceMaterials()
 			ITEM("k-ram", 6),
 			ITEM("k-processor", 3),
 			ITEM("glass-cable-heavy", 4),
-			ITEM("laser", 1)
+			ITEM("laser", 2)
 		}, 40)
 		Unlock(tech.production, recipe.name)
 		
