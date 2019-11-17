@@ -12,14 +12,14 @@ function momoIRTweak.finalFixes.Rubber()
 		AddIng("fast-underground-belt", rubber(1))
 		AddIng("express-underground-belt", rubber(2))
 		
-		AddIng("fast-splitter", rubber(4))
-		AddIng("express-splitter", rubber(4))
+		AddIng("fast-splitter", rubber(6))
+		AddIng("express-splitter", rubber(12))
 		
 		AddIng("stack-inserter", rubber(2))
 		AddIng("construction-robot", rubber(3))
 		AddIng("logistic-robot", rubber(4))
 		
-		AddIng("pumpjack", rubber(5))
+		AddIng("pumpjack", rubber(16))
 		
 		AddIng("loader-kr", rubber(8))
 		AddIng("loader-kr-02", rubber(10))
@@ -32,5 +32,9 @@ function momoIRTweak.finalFixes.Rubber()
 		AddIng("loader-kr-03", rubber2(8))
 		AddIng("loader-kr-04", rubber2(10))
 		
+		
+		AddIng("carbon-plate", rubber2(4))
+		AddIng("glass-cable-heavy", rubber2(2))
+		AddIng("k-empty-memory-card", rubber2(1))
 	end
 end
