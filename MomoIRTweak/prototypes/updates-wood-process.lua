@@ -78,7 +78,7 @@ local function WoodRecipe()
 		ITEM("wood", 60),
 		ITEM("stone-gravel", 5),
 		ITEM("sand", 5),
-		ITEM("empty-barrel", 6)
+		ITEM("empty-barrel", 6),
 		momoIRTweak.recipe.GetResultWithAmount("wood-sapling", 10, 11)
 	})
 	data:extend({woodRecipe})
@@ -95,7 +95,7 @@ local function WoodRecipe()
 		ITEM("rubber-wood", 60),
 		ITEM("stone-gravel", 5),
 		ITEM("sand", 5),
-		ITEM("empty-barrel", 6)
+		ITEM("empty-barrel", 6),
 		momoIRTweak.recipe.GetResultWithAmount("rubber-sapling", 10, 11)
 	})
 	data:extend({woodRecipe})
@@ -106,6 +106,5 @@ end
 function momoIRTweak.updates.WoodProcess()
 	WoodToCoke()
 	NewTechnology()
-	AddFluidBox()
 	WoodRecipe()
 end
