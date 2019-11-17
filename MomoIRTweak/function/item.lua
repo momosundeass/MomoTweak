@@ -22,12 +22,18 @@ function momoIRTweak.FastItem(itemName, itemAmount)
 	if type(itemName) == "table" then
 		itemName = itemName.name
 	end
+	if itemAmount == nil then
+		itemAmount = 1
+	end
 	return {type="item", name=itemName, amount=itemAmount}
 end
 
 function momoIRTweak.FastFluid(fluidName, fluidAmount)
 	if type(fluidName) == "table" then
 		fluidName = fluidName.name
+	end
+	if fluidAmount == nil then
+		fluidAmount = 1
 	end
 	return {type="fluid", name=fluidName, amount=fluidAmount}
 end
