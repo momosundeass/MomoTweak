@@ -7,6 +7,17 @@ momoTweak.settings.isLoadBobExtended = true
 
 momoTweak.mods.sct = mods["ScienceCostTweakerM"]
 momoTweak.mods.angelBio = mods["angelsbioprocessing"]
+momoTweak.mods.msp = mods["MoreSciencePacks"]
+
+if not momoTweak.py then momoTweak.py = {} end
+
+--- Init IR lib
+require("function.helper")
+require("function.subgroup")
+require("function.item")
+require("function.recipe")
+require("function.technology")
+momoIRTweak.InitItemsLib("__MomoTweak__/graphics/icons/", false)
 
 require("function")
 require("const-name")

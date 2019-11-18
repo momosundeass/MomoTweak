@@ -1,6 +1,7 @@
 local Recipe = require("__stdlib__/stdlib/data/recipe")
 
 if not momoIRTweak.recipe then momoIRTweak.recipe = {} end
+
 momoIRTweak.recipe.prefixName = "momo-"
 
 function momoIRTweak.recipe.ValidateRecipe(recipe, callback)

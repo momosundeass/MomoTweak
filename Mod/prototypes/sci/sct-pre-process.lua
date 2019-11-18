@@ -32,7 +32,7 @@ function momoTweak.require.SctPreProcess()
 	})
 end
 
-function momoTweak.sct.PostProcessRecipe()() 
+function momoTweak.sct.PostProcessRecipe() 
 	bobmods.lib.recipe.remove_ingredient(momoTweak.sciLogistic, "sct-logistic")
 	momoTweak.add_ingredients(momoTweak.genRecipeNameFromResult({"logistic-express", 1}), {
 		{"movement-pack", 3},
