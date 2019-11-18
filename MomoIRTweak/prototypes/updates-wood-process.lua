@@ -15,6 +15,7 @@ local function WoodToCoke()
 	}, 12)
 	woodToCoke.subgroup = "non-handcrafting"
 	tech.AddUnlockEffect(unlockTech.name, woodToCoke.name)
+	momoIRTweak.recipe.SetLocalizedName(woodToCoke.name, "Coke from woods")
 	
 	local tintTable = momoIRTweak.recipe.GetCraftingMachineTint("light-oil-cracking")
 	
@@ -57,7 +58,7 @@ end
 
 local function NewTechnology()
 	local prototype = tech.Clone("deadlock-forestry-2", "momo-forestry")
-	tech.SetPrerequire(prototype, {"deadlock-forestry-2", "deadlock-steel-age"})
+	tech.SetPrerequire(prototype, {"deadlock-forestry-2", "deadlock-barrelling"})
 	tech.ClearEffects(prototype)
 	tech.SetUnit(prototype, {
 		{momoIRTweak.science.pack1, 1},
@@ -82,6 +83,7 @@ local function WoodRecipe()
 		momoIRTweak.recipe.GetResultWithAmount("wood-sapling", 10, 11)
 	})
 	data:extend({woodRecipe})
+	momoIRTweak.recipe.SetLocalizedName(woodRecipe.name, "Advanced wood growing")
 	tech.AddUnlockEffect("momo-forestry", woodRecipe.name)
 	momoIRTweak.recipe.SetEmissions(woodRecipe.name, 3)
 	
@@ -99,6 +101,7 @@ local function WoodRecipe()
 		momoIRTweak.recipe.GetResultWithAmount("rubber-sapling", 10, 11)
 	})
 	data:extend({woodRecipe})
+	momoIRTweak.recipe.SetLocalizedName(woodRecipe.name, "Advanced rubber wood growing")
 	tech.AddUnlockEffect("momo-forestry", woodRecipe.name)
 	momoIRTweak.recipe.SetEmissions(woodRecipe.name, 3)
 end

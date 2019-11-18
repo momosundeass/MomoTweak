@@ -56,6 +56,41 @@ function momoIRTweak.recipe.AddOrUpdateIngredient(name, ingredient)
 	re:add_ingredient(ingredient, ingredient)
 end
 
+function momoIRTweak.recipe.MultipleIngredientsCount(name, multiplier)
+	local function MutilpleIngredients(ingredients)
+		for i, ing in pairs(ingredients) do
+			local basic = momoIRTweak.item.CastToBasic(ing)
+			basic.amount = math.floor(basic.amount * multiplier)
+			ingredients[i] = basic
+		end
+	end
+
+	local recipe = data.raw.recipe[name]
+	if recipe then
+		if (recipe.normal) then
+			MutilpleIngredients(recipe.normal.ingredients)
+			MultipleIngredients(recipe.expensive.ingredients)
+		else
+			MutilpleIngredients(recipe.ingredients)
+		end
+	end
+end
+
+function momoIRTweak.recipe.MultipleResultsCount(name, multiplier)
+	local recipe = data.raw.recipe[name]
+	if recipe then
+		if (recipe.results) then
+			for i, r in pairs(recipe.results) do
+				local basic = momoIRTweak.item.CastToBasic(r)
+				basic.amount = math.floor(basic.amount * multiplier)
+				recipe.results[i] = basic
+			end
+		else
+			recipe.result_count = math.floor(recipe.result_count * multiplier)
+		end
+	end
+end
+
 function momoIRTweak.recipe.ReplaceAllIngredient(name, newIngredients)
 	data.raw.recipe[name].ingredients = newIngredients
 end
@@ -128,6 +163,21 @@ function momoIRTweak.recipe.SetEmissions(recipeName, multiplier)
 	local recipe = data.raw.recipe[recipeName]
 	if recipe then
 		recipe.emissions_multiplier = multiplier
+	end
+end
+
+function momoIRTweak.recipe.SetIcon(recipeName, iconPath, iconSize)
+	local recipe = data.raw.recipe[recipeName]
+	if (recipe) then
+		recipe.icon = iconPath
+		recipe.iconSize = iconSize
+	end
+end
+
+function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
+	local recipe = data.raw.recipe[recipeName]
+	if (recipe) then
+		recipe.localised_name = localName
 	end
 end
 
