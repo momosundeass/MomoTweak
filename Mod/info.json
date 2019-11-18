@@ -8,6 +8,7 @@
   "description": "Add more complex crafting for science compatible with Bob's Angel's +30 new Science Pack mod && Tweak for some mod",
   "dependencies": [
 	  "base >= 0.17.0",
+	  "stdlib >= 1.3.0",
 	  "boblibrary >= 0.17.0",
 	  "bobassembly >= 0.17.0",
 	  "bobelectronics >= 0.17.0",

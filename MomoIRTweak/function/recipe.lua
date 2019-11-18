@@ -64,6 +64,29 @@ function momoIRTweak.recipe.RemoveIngredient(recipeName, ingredientName)
 	Recipe(recipeName):remove_ingredient(ingredientName, ingredientName)
 end
 
+function momoIRTweak.recipe.ConvertToOnlyNormal(recipeName, isPickExpensive)
+	if not isPickExpensive then isPickExpensive = false end
+	
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
+		if recipe.normal then  
+			local target = recipe.normal
+			if (isPickExpensive) then
+				recipe.expensive
+			end
+			
+			recipe.ingredients     = target.ingredient
+			recipe.result          = target.result
+			recipe.result_count    = target.result_count
+			recipe.results         = target.results
+			recipe.energy_required = target.energy_required
+			recipe.enabled         = recipe.enabled
+			
+			recipe.normal = nil
+			recipe.expensive = nil
+		end
+	end)
+end 
+
 function momoIRTweak.recipe.AddOrUpdateIngredient(recipeName, ingredient)
 	local re = Recipe(recipeName)
 	re:remove_ingredient(ingredient.name, ingredient.name)
@@ -131,6 +154,15 @@ function momoIRTweak.recipe.GetIngredient(recipeName, ingredientName)
 		end
 	end
 	return false
+end
+
+function momoIRTweak.recipe.GetResult(recipeName)
+	local result = false
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+		 result = momoIRTweak.FastItem(recipe.result, recipe.result_count)
+	end)
+	
+	return result
 end
 
 function momoIRTweak.recipe.GetCraftingMachineTint(recipeName)
