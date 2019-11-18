@@ -60,6 +60,17 @@ function momoIRTweak.recipe.AddIngredient(recipeName, ingredient)
 	Recipe(recipeName):add_ingredient(ingredient, ingredient)
 end
 
+function momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+		if (recipe.normal) then
+			table.insert(recipe.normal.ingredient, ingredient)
+			table.insert(recipe.expensive.ingredient, ingredient)
+		else
+			table.insert(recipe.ingredient, ingredient)
+		end
+	end)
+end
+
 function momoIRTweak.recipe.RemoveIngredient(recipeName, ingredientName)
 	Recipe(recipeName):remove_ingredient(ingredientName, ingredientName)
 end
@@ -71,7 +82,7 @@ function momoIRTweak.recipe.ConvertToOnlyNormal(recipeName, isPickExpensive)
 		if recipe.normal then  
 			local target = recipe.normal
 			if (isPickExpensive) then
-				recipe.expensive
+				target = recipe.expensive
 			end
 			
 			recipe.ingredients     = target.ingredient

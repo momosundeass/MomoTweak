@@ -1,14 +1,13 @@
 -- using 
 local ITEM = momoIRTweak.FastItem
-local AddIng = momoIRTweak.recipe.AddOrUpdateIngredient
+local AddIng = momoIRTweak.recipe.AddIngredientNative
 local GetResult = momoIRTweak.recipe.GetResult
 local Rem = momoIRTweak.recipe.RemoveIngredient
 
 local sciencePacks = {momoTweak.sci2, momoTweak.sci3, momoTweak.sciGun,
 	momoTweak.sciProduction, momoTweak.sciTech, momoTweak.sciLogistic}
-
-momoIRTweak.recipe.ConvertToOnlyNormal(momoTweak.sciProduction)
-
+	
+	
 for i, sci in pairs(sciencePacks) do
 	momoIRTweak.recipe.ValidateRecipe(sci, function(recipe)
 		local result = GetResult(recipe.name)
