@@ -3,6 +3,19 @@ local Recipe = require("__stdlib__/stdlib/data/recipe")
 if not momoIRTweak.recipe then momoIRTweak.recipe = {} end
 momoIRTweak.recipe.prefixName = "momo-"
 
+function momoIRTweak.recipe.ValidateRecipe(recipe, callback)
+	if (type(recipe) == "table") then
+		callback(recipe)
+	else
+		local recipeTable = data.raw.recipe[recipe]
+		if (recipeTable) then
+			callback(recipeTable)
+		else
+			momoIRTweak.Log("no recipe with name " .. recipe)
+		end
+	end
+end
+
 function momoIRTweak.recipe.NewRecipe(categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
 local prototype = momoIRTweak.recipe.BuildPrototype(resultItemName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
 	data:extend({prototype})
@@ -42,21 +55,21 @@ function momoIRTweak.recipe.ChangePrototypeResults(prototype, newName, results)
 	end
 end
 
-function momoIRTweak.recipe.AddIngredient(name, ingredient)
-	Recipe(name):add_ingredient(ingredient, ingredient)
+function momoIRTweak.recipe.AddIngredient(recipeName, ingredient)
+	Recipe(recipeName):add_ingredient(ingredient, ingredient)
 end
 
-function momoIRTweak.recipe.RemoveIngredient(name, ingredientName)
-	Recipe(name):remove_ingredient(ingredientName, ingredientName)
+function momoIRTweak.recipe.RemoveIngredient(recipeName, ingredientName)
+	Recipe(recipeName):remove_ingredient(ingredientName, ingredientName)
 end
 
-function momoIRTweak.recipe.AddOrUpdateIngredient(name, ingredient)
-	local re = Recipe(name)
+function momoIRTweak.recipe.AddOrUpdateIngredient(recipeName, ingredient)
+	local re = Recipe(recipeName)
 	re:remove_ingredient(ingredient.name, ingredient.name)
 	re:add_ingredient(ingredient, ingredient)
 end
 
-function momoIRTweak.recipe.MultipleIngredientsCount(name, multiplier)
+function momoIRTweak.recipe.MultipleIngredientsCount(recipeName, multiplier)
 	local function MutilpleIngredients(ingredients)
 		for i, ing in pairs(ingredients) do
 			local basic = momoIRTweak.item.CastToBasic(ing)
@@ -64,21 +77,19 @@ function momoIRTweak.recipe.MultipleIngredientsCount(name, multiplier)
 			ingredients[i] = basic
 		end
 	end
-
-	local recipe = data.raw.recipe[name]
-	if recipe then
+	
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
 		if (recipe.normal) then
 			MutilpleIngredients(recipe.normal.ingredients)
 			MultipleIngredients(recipe.expensive.ingredients)
 		else
 			MutilpleIngredients(recipe.ingredients)
 		end
-	end
+	end)
 end
 
-function momoIRTweak.recipe.MultipleResultsCount(name, multiplier)
-	local recipe = data.raw.recipe[name]
-	if recipe then
+function momoIRTweak.recipe.MultipleResultsCount(recipeName, multiplier)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
 		if (recipe.results) then
 			for i, r in pairs(recipe.results) do
 				local basic = momoIRTweak.item.CastToBasic(r)
@@ -88,11 +99,11 @@ function momoIRTweak.recipe.MultipleResultsCount(name, multiplier)
 		else
 			recipe.result_count = math.floor(recipe.result_count * multiplier)
 		end
-	end
+	end)
 end
 
-function momoIRTweak.recipe.ReplaceAllIngredient(name, newIngredients)
-	data.raw.recipe[name].ingredients = newIngredients
+function momoIRTweak.recipe.ReplaceAllIngredient(recipeName, newIngredients)
+	data.raw.recipe[recipeName].ingredients = newIngredients
 end
 
 function momoIRTweak.recipe.ReplaceIngredient(recipeName, targetItem, newItem)

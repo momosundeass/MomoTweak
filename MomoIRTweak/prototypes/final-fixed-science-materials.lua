@@ -53,6 +53,8 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		AddIng(item.spp2.name, ITEM("computer-mk1", 1))
 		AddIng(item.spp2.name, ITEM("inserter", 4))
 		
+		momoIRTweak.recipe.SetTime(item.spp2.name, 40)
+		
 		AddIng(item.spp3.name, ITEM("assembling-machine-2", 1))
 		AddIng(item.spp3.name, ITEM("advanced-battery", 3))
 		AddIng(item.spp3.name, ITEM("uranium-fuel-cell", 1))
