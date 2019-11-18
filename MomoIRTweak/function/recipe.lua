@@ -63,10 +63,10 @@ end
 function momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
 		if (recipe.normal) then
-			table.insert(recipe.normal.ingredient, ingredient)
-			table.insert(recipe.expensive.ingredient, ingredient)
+			table.insert(recipe.normal.ingredients, ingredient)
+			table.insert(recipe.expensive.ingredients, ingredient)
 		else
-			table.insert(recipe.ingredient, ingredient)
+			table.insert(recipe.ingredients, ingredient)
 		end
 	end)
 end
