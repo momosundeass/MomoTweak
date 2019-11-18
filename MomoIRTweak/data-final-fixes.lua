@@ -13,6 +13,8 @@ if not (momoIRTweak.DumpOnly) then
 	
 	-- write final fixed here
 	momoIRTweak.finalFixes.MiscRecipe()
+	data.raw["solar-panel"]["imersite-solar-panel"].production = "450kW"; 
+	
 
 	momoIRTweak.finalFixes.ScienceMaterials()
 	momoIRTweak.finalFixes.Technogies()

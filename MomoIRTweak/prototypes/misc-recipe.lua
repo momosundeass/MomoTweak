@@ -70,7 +70,10 @@ function momoIRTweak.finalFixes.MiscRecipe()
 	AddIng(machine.matterConverter, ITEM("controller-mk3", 20))
 	Repi(machine.matterAssembler, "processing-unit", ITEM("computer-mk3", 5))
 	AddIng(machine.matterAssembler, ITEM("controller-mk3", 20))
-
-	--- antimatter 500
+	
+	AddIng("advanced-battery", ITEM("k-lithium", 2))
+	AddIng("imersite-battery", ITEM("k-lithium", 3))
+	
+	Repi("imersite-solar-panel", "solar-panel", ITEM("solar-array", 1))
 end
 

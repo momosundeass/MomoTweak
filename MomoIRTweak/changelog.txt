@@ -1,8 +1,29 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.14
+Date: 2019.11.17
+  Change:
+    - Ingredients of electronics group recipes
+  Add:
+    - New tier of wood production
+---------------------------------------------------------------------------------------------------
+Version: 0.17.13
+Date: 2019.11.17
+  Add:
+	- Last game recipe to get more copper and iron 
+  Change:
+    - Ingredients of contruction kit and contruction package
+---------------------------------------------------------------------------------------------------
+Version: 0.17.12
+Date: 2019.11.16
+  Add:
+	- Add contruction package for production and utility science pack
+---------------------------------------------------------------------------------------------------
 Version: 0.17.11
-Date: 2019.11.11
+Date: 2019.11.13
   Fixed:
-    - Move require file out of settings if() 
+    - Move require file out of settings if (mismatch)
+  Add:
+	- Wood to coke recipe
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.10
 Date: 2019.11.11

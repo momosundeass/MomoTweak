@@ -1,8 +1,10 @@
+local table = require('__stdlib__/stdlib/utils/table')
+
 momoIRTweak.dumpText = ""
 momoIRTweak.indentAmount = 0
 
 function momoIRTweak.Log(str)
-	log("MIRTL => " .. str)
+	log("MomoIRTweak => " .. str)
 end
 
 function momoIRTweak.GetName(obj) 
@@ -10,6 +12,10 @@ function momoIRTweak.GetName(obj)
 		return obj.name
 	end
 	return obj
+end
+
+function momoIRTweak.DeepCopy(tableToCopy)
+	return table.deep_copy(tableToCopy)
 end
 
 function momoIRTweak.PrintTable(var)

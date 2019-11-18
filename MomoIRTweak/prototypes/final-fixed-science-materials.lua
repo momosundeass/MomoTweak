@@ -46,10 +46,14 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		AddIng(item.spp1.name, ITEM("transport-belt", 1))
 		
 		Rem(item.spp2.name, "controller-mk1")
-		AddIng(item.spp2.name, ITEM("computer-mk1", 1))
-		AddIng(item.spp2.name, ITEM("inserter", 2))
 		
-		AddIng(item.spp3.name, ITEM("assembling-machine-2", 2))
+		momoIRTweak.recipe.MultipleIngredientsCount(item.spp2.name, 2)
+		momoIRTweak.recipe.MultipleResultsCount(item.spp2.name, 2)
+		
+		AddIng(item.spp2.name, ITEM("computer-mk1", 1))
+		AddIng(item.spp2.name, ITEM("inserter", 4))
+		
+		AddIng(item.spp3.name, ITEM("assembling-machine-2", 1))
 		AddIng(item.spp3.name, ITEM("advanced-battery", 3))
 		AddIng(item.spp3.name, ITEM("uranium-fuel-cell", 1))
 		
@@ -65,9 +69,10 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		AddIng(SCI.packUtility, ITEM(item.scienceBlueprint3, 5))
 		AddIng(SCI.packUtility, ITEM(item.gpu, 6))
 		
+		AddIng("k-experimental-data", ITEM("imersite-glass", 6))
 		
 		---- k data
-		AddIng(SCI.k1, ITEM("bronze-plate", 1))
+		AddIng(SCI.k1, ITEM("bronze-plate", 2))
 		
 		AddIng(SCI.k2, ITEM(item.gpu, 1))
 		AddIng(SCI.k2, ITEM("glass-plate", 3))

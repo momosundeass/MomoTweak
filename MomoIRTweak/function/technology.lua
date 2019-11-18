@@ -40,6 +40,15 @@ function momoIRTweak.technology.FindAllFromRecipe(recipeName)
 	return results
 end
 
+function momoIRTweak.technology.AddUnitCount(technologyName, addAmount)
+	if (data.raw.technology[technologyName]) then
+		local data = data.raw.technology[technologyName]
+		data.unit.count = data.unit.count + addAmount
+	else
+		momoIRTweak.Log("no technology with name to add unit : " .. tostring(technologyName))
+	end
+end
+
 function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName)
 	if (data.raw.technology[technologyName]) then
 		table.insert(data.raw.technology[technologyName].effects, {
@@ -119,11 +128,43 @@ function momoIRTweak.technology.ReplaceIngredient(technology, tableMapping)
 	end
 end
 
+function momoIRTweak.technology.Clone(technologyName, newName)
+	if (data.raw.technology[technologyName]) then
+		local tech = momoIRTweak.DeepCopy(data.raw.technology[technologyName])
+		tech.name = newName
+		return tech
+	else
+		momoIRTweak.Log("no technology with name to clone : " .. tostring(technologyName))
+		return false
+	end
+end
 
+function momoIRTweak.technology.SetPrerequire(technology, prerequireTable)
+	if (type(technology) == "table") then
+		technology.prerequisites = prerequireTable
+	else
+		error("technology.SetPrerequire need table got " .. type(techonlogy))
+	end
+end
 
+function momoIRTweak.technology.SetUnit(technology, ingredientsTable, timeUse, count)
+	if (type(technology) == "table") then
+		technology.unit = {}
+		technology.unit.count = count
+		technology.unit.time = timeUse
+		technology.unit.ingredients = ingredientsTable
+	else
+		error("technology.SetUnit need table got " .. type(techonlogy))
+	end
+end
 
-
-
+function momoIRTweak.technology.ClearEffects(technology)
+	if (type(technology) == "table") then
+		technology.effects = {}
+	else
+		error("technology.SetUnit need table got " .. type(techonlogy))
+	end
+end
 
 
 

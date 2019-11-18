@@ -1,20 +1,45 @@
 local Recipe = require("__stdlib__/stdlib/data/recipe")
 
 if not momoIRTweak.recipe then momoIRTweak.recipe = {} end
+momoIRTweak.recipe.prefixName = "momo-"
 
 function momoIRTweak.recipe.NewRecipe(categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
-	data:extend({{
+local prototype = momoIRTweak.recipe.BuildPrototype(resultItemName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	data:extend({prototype})
+	return data.raw.recipe[resultItemName]
+end
+
+function momoIRTweak.recipe.BuildPrototype(prototypeName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	return {
 		type = "recipe",
 		enabled = false,
 		category = categoryCrafting,
-		name = resultItemName,
+		name = prototypeName,
 		ingredients = ingredients,
 		result = resultItemName,
 		result_count = resultAmount,
-		energy_required = timeUse,
-	}})
-	
-	return data.raw.recipe[resultItemName]
+		energy_required = timeUse
+	}
+end
+
+function momoIRTweak.recipe.NewRecipePrefix(categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	local name = momoIRTweak.recipe.prefixName .. resultItemName
+	local prototype = momoIRTweak.recipe.BuildPrototype(name, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse) 
+	data:extend({prototype})
+	return data.raw.recipe[name]
+end
+
+function momoIRTweak.recipe.ChangePrototypeResults(prototype, newName, results)
+	if (type(prototype) == "table") then
+		prototype.name = newName
+		prototype.results = results
+		prototype.result = nil
+		prototype.result_count = nil
+		prototype.main_product = results[1].name
+		return prototype
+	else
+		error("parameter #1[prototype] isn't table. (" .. newName ..")")
+	end
 end
 
 function momoIRTweak.recipe.AddIngredient(name, ingredient)
@@ -29,6 +54,41 @@ function momoIRTweak.recipe.AddOrUpdateIngredient(name, ingredient)
 	local re = Recipe(name)
 	re:remove_ingredient(ingredient.name, ingredient.name)
 	re:add_ingredient(ingredient, ingredient)
+end
+
+function momoIRTweak.recipe.MultipleIngredientsCount(name, multiplier)
+	local function MutilpleIngredients(ingredients)
+		for i, ing in pairs(ingredients) do
+			local basic = momoIRTweak.item.CastToBasic(ing)
+			basic.amount = math.floor(basic.amount * multiplier)
+			ingredients[i] = basic
+		end
+	end
+
+	local recipe = data.raw.recipe[name]
+	if recipe then
+		if (recipe.normal) then
+			MutilpleIngredients(recipe.normal.ingredients)
+			MultipleIngredients(recipe.expensive.ingredients)
+		else
+			MutilpleIngredients(recipe.ingredients)
+		end
+	end
+end
+
+function momoIRTweak.recipe.MultipleResultsCount(name, multiplier)
+	local recipe = data.raw.recipe[name]
+	if recipe then
+		if (recipe.results) then
+			for i, r in pairs(recipe.results) do
+				local basic = momoIRTweak.item.CastToBasic(r)
+				basic.amount = math.floor(basic.amount * multiplier)
+				recipe.results[i] = basic
+			end
+		else
+			recipe.result_count = math.floor(recipe.result_count * multiplier)
+		end
+	end
 end
 
 function momoIRTweak.recipe.ReplaceAllIngredient(name, newIngredients)
@@ -59,6 +119,66 @@ function momoIRTweak.recipe.GetIngredient(recipeName, ingredientName)
 		end
 	end
 	return false
+end
+
+function momoIRTweak.recipe.GetCraftingMachineTint(recipeName)
+	if (data.raw.recipe[recipeName]) then
+		return data.raw.recipe[recipeName].crafting_machine_tint
+	end
+	return false
+end
+
+function momoIRTweak.recipe.SetCraftingMachineTint(recipeName, machineTintTable)
+	if (data.raw.recipe[recipeName]) then
+		if (type(machineTintTable) == "table") then
+			data.raw.recipe[recipeName].crafting_machine_tint = machineTintTable
+		else
+			error ("parameter #2 [machineTintTable] isn't table. (" .. recipeName .. ")")
+		end
+	end
+	return false
+end
+
+function momoIRTweak.recipe.SetTime(recipeName, newTime)
+	local recipe = data.raw.recipe[recipeName]
+	if recipe then
+		if recipe.normal then
+			recipe.normal.energy_required = newTime
+			recipe.expensive.energy_required = newTime
+		else
+			recipe.energy_required = newTime
+		end
+	end
+end
+
+function momoIRTweak.recipe.GetResultWithAmount(itemName, amountMin, amountMax)
+	local item = {}
+	item.name = itemName
+	item.amount_min = amountMin
+    item.amount_max = amountMax
+	return item
+end
+
+function momoIRTweak.recipe.SetEmissions(recipeName, multiplier)
+	local recipe = data.raw.recipe[recipeName]
+	if recipe then
+		recipe.emissions_multiplier = multiplier
+	end
+end
+
+function momoIRTweak.recipe.SetIcon(recipeName, iconPath, iconSize)
+	local recipe = data.raw.recipe[recipeName]
+	if (recipe) then
+		recipe.icon = iconPath
+		recipe.iconSize = iconSize
+	end
+end
+
+function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
+	local recipe = data.raw.recipe[recipeName]
+	if (recipe) then
+		recipe.localised_name = localName
+	end
 end
 
 -- Warning this function may take half a year to finish

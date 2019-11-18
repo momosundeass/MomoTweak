@@ -32,11 +32,19 @@ function momoIRTweak.updates.ScienceMaterials()
 
 	if (sci.isHarderPack) then
 		recipe = NewRecipe("advanced-crafting", item.productionBox.name, 1, {
-			ITEM("tin-plate", 1),
+			ITEM("stone-brick", 2),
 			ITEM("tin-tube", 1),
 			ITEM("rubber-natural", 1)
 		}, 6)
 		Unlock(tech.military, recipe.name)
+		
+		recipe = NewRecipe("advanced-crafting", item.productionBox2.name, 2, {
+			ITEM(item.productionBox.name, 4),
+			ITEM("stone-wall", 7),
+			ITEM("bronze-chassis-small", 2),
+			ITEM("tin-plate", 15)
+		}, 22)
+		Unlock(tech.production, recipe.name)
 		
 		recipe = NewRecipe("advanced-crafting", item.scienceBlueprint1.name, 3, {
 			ITEM(item.productionBox, 1),
@@ -46,7 +54,7 @@ function momoIRTweak.updates.ScienceMaterials()
 		Unlock(tech.pack3, recipe.name)
 		
 		recipe = NewRecipe("advanced-crafting", item.scienceBlueprint2.name, 5, {
-			ITEM(item.productionBox, 3),
+			ITEM(item.productionBox2, 3),
 			ITEM("gold-foil", 5),
 			ITEM("advanced-battery", 3),
 			ITEM("magnetron", 1)
@@ -54,7 +62,7 @@ function momoIRTweak.updates.ScienceMaterials()
 		Unlock(tech.production, recipe.name)
 		
 		recipe = NewRecipe("advanced-crafting", item.scienceBlueprint3.name, 3, {
-			ITEM(item.productionBox, 5),
+			ITEM(item.productionBox2, 5),
 			ITEM("k-ram", 6),
 			ITEM("k-processor", 3),
 			ITEM("glass-cable-heavy", 4),

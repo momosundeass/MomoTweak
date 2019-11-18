@@ -20,6 +20,7 @@ function momoIRTweak.item.InitScienceMaterials()
 	item.scienceBlueprint3 = momoIRTweak.item.NewScienceMaterialsItem("momo-science-blueprint-3")
 
 	item.productionBox = momoIRTweak.item.NewScienceMaterialsItem("momo-production-box")
+	item.productionBox2 = momoIRTweak.item.NewScienceMaterialsItem("momo-production-box-2")
 
 	item.gpu = momoIRTweak.item.NewScienceMaterialsItem("momo-science-gpu")
 end

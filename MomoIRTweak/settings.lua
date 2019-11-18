@@ -59,6 +59,8 @@ CreateBoolSetting("momo-tieredBot", true)
 CreateBoolSetting("momo-harderElectronics", true)
 CreateBoolSetting("momo-harderModule", true)
 CreateBoolSetting("momo-increaseRubberUse", true)
+CreateBoolSetting("momo-woodToCokeRecipe", true)
+CreateBoolSetting("momo-effectiveIronCopper", true)
 -- CreateBoolSetting("momo-increaseRubberUse", true)
 -- CreateBoolSetting("momo-harderEngineUnit", true)
 
