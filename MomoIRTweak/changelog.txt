@@ -2,6 +2,14 @@
 Version: 0.17.14
 Date: 2019.11.17
   Change:
+    - Science pack ingredients count now depent on result count
+	- Ingredients of electronics group recipes
+  Balanced:
+	- Some recipe ingrendients to match new change
+---------------------------------------------------------------------------------------------------
+Version: 0.17.14
+Date: 2019.11.17
+  Change:
     - Ingredients of electronics group recipes
   Add:
     - New tier of wood production
