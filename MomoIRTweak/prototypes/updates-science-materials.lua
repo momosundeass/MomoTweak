@@ -8,7 +8,6 @@ function momoIRTweak.updates.ScienceMaterials()
 	local NewRecipe = momoIRTweak.recipe.NewRecipe
 	local Unlock = momoIRTweak.technology.AddUnlockEffect
 
-
 	local tech = momoIRTweak.technology
 	local sci = momoIRTweak.science
 	local eles = momoIRTweak.electronics
@@ -47,7 +46,7 @@ function momoIRTweak.updates.ScienceMaterials()
 		Unlock(tech.production, recipe.name)
 		
 		recipe = NewRecipe("advanced-crafting", item.scienceBlueprint1.name, 3, {
-			ITEM(item.productionBox, 1),
+			ITEM(item.productionBox, 2),
 			ITEM("glass-plate", 6),
 			ITEM("electronic-circuit", 1)
 		}, 20)
@@ -57,7 +56,7 @@ function momoIRTweak.updates.ScienceMaterials()
 			ITEM(item.productionBox2, 3),
 			ITEM("gold-foil", 5),
 			ITEM("advanced-battery", 3),
-			ITEM("magnetron", 1)
+			ITEM("magnetron", 2)
 		}, 20)
 		Unlock(tech.production, recipe.name)
 		
@@ -72,7 +71,7 @@ function momoIRTweak.updates.ScienceMaterials()
 		
 		recipe = NewRecipe("advanced-crafting", item.gpu.name, 1, {
 			ITEM("k-silicon-wafer", 4),
-			ITEM("gold-cable", 1),
+			ITEM("gold-cable", 2),
 			ITEM("k-ram", 2),
 			ITEM("k-circuit-board", 1)
 		}, 40)
