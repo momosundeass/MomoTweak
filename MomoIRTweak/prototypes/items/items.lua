@@ -1,7 +1,6 @@
 -- using
 
 function momoIRTweak.item.AddItems()
-	local NewBase = momoIRTweak.item.NewItemBaseIcon
 	local NewItem = momoIRTweak.item.NewItem
 	local NewItemFixedSize = momoIRTweak.item.NewItemFixedSize
 	local Subgroup = momoIRTweak.GetSubgroupFromItem

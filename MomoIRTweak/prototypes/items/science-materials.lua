@@ -21,6 +21,10 @@ function momoIRTweak.item.InitScienceMaterials()
 
 	item.productionBox = momoIRTweak.item.NewScienceMaterialsItem("momo-production-box")
 	item.productionBox2 = momoIRTweak.item.NewScienceMaterialsItem("momo-production-box-2")
+	
+	item.scienceComputer1 =  momoIRTweak.item.NewScienceMaterialsItem("momo-science-computer-mk1", momoIRTweak.dir.baseIconPath .. "32/momo-science-computer-mk1")
+	item.scienceComputer2 =  momoIRTweak.item.NewScienceMaterialsItem("momo-science-computer-mk2", momoIRTweak.dir.baseIconPath .. "32/momo-science-computer-mk2")
+	item.scienceComputer3 =  momoIRTweak.item.NewScienceMaterialsItem("momo-science-computer-mk3", momoIRTweak.dir.baseIconPath .. "32/momo-science-computer-mk3")
 
 	item.gpu = momoIRTweak.item.NewScienceMaterialsItem("momo-science-gpu")
 end
