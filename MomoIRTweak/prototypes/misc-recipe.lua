@@ -75,5 +75,7 @@ function momoIRTweak.finalFixes.MiscRecipe()
 	AddIng("imersite-battery", ITEM("k-lithium", 3))
 	
 	Repi("imersite-solar-panel", "solar-panel", ITEM("solar-array", 1))
+	
+	momoIRTweak.recipe.SaveAddIngredient("battery", ITEM("tin-plate", 3))
 end
 

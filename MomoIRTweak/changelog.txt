@@ -1,11 +1,9 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.17.14
-Date: 2019.11.17
+Version: 0.17.15
+Date: 2019.11.19
   Change:
-    - Science pack ingredients count now depent on result count
-	- Ingredients of electronics group recipes
-  Balanced:
-	- Some recipe ingrendients to match new change
+    - Science pack ingredients count now depent on settings in Krastorio
+	- Ingredients of silicon wafer line
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.14
 Date: 2019.11.17
