@@ -5,7 +5,8 @@ function momoIRTweak.updates.Electronics()
 		local eles = momoIRTweak.electronics
 		local ITEM = momoIRTweak.FastItem
 		local AddIng = momoIRTweak.recipe.AddIngredient
-		
+		local Rem = momoIRTweak.recipe.RemoveIngredient
+		local AddIngOrUpdate = momoIRTweak.recipe.AddOrUpdateIngredient
 		
 		local isUnlock = false
 		momoIRTweak.recipe.NewRecipe("crafting", eles.pcb1.name, 3, {
@@ -17,7 +18,7 @@ function momoIRTweak.updates.Electronics()
 		
 		momoIRTweak.recipe.NewRecipe("advanced-crafting", eles.pcb2.name, 2, {
 			ITEM(eles.pcb1.name, 2),
-			ITEM("k-silicon-wafer", 2),
+			ITEM("gold-foil", 1),
 			ITEM("tin-plate", 3),
 			ITEM("tin-rivet", 2)
 		}, 1).enabled = isUnlock
@@ -25,27 +26,35 @@ function momoIRTweak.updates.Electronics()
 		momoIRTweak.recipe.NewRecipe("advanced-crafting", eles.pcb3.name, 1, {
 			ITEM(eles.pcb1.name, 2), 
 			ITEM(eles.pcb2.name, 1),
-			ITEM("gold-foil", 1),
+			ITEM("gold-foil", 2),
 			ITEM("solder", 2),
 			ITEM("chromium-rivet", 1)
 		}, 1).enabled = isUnlock
 		
+		AddIng("k-silicon", ITEM("tin-gravel", 3))
+		AddIng("k-silicon-wafer", ITEM("glass-ingot", 2))
+		
+		momoIRTweak.recipe.SaveAddIngredient("advanced-circuit", ITEM("k-silicon-wafer", 2))
+		
+		momoIRTweak.recipe.SaveAddIngredient("processing-unit", ITEM("k-circuit-board", 2))
+		momoIRTweak.recipe.SaveAddIngredient("processing-unit", ITEM("glass-cable", 3))
+		
 		AddIng("controller-mk1", ITEM(eles.pcb1.name, 8))
+		
 		AddIng("controller-mk2", ITEM(eles.pcb2.name, 6))
-		AddIng("controller-mk2", ITEM("plastic-bar", 3))
+		AddIng("controller-mk2", ITEM("plastic-bar", 10))
 		
 		AddIng("controller-mk3", ITEM(eles.pcb3.name, 4))
 		AddIng("controller-mk3", ITEM("plastic-bar", 5))
 		AddIng("controller-mk3", ITEM("solder", 4))
 		
-		AddIng("computer-mk2", ITEM("plastic-bar", 8))
-		AddIng("computer-mk2-2", ITEM("plastic-bar", 8))
+		AddIng("computer-mk2", ITEM("plastic-bar", 12))
+		AddIng("computer-mk2-2", ITEM("plastic-bar", 12))
 		
 		AddIng("computer-mk3", ITEM("solder", 8))
 		AddIng("computer-mk3-2", ITEM("solder", 8))
 		
 		AddIng("k-ram", ITEM("solder", 1))
-		
 		AddIng("menarite-processor", ITEM("sapphire-gem", 1))
 		
 		local tech = momoIRTweak.technology.FindFromRecipe("controller-mk1")
