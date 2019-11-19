@@ -20,7 +20,7 @@ function momoIRTweak.recipe.NewRecipe(categoryCrafting, resultItemName, resultAm
 	local name = momoIRTweak.GetName(resultItemName)
 	local prototype = momoIRTweak.recipe.BuildPrototype(name, categoryCrafting, name, resultAmount, ingredients, timeUse)
 	data:extend({prototype})
-	return data.raw.recipe[resultItemName]
+	return data.raw.recipe[name]
 end
 
 function momoIRTweak.recipe.BuildPrototype(prototypeName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
@@ -199,7 +199,7 @@ function momoIRTweak.recipe.NormalizedResult(recipeName)
 				item = momoIRTweak.FastItem(recipe.normal.result, recipe.normal.result_count)
 			end
 		else
-			if(recipe.normal.results) then
+			if(recipe.results) then
 				item = momoIRTweak.item.CastToBasic(recipe.results[1])
 			else
 				item = momoIRTweak.FastItem(recipe.result, recipe.result_count)

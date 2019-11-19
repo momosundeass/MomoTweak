@@ -77,8 +77,8 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		local computerPerSciencePack = 0.1
 		
 		Rem(item.spp2.name, "controller-mk1")
-		local com1Amount = math.floor(1 / (chemAmount * computerPerSciencePack)
-		local sciCom1 = NewRecipe("advanced-crafting", item.scienceComputer1, com1Amount), {
+		local com1Amount = math.floor(1 / (chemAmount * computerPerSciencePack))
+		local sciCom1 = NewRecipe("advanced-crafting", item.scienceComputer1, com1Amount, {
 			ITEM("computer-mk1", 1)
 		}, com1Amount * 2.2)
 		Unlock(tech.pack3, sciCom1.name)
@@ -91,9 +91,9 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		
 		--- ===========================================================================
 		--- utility ===================================================================
-		local com2Amount = math.floor(1 / (utility * computerPerSciencePack)
-		local sciCom2 = NewRecipe("advanced-crafting", item.scienceComputer2, com2Amount), {
-			ITEM("computer-mk2", 1)
+		local com2Amount = math.floor(1 / (utility * computerPerSciencePack))
+		local sciCom2 = NewRecipe("advanced-crafting", item.scienceComputer2, com2Amount, {
+			ITEM("computer-mk2", 1),
 			ITEM("assembling-machine-2", 1)
 		}, com2Amount * 2.2)
 		Unlock(tech.utility, sciCom2.name)
