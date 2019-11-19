@@ -35,3 +35,7 @@ function momoIRTweak.PrintTable(var)
 		momoIRTweak.dumpText = momoIRTweak.dumpText .. " " .. tostring(var) 
 	end
 end
+
+function momoIRTweak.PrintDump()
+	momoIRTweak.Log(momoIRTweak.dumpText)
+end

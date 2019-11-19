@@ -18,9 +18,10 @@ function momoIRTweak.recipe.ValidateRecipe(recipe, callback)
 end
 
 function momoIRTweak.recipe.NewRecipe(categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
-local prototype = momoIRTweak.recipe.BuildPrototype(resultItemName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	local name = momoIRTweak.GetName(resultItemName)
+	local prototype = momoIRTweak.recipe.BuildPrototype(name, categoryCrafting, name, resultAmount, ingredients, timeUse)
 	data:extend({prototype})
-	return data.raw.recipe[resultItemName]
+	return data.raw.recipe[name]
 end
 
 function momoIRTweak.recipe.BuildPrototype(prototypeName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
@@ -60,10 +61,14 @@ function momoIRTweak.recipe.AddIngredient(recipeName, ingredient)
 	Recipe(recipeName):add_ingredient(ingredient, ingredient)
 end
 
+function momoIRTweak.recipe.SaveAddIngredient(recipeName, ingredient)
+	momoIRTweak.recipe.RemoveIngredient(recipeName, ingredient.name)
+	momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
+end
+
 function momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
 		if (recipe.normal) then
-			table.insert(recipe.normal.ingredients, ingredient)
 			table.insert(recipe.expensive.ingredients, ingredient)
 		else
 			table.insert(recipe.ingredients, ingredient)
@@ -167,15 +172,6 @@ function momoIRTweak.recipe.GetIngredient(recipeName, ingredientName)
 	return false
 end
 
-function momoIRTweak.recipe.GetResult(recipeName)
-	local result = false
-	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
-		 result = momoIRTweak.FastItem(recipe.result, recipe.result_count)
-	end)
-	
-	return result
-end
-
 function momoIRTweak.recipe.GetCraftingMachineTint(recipeName)
 	if (data.raw.recipe[recipeName]) then
 		return data.raw.recipe[recipeName].crafting_machine_tint
@@ -204,6 +200,37 @@ function momoIRTweak.recipe.SetTime(recipeName, newTime)
 			recipe.energy_required = newTime
 		end
 	end
+end
+
+function momoIRTweak.recipe.SaveGetResultAmount(recipeName)
+	local amount = 1
+	local result = momoIRTweak.recipe.NormalizedResult(recipeName)
+	if (result) then
+		amount = result.amount
+	else
+		momoIRTweak.Log("No result for " .. recipeName)
+	end
+	return amount
+end
+
+function momoIRTweak.recipe.NormalizedResult(recipeName)
+	local item = nil
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+		if (recipe.normal) then
+			if(recipe.normal.results) then
+				item = momoIRTweak.item.CastToBasic(recipe.normal.results[1])
+			else
+				item = momoIRTweak.FastItem(recipe.normal.result, recipe.normal.result_count)
+			end
+		else
+			if(recipe.results) then
+				item = momoIRTweak.item.CastToBasic(recipe.results[1])
+			else
+				item = momoIRTweak.FastItem(recipe.result, recipe.result_count)
+			end
+		end
+	end)
+	return item
 end
 
 function momoIRTweak.recipe.GetResultWithAmount(itemName, amountMin, amountMax)
