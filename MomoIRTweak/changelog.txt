@@ -3,7 +3,9 @@ Version: 0.17.16
 Date: 2019.11.20
   Change:
     - Utility sciecne pack now speed require module
-	- Ingredients of module 
+	- Ingredients of module
+  Fix:
+    - Unable to craft advanced battery cause of lithium are lock behide advanced tech
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.15
 Date: 2019.11.19
