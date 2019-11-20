@@ -97,7 +97,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		computerPerSciencePack = 1
 		local com2Amount = math.floor(1 / computerPerSciencePack)
 		local sciCom2 = NewRecipe("advanced-crafting", item.scienceComputer2, com2Amount, {
-			ITEM("computer-mk2", 1),
+			ITEM("speed-module-2", 1),
 			ITEM("assembling-machine-2", 1),
 			ITEM("express-transport-belt", 3),
 			ITEM("advanced-battery", 2)
