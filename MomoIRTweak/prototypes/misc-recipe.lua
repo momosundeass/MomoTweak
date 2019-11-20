@@ -74,6 +74,36 @@ function momoIRTweak.finalFixes.MiscRecipe()
 	AddIng("advanced-battery", ITEM("k-lithium", 2))
 	AddIng("imersite-battery", ITEM("k-lithium", 3))
 	
+	-- move from [k-fusion] technology to [deadlock-advanced-batteries]
+    -- recipe: k-hydrogen-chloride
+    -- recipe: k-lithium-chloride
+    -- recipe: k-lithium
+	
+	--[[
+		k-lithium ::need 
+			k-pure-water       => [recipe]water-filtration   => [technology]k-filtration-plant(pack1, pack2)
+			k-lithium-chloride => [recipe]k-lithium-chloride => [moved technology]
+			k-lithium-chloride ::need
+				stone               => [alaways unlock]
+				sulfuric-acid       => [recipe]sulfuric-acid       => [technology]sulfur-processing(pack1, pack2)
+				k-hydrogen-chloride => [recipe]k-hydrogen-chloride => [moved technology]
+				k-hydrogen-chloride ::need
+					k-chlorine => [recipe]early-k-chlorine => [technology]oil-processing(pack1, pack2)
+					k-hydrogen => [recipe]early-k-chlorine => [technology]oil-processing(pack1, pack2)
+	--]]--
+	
+	momoIRTweak.techonlogy.AddUnlockEffect("deadlock-advanced-batteries", "k-lithium") 
+	momoIRTweak.techonlogy.AddUnlockEffect("deadlock-advanced-batteries", "k-lithium-chloride") 
+	momoIRTweak.techonlogy.AddUnlockEffect("deadlock-advanced-batteries", "k-hydrogen-chloride")
+	
+	momoIRTweak.techonlogy.RemoveUnlockEffect("k-fusion", "k-lithium") 
+	momoIRTweak.techonlogy.RemoveUnlockEffect("k-fusion", "k-lithium-chloride") 
+	momoIRTweak.techonlogy.RemoveUnlockEffect("k-fusion", "k-hydrogen-chloride")
+	
+	
+	
 	Repi("imersite-solar-panel", "solar-panel", ITEM("solar-array", 1))
+	
+	momoIRTweak.recipe.SaveAddIngredient("battery", ITEM("tin-plate", 3))
 end
 

@@ -46,13 +46,14 @@ function momoIRTweak.finalFixes.Electronics()
 	if (settings.startup["momo-harderModule"].value) then
 		---- SPEED
 		-- 1
-		AddIng("program-speed-module", ITEM("copper-incinerator", 1))
+		AddIng("program-speed-module", ITEM("iron-incinerator", 1))
 		
 		-- 2
-		AddIng("program-speed-module-2", ITEM("iron-incinerator", 1))
+		AddIng("program-speed-module-2", ITEM("engine-unit", 2))
+		AddIng("program-speed-module-2", ITEM("k-circuit-board", 4))
 		
 		-- 3
-		AddIng("program-speed-module-3", ITEM("iron-incinerator", 1))
+		AddIng("program-speed-module-3", ITEM("electric-engine-unit", 2))
 		AddIng("program-speed-module-3", ITEM("k-ram", 8))
 		AddIng("program-speed-module-3", ITEM("k-processor", 2))
 		
@@ -63,6 +64,7 @@ function momoIRTweak.finalFixes.Electronics()
 		
 		-- 2
 		AddIng("program-productivity-module-2", ITEM("iron-scrapper", 1))
+		AddIng("program-productivity-module-2", ITEM("k-circuit-board", 4))
 		
 		-- 3
 		AddIng("program-productivity-module-3", ITEM("iron-scrapper", 2))
@@ -74,10 +76,11 @@ function momoIRTweak.finalFixes.Electronics()
 		-- 1
 		
 		-- 2
-		AddIng("program-effectivity-module-2", ITEM("copper-incinerator", 1))
+		AddIng("program-effectivity-module-2", ITEM("iron-incinerator", 1))
+		AddIng("program-effectivity-module-2", ITEM("k-circuit-board", 2))
 		
 		-- 3
-		AddIng("program-effectivity-module-3", ITEM("iron-incinerator", 1))
+		AddIng("program-effectivity-module-3", ITEM("engine-unit", 1))
 		AddIng("program-effectivity-module-3", ITEM("k-ram", 4))
 		AddIng("program-effectivity-module-3", ITEM("k-processor", 1))
 	end

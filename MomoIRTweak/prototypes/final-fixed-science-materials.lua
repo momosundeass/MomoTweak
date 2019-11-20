@@ -8,6 +8,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 	local item = momoIRTweak.item
 	local NewRecipe = momoIRTweak.recipe.NewRecipe
 	local Unlock = momoIRTweak.technology.AddUnlockEffect
+	local SaveAddIng = momoIRTweak.recipe.SaveAddIngredient
 
 	local SCI = momoIRTweak.science
 	local tech = momoIRTweak.technology
@@ -74,16 +75,18 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		
 		--- ===========================================================================
 		--- chemical ==================================================================
-		local computerPerSciencePack = 0.1
+		local computerPerSciencePack = 0.5
 		
 		Rem(item.spp2.name, "controller-mk1")
-		local com1Amount = math.floor(1 / (chemAmount * computerPerSciencePack))
+		local com1Amount = math.floor(1 / computerPerSciencePack)
 		local sciCom1 = NewRecipe("advanced-crafting", item.scienceComputer1, com1Amount, {
-			ITEM("computer-mk1", 1)
+			ITEM("computer-mk1", 1),
+			ITEM("battery", 2),
+			ITEM("fast-transport-belt", 3)
 		}, com1Amount * 2.2)
 		Unlock(tech.pack3, sciCom1.name)
 		
-		AddIng(item.spp2.name, ITEM(sciCom1, 1))
+		AddIng(item.spp2.name, ITEM(sciCom1, chemAmount))
 		AddIng(item.spp2.name, ITEM("inserter", chemAmount * 2))
 		
 		AddIng(SCI.pack3, ITEM(item.scienceBlueprint1, chemAmount * 2))
@@ -91,15 +94,19 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		
 		--- ===========================================================================
 		--- utility ===================================================================
-		local com2Amount = math.floor(1 / (utility * computerPerSciencePack))
+		computerPerSciencePack = 1
+		local com2Amount = math.floor(1 / computerPerSciencePack)
 		local sciCom2 = NewRecipe("advanced-crafting", item.scienceComputer2, com2Amount, {
-			ITEM("computer-mk2", 1),
-			ITEM("assembling-machine-2", 1)
-		}, com2Amount * 2.2)
+			ITEM("speed-module-2", 1),
+			ITEM("assembling-machine-2", 1),
+			ITEM("express-transport-belt", 3),
+			ITEM("advanced-battery", 2)
+		}, com2Amount * 5.5)
 		Unlock(tech.utility, sciCom2.name)
 		
-		AddIng(item.spp3.name, ITEM(sciCom2, 1))
-		AddIng(item.spp3.name, ITEM("advanced-battery", utility * 2))
+		AddIng(item.spp3.name, ITEM(sciCom2, utility))
+		Rem(item.spp3.name, "computer-mk2")
+		AddIng(item.spp3.name, ITEM("steel-piston", utility * 2))
 		AddIng(item.spp3.name, ITEM("uranium-fuel-cell", utility * 1))
 		
 		AddIng(SCI.packUtility, ITEM(item.scienceBlueprint3, utility * 3))
@@ -116,7 +123,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		--- production ================================================================
 		AddIng(item.sppProduction.name, ITEM("controller-mk2", production * 3))
 		AddIng(item.sppProduction.name, ITEM("junction-box", production * 2))
-		
+				
 		AddIng(SCI.packProduction, ITEM(item.scienceBlueprint2, production * 3))
 		--- production ================================================================
 		

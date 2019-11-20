@@ -27,7 +27,7 @@ function momoIRTweak.updates.Electronics()
 			ITEM(eles.pcb1.name, 2), 
 			ITEM(eles.pcb2.name, 1),
 			ITEM("gold-foil", 2),
-			ITEM("solder", 2),
+			ITEM("solder", 5),
 			ITEM("chromium-rivet", 1)
 		}, 1).enabled = isUnlock
 		
@@ -38,6 +38,7 @@ function momoIRTweak.updates.Electronics()
 		
 		momoIRTweak.recipe.SaveAddIngredient("processing-unit", ITEM("k-circuit-board", 2))
 		momoIRTweak.recipe.SaveAddIngredient("processing-unit", ITEM("glass-cable", 3))
+		momoIRTweak.recipe.SaveAddIngredient("processing-unit", ITEM("solder", 3))
 		
 		AddIng("controller-mk1", ITEM(eles.pcb1.name, 8))
 		
@@ -46,7 +47,7 @@ function momoIRTweak.updates.Electronics()
 		
 		AddIng("controller-mk3", ITEM(eles.pcb3.name, 4))
 		AddIng("controller-mk3", ITEM("plastic-bar", 5))
-		AddIng("controller-mk3", ITEM("solder", 4))
+		AddIng("controller-mk3", ITEM("solder", 8))
 		
 		AddIng("computer-mk2", ITEM("plastic-bar", 12))
 		AddIng("computer-mk2-2", ITEM("plastic-bar", 12))
@@ -54,7 +55,7 @@ function momoIRTweak.updates.Electronics()
 		AddIng("computer-mk3", ITEM("solder", 8))
 		AddIng("computer-mk3-2", ITEM("solder", 8))
 		
-		AddIng("k-ram", ITEM("solder", 1))
+		AddIng("k-ram", ITEM("solder", 2))
 		AddIng("menarite-processor", ITEM("sapphire-gem", 1))
 		
 		local tech = momoIRTweak.technology.FindFromRecipe("controller-mk1")

@@ -16,17 +16,24 @@ function momoIRTweak.finalFixes.TieredRecipes()
 
 	if (momoIRTweak.science.isTiered) then
 		local sci = momoIRTweak.science
-		AddIng(sci.pack2, SCI(sci.pack1, 1))
-		AddIng(sci.pack3, SCI(sci.pack2, 1))
 		
-		AddIng(sci.packMilitary, SCI(sci.pack1, 1))
+		local logistic   = momoIRTweak.recipe.SaveGetResultAmount(sci.pack2)
+		local milAmount  = momoIRTweak.recipe.SaveGetResultAmount(sci.packMilitary)
+		local chemAmount = momoIRTweak.recipe.SaveGetResultAmount(sci.pack3)
+		local production = momoIRTweak.recipe.SaveGetResultAmount(sci.packProduction)
+		local utility    = momoIRTweak.recipe.SaveGetResultAmount(sci.packUtility)
 		
-		AddIng(sci.packProduction, SCI(sci.pack1, 2))
-		AddIng(sci.packProduction, SCI(sci.pack2, 1))
+		AddIng(sci.pack2, SCI(sci.pack1, logistic * 1))
+		AddIng(sci.pack3, SCI(sci.pack2, chemAmount * 1))
+		
+		AddIng(sci.packMilitary, SCI(sci.pack1, milAmount * 1))
+		
+		AddIng(sci.packProduction, SCI(sci.pack1, production * 2))
+		AddIng(sci.packProduction, SCI(sci.pack2, production * 1))
 			
-		AddIng(sci.packUtility, SCI(sci.pack2, 2))
-		AddIng(sci.packUtility, SCI(sci.packMilitary, 1))
-		AddIng(sci.packUtility, SCI(sci.pack3, 1))
+		AddIng(sci.packUtility, SCI(sci.pack2, utility * 2))
+		AddIng(sci.packUtility, SCI(sci.packMilitary, utility * 1))
+		AddIng(sci.packUtility, SCI(sci.pack3, utility * 1))
 	end
 
 	if (settings.startup["momo-tieredInserter"].value) then

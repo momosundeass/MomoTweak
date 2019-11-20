@@ -80,28 +80,39 @@ function momoIRTweak.recipe.RemoveIngredient(recipeName, ingredientName)
 	Recipe(recipeName):remove_ingredient(ingredientName, ingredientName)
 end
 
-function momoIRTweak.recipe.ConvertToOnlyNormal(recipeName, isPickExpensive)
-	if not isPickExpensive then isPickExpensive = false end
-	
-	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
-		if recipe.normal then  
-			local target = recipe.normal
-			if (isPickExpensive) then
-				target = recipe.expensive
+function momoIRTweak.recipe.SearchGetIndexOfIngredient(ingredientsTable, ingrendientName)
+	if (type(ingredientsTable) == "table") then
+		for i, ing in pairs(ingredientsTable) do
+			if (momoIRTweak.item.CastToBasic(ing).name == ingredientName) then
+				return i
 			end
-			
-			recipe.ingredients     = target.ingredient
-			recipe.result          = target.result
-			recipe.result_count    = target.result_count
-			recipe.results         = target.results
-			recipe.energy_required = target.energy_required
-			recipe.enabled         = recipe.enabled
-			
-			recipe.normal = nil
-			recipe.expensive = nil
+		end
+		return false
+	else
+		error("parameter #1 [ingredientsTable] need table, momoIRTweak.recipe.SearchGetIndexOfIngredient")
+	end
+end
+
+function momoIRTweak.recipe.UpdateIngredient(recipeName, ingredient)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+		local ingredientsTable = {}
+		if (recipe.normal) then
+			ingredientsTable = recipe.normal.ingredients
+		else
+			ingredientsTable = recipe.ingredients
+		end
+		
+		local index = momoIRTweak.recipe.SearchGetIndexOfIngredient(ingredientsTable, ingredient.name)
+		if (index) then
+			if (recipe.normal) then
+				recipe.normal.ingredients[index] = ingredient
+				recipe.expensive.ingredients[index] = ingredient
+			else
+				recipe.ingredients[index] = ingredient
+			end
 		end
 	end)
-end 
+end
 
 function momoIRTweak.recipe.AddOrUpdateIngredient(recipeName, ingredient)
 	local re = Recipe(recipeName)
@@ -262,6 +273,29 @@ function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
 		recipe.localised_name = localName
 	end
 end
+
+function momoIRTweak.recipe.ConvertToOnlyNormal(recipeName, isPickExpensive)
+	if not isPickExpensive then isPickExpensive = false end
+	
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
+		if recipe.normal then  
+			local target = recipe.normal
+			if (isPickExpensive) then
+				target = recipe.expensive
+			end
+			
+			recipe.ingredients     = target.ingredient
+			recipe.result          = target.result
+			recipe.result_count    = target.result_count
+			recipe.results         = target.results
+			recipe.energy_required = target.energy_required
+			recipe.enabled         = recipe.enabled
+			
+			recipe.normal = nil
+			recipe.expensive = nil
+		end
+	end)
+end 
 
 -- Warning this function may take half a year to finish
 function momoIRTweak.DumpRecipes()
