@@ -79,6 +79,40 @@ function momoIRTweak.recipe.RemoveIngredient(recipeName, ingredientName)
 	Recipe(recipeName):remove_ingredient(ingredientName, ingredientName)
 end
 
+function momoIRTweak.recipe.SearchGetIndexOfIngredient(ingredientsTable, ingrendientName)
+	if (type(ingredientsTable) == "table") then
+		for i, ing in pairs(ingredientsTable) do
+			if (momoIRTweak.item.CastToBasic(ing).name == ingredientName) then
+				return i
+			end
+		end
+		return false
+	else
+		error("parameter #1 [ingredientsTable] need table, momoIRTweak.recipe.SearchGetIndexOfIngredient")
+	end
+end
+
+function momoIRTweak.recipe.UpdateIngredient(recipeName, ingredient)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+		local ingredientsTable = {}
+		if (recipe.normal) then
+			ingredientsTable = recipe.normal.ingredients
+		else
+			ingredientsTable = recipe.ingredients
+		end
+		
+		local index = momoIRTweak.recipe.SearchGetIndexOfIngredient(ingredientsTable, ingredient.name)
+		if (index) then
+			if (recipe.normal) then
+				recipe.normal.ingredients[index] = ingredient
+				recipe.expensive.ingredients[index] = ingredient
+			else
+				recipe.ingredients[index] = ingredient
+			end
+		end
+	end)
+end
+
 function momoIRTweak.recipe.AddOrUpdateIngredient(recipeName, ingredient)
 	local re = Recipe(recipeName)
 	re:remove_ingredient(ingredient.name, ingredient.name)
