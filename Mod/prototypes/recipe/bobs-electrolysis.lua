@@ -19,7 +19,7 @@ if data.raw["recipe-category"]["electrolysis"] then
   
   data.raw.recipe[momoTweak.batterys.lithium].category = "electrolysis"
   data.raw.recipe[momoTweak.batterys.silver].category = "electrolysis"
-  if (mods["angelsbioprocessing"]) then
+  if (momoTweak.mods.angelBio) then
 	momoTweak.angel_electrolysis_recipe()
   end
 end

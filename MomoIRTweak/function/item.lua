@@ -1,9 +1,11 @@
 momoIRTweak.itemOrder = 0
 
+if not momoIRTweak.dir then momoIRTweak.dir = {} end
+if not momoIRTweak.item then momoIRTweak.item = {} end
+
 momoIRTweak.dir.baseIconPath = ""
 momoIRTweak.dir.icon = ""
 momoIRTweak.dir.iconSize = 32
-
 momoIRTweak.dir.baseIcon = "__base__/graphics/icons/"
 
 function momoIRTweak.InitItemsLib(iconLocation, isHighRes)
@@ -45,8 +47,6 @@ function momoIRTweak.FastSciencePack(itemName, itemAmount)
 	return {itemName, itemAmount}
 end
 -- --------------------------------------------- Fast item
-
-if not momoIRTweak.item then momoIRTweak.item = {} end
 
 function momoIRTweak.item.CastToBasic(item) 
 	local typeItem = "item"

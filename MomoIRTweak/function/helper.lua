@@ -1,4 +1,5 @@
 local table = require('__stdlib__/stdlib/utils/table')
+if not momoIRTweak then momoIRTweak = {} end
 
 momoIRTweak.dumpText = ""
 momoIRTweak.indentAmount = 0

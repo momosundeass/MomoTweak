@@ -1,6 +1,7 @@
 local Recipe = require("__stdlib__/stdlib/data/recipe")
 
 if not momoIRTweak.recipe then momoIRTweak.recipe = {} end
+
 momoIRTweak.recipe.prefixName = "momo-"
 
 function momoIRTweak.recipe.ValidateRecipe(recipe, callback)
@@ -272,6 +273,29 @@ function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
 		recipe.localised_name = localName
 	end
 end
+
+function momoIRTweak.recipe.ConvertToOnlyNormal(recipeName, isPickExpensive)
+	if not isPickExpensive then isPickExpensive = false end
+	
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
+		if recipe.normal then  
+			local target = recipe.normal
+			if (isPickExpensive) then
+				target = recipe.expensive
+			end
+			
+			recipe.ingredients     = target.ingredient
+			recipe.result          = target.result
+			recipe.result_count    = target.result_count
+			recipe.results         = target.results
+			recipe.energy_required = target.energy_required
+			recipe.enabled         = recipe.enabled
+			
+			recipe.normal = nil
+			recipe.expensive = nil
+		end
+	end)
+end 
 
 -- Warning this function may take half a year to finish
 function momoIRTweak.DumpRecipes()

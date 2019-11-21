@@ -1,7 +1,4 @@
-
-if IsScienceCostM or momoTweak.py.coal then
-	require("prototypes.sci.sct-pre-recipe")
-end
+require("prototypes.sci.sct-pre-recipe")
 
 -- additional item ---------------------------
 require("prototypes.advanced-plastics")
@@ -18,38 +15,47 @@ require("prototypes.recipe.logistic")
 require("prototypes.recipe.miner")
 require("prototypes.recipe.misc")
 require("prototypes.recipe.angels-machine")
-
 -- -------------------------------------------
 
--- recipe science ------------------------------
-momoTweak.load_sci_recipe_in_update = ( not IsScienceCostM ) and ( not momoTweak.py.coal )
-if momoTweak.load_sci_recipe_in_update then
-	require("prototypes.sci.recipe")
-	require("prototypes.sci.sci30recipe")
-	require("prototypes.sci.sci30extreme")
+require("prototypes.recipe.module")
+
+require("prototypes.sci.recipe")
+require("prototypes.sci.sci30recipe")
+require("prototypes.sci.sci30extreme")
+require("prototypes.bobextended.bobextended-update")
+
+if momoTweak.mods.sct or momoTweak.py.coal then
+	momoTweak.require.SctPreRecipe()
 end
 
-momoTweak.sciLogistic_ingredients = momoTweak.get_ingredients(momoTweak.sciLogistic)
+-- recipe science ------------------------------
+momoTweak.isLoadScienceRecipeInUpdates = ( not momoTweak.mods.sct ) and ( not momoTweak.py.coal )
+if momoTweak.isLoadScienceRecipeInUpdates then
+	momoTweak.require.SciRecipe()
+	momoTweak.require.Sci30Recipe()
+	momoTweak.require.Sci30Extreme()
+end
+
+momoTweak.logisticSciencePackIngredients = momoTweak.get_ingredients(momoTweak.sciLogistic)
 -- ---------------------------------------------
 
 if settings.startup["momo-harder-module"].value then
-  require("prototypes.recipe.module")
+	momoTweak.require.RecipeModule()
 end
 
 require("prototypes.expensive")
 
-if IsLoadBobextended then
-	require("prototypes.bobextended.bobextended-update")
+if momoTweak.settings.isLoadBobExtended then
+	momoTweak.require.ExtendedUpdate()
 end
 
-if (mods["angelsbioprocessing"]) then
-	momoTweak.angel_bio_update()
+if (momoTweak.mods.angelBio) then
+	momoTweak.angelBio.Update()
 end
 
 require("prototypes.buff-solar")
-
 require("prototypes.misc")
-
-require("pycom.update")
+-- still dont support py
+-- require("pycom.update")
 
 
