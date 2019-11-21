@@ -17,6 +17,7 @@ require("function.subgroup")
 require("function.item")
 require("function.recipe")
 require("function.technology")
+momoIRTweak.Init("AB")
 momoIRTweak.InitItemsLib("__MomoTweak__/graphics/icons/", false)
 
 require("function")
@@ -62,3 +63,4 @@ function momoTweak.GetScienceCraftingCategory()
 		return "crafting"
 	end
 end
+
