@@ -19,7 +19,7 @@ function momoIRTweak.DeepCopy(tableToCopy)
 	return table.deep_copy(tableToCopy)
 end
 
-function momoIRTweak.PrintTable(var)
+function momoIRTweak.DumpTable(var)
 	if (type(var) == "table") then
 		for k, v in pairs(var) do 
 			momoIRTweak.indentAmount = momoIRTweak.indentAmount + 1
@@ -28,7 +28,7 @@ function momoIRTweak.PrintTable(var)
 				indent = indent .. "   "
 			end
 			momoIRTweak.dumpText = momoIRTweak.dumpText .. "\n" .. indent .. tostring(k) .. ":"
-			momoIRTweak.PrintTable(v)
+			momoIRTweak.DumpTable(v)
 			momoIRTweak.indentAmount = momoIRTweak.indentAmount - 1
 		end
 	else

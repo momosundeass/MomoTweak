@@ -301,7 +301,7 @@ end
 function momoIRTweak.DumpRecipes()
 	momoIRTweak.dumpRecipesText = "Recipe dump \n"
 	for	i, r in pairs(data.raw.recipe) do
-		momoIRTweak.PrintTable(r)
+		momoIRTweak.DumpTable(r)
 		momoIRTweak.dumpText = momoIRTweak.dumpText .. "\n"
 	end
 	momoIRTweak.Log(momoIRTweak.dumpText)

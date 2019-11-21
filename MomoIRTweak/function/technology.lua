@@ -4,7 +4,7 @@ if not momoIRTweak.technology then momoIRTweak.technology = {} end
 function momoIRTweak.DumpTechnologies()
 	momoIRTweak.dumpRecipesText = "Technology dump \n"
 	for	i, r in pairs(data.raw.technology) do
-		momoIRTweak.PrintTable(r)
+		momoIRTweak.DumpTable(r)
 		momoIRTweak.dumpText = momoIRTweak.dumpText .. "\n"
 	end
 	momoIRTweak.Log(momoIRTweak.dumpText)
