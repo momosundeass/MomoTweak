@@ -1,7 +1,7 @@
 -- using 
 local ITEM = momoIRTweak.FastItem
 local AddIng = momoIRTweak.recipe.SaveAddIngredient
-local GetResult = momoIRTweak.recipe.SaveGetResultAmount
+local GetResultAmount = momoIRTweak.recipe.SaveGetResultAmount
 local Rem = momoIRTweak.recipe.RemoveIngredient
 
 local sciencePacks = {momoTweak.sci2, momoTweak.sci3, momoTweak.sciGun,
@@ -10,17 +10,17 @@ local sciencePacks = {momoTweak.sci2, momoTweak.sci3, momoTweak.sciGun,
 	
 for i, sci in pairs(sciencePacks) do
 	momoIRTweak.recipe.ValidateRecipe(sci, function(recipe)
-		local result = GetResult(recipe.name)
-		AddIng(recipe.name, ITEM("momo-vial", result.amount))
+		local result = GetResultAmount(recipe.name)
+		AddIng(recipe.name, ITEM("momo-vial", result))
 	end)
 end
 
 if momoTweak.mods.sct then
 	for i, sci in pairs({momoTweak.sciLogistic, momoTweak.sciProduction}) do
 		momoIRTweak.recipe.ValidateRecipe(sci, function(recipe)
-			local result = GetResult(recipe.name)
+			local result = GetResultAmount(recipe.name)
 			Rem(recipe.name, "momo-vial")
-			AddIng(recipe.name, ITEM("momo-vial", result.amount))
+			AddIng(recipe.name, ITEM("momo-vial", result))
 		end)
 	end
 end
@@ -29,8 +29,8 @@ if momoTweak.mods.msp then
 	for i = 3,30 do
 		local msp = "more-science-pack-" .. i
 		momoIRTweak.recipe.ValidateRecipe(msp, function(recipe) 
-			local result = GetResult(recipe.name)
-			AddIng(recipe.name, ITEM("momo-vial", result.amount))
+			local result = GetResultAmount(recipe.name)
+			AddIng(recipe.name, ITEM("momo-vial", result))
 		end)
 	end
 end
