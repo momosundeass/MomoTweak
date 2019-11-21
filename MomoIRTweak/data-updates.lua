@@ -15,6 +15,7 @@ if not (momoIRTweak.DumpOnly) then
 	momoIRTweak.updates.Electronics()
 	momoIRTweak.updates.NerfEnrichedOre()
 	momoIRTweak.updates.HarderConcrete()
+	momoIRTweak.updates.MenariteImersite()
 	
 	if (settings.startup["momo-woodToCokeRecipe"].value) then
 		momoIRTweak.updates.WoodProcess()

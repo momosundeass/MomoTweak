@@ -41,18 +41,30 @@ function momoIRTweak.compatibility.SpaceX()
 				amount = math.floor(ing.amount * increaseFactor)
 			end
 			
-			AddIng(recipeName, ITEM(ingredient, amount))
+			momoIRTweak.recipe.SaveAddIngredient(recipeName, ITEM(ingredient, amount))
 		end
 
 		AddIngredient("habitation", "steel-plate", "bronze-plate-heavy", 3, 100)
+		AddIngredient("habitation", "controller-mk3", "menarite-processor", 3, 75)
+		AddIngredient("habitation", "", "ion-probe", 1, 5)
+				
 		AddIngredient("hull-component", "steel-plate", "bronze-plate-heavy", 5, 100)
+		
 		AddIngredient("life-support", "pipe", "titanium-bulkhead", 1, 200)
-
+		AddIngredient("life-support", "controller-mk3", "menarite-processor", 4, 100)
+		AddIngredient("life-support", "", "ion-probe", 1, 10)
+		
 		AddIngredient("ftl-drive", "low-density-structure", "duranium-bulkhead", 1, 100)
+		AddIngredient("ftl-drive", "controller-mk3", "menarite-processor", 6, 125 * 6)
+		
 		AddIngredient("astrometrics", "low-density-structure", "duranium-bulkhead", 1, 100)
+		AddIngredient("astrometrics", "controller-mk3", "menarite-processor", 6, 75 * 6)
+		AddIngredient("astrometrics", "", "impulse-probe", 1, 5)
+		
 		AddIngredient("command", "low-density-structure", "duranium-bulkhead", 1, 100)
+		AddIngredient("command", "controller-mk3", "menarite-processor", 5, 250)
+		
 		AddIngredient("space-thruster", "low-density-structure", "duranium-bulkhead", 1, 100)
-		-- duranium-bulkhead
 			
 		--- replace technology ingredient with k science
 		local spaceExTechnologies = {

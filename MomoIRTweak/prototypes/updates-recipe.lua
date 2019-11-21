@@ -9,6 +9,8 @@ local NewRecipePrefix = momoIRTweak.recipe.NewRecipePrefix
 local NewPrototype = momoIRTweak.recipe.BuildPrototype
 local tech = momoIRTweak.technology
 local AddIng = momoIRTweak.recipe.AddOrUpdateIngredient
+local SaveAddIng = momoIRTweak.recipe.SaveAddIngredient
+local Rem = momoIRTweak.recipe.RemoveIngredient
 
 function momoIRTweak.updates.HarderConcrete()
 	-- stone-gravel
@@ -18,6 +20,45 @@ end
 function momoIRTweak.updates.NerfEnrichedOre()
 	SetTime("enriched-copper", 86.8)
 	SetTime("enriched-iron", 86.8)
+end
+
+function momoIRTweak.updates.MenariteImersite()
+	SaveAddIng("duranium-ring", ITEM("imersite-glass", 16))
+	SaveAddIng("duranium-bulkhead", ITEM("imersite-glass", 8))
+	
+	Rem(momoIRTweak.science.kProductionUtility, "k-processor")
+	local amount = {2, 4, 8}
+	if (momoIRTweak.science.isHarderPack) then amount = {8, 16, 32} end
+	
+	SaveAddIng(momoIRTweak.science.kProductionUtility, ITEM("menarite-processor", amount[1]))
+	SaveAddIng(momoIRTweak.science.kSpace, ITEM("menarite-processor", amount[2]))
+	SaveAddIng(momoIRTweak.science.kMatter, ITEM("menarite-processor", amount[3]))
+	
+	local sapphire = momoIRTweak.recipe.NewComplexRecipe(
+		"grinding-3", 
+		"momo-menarite-2-sapphire", {
+			ITEM("menarite-powder", 40)
+		}, {
+			ITEM("sapphire-gem", 1),
+			{ type        = item,
+		      name        = "ruby-gem",
+		      amount      = 1,
+		      probability = 0.2 }
+		}, 160)
+	local ruby = momoIRTweak.recipe.NewComplexRecipe(
+		"grinding-3",
+		"momo-imersite-2-ruby", {
+			ITEM("imersite-powder", 40)
+		}, {
+			ITEM("ruby-gem", 1),
+			{ type        = item,
+			  name         = "sapphire-gem",
+			  amount       = 1,
+			  probability  = 0.2 }
+		}, 160)
+	
+	tech.AddUnlockEffect("menarite-processor", sapphire.name)
+	tech.AddUnlockEffect("imersite-energy", ruby.name)
 end
 
 function momoIRTweak.updates.EffectiveCopperIron()

@@ -44,6 +44,13 @@ function momoIRTweak.recipe.NewRecipePrefix(categoryCrafting, resultItemName, re
 	return data.raw.recipe[name]
 end
 
+function momoIRTweak.recipe.NewComplexRecipe(categoryCrafting, name, ingredients, results, timeUse)
+	local prototype = momoIRTweak.recipe.BuildPrototype(name, categoryCrafting, results[1].name, results[1].amount, ingredients, timeUse) 
+	momoIRTweak.recipe.ChangePrototypeResults(prototype, name, results)
+	data:extend({prototype})
+	return data.raw.recipe[prototype.name]
+end
+
 function momoIRTweak.recipe.ChangePrototypeResults(prototype, newName, results)
 	if (type(prototype) == "table") then
 		prototype.name = newName
@@ -102,17 +109,23 @@ end
 function momoIRTweak.recipe.UpdateIngredient(recipeName, ingredient)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
 		local ingredientsTable = {}
+		local ingredientsTableEx = {}
 		if (recipe.normal) then
 			ingredientsTable = recipe.normal.ingredients
+			ingredientsTableEx = recipe.expensive.ingredients
 		else
 			ingredientsTable = recipe.ingredients
 		end
 		
 		local index = momoIRTweak.recipe.SearchGetIndexOfIngredient(ingredientsTable, ingredient.name)
+		local indexEx = momoIRTweak.recipe.SearchGetIndexOfIngredient(ingredientsTableEx, ingredient.name)
+		
 		if (index) then
 			if (recipe.normal) then
 				recipe.normal.ingredients[index] = ingredient
-				recipe.expensive.ingredients[index] = ingredient
+				if (indexEx) then
+					recipe.expensive.ingredients[indexEx] = ingredient
+				end
 			else
 				recipe.ingredients[index] = ingredient
 			end
