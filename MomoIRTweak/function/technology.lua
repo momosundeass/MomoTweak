@@ -55,6 +55,7 @@ function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName, over
 			type = "unlock-recipe",
 			recipe = recipeName
 		})
+		return true
 	else
 		if overrideEnabled == nil then overrideEnabled = true end
 		if overrideEnabled then
@@ -63,6 +64,7 @@ function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName, over
 			end)
 		end
 		momoIRTweak.Log("no technology with name to add unlock : " .. tostring(technologyName) .. "\n recipe name with be enabled : " .. recipeName)
+		return false
 	end
 end
 
