@@ -58,7 +58,11 @@ function momoIRTweak.updates.Electronics()
 		
 		AddIng("k-circuit-board", ITEM("steel-plate", 1))
 		
-		
+		-- balanced k recipe
+		AddIng("computer-mk1-2", ITEM("controller-mk1", 4))
+		AddIng("computer-mk2-2", ITEM("controller-mk2", 4))
+		AddIng("computer-mk3-2", ITEM("controller-mk3", 4))
+				
 		AddIng("k-processor", ITEM("chromium-rivet", 3))
 		AddIng("k-ram", ITEM("solder", 2))
 		AddIng("menarite-processor", ITEM("sapphire-gem", 1))
