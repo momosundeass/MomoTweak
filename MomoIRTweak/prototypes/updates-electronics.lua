@@ -26,9 +26,10 @@ function momoIRTweak.updates.Electronics()
 		momoIRTweak.recipe.NewRecipe("advanced-crafting", eles.pcb3.name, 1, {
 			ITEM(eles.pcb1.name, 2), 
 			ITEM(eles.pcb2.name, 1),
+			ITEM("steel-plate", 1),
 			ITEM("gold-foil", 2),
 			ITEM("solder", 5),
-			ITEM("chromium-rivet", 1)
+			ITEM("chromium-rivet", 2)
 		}, 1).enabled = isUnlock
 		
 		AddIng("k-silicon", ITEM("tin-gravel", 3))
@@ -55,6 +56,10 @@ function momoIRTweak.updates.Electronics()
 		AddIng("computer-mk3", ITEM("solder", 8))
 		AddIng("computer-mk3-2", ITEM("solder", 8))
 		
+		AddIng("k-circuit-board", ITEM("steel-plate", 1))
+		
+		
+		AddIng("k-processor", ITEM("chromium-rivet", 3))
 		AddIng("k-ram", ITEM("solder", 2))
 		AddIng("menarite-processor", ITEM("sapphire-gem", 1))
 		

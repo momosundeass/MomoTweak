@@ -92,13 +92,13 @@ function momoIRTweak.finalFixes.MiscRecipe()
 					k-hydrogen => [recipe]early-k-chlorine => [technology]oil-processing(pack1, pack2)
 	--]]--
 	
-	momoIRTweak.techonlogy.AddUnlockEffect("deadlock-advanced-batteries", "k-lithium") 
-	momoIRTweak.techonlogy.AddUnlockEffect("deadlock-advanced-batteries", "k-lithium-chloride") 
-	momoIRTweak.techonlogy.AddUnlockEffect("deadlock-advanced-batteries", "k-hydrogen-chloride")
+	momoIRTweak.technology.AddUnlockEffect("deadlock-advanced-batteries", "k-lithium") 
+	momoIRTweak.technology.AddUnlockEffect("deadlock-advanced-batteries", "k-lithium-chloride") 
+	momoIRTweak.technology.AddUnlockEffect("deadlock-advanced-batteries", "k-hydrogen-chloride")
 	
-	momoIRTweak.techonlogy.RemoveUnlockEffect("k-fusion", "k-lithium") 
-	momoIRTweak.techonlogy.RemoveUnlockEffect("k-fusion", "k-lithium-chloride") 
-	momoIRTweak.techonlogy.RemoveUnlockEffect("k-fusion", "k-hydrogen-chloride")
+	momoIRTweak.technology.RemoveUnlockEffect("k-fusion", "k-lithium") 
+	momoIRTweak.technology.RemoveUnlockEffect("k-fusion", "k-lithium-chloride") 
+	momoIRTweak.technology.RemoveUnlockEffect("k-fusion", "k-hydrogen-chloride")
 	
 	
 	

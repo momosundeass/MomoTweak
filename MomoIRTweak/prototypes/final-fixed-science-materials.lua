@@ -100,13 +100,16 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 			ITEM("speed-module-2", 1),
 			ITEM("assembling-machine-2", 1),
 			ITEM("express-transport-belt", 3),
-			ITEM("advanced-battery", 2)
+			ITEM("advanced-battery", 3),
+			ITEM("steel-chassis-small", 2)
 		}, com2Amount * 5.5)
 		Unlock(tech.utility, sciCom2.name)
 		
 		AddIng(item.spp3.name, ITEM(sciCom2, utility))
 		Rem(item.spp3.name, "computer-mk2")
-		AddIng(item.spp3.name, ITEM("steel-piston", utility * 2))
+		
+		AddIng(item.spp3.name, ITEM("electric-engine-unit", utility * 1))
+		AddIng(item.spp3.name, ITEM("steel-bulkhead", utility * 2))
 		AddIng(item.spp3.name, ITEM("uranium-fuel-cell", utility * 1))
 		
 		AddIng(SCI.packUtility, ITEM(item.scienceBlueprint3, utility * 3))
@@ -121,8 +124,9 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		
 		--- ===========================================================================
 		--- production ================================================================
-		AddIng(item.sppProduction.name, ITEM("controller-mk2", production * 3))
+		AddIng(item.sppProduction.name, ITEM("controller-mk2", production * 1))
 		AddIng(item.sppProduction.name, ITEM("junction-box", production * 2))
+		AddIng(item.sppProduction.name, ITEM("steel-piston", utility * 2))
 				
 		AddIng(SCI.packProduction, ITEM(item.scienceBlueprint2, production * 3))
 		--- production ================================================================
