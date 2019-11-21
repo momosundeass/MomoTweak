@@ -69,7 +69,13 @@ end
 function momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
 		if (recipe.normal) then
-			table.insert(recipe.expensive.ingredients, ingredient)
+			if not (momoIRTweak.recipe.IsIngredientExist(recipe.normal.ingredients, ingredient)) then
+				table.insert(recipe.normal.ingredients, ingredient)
+			end
+			
+			if not (momoIRTweak.recipe.IsIngredientExist(recipe.expensive.ingredients, ingredient)) then
+				table.insert(recipe.expensive.ingredients, ingredient)
+			end
 		else
 			table.insert(recipe.ingredients, ingredient)
 		end
@@ -271,6 +277,21 @@ function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
 	local recipe = data.raw.recipe[recipeName]
 	if (recipe) then
 		recipe.localised_name = localName
+	end
+end
+
+function momoIRTweak.recipe.IsIngredientExist(ingredientsTable, ingredientToCheck)
+	if (type(ingredientsTable) == "table") then
+		local name = momoIRTweak.GetName(ingredientToCheck)
+		for i, ing in pairs(ingredientsTable) do
+			local item = momoIRTweak.item.CastToBasic(ing)
+			if item.name == name then
+				return item
+			end
+		end
+		return false
+	else
+		error("parameter #1 [ingredientsTable] need table. momoIRTweak.recipe.IsIngredientExist")
 	end
 end
 

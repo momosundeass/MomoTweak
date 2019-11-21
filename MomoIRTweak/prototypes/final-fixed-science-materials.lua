@@ -1,4 +1,3 @@
-local table = require('__stdlib__/stdlib/utils/table')
 function momoIRTweak.finalFixes.ScienceMaterials()
 	-- using 
 	local AddIng = momoIRTweak.recipe.AddOrUpdateIngredient
@@ -20,7 +19,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 	local production = momoIRTweak.recipe.SaveGetResultAmount(SCI.packProduction)
 	local utility    = momoIRTweak.recipe.SaveGetResultAmount(SCI.packUtility)
 	
-	local ingredients = table.deep_copy(data.raw.recipe[SCI.pack2].ingredients)
+	local ingredients = momoIRTweak.DeepCopy(data.raw.recipe[SCI.pack2].ingredients)
 	local recipe = NewRecipe("crafting", item.spp1, 1, ingredients, 4)
 	
 	Rep(SCI.pack2, {
@@ -32,7 +31,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 	Unlock("logistic-science-pack", recipe.name)
 	Unlock("demo-science-pack", recipe.name)
 
-	ingredients = table.deep_copy(data.raw.recipe[SCI.packMilitary].ingredients)
+	ingredients = momoIRTweak.DeepCopy(data.raw.recipe[SCI.packMilitary].ingredients)
 	recipe = NewRecipe("advanced-crafting", item.sppMilitary, 1, ingredients, 6)
 	
 	Rep(SCI.packMilitary, {
@@ -41,7 +40,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 	})
 	Unlock(tech.military, recipe.name)
 
-	ingredients = table.deep_copy(data.raw.recipe[SCI.pack3].ingredients)
+	ingredients = momoIRTweak.DeepCopy(data.raw.recipe[SCI.pack3].ingredients)
 	recipe = NewRecipe("advanced-crafting", item.spp2, 1, ingredients, 20)
 	Rep(SCI.pack3, {
 		ITEM(item.spp2.name, 1), 
@@ -49,7 +48,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 	})
 	Unlock(tech.pack3, recipe.name)
 
-	ingredients = table.deep_copy(data.raw.recipe[SCI.packProduction].ingredients)
+	ingredients = momoIRTweak.DeepCopy(data.raw.recipe[SCI.packProduction].ingredients)
 	recipe = NewRecipe("advanced-crafting", item.sppProduction, 1, ingredients, 20)
 	
 	Rep(SCI.packProduction, {
@@ -58,7 +57,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 	})
 	Unlock(tech.production, recipe.name)
 
-	ingredients = table.deep_copy(data.raw.recipe[SCI.packUtility].ingredients)
+	ingredients = momoIRTweak.DeepCopy(data.raw.recipe[SCI.packUtility].ingredients)
 	recipe = NewRecipe("advanced-crafting", item.spp3, 1, ingredients, 20)
 	Rep(SCI.packUtility, {
 		ITEM(item.spp3.name, 1), 
