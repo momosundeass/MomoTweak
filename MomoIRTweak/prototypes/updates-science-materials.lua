@@ -71,9 +71,10 @@ function momoIRTweak.updates.ScienceMaterials()
 		
 		recipe = NewRecipe("advanced-crafting", item.gpu.name, 1, {
 			ITEM("k-silicon-wafer", 4),
+			ITEM("steel-chassis-small", 1),
 			ITEM("gold-cable", 2),
 			ITEM("k-ram", 2),
-			ITEM("k-circuit-board", 1)
+			ITEM("k-circuit-board", 1),
 		}, 40)
 		local techController = momoIRTweak.technology.FindFromRecipe("controller-mk3")
 		Unlock(techController, recipe.name) 
@@ -81,8 +82,8 @@ function momoIRTweak.updates.ScienceMaterials()
 		
 		if (eles.isHarder) then
 			AddIng(item.scienceBlueprint1.name, ITEM(eles.pcb1, 3))
-			AddIng(item.scienceBlueprint2.name, ITEM(eles.pcb2, 5))
-			AddIng(item.scienceBlueprint2.name, ITEM(eles.pcb3, 2))
+			AddIng(item.scienceBlueprint2.name, ITEM(eles.pcb2, 3))
+			AddIng(item.scienceBlueprint3.name, ITEM(eles.pcb3, 5))
 			
 			AddIng(item.gpu.name, ITEM(eles.pcb2, 1))
 		end
