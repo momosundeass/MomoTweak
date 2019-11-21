@@ -57,7 +57,7 @@ local function WoodToCoke()
 end
 
 local function NewTechnology()
-	local prototype = tech.Clone("deadlock-forestry-2", "momo-forestry")
+	local prototype = tech.ClonePrototype("deadlock-forestry-2", "momo-forestry")
 	tech.SetPrerequire(prototype, {"deadlock-forestry-2", "deadlock-barrelling"})
 	tech.ClearEffects(prototype)
 	tech.SetUnit(prototype, {

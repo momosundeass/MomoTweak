@@ -49,14 +49,20 @@ function momoIRTweak.technology.AddUnitCount(technologyName, addAmount)
 	end
 end
 
-function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName)
+function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName, overrideEnabled)
 	if (data.raw.technology[technologyName]) then
 		table.insert(data.raw.technology[technologyName].effects, {
 			type = "unlock-recipe",
 			recipe = recipeName
 		})
 	else
-		momoIRTweak.Log("no technology with name to add unlock : " .. tostring(technologyName))
+		if overrideEnabled == nil then overrideEnabled = true end
+		if overrideEnabled then
+			momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+				recipe.enabled = true
+			end)
+		end
+		momoIRTweak.Log("no technology with name to add unlock : " .. tostring(technologyName) .. "\n recipe name with be enabled : " .. recipeName)
 	end
 end
 
@@ -128,7 +134,7 @@ function momoIRTweak.technology.ReplaceIngredient(technology, tableMapping)
 	end
 end
 
-function momoIRTweak.technology.Clone(technologyName, newName)
+function momoIRTweak.technology.ClonePrototype(technologyName, newName)
 	if (data.raw.technology[technologyName]) then
 		local tech = momoIRTweak.DeepCopy(data.raw.technology[technologyName])
 		tech.name = newName
