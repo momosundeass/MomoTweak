@@ -1,8 +1,13 @@
 local table = require('__stdlib__/stdlib/utils/table')
 if not momoIRTweak then momoIRTweak = {} end
 
+momoIRTweak.modName = ""
 momoIRTweak.dumpText = ""
 momoIRTweak.indentAmount = 0
+
+function momoIRTweak.Init(modName)
+	momoIRTweak.modName = modName
+end
 
 function momoIRTweak.Log(str)
 	log("MomoIRTweak => " .. str)
