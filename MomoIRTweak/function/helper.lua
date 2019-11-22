@@ -3,6 +3,8 @@ if not momoIRTweak then momoIRTweak = {} end
 
 momoIRTweak.modName = ""
 momoIRTweak.dumpText = ""
+momoIRTweak.dumpStack = {""}
+
 momoIRTweak.indentAmount = 0
 
 function momoIRTweak.Init(modName)
@@ -32,18 +34,28 @@ function momoIRTweak.DumpTable(_table)
 			for i=1, momoIRTweak.indentAmount do 
 				indent = indent .. "   "
 			end
-			momoIRTweak.dumpText = momoIRTweak.dumpText .. "\n" .. indent .. tostring(k) .. ":"
+			momoIRTweak.AddStringToDumpStack("\n" .. indent .. tostring(k) .. ":")
 			momoIRTweak.DumpTable(v)
 			momoIRTweak.indentAmount = momoIRTweak.indentAmount - 1
 		end
 	else
-		momoIRTweak.dumpText = momoIRTweak.dumpText .. " " .. tostring(_table) 
+		momoIRTweak.AddStringToDumpStack(" " .. tostring(_table)) 
+	end
+end
+
+function momoIRTweak.AddStringToDumpStack(str)
+	table.insert(momoIRTweak.dumpStack, str)
+	for i = table.getn(momoIRTweak.dumpStack)-1, 1, -1 do
+		if string.len(momoIRTweak.dumpStack[i]) > string.len(momoIRTweak.dumpStack[i + 1]) then
+			break
+		end
+		momoIRTweak.dumpStack[i] = momoIRTweak.dumpStack[i] .. table.remove(momoIRTweak.dumpStack)
 	end
 end
 
 function momoIRTweak.PrintDump()
-	momoIRTweak.Log(momoIRTweak.dumpText)
-	momoIRTweak.dumpText = ""
+	momoIRTweak.Log(tostring(momoIRTweak.dumpStack))
+	momoIRTweak.dumpText = {""}
 end
 
 function momoIRTweak.PrintTable(_table)
