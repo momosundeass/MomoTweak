@@ -125,7 +125,7 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		--- production ================================================================
 		AddIng(item.sppProduction.name, ITEM("controller-mk2", production * 1))
 		AddIng(item.sppProduction.name, ITEM("junction-box", production * 2))
-		AddIng(item.sppProduction.name, ITEM("steel-piston", utility * 2))
+		AddIng(item.sppProduction.name, ITEM("steel-piston", utility * 3))
 				
 		AddIng(SCI.packProduction, ITEM(item.scienceBlueprint2, production * 3))
 		--- production ================================================================
