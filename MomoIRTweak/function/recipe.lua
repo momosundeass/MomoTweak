@@ -17,6 +17,8 @@ function momoIRTweak.recipe.ValidateRecipe(recipe, callback)
 	end
 end
 
+
+--- New recipe.
 function momoIRTweak.recipe.NewRecipe(categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
 	local name = momoIRTweak.GetName(resultItemName)
 	local prototype = momoIRTweak.recipe.BuildPrototype(name, categoryCrafting, name, resultAmount, ingredients, timeUse)
@@ -64,6 +66,9 @@ function momoIRTweak.recipe.ChangePrototypeResults(prototype, newName, results)
 	end
 end
 
+-----------------------------------------------------------------------------------------
+
+--- Ingredient.
 function momoIRTweak.recipe.AddIngredient(recipeName, ingredient)
 	Recipe(recipeName):add_ingredient(ingredient, ingredient)
 end
@@ -158,20 +163,6 @@ function momoIRTweak.recipe.MultipleIngredientsCount(recipeName, multiplier)
 	end)
 end
 
-function momoIRTweak.recipe.MultipleResultsCount(recipeName, multiplier)
-	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
-		if (recipe.results) then
-			for i, r in pairs(recipe.results) do
-				local basic = momoIRTweak.item.CastToBasic(r)
-				basic.amount = math.floor(basic.amount * multiplier)
-				recipe.results[i] = basic
-			end
-		else
-			recipe.result_count = math.floor(recipe.result_count * multiplier)
-		end
-	end)
-end
-
 function momoIRTweak.recipe.ReplaceAllIngredient(recipeName, newIngredients)
 	data.raw.recipe[recipeName].ingredients = newIngredients
 end
@@ -202,34 +193,67 @@ function momoIRTweak.recipe.GetIngredient(recipeName, ingredientName)
 	return false
 end
 
-function momoIRTweak.recipe.GetCraftingMachineTint(recipeName)
-	if (data.raw.recipe[recipeName]) then
-		return data.raw.recipe[recipeName].crafting_machine_tint
+function momoIRTweak.recipe.IsIngredientExist(ingredientsTable, ingredientToCheck)
+	if (type(ingredientsTable) == "table") then
+		local name = momoIRTweak.GetName(ingredientToCheck)
+		for i, ing in pairs(ingredientsTable) do
+			local item = momoIRTweak.item.CastToBasic(ing)
+			if item.name == name then
+				return item
+			end
+		end
+		return false
+	else
+		error("parameter #1 [ingredientsTable] need table. momoIRTweak.recipe.IsIngredientExist")
 	end
-	return false
 end
 
-function momoIRTweak.recipe.SetCraftingMachineTint(recipeName, machineTintTable)
-	if (data.raw.recipe[recipeName]) then
-		if (type(machineTintTable) == "table") then
-			data.raw.recipe[recipeName].crafting_machine_tint = machineTintTable
-		else
-			error ("parameter #2 [machineTintTable] isn't table. (" .. recipeName .. ")")
+function momoIRTweak.recipe.ConvertToOnlyNormal(recipeName, isPickExpensive)
+	if not isPickExpensive then isPickExpensive = false end
+	
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
+		if recipe.normal then  
+			local target = recipe.normal
+			if (isPickExpensive) then
+				target = recipe.expensive
+			end
+			
+			recipe.ingredients     = target.ingredient
+			recipe.result          = target.result
+			recipe.result_count    = target.result_count
+			recipe.results         = target.results
+			recipe.energy_required = target.energy_required
+			recipe.enabled         = recipe.enabled
+			
+			recipe.normal = nil
+			recipe.expensive = nil
 		end
-	end
-	return false
+	end)
+end 
+
+-----------------------------------------------------------------------------------------
+
+--- Results.
+function momoIRTweak.recipe.MultipleResultsCount(recipeName, multiplier)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
+		if (recipe.results) then
+			for i, r in pairs(recipe.results) do
+				local basic = momoIRTweak.item.CastToBasic(r)
+				basic.amount = math.floor(basic.amount * multiplier)
+				recipe.results[i] = basic
+			end
+		else
+			recipe.result_count = math.floor(recipe.result_count * multiplier)
+		end
+	end)
 end
 
-function momoIRTweak.recipe.SetTime(recipeName, newTime)
-	local recipe = data.raw.recipe[recipeName]
-	if recipe then
-		if recipe.normal then
-			recipe.normal.energy_required = newTime
-			recipe.expensive.energy_required = newTime
-		else
-			recipe.energy_required = newTime
+function momoIRTweak.recipe.SetResultCount(recipeName, amount)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
+		if (recipe.result_count) then
+			recipe.result_count = amount
 		end
-	end
+	end)
 end
 
 function momoIRTweak.recipe.SaveGetResultAmount(recipeName)
@@ -271,6 +295,40 @@ function momoIRTweak.recipe.GetResultWithAmount(itemName, amountMin, amountMax)
 	return item
 end
 
+-----------------------------------------------------------------------------------------
+
+
+--- Misc.
+function momoIRTweak.recipe.GetCraftingMachineTint(recipeName)
+	if (data.raw.recipe[recipeName]) then
+		return data.raw.recipe[recipeName].crafting_machine_tint
+	end
+	return false
+end
+
+function momoIRTweak.recipe.SetCraftingMachineTint(recipeName, machineTintTable)
+	if (data.raw.recipe[recipeName]) then
+		if (type(machineTintTable) == "table") then
+			data.raw.recipe[recipeName].crafting_machine_tint = machineTintTable
+		else
+			error ("parameter #2 [machineTintTable] isn't table. (" .. recipeName .. ")")
+		end
+	end
+	return false
+end
+
+function momoIRTweak.recipe.SetTime(recipeName, newTime)
+	local recipe = data.raw.recipe[recipeName]
+	if recipe then
+		if recipe.normal then
+			recipe.normal.energy_required = newTime
+			recipe.expensive.energy_required = newTime
+		else
+			recipe.energy_required = newTime
+		end
+	end
+end
+
 function momoIRTweak.recipe.SetEmissions(recipeName, multiplier)
 	local recipe = data.raw.recipe[recipeName]
 	if recipe then
@@ -292,44 +350,6 @@ function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
 		recipe.localised_name = localName
 	end
 end
-
-function momoIRTweak.recipe.IsIngredientExist(ingredientsTable, ingredientToCheck)
-	if (type(ingredientsTable) == "table") then
-		local name = momoIRTweak.GetName(ingredientToCheck)
-		for i, ing in pairs(ingredientsTable) do
-			local item = momoIRTweak.item.CastToBasic(ing)
-			if item.name == name then
-				return item
-			end
-		end
-		return false
-	else
-		error("parameter #1 [ingredientsTable] need table. momoIRTweak.recipe.IsIngredientExist")
-	end
-end
-
-function momoIRTweak.recipe.ConvertToOnlyNormal(recipeName, isPickExpensive)
-	if not isPickExpensive then isPickExpensive = false end
-	
-	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
-		if recipe.normal then  
-			local target = recipe.normal
-			if (isPickExpensive) then
-				target = recipe.expensive
-			end
-			
-			recipe.ingredients     = target.ingredient
-			recipe.result          = target.result
-			recipe.result_count    = target.result_count
-			recipe.results         = target.results
-			recipe.energy_required = target.energy_required
-			recipe.enabled         = recipe.enabled
-			
-			recipe.normal = nil
-			recipe.expensive = nil
-		end
-	end)
-end 
 
 -- Warning this function may take half a year to finish
 function momoIRTweak.DumpRecipes()
