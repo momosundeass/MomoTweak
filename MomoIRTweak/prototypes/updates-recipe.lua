@@ -30,6 +30,9 @@ function momoIRTweak.updates.MenariteImersite()
 	local amount = {2, 4, 8}
 	if (momoIRTweak.science.isHarderPack) then amount = {8, 16, 32} end
 	
+	SaveAddIng("menarite-wafer", ITEM("k-lithium", 2))
+	SaveAddIng("menarite-wafer", ITEM("k-silicon", 6))
+	
 	SaveAddIng(momoIRTweak.science.kProductionUtility, ITEM("menarite-processor", amount[1]))
 	SaveAddIng(momoIRTweak.science.kSpace, ITEM("menarite-processor", amount[2]))
 	SaveAddIng(momoIRTweak.science.kMatter, ITEM("menarite-processor", amount[3]))

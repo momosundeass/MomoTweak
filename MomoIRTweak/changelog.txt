@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.19
+Date: 2019.11.23 
+  Change:
+    - Imersite battery ingredients
+    - Rubber use in recipe
+	- Menarite wafer ingredients
+  Balanced:
+    - Science materials ingredients
+---------------------------------------------------------------------------------------------------
 Version: 0.17.18
 Date: 2019.11.22
   Balanced:

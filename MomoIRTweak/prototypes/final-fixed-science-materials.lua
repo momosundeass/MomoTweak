@@ -98,8 +98,8 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		local sciCom2 = NewRecipe("advanced-crafting", item.scienceComputer2, com2Amount, {
 			ITEM("speed-module-2", 1),
 			ITEM("assembling-machine-2", 1),
-			ITEM("express-transport-belt", 3),
-			ITEM("advanced-battery", 3),
+			ITEM("express-transport-belt", 4),
+			ITEM("advanced-battery", 4),
 			ITEM("steel-chassis-small", 2)
 		}, com2Amount * 5.5)
 		Unlock(tech.utility, sciCom2.name)

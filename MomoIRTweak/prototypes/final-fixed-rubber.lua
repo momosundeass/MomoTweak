@@ -2,7 +2,7 @@
 function momoIRTweak.finalFixes.Rubber()
 	if (settings.startup["momo-increaseRubberUse"]) then
 		--- using
-		local AddIng = momoIRTweak.recipe.AddIngredient
+		local AddIng = momoIRTweak.recipe.SaveAddIngredient
 		local ITEM = momoIRTweak.FastItem
 		
 		local rubber = function (amount) return ITEM("rubber-natural", amount) end
@@ -36,5 +36,13 @@ function momoIRTweak.finalFixes.Rubber()
 		AddIng("carbon-plate", rubber2(4))
 		AddIng("glass-cable-heavy", rubber2(2))
 		AddIng("k-empty-memory-card", rubber2(1))
+		
+		AddIng("rail-signal", rubber(2))
+		AddIng("rail-chain-signal", rubber(3))
+		AddIng("constant-combinator", rubber(5))
+		
+		
+		AddIng("arithmetic-combinator", rubber2(2))
+		AddIng("decider-combinator", rubber2(3))
 	end
 end

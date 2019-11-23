@@ -72,7 +72,7 @@ function momoIRTweak.finalFixes.MiscRecipe()
 	AddIng(machine.matterAssembler, ITEM("controller-mk3", 20))
 	
 	AddIng("advanced-battery", ITEM("k-lithium", 2))
-	AddIng("imersite-battery", ITEM("k-lithium", 3))
+	AddIng("imersite-battery", ITEM("glass-ingot", 4))
 	
 	-- move from [k-fusion] technology to [deadlock-advanced-batteries]
     -- recipe: k-hydrogen-chloride
