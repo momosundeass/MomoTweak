@@ -8,6 +8,9 @@ function momoIRTweak.finalFixes.Rubber()
 		local rubber = function (amount) return ITEM("rubber-natural", amount) end
 		local rubber2 = function (amount) return ITEM("rubber-vulcanised", amount) end
 		
+		-- set result of vulcanised rubber
+		momoIRTweak.recipe.SetResultCount("rubber-vulcanised", 1)
+		
 		-- rubber 1
 		AddIng("fast-underground-belt", rubber(1))
 		AddIng("express-underground-belt", rubber(2))

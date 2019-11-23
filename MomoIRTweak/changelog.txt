@@ -1,12 +1,14 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.19
-Date: 2019.11.23 
+Date: 2019.11.24 
   Change:
     - Imersite battery ingredients
     - Rubber use in recipe
 	- Menarite wafer ingredients
   Balanced:
     - Science materials ingredients
+  Fixed:
+    - Balanced k-computer recipe don't work as expect
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.18
 Date: 2019.11.22

@@ -82,10 +82,10 @@ function momoIRTweak.finalFixes.TieredRecipes()
 	end
 
 	if (settings.startup["momo-tieredComputer"].value) then
-		AddIng("computer-mk2", ITEM("computer-mk1", 1))
-		AddIng("computer-mk2-2", ITEM("computer-mk1", 2))
-		AddIng("computer-mk3", ITEM("computer-mk2", 1))
-		AddIng("computer-mk3-2", ITEM("computer-mk2", 2))
+		AddIng("computer-mk2", ITEM("controller-mk1", 4))
+		AddIng("computer-mk2-2", ITEM("controller-mk1", 4))
+		AddIng("computer-mk3", ITEM("controller-mk2", 4))
+		AddIng("computer-mk3-2", ITEM("controller-mk2", 4))
 	end
 
 	if (settings.startup["momo-tieredBot"].value) then
