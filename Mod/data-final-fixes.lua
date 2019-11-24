@@ -23,7 +23,7 @@ require("prototypes.fix-angels-machine")
 require("prototypes.sci.sci30result-preset")
 
 if not momoTweak.isLoadScienceRecipeInUpdates then
-	momoTweak.sct.increase_science_pack_amount()
+	momoTweak.sct.IncreaseSciencePackAmount()
 end
 
 require("prototypes.sci.vial-recipe")

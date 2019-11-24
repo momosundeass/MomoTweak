@@ -1,7 +1,6 @@
-function momoTweak.require.SctPreRecipe()
-	momoTweak.sct = {}
-	momoTweak.sct.recipe = {}
+if not momoTweak.sct.recipe then momoTweak.sct.recipe = {} end
 
+function momoTweak.require.SctPreRecipe()
 	local sci_cat = momoTweak.GetScienceCraftingCategory()
 
 	local scts =       {"sct-2",        "sct-gun",        "sct-3",        "sct-production",        "sct-logistic",        "sct-high"}
@@ -60,7 +59,7 @@ function momoTweak.require.SctPreRecipe()
 		end
 	end
 
-	function momoTweak.sct.increase_science_pack_amount()
+	function momoTweak.sct.IncreaseSciencePackAmount()
 		for i, sci in pairs(refSciPack) do
 			local resultAmount = momoTweak.get_result_amount(sci)
 			
