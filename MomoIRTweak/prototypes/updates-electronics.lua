@@ -32,7 +32,7 @@ function momoIRTweak.updates.Electronics()
 			ITEM("chromium-rivet", 2)
 		}, 1).enabled = isUnlock
 		
-		AddIng("k-silicon", ITEM("tin-gravel", 3))
+		AddIng("k-silicon", ITEM("tin-gravel", 1))
 		AddIng("k-silicon-wafer", ITEM("glass-ingot", 2))
 		
 		momoIRTweak.recipe.SaveAddIngredient("advanced-circuit", ITEM("k-silicon-wafer", 2))

@@ -74,14 +74,14 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		
 		--- ===========================================================================
 		--- chemical ==================================================================
-		local computerPerSciencePack = 0.5
+		local computerPerSciencePack = 0.25
 		
 		Rem(item.spp2.name, "controller-mk1")
 		local com1Amount = math.floor(1 / computerPerSciencePack)
 		local sciCom1 = NewRecipe("advanced-crafting", item.scienceComputer1, com1Amount, {
 			ITEM("computer-mk1", 1),
-			ITEM("battery", 2),
-			ITEM("fast-transport-belt", 3)
+			ITEM("battery", 3),
+			ITEM("fast-transport-belt", 5)
 		}, com1Amount * 2.2)
 		Unlock(tech.pack3, sciCom1.name)
 		
@@ -93,13 +93,13 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		
 		--- ===========================================================================
 		--- utility ===================================================================
-		computerPerSciencePack = 1
+		computerPerSciencePack = 0.5
 		local com2Amount = math.floor(1 / computerPerSciencePack)
 		local sciCom2 = NewRecipe("advanced-crafting", item.scienceComputer2, com2Amount, {
 			ITEM("speed-module-2", 1),
 			ITEM("assembling-machine-2", 1),
-			ITEM("express-transport-belt", 4),
-			ITEM("advanced-battery", 4),
+			ITEM("express-transport-belt", 6),
+			ITEM("advanced-battery", 6),
 			ITEM("steel-chassis-small", 2)
 		}, com2Amount * 5.5)
 		Unlock(tech.utility, sciCom2.name)
@@ -136,26 +136,32 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		AddIng(SCI.k1, ITEM("bronze-plate", 2))
 		
 		AddIng(SCI.k2, ITEM(item.gpu, 1))
-		AddIng(SCI.k2, ITEM("glass-plate", 3))
+		AddIng(SCI.k2, ITEM("glass-plate", 4))
 		
-		AddIng(SCI.kMilitary, ITEM(item.gpu, 1))
+		AddIng(SCI.kMilitary, ITEM(item.gpu, 2))
 		
-		AddIng(SCI.k3, ITEM(item.gpu, 2))
+		AddIng(SCI.k3, ITEM(item.gpu, 3))
 		AddIng(SCI.k3, ITEM(momoIRTweak.machine.pumpjack, 1))
 		
-		AddIng(SCI.kProductionUtility, ITEM(item.gpu, 6))
+		--- ===========================================================================
+		--- k-science =================================================================
+		local sciCom3 = NewRecipe("advanced-crafting", item.scienceComputer3, 1, {
+		    ITEM("titanium-chassis-small", 2),
+			ITEM("stack-filter-inserter", 1),
+			ITEM(item.gpu, 5),
+			ITEM("decider-combinator", 4),
+			ITEM("speed-module-3", 1)
+		}, 15)
+		Unlock(tech.utility, sciCom3.name)
+		
 		AddIng(SCI.kProductionUtility, ITEM(momoIRTweak.machine.assembler3, 1))
-		
-		AddIng(SCI.kMatter, ITEM(item.gpu, 4))
-		
-		AddIng(SCI.kSpace, ITEM(item.gpu, 6))
+		AddIng(SCI.kProductionUtility, ITEM(item.scienceComputer3, 1))
+		AddIng(SCI.kSpace, ITEM(item.scienceComputer3, 2))
+		AddIng(SCI.kMatter, ITEM(item.scienceComputer3, 1))
+		--- k-science =================================================================
 		
 		if (eles.isHarder) then
 			AddIng(SCI.kEmpty, ITEM(eles.pcb2, 1))
-			AddIng(SCI.kProductionUtility, ITEM("controller-mk3", 1))
-			AddIng(SCI.kMatter, ITEM("controller-mk3", 1))
-			AddIng(SCI.kSpace, ITEM("controller-mk3", 2))
 		end
-		
 	end
 end

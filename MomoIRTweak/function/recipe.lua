@@ -252,6 +252,14 @@ function momoIRTweak.recipe.SetResultCount(recipeName, amount)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
 		if (recipe.result_count) then
 			recipe.result_count = amount
+		else
+			if (recipe.results) then
+				if not (recipe.results[2]) then
+					recipe.results[1].amonut = amount
+				else
+					momoIRTweak.Log("recipe [" .. recipeName .. "] have multiple results.")
+				end
+			end
 		end
 	end)
 end

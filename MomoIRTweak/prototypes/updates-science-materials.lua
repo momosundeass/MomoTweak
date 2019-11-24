@@ -41,7 +41,7 @@ function momoIRTweak.updates.ScienceMaterials()
 			ITEM(item.productionBox.name, 6),
 			ITEM("stone-wall", 7),
 			ITEM("bronze-chassis-small", 1),
-			ITEM("tin-plate", 15)
+			ITEM("tin-plate", 6)
 		}, 22)
 		Unlock(tech.production, recipe.name)
 		

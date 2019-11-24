@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.19
 Date: 2019.11.24 
+  Add:
+    - Advanced Scientific Computer
   Change:
     - Imersite battery ingredients
     - Rubber use in recipe
@@ -25,7 +27,7 @@ Date: 2019.11.21
 Version: 0.17.16
 Date: 2019.11.20
   Change:
-    - Utility sciecne pack now speed require module
+    - Utility sciecne pack now require speed module
 	- Ingredients of module
   Fix:
     - Unable to craft advanced battery cause of lithium are lock behide advanced tech

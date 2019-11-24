@@ -100,8 +100,6 @@ function momoIRTweak.finalFixes.MiscRecipe()
 	momoIRTweak.technology.RemoveUnlockEffect("k-fusion", "k-lithium-chloride") 
 	momoIRTweak.technology.RemoveUnlockEffect("k-fusion", "k-hydrogen-chloride")
 	
-	
-	
 	Repi("imersite-solar-panel", "solar-panel", ITEM("solar-array", 1))
 	
 	momoIRTweak.recipe.SaveAddIngredient("battery", ITEM("tin-plate", 3))
