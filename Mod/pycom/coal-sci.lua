@@ -1,4 +1,4 @@
-if (IsScienceCostM) then
+if (momoTweak.mods.sct) then
 	momoTweak.set_all_ingredient("flask", {
 		{"sct-t1-ironcore", 1},
 		{"sct-t1-magnet-coils", 2},

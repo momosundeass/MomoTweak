@@ -1,6 +1,5 @@
 if (momoTweak.py.coal) then
-
-	if (IsScienceCostM) then
+	if (momoTweak.mods.sct) then
 		bobmods.lib.tech.remove_prerequisite("coal-processing-3", "chemical-science-pack")
 		data.raw.tool[momoTweak.sci1].icon_size = 32
 		data.raw.tool[momoTweak.sci2].icon_size = 32
@@ -17,5 +16,6 @@ if (momoTweak.py.coal) then
 end
 
 if (momoTweak.py.ht) then
-	require("pyhigh_ui")
+	-- still not support py.
+	-- require("pyhigh_ui")
 end

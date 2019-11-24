@@ -1,14 +1,14 @@
 {
   "name": "MomoTweak",
-  "version": "0.17.28",
+  "version": "0.17.30",
   "factorio_version": "0.17",
   "title": "MomoTweak",
   "author": "Momosundeass",
-  "contact": "",
-  "homepage": "",
+  "homepage": "https://github.com/momosundeass/MomoTweak",
   "description": "Add more complex crafting for science compatible with Bob's Angel's +30 new Science Pack mod && Tweak for some mod",
   "dependencies": [
 	  "base >= 0.17.0",
+	  "stdlib >= 1.3.0",
 	  "boblibrary >= 0.17.0",
 	  "bobassembly >= 0.17.0",
 	  "bobelectronics >= 0.17.0",
@@ -37,12 +37,6 @@
 	  "? Bio_Industries >= 0.17.5",
 	  "? SpaceMod >= 0.4.1",
 	  "? LB-Modular-Chests >= 0.17.7",
-	  
-	  "? pycoalprocessing >= 1.1.5",
-	  "? pyfusionenergy_1.2.0",
-	  "? pyhightech >= 1.1.2",
-	  "? PyCoalTBaA >= 0.0.47",
-	  
 	  "? omnilib >= 3.0.4"
   ]
 }

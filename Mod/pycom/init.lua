@@ -1,4 +1,4 @@
-momoTweak.py = {}
+
 
 if mods["pycoalprocessing"] then
 	momoTweak.py.coal = true

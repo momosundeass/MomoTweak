@@ -1,0 +1,18 @@
+{
+	"name": "MomoIRTweak",
+	"version": "0.17.19",
+	"factorio_version": "0.17",
+	"title": "Momo Industrial Revolution Krastorio Tweak",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "Add more complex science crafting for Industrial Revolution & Krastorio, Tweak for some mod",
+	"dependencies": [
+		"base >= 0.17.0",
+		"stdlib >= 1.3.0",
+		"IndustrialRevolution >= 1.0.6",
+		"Krastorio >= 1.4.37",
+		"? bobinserters >= 0.17.10",
+		"? underground-pipe-pack >= 0.17.0",
+		"? SpaceMod >= 0.4.4"
+	]
+}

@@ -1,4 +1,5 @@
 if (momoTweak.py.coal) then
-	require("coal")
-	require("coal-sci")
+	-- still now support py
+	--require("coal")
+	--require("coal-sci")
 end

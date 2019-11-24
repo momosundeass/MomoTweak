@@ -40,7 +40,7 @@ momoTweak.replace_with_ingredient("liquifier-2",              "steel-pipe", {"br
 momoTweak.replace_with_ingredient("angels-air-filter-2",       "steel-pipe", {"plastic-pipe", 30})
 
 
-if (mods["angelsbioprocessing"]) then
+if (momoTweak.mods.angelBio) then
 	-- bio-refugium-biter  bio-refugium-fish  bio-refugium-puffer 
 	momoTweak.replace_with_ingredient("bio-refugium-biter",  "pipe", {"plastic-pipe", 50})
 	momoTweak.replace_with_ingredient("bio-refugium-fish",   "pipe", {"plastic-pipe", 88})
