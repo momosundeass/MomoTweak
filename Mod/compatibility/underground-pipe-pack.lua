@@ -1,24 +1,6 @@
--- check for item in Texugo wind exist
-if data.raw.item["texugo-wind-turbine"] then
-  if data.raw.item["basic-circuit-board"] then 
-      bobmods.lib.recipe.replace_ingredient("texugo-wind-turbine", "electronic-circuit", "basic-circuit-board")
-   end
-end
+if not momoTweak.compatibility.underGroundPipePack then momoTweak.compatibility.underGroundPipePack = {} end
 
--- check for Modular-Chests
-if data.raw.recipe["modular-chest"] then
-  bobmods.lib.recipe.add_ingredient("modular-chest", {"fast-splitter", 1})
-  bobmods.lib.recipe.add_ingredient("modular-chest", {"fast-transport-belt", 2})
-  bobmods.lib.recipe.add_ingredient("modular-steel-chest", {"fast-splitter", 1})
-  bobmods.lib.recipe.add_ingredient("modular-steel-chest", {"fast-transport-belt", 2})
-  data.raw.recipe["modular-chest"].enabled = false
-  data.raw.recipe["modular-steel-chest"].enabled = false
-  local unlock_tech = momoTweak.get_tech_of_recipe("train-stop")
-  bobmods.lib.tech.add_recipe_unlock(unlock_tech, "modular-chest")
-  bobmods.lib.tech.add_recipe_unlock(unlock_tech, "modular-steel-chest")
-end
-
-if mods["underground-pipe-pack"] then
+function momoTweak.compatibility.underGroundPipePack.Recipe()
 	-- small-pipe-coupler
 	-- underground-pipe-segment-t1
 	data.raw.technology["advanced-underground-piping"].prerequisites = {momoTweak.sci2_unlockTech}

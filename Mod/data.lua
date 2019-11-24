@@ -2,12 +2,16 @@ if not momoTweak then momoTweak = {} end
 if not momoTweak.settings then momoTweak.settings = {} end
 if not momoTweak.mods then momoTweak.mods = {} end
 if not momoTweak.require then momoTweak.require = {} end
+if not momoTweak.compatibility then momoTweak.compatibility = {} end
 
 momoTweak.settings.isLoadBobExtended = true
 
 momoTweak.mods.sct = mods["ScienceCostTweakerM"]
 momoTweak.mods.angelBio = mods["angelsbioprocessing"]
 momoTweak.mods.msp = mods["MoreSciencePacks"]
+momoTweak.mods.bioIndustries = mods["Bio_Industries"]
+momoTweak.mods.modularChests = mods["LB-Modular-Chests"]
+momoTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
 
 if not momoTweak.py then momoTweak.py = {} end
 
@@ -27,6 +31,11 @@ require("const-name")
 require("prototypes.sci.item")
 require("prototypes.bobextended.bobextended-data")
 require("prototypes.angel-bio")
+
+-- compatibility file load here
+require("compatibility.bio-industries")
+require("compatibility.modular-chests")
+require("compatibility.underground-pipe-pack")
 
 if momoTweak.settings.isLoadBobExtended then
 	momoTweak.require.BobExtendedData()

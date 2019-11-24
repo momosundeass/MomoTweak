@@ -29,6 +29,10 @@ end
 require("prototypes.sci.vial-recipe")
 require("prototypes.machine-restriction")
 
+if (momoTweak.mods.bioIndustries) then
+	momoTweak.compatibility.bioIndustries.FixDuplicateProductionSciencePack()
+end
+
 if (momoTweak.mods.angelBio) then
 	momoTweak.angelBio.FinalFixed()
 end
