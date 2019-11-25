@@ -84,6 +84,23 @@ function momoIRTweak.technology.RemoveUnlockEffect(technologyName, recipeName)
 	return false
 end
 
+function momoIRTweak.technology.RemoveAllUnlockEffect(recipeNames) 
+	local function RemoveEffect(recipeName) 
+		local techs = FindAllFromRecipe(recipeName)
+		for _, t in pairs(techs) do
+			RemoveUnlockEffect(t, recipeName)
+		end
+	end
+	
+	if (type(recipeNames) == "table") then
+		for _, recipeName in pairs(recipeNames) do
+			RemoveEffect(recipeName)
+		end		
+	else
+		RemoveEffect(recipeNames)
+	end
+end
+
 function momoIRTweak.technology.HasIngredient(technology, ingredientToCheck)
 	local technologyName = momoIRTweak.GetName(technology)
 	local tech = data.raw.technology[technologyName]

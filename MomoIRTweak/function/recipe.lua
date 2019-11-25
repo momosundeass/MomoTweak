@@ -359,6 +359,13 @@ function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
 	end
 end
 
+function momoIRTweak.recipe.SetSubgroup(recipeName, newSubgroup, order)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+		recipe.subgroup = newSubgroup
+		recipe.order = order
+	end)
+end
+
 -- Warning this function may take half a year to finish
 function momoIRTweak.DumpRecipes()
 	momoIRTweak.dumpRecipesText = "Recipe dump \n"

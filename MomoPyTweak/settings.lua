@@ -42,6 +42,11 @@ end
 ---------------------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------------------
+CreateBoolSetting("momo-electricPole", true)
+CreateBoolSetting("momo-undergroundBelt", true)
+CreateBoolSetting("momo-removeLongInserter", true)
+CreateBoolSetting("momo-module", true)
+
 CreateStringSetting("momo-headerDebug", "")
 
 CreateBoolSetting("momo-debug", false)

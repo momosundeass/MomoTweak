@@ -87,6 +87,22 @@ function momoIRTweak.item.NewItemFixedSize(itemName, iconSize, itemSubgroup, max
 	return item
 end
 
+function momoIRTweak.item.ValidateItem(itemName, callback)
+	local item = data.raw.item[itemName]
+	if item then
+		callback(item)
+	else
+		momoIRTweak.Log("no item with name : " ..  itemName)
+	end
+end
+
+function momoIRTweak.item.SetSubgroup(itemName, newSubgroup, order)
+	momoIRTweak.item.ValidateItem(itemName, function(item) 
+		item.subgroup = newSubgroup
+		item.order = order
+	end)
+end
+
 
 function momoIRTweak.item.NewScienceMaterialsItem(itemName)
 	return momoIRTweak.item.NewItem(itemName, momoIRTweak.science.materialSubgroup, 50)
