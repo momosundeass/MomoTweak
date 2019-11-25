@@ -34,18 +34,22 @@ function momoIRTweak.DumpTable(_table)
 			for i=1, momoIRTweak.indentAmount do 
 				indent = indent .. "   "
 			end
-			momoIRTweak.AddStringToDumpStack("\n" .. indent .. tostring(k) .. ":")
+			momoIRTweak.ConcatStringToDumpText("\n" .. indent .. tostring(k) .. ":")
 			momoIRTweak.DumpTable(v)
 			momoIRTweak.indentAmount = momoIRTweak.indentAmount - 1
 		end
 	else
-		momoIRTweak.AddStringToDumpStack(" " .. tostring(_table)) 
+		momoIRTweak.ConcatStringToDumpText(" " .. tostring(_table)) 
 	end
+end
+
+function momoIRTweak.ConcatStringToDumpText(str)
+	momoIRTweak.dumpText = momoIRTweak.dumpText .. str
 end
 
 function momoIRTweak.AddStringToDumpStack(str)
 	table.insert(momoIRTweak.dumpStack, str)
-	for i = table.getn(momoIRTweak.dumpStack)-1, 1, -1 do
+	for i = #momoIRTweak.dumpStack -1, 1, -1 do
 		if string.len(momoIRTweak.dumpStack[i]) > string.len(momoIRTweak.dumpStack[i + 1]) then
 			break
 		end

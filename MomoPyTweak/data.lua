@@ -19,14 +19,14 @@ momoIRTweak.InitItemsLib("__MomoPyTweak__/graphics/icons/", true)
 require("naming")
 
 -- flag to make mod only dump data to log
-momoPyTweak.DumpOnly = false
+momoPyTweak.DumpOnly = true
 
 --- subgroup
 momoPyTweak.science.materialSubgroup = "momo-science-materials"
 local refSubgroup = data.raw["item-subgroup"]["intermediate-product"]
 data:extend({{
 	type = "item-subgroup",
-	name = momoIRTweak.science.materialSubgroup,
+	name = momoPyTweak.science.materialSubgroup,
 	group = refSubgroup.group,
 	order = refSubgroup.order .. "zzzz"
 }})
