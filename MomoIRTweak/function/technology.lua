@@ -86,9 +86,9 @@ end
 
 function momoIRTweak.technology.RemoveAllUnlockEffect(recipeNames) 
 	local function RemoveEffect(recipeName) 
-		local techs = FindAllFromRecipe(recipeName)
+		local techs =  momoIRTweak.technology.FindAllFromRecipe(recipeName)
 		for _, t in pairs(techs) do
-			RemoveUnlockEffect(t, recipeName)
+			momoIRTweak.technology.RemoveUnlockEffect(t, recipeName)
 		end
 	end
 	

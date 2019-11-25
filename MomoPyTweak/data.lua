@@ -51,6 +51,9 @@ require("prototypes.underground-belt")
 require("prototypes.item.science-materials")
 
 if not (momoPyTweak.DumpOnly) then
+	
+	momoPyTweak.CreateScienceMaterials()
+	
 	if (settings.startup["momo-electricPole"].value) then
 		momoPyTweak.BuffElectricPole()
 	end

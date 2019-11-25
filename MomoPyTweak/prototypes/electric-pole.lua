@@ -1,9 +1,12 @@
 function momoPyTweak.BuffElectricPole()
-	local eletricPoles = {"big-electric-pole", "medium-electric-pole", "small-electric-pole", "substation"}
-	for _, p in pairs(eletricPoles) do
-	
-	local pPrototype = data.raw["electric-pole"][p]
-	pPrototype.supply_area_distance = pPrototype.supply_area_distance * 2
-	pPrototype.maximum_wire_distance = pPrototype.maximum_wire_distance * 2
+	local function AdjustPole(pole, area, distance) 
+		local pPrototype = data.raw["electric-pole"][pole]
+		pPrototype.supply_area_distance = pPrototype.supply_area_distance + area
+		pPrototype.maximum_wire_distance = pPrototype.maximum_wire_distance + distance
 	end
+	
+	AdjustPole("small-electric-pole", 2, 3)
+	AdjustPole("medium-electric-pole", 3, 5)
+	AdjustPole("big-electric-pole", 1, 8)
+	AdjustPole("substation", 5, 10)
 end
