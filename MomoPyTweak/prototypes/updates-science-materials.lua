@@ -20,7 +20,8 @@ function momoPyTweak.updates.ScienceMaterials()
 	--- green
 	UnlockRecipe("coal-processing-1", 
 		NewRecipe("crafting", momoPyTweak.item.pack2, 2, {
-			ITEM(sci.pack1, 1)
+			ITEM(sci.pack1, 1),
+			ITEM(momoPyTweak.item.pack1, 3)
 		}, 4))
 	
 	--- blue
@@ -33,7 +34,7 @@ function momoPyTweak.updates.ScienceMaterials()
 	--- military
 	UnlockRecipe("military-science-pack", 
 		NewRecipe("advanced-crafting", momoPyTweak.item.packMilitary, 3, {
-			ITEM(sci.pack1, 2)
+			ITEM(sci.pack1, 2),
 		}, 6))
 	
 	--- production

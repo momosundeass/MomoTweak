@@ -16,8 +16,6 @@ script.on_event("momo-debug", function(e)
 		for i, item in ipairs(items) do
 			p.print(item)
 		end
-		p.insert{name="firearm-magazine", count=690}
-		p.insert{name="gun-turret", count=12}
 		log("MPYTL " .. logging)
 	end
 end)

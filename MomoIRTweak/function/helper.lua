@@ -58,8 +58,8 @@ function momoIRTweak.AddStringToDumpStack(str)
 end
 
 function momoIRTweak.PrintDump()
-	momoIRTweak.Log(tostring(momoIRTweak.dumpStack))
-	momoIRTweak.dumpText = {""}
+	momoIRTweak.Log(tostring(momoIRTweak.dumpText))
+	momoIRTweak.dumpText = ""
 end
 
 function momoIRTweak.PrintTable(_table)
