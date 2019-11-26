@@ -19,7 +19,7 @@ function momoPyTweak.finalFixes.Technogies()
 		end
 		
 		if (momoIRTweak.technology.IsUnitContain(technology.name, momoPyTweak.science.pack3)) then
-			momoIRTweak.technology.AddUnitCount(technology.name, 70)
+			momoIRTweak.technology.AddUnitCount(technology.name, 100)
 		end
 		
 		if (momoIRTweak.technology.IsUnitContain(technology.name, momoPyTweak.science.packMilitary)) then
@@ -27,11 +27,11 @@ function momoPyTweak.finalFixes.Technogies()
 		end
 		
 		if (momoIRTweak.technology.IsUnitContain(technology.name, momoPyTweak.science.packProduction)) then
-			momoIRTweak.technology.AddUnitCount(technology.name, 100)
+			momoIRTweak.technology.AddUnitCount(technology.name, 200)
 		end
 		
 		if (momoIRTweak.technology.IsUnitContain(technology.name, momoPyTweak.science.packUtility)) then
-			momoIRTweak.technology.AddUnitCount(technology.name, 120)
+			momoIRTweak.technology.AddUnitCount(technology.name, 350)
 		end
 	end
 
