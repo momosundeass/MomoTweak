@@ -6,6 +6,7 @@ if not (momoPyTweak.DumpOnly) then
 	momoPyTweak.finalFixes.MoveSciencePackSubgroup()
 	momoPyTweak.finalFixes.Technogies()
 	momoPyTweak.finalFixes.Military()
+	momoPyTweak.finalFixes.AddUtilitySciencePackToTechnology()
 else
 	momoIRTweak.DumpTechnologies()
 	momoIRTweak.DumpRecipes()

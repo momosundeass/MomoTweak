@@ -49,6 +49,21 @@ function momoIRTweak.technology.AddUnitCount(technologyName, addAmount)
 	end
 end
 
+function momoIRTweak.technology.IsUnitContain(technologyName, item)
+	local tech = data.raw.technology[technologyName]
+	if tech then
+		for _, ing in pairs(tech.unit.ingredients) do
+			if (ing[1] == momoIRTweak.GetName(item)) then
+				return true
+			end
+		end
+		return false
+	else
+		momoIRTweak.Log("no technology with name to check for unit : " .. tostring(technologyName))
+		return false
+	end
+end
+
 function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName, overrideEnabled)
 	if (data.raw.technology[technologyName]) then
 		table.insert(data.raw.technology[technologyName].effects, {
@@ -164,8 +179,9 @@ function momoIRTweak.technology.ClonePrototype(technologyName, newName)
 	end
 end
 
-function momoIRTweak.technology.SetPrerequire(technology, prerequireTable)
-	if (type(technology) == "table") then
+function momoIRTweak.technology.SetPrerequire(technologyName, prerequireTable)
+	local technology = data.raw.technology[momoIRTweak.GetName(technologyName)]
+	if (type(technology) == "table" and type(prerequireTable) == "table") then
 		technology.prerequisites = prerequireTable
 	else
 		error("technology.SetPrerequire need table got " .. type(techonlogy))

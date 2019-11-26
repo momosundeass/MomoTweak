@@ -25,7 +25,7 @@ if not (momoIRTweak.DumpOnly) then
 	
 	
 	momoIRTweak.finalFixes.MatterToScience()
-	
+	momoPyTweak.finalFixes.AddUtilitySciencePackToTechnology
 	-- adjust subgroup
 	local refSubgroup = data.raw["item-subgroup"]["intermediate-product"]
 	data.raw["item-subgroup"][momoIRTweak.science.materialSubgroup].group = refSubgroup.group

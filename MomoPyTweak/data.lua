@@ -10,7 +10,6 @@ if not momoPyTweak.finalFixes    then momoPyTweak.finalFixes = {} end
 if not momoPyTweak.compatibility then momoPyTweak.compatibility = {} end
 if not momoPyTweak.mods          then momoPyTweak.mods = {} end
 
-
 require("function.helper")
 require("function.subgroup")
 require("function.item")
