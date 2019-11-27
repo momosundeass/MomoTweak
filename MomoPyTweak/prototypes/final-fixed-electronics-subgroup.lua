@@ -5,7 +5,7 @@ function momoPyTweak.finalFixes.ElectronicsSubgroup()
 	
 	local group = momoPyTweak.groups.highTech
 	local subgroup = "momo-electronics-1"
-	momoIRTweak.NewSubgroup(subgroup, group, "a1")
+	momoIRTweak.NewSubgroup(subgroup, group, "!a1")
 	
 	for _, r in pairs(momoIRTweak.recipe.GetAllRecipeWithResult("electronic-circuit")) do
 		SetSubgroup(r, subgroup, GetOrder())

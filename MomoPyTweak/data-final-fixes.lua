@@ -11,6 +11,8 @@ if not (momoPyTweak.DumpOnly) then
 	momoPyTweak.finalFixes.Military()
 	momoPyTweak.finalFixes.AddUtilitySciencePackToTechnology()
 	momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
+	
+	momoIRTweak.PrintTable(data.raw.recipe["electronic-circuit"])
 else
 	momoIRTweak.DumpTechnologies()
 	momoIRTweak.DumpRecipes()

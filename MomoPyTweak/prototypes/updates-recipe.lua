@@ -10,5 +10,6 @@ function momoPyTweak.updates.BotRecipe()
 end
 
 function momoPyTweak.updates.BalancedElectronicsCircuit()
-	momoIRTweak.recipe.SetResultCount("electronic-circuit", 8)
+	momoIRTweak.recipe.SaveAddIngredient("electronic-circuit", ITEM("pcb1", 2))
+	momoIRTweak.recipe.SetResultCount("electronic-circuit", 10)
 end

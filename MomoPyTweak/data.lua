@@ -19,6 +19,7 @@ momoIRTweak.InitItemsLib("__MomoPyTweak__/graphics/icons/", true)
 
 require("naming")
 momoPyTweak.mods.bobInserter = mods["bobinserters"]
+momoPyTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
 
 -- flag to make mod only dump data to log
 momoPyTweak.DumpOnly = false

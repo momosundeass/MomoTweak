@@ -252,7 +252,7 @@ function momoIRTweak.recipe.SetResultCount(recipeName, amount)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
 		recipe.result_count = amount
 		if (recipe.results) then
-			recipe.results[1].amonut = amount
+			recipe.results[1].amount = amount
 			local count = 0
 			for _, r in pairs(recipe.results) do count = count + 1 end
 			if (count > 1) then
@@ -388,7 +388,7 @@ function momoIRTweak.recipe.GetAllRecipeWithResult(item)
 	local recipes = {}
 	local name = momoIRTweak.GetName(item)
 	for _, recipe in pairs(data.raw.recipe) do
-		if (momoIRTweak.recipe.IsContainResult(recipe, result)) then
+		if (momoIRTweak.recipe.IsContainResult(recipe, name)) then
 			table.insert(recipes, recipe)
 		end
 	end
