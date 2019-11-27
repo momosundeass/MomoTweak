@@ -188,6 +188,14 @@ function momoIRTweak.technology.SetPrerequire(technologyName, prerequireTable)
 	end
 end
 
+function momoIRTweak.technology.SetPrerequirePrototype(technologyPrototype, prerequireTable)
+	if (type(technologyPrototype) == "table") then
+		technologyPrototype.prerequisites = prerequireTable
+	else
+		error("technology.SetPrerequirePrototype need table got " .. type(technologyPrototype))
+	end
+end
+
 function momoIRTweak.technology.SetUnit(technology, ingredientsTable, timeUse, count)
 	if (type(technology) == "table") then
 		technology.unit = {}

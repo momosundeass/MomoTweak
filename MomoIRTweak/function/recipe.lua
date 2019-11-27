@@ -301,6 +301,26 @@ function momoIRTweak.recipe.GetResultWithAmount(itemName, amountMin, amountMax)
 	return item
 end
 
+function momoIRTweak.recipe.IsContainResult(recipeName, item)
+	local recipe = nil
+	local itemName = momoIRTweak.GetName(item)
+	if (type(recipeName) == "table") then
+		recipe = recipeName
+	else
+		ValidateRecipe(recipeName, function(res) recipe = res end)
+	end
+	
+	if (recipe.results) then
+		for _, res in pairs(recipe.results) do
+			if (momoIRTweak.item.CastToBasic(res).name == itemName) then
+				return true
+			end
+		end
+	else
+		return recipe.result == itemName
+	end
+end
+
 -----------------------------------------------------------------------------------------
 
 
@@ -364,6 +384,16 @@ function momoIRTweak.recipe.SetSubgroup(recipeName, newSubgroup, order)
 	end)
 end
 
+function momoIRTweak.recipe.GetAllRecipeWithResult(item)
+	local recipes = {}
+	local name = momoIRTweak.GetName(item)
+	for _, recipe in pairs(data.raw.recipe) do
+		if (momoIRTweak.recipe.IsContainResult(recipe, result)) then
+			table.insert(recipes, recipe)
+		end
+	end
+	return recipes
+end
 -- Warning this function may take half a year to finish
 function momoIRTweak.DumpRecipes()
 	momoIRTweak.dumpRecipesText = "Recipe dump \n"

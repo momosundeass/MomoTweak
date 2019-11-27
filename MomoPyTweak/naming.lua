@@ -22,6 +22,9 @@ momoPyTweak.mods.icon.petro = "__pypetroleumhandling__"
 momoPyTweak.mods.icon.fusion = "__pyfusionenergy__"
 momoPyTweak.mods.icon.highTech = "__pyhightech__"
 
+momoPyTweak.groups = {}
+momoPyTweak.groups.highTech = "py-hightech"
+
 momoPyTweak.science.packs = {
 	momoPyTweak.science.pack1, 
 	momoPyTweak.science.pack2, 
