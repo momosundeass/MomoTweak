@@ -11,6 +11,10 @@ if not (momoPyTweak.DumpOnly) then
 	momoPyTweak.finalFixes.Military()
 	momoPyTweak.finalFixes.AddUtilitySciencePackToTechnology()
 	momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
+	
+	if (momoPyTweak.mods.alienTech) then
+		momoPyTweak.compatibility.FixSchallUraniumMining()
+	end
 else
 	momoIRTweak.DumpTechnologies()
 	momoIRTweak.DumpRecipes()
