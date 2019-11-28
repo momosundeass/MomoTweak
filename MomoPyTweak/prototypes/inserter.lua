@@ -146,19 +146,35 @@ function momoPyTweak.updates.Inserter()
 	local item = momoPyTweak.item
 	
 	momoIRTweak.recipe.NewRecipe("crafting", item.inserter.name, 1, {
-		ITEM("fast-inserter", 1)
+		ITEM("fast-inserter", 1),
+		ITEM("processing-unit", 5),
+		ITEM("super-alloy", 10),
+		ITEM("small-parts-02", 5)
 	}, 30)
 	
 	momoIRTweak.recipe.NewRecipe("crafting", item.filterInserter.name, 1, {
-		ITEM("filter-inserter", 1)
+		ITEM("filter-inserter", 1),
+		ITEM("advanced-circuit", 10),
+		ITEM("processing-unit", 5),
+		ITEM("super-alloy", 10),
+		ITEM("small-parts-02", 5)
 	}, 30)
 	
 	momoIRTweak.recipe.NewRecipe("crafting", item.stackInserter.name, 1, {
-		ITEM("stack-inserter", 1)
+		ITEM("stack-inserter", 1),
+		ITEM("processing-unit", 10),
+		ITEM("super-alloy", 5),
+		ITEM("super-steel", 5),
+		ITEM("small-parts-02", 5)
 	}, 30)
 	
 	momoIRTweak.recipe.NewRecipe("crafting", item.stackFilterInserter.name, 1, {
-		ITEM("stack-filter-inserter", 1)
+		ITEM("stack-filter-inserter", 1),
+		ITEM("processing-unit", 10),
+		ITEM("advanced-circuit", 10),
+		ITEM("super-alloy", 5),
+		ITEM("super-steel", 5),
+		ITEM("small-parts-02", 5)
 	}, 30)
 	
 end
