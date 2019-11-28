@@ -13,6 +13,9 @@ if not momoPyTweak.DumpOnly then
 	momoPyTweak.updates.ScienceMaterials()
 	momoPyTweak.updates.BotRecipe()
 	momoPyTweak.updates.BalancedElectronicsCircuit()
+	
+	momoPyTweak.updates.Inserter()
+	momoPyTweak.updates.InserterTechnology()
 
 	if (momoPyTweak.mods.bobInserter) then
 		momoPyTweak.compatibility.bobInserter()

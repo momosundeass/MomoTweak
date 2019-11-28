@@ -83,7 +83,7 @@ end
 function momoIRTweak.item.NewItemFixedSize(itemName, iconSize, itemSubgroup, maxStack)
 	local item = momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
 	item.icon = momoIRTweak.dir.baseIconPath .. iconSize .. "/" .. itemName .. ".png"
-	item.icon_size = 32
+	item.icon_size = iconSize
 	return item
 end
 

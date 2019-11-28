@@ -48,12 +48,14 @@ data:extend({{
 
 require("prototypes.electric-pole")
 require("prototypes.underground-belt")
-
+require("prototypes.inserter")
 require("prototypes.item.science-materials")
+
 
 if not (momoPyTweak.DumpOnly) then
 	
 	momoPyTweak.CreateScienceMaterials()
+	momoPyTweak.Inserter()
 	
 	if (settings.startup["momo-electricPole"].value) then
 		momoPyTweak.BuffElectricPole()
