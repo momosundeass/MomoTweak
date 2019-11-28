@@ -158,7 +158,7 @@ function momoPyTweak.updates.Inserter()
 	}, 30)
 	
 	momoIRTweak.recipe.NewRecipe("crafting", item.stackFilterInserter.name, 1, {
-		ITEM("stack-filter-stick", 1)
+		ITEM("stack-filter-inserter", 1)
 	}, 30)
 	
 end
