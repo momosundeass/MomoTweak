@@ -195,7 +195,7 @@ function momoPyTweak.updates.InserterTechnology()
 	
 	momoPyTweak.technology.inserter = data.raw.technology["momo-inserter"]
 	
-	if (settings.startup["momo-inserter"].value) then
+	if (momoPyTweak.settings.inserter) then
 		momoPyTweak.technology.inserter.enabled = true
 		
 		tech.AddUnlockEffect("momo-inserter", item.inserter.name)

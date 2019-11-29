@@ -25,6 +25,7 @@ function momoPyTweak.updates.ScienceMaterials()
 	UnlockEffect(sci.pack2Tech, sci.pack2)
 	UnlockRecipe(sci.pack2Tech, 
 		NewRecipe("crafting", momoPyTweak.item.pack2, 2, {
+			ITEM("inserter", 1),
 			ITEM(sci.pack1, 1),
 			ITEM(momoPyTweak.item.pack1, 3)
 		}, 4))
@@ -38,12 +39,14 @@ function momoPyTweak.updates.ScienceMaterials()
 		NewRecipe("advanced-crafting", momoPyTweak.item.pack3, 4, {
 			ITEM(sci.pack2, 1),
 			ITEM(sci.pack1, 1),
+			ITEM("fast-transport-belt", 2)
 		}, 8))
 	
 	--- military
 	UnlockRecipe("military-science-pack", 
-		NewRecipe("advanced-crafting", momoPyTweak.item.packMilitary, 3, {
+		NewRecipe("advanced-crafting", momoPyTweak.item.packMilitary, 4, {
 			ITEM(sci.pack1, 2),
+			ITEM("pistol", 1),
 		}, 6))
 	
 	--- production
@@ -52,9 +55,10 @@ function momoPyTweak.updates.ScienceMaterials()
 	tech.RemoveAllUnlockEffect(sci.packProduction)
 	UnlockEffect(sci.packProductionTech, sci.packProduction)
 	UnlockRecipe(sci.packProductionTech, 
-		NewRecipe("advanced-crafting", momoPyTweak.item.packProduction, 4, {
-			ITEM(sci.pack2, 2),
+		NewRecipe("advanced-crafting", momoPyTweak.item.packProduction, 5, {
+			ITEM(sci.pack2, 3),
 			ITEM(sci.packMilitary, 1),
+			ITEM("electric-furnace", 1),
 		}, 12))
 	
 	--- utility
@@ -65,9 +69,14 @@ function momoPyTweak.updates.ScienceMaterials()
 	UnlockRecipe(sci.packUtilityTech, 
 		NewRecipe("advanced-crafting", momoPyTweak.item.packUtility, 3, {
 			ITEM(sci.pack3, 2),
-			ITEM(sci.packMilitary, 1),
-		}, 18))
+			ITEM(sci.packMilitary, 2),
+			ITEM("express-transport-belt", 2),
+			}, 18))
 
+	if (momoPyTweak.settings.inserter) then
+		AddIng(momoPyTweak.item.packUtility.name, ITEM(momoPyTweak.item.stackInserter, 2))
+	end
+	
 	AddIng(sci.pack1, ITEM(momoPyTweak.item.pack1, 1))
 	AddIng(sci.pack2, ITEM(momoPyTweak.item.pack2, 1))
 	AddIng(sci.pack3, ITEM(momoPyTweak.item.pack3, 1))

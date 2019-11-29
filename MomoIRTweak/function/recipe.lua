@@ -5,14 +5,14 @@ if not momoIRTweak.recipe then momoIRTweak.recipe = {} end
 momoIRTweak.recipe.prefixName = "momo-"
 
 function momoIRTweak.recipe.ValidateRecipe(recipe, callback)
-	if (type(recipe) == "table") then
-		callback(recipe)
+	local recipeTable = data.raw.recipe[momoIRTweak.GetName(recipe)]
+	if (recipeTable) then
+		callback(recipeTable)
 	else
-		local recipeTable = data.raw.recipe[recipe]
-		if (recipeTable) then
-			callback(recipeTable)
+		if (recipe.normal or recipe.ingredients) and (recipe.result or recipe.results) then
+			callback(recipe)
 		else
-			momoIRTweak.Log("no recipe with name " .. recipe)
+			momoIRTweak.Log("no recipe with name " .. tostring(recipe))
 		end
 	end
 end

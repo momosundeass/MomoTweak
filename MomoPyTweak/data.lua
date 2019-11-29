@@ -9,6 +9,7 @@ if not momoPyTweak.updates       then momoPyTweak.updates = {} end
 if not momoPyTweak.finalFixes    then momoPyTweak.finalFixes = {} end
 if not momoPyTweak.compatibility then momoPyTweak.compatibility = {} end
 if not momoPyTweak.mods          then momoPyTweak.mods = {} end
+if not momoPyTweak.settings      then momoPyTweak.settings = {} end
 
 require("function.helper")
 require("function.subgroup")
@@ -22,6 +23,7 @@ momoPyTweak.mods.bobInserter = mods["bobinserters"]
 momoPyTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
 momoPyTweak.mods.alienTech = mods["SchallAlienTech"]
 
+momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value
 -- flag to make mod only dump data to log
 momoPyTweak.DumpOnly = false
 
@@ -56,6 +58,7 @@ if not (momoPyTweak.DumpOnly) then
 	
 	momoPyTweak.CreateScienceMaterials()
 	momoPyTweak.Inserter()
+	momoPyTweak.ExtraUndergroundBelt()
 	
 	if (settings.startup["momo-electricPole"].value) then
 		momoPyTweak.BuffElectricPole()
@@ -66,9 +69,9 @@ if not (momoPyTweak.DumpOnly) then
 	end
 
 	-- Todo
-	-- disable long inserter when bobinserter present
-	-- adjest tile for underground belt include recipe
-	-- tiered recipe for sciecne pack
-	-- adjust module effect
+	-- sciecne recipe
+	-- extra underground belt
+	-- underground pipe pack recipe
+	-- armor add slot
 	
 end
