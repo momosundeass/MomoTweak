@@ -16,6 +16,11 @@ if not momoPyTweak.DumpOnly then
 	
 	momoPyTweak.updates.Inserter()
 	momoPyTweak.updates.InserterTechnology()
+	
+	if (momoPyTweak.settings.undergroundBelt) then
+		momoPyTweak.updates.ExtraUndergroundBelt()
+		momoPyTweak.updates.ExtraUndergroundBeltTech()
+	end
 
 	if (momoPyTweak.mods.bobInserter) then
 		momoPyTweak.compatibility.bobInserter()

@@ -1,3 +1,5 @@
+local isResetTechEffect = true
+
 script.on_event("momo-debug", function(e)
 	if settings.startup["momo-debug"].value then
 		local logging = ""
@@ -16,6 +18,10 @@ script.on_event("momo-debug", function(e)
 		for i, item in ipairs(items) do
 			p.print(item)
 		end
+		if (isResetTechEffect) then
+			p.force.reset_technology_effects()
+		end
+		
 		log("MPYTL " .. logging)
 	end
 end)

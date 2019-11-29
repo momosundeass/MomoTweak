@@ -24,6 +24,7 @@ momoPyTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
 momoPyTweak.mods.alienTech = mods["SchallAlienTech"]
 
 momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value
+momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value
 -- flag to make mod only dump data to log
 momoPyTweak.DumpOnly = false
 
@@ -55,19 +56,19 @@ require("prototypes.item.science-materials")
 
 
 if not (momoPyTweak.DumpOnly) then
-	
 	momoPyTweak.CreateScienceMaterials()
 	momoPyTweak.Inserter()
-	momoPyTweak.ExtraUndergroundBelt()
 	
 	if (settings.startup["momo-electricPole"].value) then
 		momoPyTweak.BuffElectricPole()
 	end
 	
-	if (settings.startup["momo-undergroundBelt"].value) then
+	if (momoPyTweak.settings.undergroundBelt) then
 		momoPyTweak.BuffUndergroundBelt()
 	end
-
+	
+	momoPyTweak.ExtraUndergroundBelt()
+	
 	-- Todo
 	-- sciecne recipe
 	-- extra underground belt
