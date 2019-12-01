@@ -165,3 +165,8 @@ function momoIRTweak.finalFixes.ScienceMaterials()
 		end
 	end
 end
+
+function momoIRTweak.finalFixes.FixResearchServer()
+	data.raw["assembling-machine"][momoIRTweak.machine.server1].ingredient_count = 50
+	data.raw["assembling-machine"][momoIRTweak.machine.server2].ingredient_count = 50
+end
