@@ -243,7 +243,11 @@ function momoIRTweak.recipe.MultipleResultsCount(recipeName, multiplier)
 				recipe.results[i] = basic
 			end
 		else
-			recipe.result_count = math.floor(recipe.result_count * multiplier)
+			if (recipe.result_count) then
+				recipe.result_count = math.floor(recipe.result_count * multiplier)
+			else
+				recipe.result_count = math.floor(multiplier)
+			end
 		end
 	end)
 end

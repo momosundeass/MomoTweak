@@ -44,8 +44,10 @@ end
 ---------------------------------------------------------------------------------------------------
 
 CreateBoolSetting("momo-inserter", true)
-CreateBoolSetting("momo-electricPole", true)
 CreateBoolSetting("momo-undergroundBelt", true)
+CreateBoolSetting("momo-miner", true)
+
+CreateBoolSetting("momo-electricPole", true)
 CreateBoolSetting("momo-removeLongInserter", true)
 CreateBoolSetting("momo-module", true)
 

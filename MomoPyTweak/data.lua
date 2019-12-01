@@ -25,6 +25,8 @@ momoPyTweak.mods.alienTech = mods["SchallAlienTech"]
 
 momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value
+momoPyTweak.settings.miner = settings.startup["momo-miner"].value
+
 -- flag to make mod only dump data to log
 momoPyTweak.DumpOnly = false
 
@@ -52,12 +54,14 @@ data:extend({{
 require("prototypes.electric-pole")
 require("prototypes.underground-belt")
 require("prototypes.inserter")
+require("prototypes.mining-drill")
 require("prototypes.item.science-materials")
 
 
 if not (momoPyTweak.DumpOnly) then
 	momoPyTweak.CreateScienceMaterials()
 	momoPyTweak.Inserter()
+	momoPyTweak.MiningDrill()
 	
 	if (settings.startup["momo-electricPole"].value) then
 		momoPyTweak.BuffElectricPole()

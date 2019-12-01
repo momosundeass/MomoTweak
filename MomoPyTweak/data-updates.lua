@@ -30,6 +30,10 @@ if not momoPyTweak.DumpOnly then
 		momoPyTweak.compatibility.PipePack()
 	end
 	
+	if (momoPyTweak.settings.miner) then
+		momoPyTweak.updates.MiningDrill()
+	end
+	
 	if (settings.startup["momo-module"].value) then
 		momoPyTweak.updates.Module()
 	end
