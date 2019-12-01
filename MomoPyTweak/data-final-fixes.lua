@@ -14,7 +14,7 @@ if not (momoPyTweak.DumpOnly) then
 	momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
 	
 	if (momoPyTweak.mods.alienTech) then
-		momoPyTweak.compatibility.FixSchallUraniumMining()
+		momoPyTweak.compatibility.SchallUraniumMining()
 	end
 	
 	momoPyTweak.ArmorInventory()
