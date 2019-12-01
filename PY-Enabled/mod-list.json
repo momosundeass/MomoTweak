@@ -1,0 +1,476 @@
+
+{
+  "mods": 
+  [
+    
+    {
+      "name": "base",
+      "enabled": true
+    },
+    
+    {
+      "name": "BobExtended",
+      "enabled": false
+    },
+    
+    {
+      "name": "Additional-Turret-updated",
+      "enabled": false
+    },
+    
+    {
+      "name": "alien-biomes",
+      "enabled": true
+    },
+    
+    {
+      "name": "angelsaddons-pressuretanks",
+      "enabled": false
+    },
+    
+    {
+      "name": "angelsbioprocessing",
+      "enabled": false
+    },
+    
+    {
+      "name": "angelsindustries",
+      "enabled": false
+    },
+    
+    {
+      "name": "angelsinfiniteores",
+      "enabled": false
+    },
+    
+    {
+      "name": "angelspetrochem",
+      "enabled": false
+    },
+    
+    {
+      "name": "angelsrefining",
+      "enabled": false
+    },
+    
+    {
+      "name": "angelssmelting",
+      "enabled": false
+    },
+    
+    {
+      "name": "AsphaltRoads",
+      "enabled": false
+    },
+    
+    {
+      "name": "aswil",
+      "enabled": false
+    },
+    
+    {
+      "name": "Bio_Industries",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobassembly",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobelectronics",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobenemies",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobequipment",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobinserters",
+      "enabled": true
+    },
+    
+    {
+      "name": "boblibrary",
+      "enabled": false
+    },
+    
+    {
+      "name": "boblogistics",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobmining",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobmodules",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobores",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobplates",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobpower",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobrevamp",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobtech",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobvehicleequipment",
+      "enabled": false
+    },
+    
+    {
+      "name": "bobwarfare",
+      "enabled": false
+    },
+    
+    {
+      "name": "Bottleneck",
+      "enabled": true
+    },
+    
+    {
+      "name": "bullet-trails",
+      "enabled": true
+    },
+    
+    {
+      "name": "Clowns-AngelBob-Nuclear",
+      "enabled": false
+    },
+    
+    {
+      "name": "Clowns-Extended-Minerals",
+      "enabled": false
+    },
+    
+    {
+      "name": "Clowns-Nuclear",
+      "enabled": false
+    },
+    
+    {
+      "name": "Clowns-Processing",
+      "enabled": false
+    },
+    
+    {
+      "name": "DeadlockLargerLamp",
+      "enabled": false
+    },
+    
+    {
+      "name": "Dectorio",
+      "enabled": true
+    },
+    
+    {
+      "name": "Enhanced_Map_Colors",
+      "enabled": true
+    },
+    
+    {
+      "name": "even-distribution",
+      "enabled": true
+    },
+    
+    {
+      "name": "EvoGUI",
+      "enabled": true
+    },
+    
+    {
+      "name": "explosive_mining",
+      "enabled": true
+    },
+    
+    {
+      "name": "Fill4Me",
+      "enabled": true
+    },
+    
+    {
+      "name": "FNEI",
+      "enabled": true
+    },
+    
+    {
+      "name": "helmod",
+      "enabled": true
+    },
+    
+    {
+      "name": "IndustrialRevolution",
+      "enabled": false
+    },
+    
+    {
+      "name": "InfiniteInserterCapacity_Research",
+      "enabled": true
+    },
+    
+    {
+      "name": "Krastorio",
+      "enabled": false
+    },
+    
+    {
+      "name": "Krastorio-graphics",
+      "enabled": false
+    },
+    
+    {
+      "name": "laser_rifle",
+      "enabled": false
+    },
+    
+    {
+      "name": "LB-Modular-Chests",
+      "enabled": false
+    },
+    
+    {
+      "name": "LogisticTrainNetwork",
+      "enabled": false
+    },
+    
+    {
+      "name": "miniloader",
+      "enabled": true
+    },
+    
+    {
+      "name": "MomoEasyEvolution",
+      "enabled": true
+    },
+    
+    {
+      "name": "MomoIRTweak",
+      "enabled": false
+    },
+    
+    {
+      "name": "MomoPyTweak",
+      "enabled": true
+    },
+    
+    {
+      "name": "MomoTweak",
+      "enabled": false
+    },
+    
+    {
+      "name": "MoreSciencePacks",
+      "enabled": false
+    },
+    
+    {
+      "name": "Nanobots",
+      "enabled": true
+    },
+    
+    {
+      "name": "nanobotsfix-for-IR",
+      "enabled": false
+    },
+    
+    {
+      "name": "OpteraLib",
+      "enabled": false
+    },
+    
+    {
+      "name": "PersonalTeleporter",
+      "enabled": false
+    },
+    
+    {
+      "name": "PickerAtheneum",
+      "enabled": true
+    },
+    
+    {
+      "name": "PickerDollies",
+      "enabled": true
+    },
+    
+    {
+      "name": "PickerExtended",
+      "enabled": true
+    },
+    
+    {
+      "name": "PickerInventoryTools",
+      "enabled": true
+    },
+    
+    {
+      "name": "pycoalprocessing",
+      "enabled": true
+    },
+    
+    {
+      "name": "PyCoalTBaA",
+      "enabled": false
+    },
+    
+    {
+      "name": "pyfusionenergy",
+      "enabled": true
+    },
+    
+    {
+      "name": "pyhightech",
+      "enabled": true
+    },
+    
+    {
+      "name": "pyindustry",
+      "enabled": true
+    },
+    
+    {
+      "name": "pypetroleumhandling",
+      "enabled": true
+    },
+    
+    {
+      "name": "pyrawores",
+      "enabled": true
+    },
+    
+    {
+      "name": "pyveganism",
+      "enabled": false
+    },
+    
+    {
+      "name": "qol_research",
+      "enabled": true
+    },
+    
+    {
+      "name": "Reasonable_Wind_Turbine",
+      "enabled": false
+    },
+    
+    {
+      "name": "Repair_Turret",
+      "enabled": false
+    },
+    
+    {
+      "name": "rso-mod",
+      "enabled": true
+    },
+    
+    {
+      "name": "SchallAlienLoot",
+      "enabled": true
+    },
+    
+    {
+      "name": "SchallAlienTech",
+      "enabled": true
+    },
+    
+    {
+      "name": "SchallTankPlatoon",
+      "enabled": true
+    },
+    
+    {
+      "name": "ScienceCostTweakerM",
+      "enabled": false
+    },
+    
+    {
+      "name": "ShinyAngelGFX",
+      "enabled": false
+    },
+    
+    {
+      "name": "ShinyBobGFX",
+      "enabled": false
+    },
+    
+    {
+      "name": "ShinyIcons",
+      "enabled": false
+    },
+    
+    {
+      "name": "SpaceMod",
+      "enabled": false
+    },
+    
+    {
+      "name": "Squeak Through",
+      "enabled": false
+    },
+    
+    {
+      "name": "stdlib",
+      "enabled": true
+    },
+    
+    {
+      "name": "Texugo_TA-miners",
+      "enabled": false
+    },
+    
+    {
+      "name": "Todo-List",
+      "enabled": true
+    },
+    
+    {
+      "name": "UltimateBelts",
+      "enabled": true
+    },
+    
+    {
+      "name": "underground-pipe-pack",
+      "enabled": true
+    },
+    
+    {
+      "name": "vanilla-loaders-hd",
+      "enabled": false
+    },
+    
+    {
+      "name": "windturbines",
+      "enabled": false
+    }
+  ]
+}
