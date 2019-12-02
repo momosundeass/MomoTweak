@@ -11,7 +11,7 @@ Date: 2019.11.24
   Change:
     - Imersite battery ingredients
     - Rubber use in recipe
-	- Menarite wafer ingredients
+    - Menarite wafer ingredients
   Balanced:
     - Science materials ingredients
   Fixed:
@@ -33,7 +33,7 @@ Version: 0.17.16
 Date: 2019.11.20
   Change:
     - Utility sciecne pack now require speed module
-	- Ingredients of module
+    - Ingredients of module
   Fix:
     - Unable to craft advanced battery cause of lithium are lock behide advanced tech
 ---------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ Version: 0.17.15
 Date: 2019.11.19
   Change:
     - Science pack ingredients count now depent on settings in Krastorio
-	- Ingredients of silicon wafer line
+    - Ingredients of silicon wafer line
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.14
 Date: 2019.11.17
@@ -53,28 +53,28 @@ Date: 2019.11.17
 Version: 0.17.13
 Date: 2019.11.17
   Add:
-	- Last game recipe to get more copper and iron 
+    - Last game recipe to get more copper and iron 
   Change:
     - Ingredients of contruction kit and contruction package
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.12
 Date: 2019.11.16
   Add:
-	- Add contruction package for production and utility science pack
+    - Add contruction package for production and utility science pack
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.11
 Date: 2019.11.13
   Fixed:
     - Move require file out of settings if (mismatch)
   Add:
-	- Wood to coke recipe
+    - Wood to coke recipe
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.10
 Date: 2019.11.11
   Balanced:
     - Processing Circuit Board now also require Simple Circuit Board to craft
-	- Military Science Kit now use less materials to craft
-	- add ingredients to k-science-pack
+    - Military Science Kit now use less materials to craft
+    - add ingredients to k-science-pack
   Graphics:
     - new Graphics Processor Array icon
 ---------------------------------------------------------------------------------------------------
@@ -89,13 +89,13 @@ Version: 0.17.8
 Date: 2019.11.4
   Add:
     - tiered splitter, underground belt 
-	- more controller3 for building recipes 
+    - more controller3 for building recipes 
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.7
 Date: 2019.11.3
   Add:
     - add more item for harder science
-	- machine are now harder to craft
+    - machine are now harder to craft
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.6
 Date: 2019.11.1
@@ -106,37 +106,34 @@ Version: 0.17.5
 Date: 2019.10.30
   Add:
     - tiered bot recipe
-	- harder module recipe
-	- increase rubber use
+    - harder module recipe
+    - increase rubber use
   Fix:
-	- electronic to module recipe
+    - electronic to module recipe
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.4
 Date: 2019.10.29
   Add:
-	- add harder electronic recipe
+    - add harder electronic recipe
   Change:
     - final tier transport belt now harder to craft
-	- production science processor now easy to craft
+    - production science processor now easy to craft
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.3
 Date: 2019.10.28
   Add:
-	- add HD icons
-	- add harder science pack recipe
+    - add HD icons
+    - add harder science pack recipe
 ---------------------------------------------------------------------------------------------------
-
 Version: 0.17.2
 Date: 2019.10.27
   Add:
-	- add tiered recipe for crusher
-	- add tiered recipe for furnace
+    - add tiered recipe for crusher
+    - add tiered recipe for furnace
   Change:
-	- vial now use glass ingot
+    - vial now use glass ingot
 ---------------------------------------------------------------------------------------------------
-
 Version: 0.17.1
 Date: 2019.10.27
   Init:
-	- first release!
----------------------------------------------------------------------------------------------------
+    - first release!
