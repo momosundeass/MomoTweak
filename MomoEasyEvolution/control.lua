@@ -44,10 +44,6 @@ local function evolution_nulifier(current_evo, last_evo, factor)
 	local chance = (1 + (factor - 0.7)) * (last_evo * 38)
 	local null = 0
 	if ((rand % 100) <= chance) then null = current_evo - last_evo end
-	if (isPrint) then
-		local text = "Random: " ..fixed(rand % 100).. " - " ..fixed(chance).. " | null => " .. null
-		PrintToAll(text)
-	end
 	return null
 end
 
@@ -82,8 +78,11 @@ script.on_nth_tick(rate, function(e)
 		game.forces.enemy.evolution_factor = current_evo - reduce
 		global.momoEasyEvo.LastEvolution = game.forces.enemy.evolution_factor
 		if (isPrint) then
-			local logtext = "Evolution reduce by " .. fixed_percent(reduce) .. " | Rate: " .. fixed_percent(reduceByRate) 
-				  .. " | Counter: " .. global.momoEasyEvo.Counter .. "=>" .. fixed_percent(addition_reduce)
+			local r = fixed_percent(reduce)
+			local rr = fixed_percent(reduceByRate)
+			local ar = fixed_percent(addition_reduce)
+			local logtext = "Evolution decrease : " .. r .. " + " .. rr
+				  .. " + " .. ar .. "[" .. global.momoEasyEvo.Counter .. "] = " .. (r + rr + ar)
 			PrintToAll(logtext)
 		end
 	end
