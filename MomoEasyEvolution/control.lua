@@ -43,8 +43,10 @@ local function evolution_nulifier(current_evo, last_evo, factor)
 	local rand = (current_evo * 100101477) * (last_evo * 100045587)
 	local chance = (1 + (factor - 0.7)) * (last_evo * 38)
 	local null = 0
-	if ((rand % 100) <= chance) then null = current_evo - last_evo end
-	return null
+	if ((rand % 100) <= chance) then 
+		null = current_evo - last_evo
+	end
+	return null, chance
 end
 
 script.on_nth_tick(rate, function(e)
@@ -67,8 +69,9 @@ script.on_nth_tick(rate, function(e)
 		end
 		
 		local null = 0
+		local chance = 0
 		if (current_evo >= 0.5) then
-			null = evolution_nulifier(current_evo, global.momoEasyEvo.LastEvolution, factor)
+			null, chance = evolution_nulifier(current_evo, global.momoEasyEvo.LastEvolution, factor)
 		end
 		
 		local reduceByRate = math.max(0, (current_evo - global.momoEasyEvo.LastEvolution) * progress * 0.01)
@@ -82,7 +85,12 @@ script.on_nth_tick(rate, function(e)
 			local rr = fixed_percent(reduceByRate)
 			local ar = fixed_percent(addition_reduce)
 			local logtext = "Evolution decrease : " .. r .. " + " .. rr
-				  .. " + " .. ar .. "[" .. global.momoEasyEvo.Counter .. "] = " .. (r + rr + ar)
+				  .. " + " .. ar .. "[" .. global.momoEasyEvo.Counter .. "]" 
+			if (null ~= 0 or chance ~= 0) then
+				logtext = logtext .. " + " .. null .. "[" .. chance .. "%]"
+			end
+			
+			logtext = logtext .. " = " .. (r + rr + ar + null)
 			PrintToAll(logtext)
 		end
 	end
