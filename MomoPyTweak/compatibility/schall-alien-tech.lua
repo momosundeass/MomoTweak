@@ -16,6 +16,21 @@ function momoPyTweak.compatibility.SchallUraniumMining()
 		end
 	end)
 	
+	if (data.raw.item["alien-artifact"]) then
+	local recipe = momoIRTweak.recipe.BuildPrototype("momo-alien-artifact", "bio-reactor", "alien-artifact", 2, {
+		ITEM("proton-receiver", 45),
+		ITEM("resilin", 15),
+		ITEM(momoPyTweak.science.packProduction, 2),
+		ITEM(momoPyTweak.science.packMilitary, 5),
+		momoIRTweak.FastFluid("bacteria-1", 500),
+		}, 200)
+	
+	recipe.subgroup = "intermediate-product"
+	data:extend({recipe})
+	
+	momoIRTweak.technology.AddUnlockEffect(momoPyTweak.science.packUtilityTech, recipe.name)
+	
+	end
 	local miningData = data.raw["mining-drill"]["Schall-uranium-mining-drill"]
 	miningData.mining_speed = 3
 	miningData.module_specification.module_slots = 6
