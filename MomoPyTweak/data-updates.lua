@@ -17,6 +17,8 @@ if not momoPyTweak.DumpOnly then
 	momoPyTweak.updates.Inserter()
 	momoPyTweak.updates.InserterTechnology()
 	
+	momoPyTweak.updates.SolarPanelTechnology()
+	
 	if (momoPyTweak.settings.undergroundBelt) then
 		momoPyTweak.updates.ExtraUndergroundBelt()
 		momoPyTweak.updates.ExtraUndergroundBeltTech()
@@ -32,6 +34,10 @@ if not momoPyTweak.DumpOnly then
 	
 	if (momoPyTweak.settings.miner) then
 		momoPyTweak.updates.MiningDrill()
+	end
+	
+	if (momoPyTweak.settings.solarPanel) then
+		momoPyTweak.updates.SolarPanel()
 	end
 	
 	if (settings.startup["momo-module"].value) then
