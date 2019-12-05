@@ -84,13 +84,14 @@ script.on_nth_tick(rate, function(e)
 			local r = fixed_percent(reduce)
 			local rr = fixed_percent(reduceByRate)
 			local ar = fixed_percent(addition_reduce)
+			local null = 0
 			local logtext = "Evolution decrease : " .. r .. " + " .. rr
 				  .. " + " .. ar .. "[" .. global.momoEasyEvo.Counter .. "]" 
 			if (null ~= 0 or chance ~= 0) then
-				logtext = logtext .. " + " .. null .. "[" .. chance .. "%]"
+				logtext = logtext .. " + " .. fixed_percent(null) .. "[" .. fixed(chance) .. "%]"
 			end
 			
-			logtext = logtext .. " = " .. (r + rr + ar + null)
+			logtext = logtext .. " = " .. (r + rr + ar + fixed_percent(null))
 			PrintToAll(logtext)
 		end
 	end
