@@ -37,6 +37,7 @@ function momoPyTweak.updates.SolarPanelTechnology()
 	local prototype = {}
 	prototype = momoIRTweak.technology.ClonePrototype("solar-energy", "momo-solar-panel-2")
 	momoIRTweak.technology.SetPrerequirePrototype(prototype, {"solar-energy", sci.pack3Tech})
+	momoIRTweak.technology.ClearEffects(prototype)
 	momoIRTweak.technology.SetUnit(prototype, {
 		{sci.pack1, 2},
 		{sci.pack2, 1},
@@ -47,12 +48,13 @@ function momoPyTweak.updates.SolarPanelTechnology()
 	
 	prototype = momoIRTweak.technology.ClonePrototype("solar-energy", "momo-solar-panel-3")
 	momoIRTweak.technology.SetPrerequirePrototype(prototype, {"momo-solar-panel-2", sci.packProductionTech})
+	momoIRTweak.technology.ClearEffects(prototype)
 	momoIRTweak.technology.SetUnit(prototype, {
 		{sci.pack1, 2},
 		{sci.pack2, 1},
 		{sci.pack3, 1},
 		{sci.packProduction, 1}
-	}, 60, 120)
+	}, 60, 400)
 	prototype.enabled = false
 	data:extend({prototype})
 end
@@ -64,12 +66,19 @@ function momoPyTweak.updates.SolarPanel()
 	data.raw.technology["momo-solar-panel-3"].enabled = true
 	
 	local recipe = momoIRTweak.recipe.NewRecipe("crafting", "momo-solar-panel-2", 1, {
-		ITEM("iron-stick", 1)
+		ITEM("solar-panel", 2),
+		ITEM("advanced-circuit", 2),
+		ITEM("nexelit-matrix", 6),
+		ITEM("glass-fiber", 10)
 	}, 20)
 	momoIRTweak.technology.AddUnlockEffect("momo-solar-panel-2", recipe.name)
 	
 	recipe = momoIRTweak.recipe.NewRecipe("crafting", "momo-solar-panel-3", 1, {
-		ITEM("iron-stick", 1)
+		ITEM("momo-solar-panel-2", 1),
+		ITEM("processing-unit", 4),
+		ITEM("crco-alloy", 10),
+		ITEM("nylon", 20),
+		ITEM("quantum-vortex-storage-system", 1)
 	}, 45)
 	momoIRTweak.technology.AddUnlockEffect("momo-solar-panel-3", recipe.name)
 end
