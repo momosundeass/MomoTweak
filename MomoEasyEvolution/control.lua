@@ -31,7 +31,11 @@ local function addition_reduce_cal(current_evo, factor, progress)
 	counter = counter + 1
 	local result = progress * (evolution_offset / 5) * counter * ((current_evo - addition_evo_offset) / 0.1)
 	result = math.max(0, result)
-	if (counter >= 30) then
+	local maxCounter = 10
+	if (game.active_mods["MomoPyTweak"]) then
+		maxCounter = 30
+	end
+	if (counter >= maxCounter) then
 		counter = 0
 	end
 	
@@ -84,7 +88,6 @@ script.on_nth_tick(rate, function(e)
 			local r = fixed_percent(reduce)
 			local rr = fixed_percent(reduceByRate)
 			local ar = fixed_percent(addition_reduce)
-			local null = 0
 			local logtext = "Evolution decrease : " .. r .. " + " .. rr
 				  .. " + " .. ar .. "[" .. global.momoEasyEvo.Counter .. "]" 
 			if (null ~= 0 or chance ~= 0) then
