@@ -31,7 +31,7 @@ local function addition_reduce_cal(current_evo, factor, progress)
 	counter = counter + 1
 	local result = progress * (evolution_offset / 5) * counter * ((current_evo - addition_evo_offset) / 0.1)
 	result = math.max(0, result)
-	if (counter >= 10) then
+	if (counter >= 30) then
 		counter = 0
 	end
 	
