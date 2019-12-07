@@ -17,4 +17,8 @@ function momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
 	SetSubgroup("py-logistic-robot-01", botSubgroup, GetOrder())
 	SetSubgroup("py-logistic-robot-02", botSubgroup, GetOrder())
 	SetSubgroup("logistic-robot-ht", botSubgroup, GetOrder())
+	
+	--- move barreled to fluids tab
+	momoIRTweak.subgroups["fill-barrel"].group = "fluids"
+	momoIRTweak.subgroups["empty-barrel"].group = "fluids"
 end

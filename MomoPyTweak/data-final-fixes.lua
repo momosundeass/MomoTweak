@@ -11,6 +11,8 @@ if not (momoPyTweak.DumpOnly) then
 	momoPyTweak.finalFixes.Technogies()
 	momoPyTweak.finalFixes.Military()
 	momoPyTweak.finalFixes.AddUtilitySciencePackToTechnology()
+	
+	-- rearrangement subgroup
 	momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
 	
 	if (momoPyTweak.mods.alienTech) then

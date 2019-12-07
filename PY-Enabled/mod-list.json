@@ -9,16 +9,6 @@
     },
     
     {
-      "name": "BobExtended",
-      "enabled": false
-    },
-    
-    {
-      "name": "Additional-Turret-updated",
-      "enabled": false
-    },
-    
-    {
       "name": "Aircraft",
       "enabled": true
     },
@@ -29,133 +19,8 @@
     },
     
     {
-      "name": "angelsaddons-pressuretanks",
-      "enabled": false
-    },
-    
-    {
-      "name": "angelsbioprocessing",
-      "enabled": false
-    },
-    
-    {
-      "name": "angelsindustries",
-      "enabled": false
-    },
-    
-    {
-      "name": "angelsinfiniteores",
-      "enabled": false
-    },
-    
-    {
-      "name": "angelspetrochem",
-      "enabled": false
-    },
-    
-    {
-      "name": "angelsrefining",
-      "enabled": false
-    },
-    
-    {
-      "name": "angelssmelting",
-      "enabled": false
-    },
-    
-    {
-      "name": "AsphaltRoads",
-      "enabled": false
-    },
-    
-    {
-      "name": "aswil",
-      "enabled": false
-    },
-    
-    {
-      "name": "Bio_Industries",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobassembly",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobelectronics",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobenemies",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobequipment",
-      "enabled": false
-    },
-    
-    {
       "name": "bobinserters",
       "enabled": true
-    },
-    
-    {
-      "name": "boblibrary",
-      "enabled": false
-    },
-    
-    {
-      "name": "boblogistics",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobmining",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobmodules",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobores",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobplates",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobpower",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobrevamp",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobtech",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobvehicleequipment",
-      "enabled": false
-    },
-    
-    {
-      "name": "bobwarfare",
-      "enabled": false
     },
     
     {
@@ -166,31 +31,6 @@
     {
       "name": "bullet-trails",
       "enabled": true
-    },
-    
-    {
-      "name": "Clowns-AngelBob-Nuclear",
-      "enabled": false
-    },
-    
-    {
-      "name": "Clowns-Extended-Minerals",
-      "enabled": false
-    },
-    
-    {
-      "name": "Clowns-Nuclear",
-      "enabled": false
-    },
-    
-    {
-      "name": "Clowns-Processing",
-      "enabled": false
-    },
-    
-    {
-      "name": "DeadlockLargerLamp",
-      "enabled": false
     },
     
     {
@@ -214,11 +54,6 @@
     },
     
     {
-      "name": "explosive_mining",
-      "enabled": false
-    },
-    
-    {
       "name": "Fill4Me",
       "enabled": true
     },
@@ -234,33 +69,8 @@
     },
     
     {
-      "name": "IndustrialRevolution",
-      "enabled": false
-    },
-    
-    {
       "name": "InfiniteInserterCapacity_Research",
       "enabled": true
-    },
-    
-    {
-      "name": "Krastorio",
-      "enabled": false
-    },
-    
-    {
-      "name": "Krastorio-graphics",
-      "enabled": false
-    },
-    
-    {
-      "name": "laser_rifle",
-      "enabled": false
-    },
-    
-    {
-      "name": "LB-Modular-Chests",
-      "enabled": false
     },
     
     {
@@ -294,28 +104,13 @@
     },
     
     {
-      "name": "MoreSciencePacks",
-      "enabled": false
-    },
-    
-    {
       "name": "Nanobots",
       "enabled": true
     },
     
     {
-      "name": "nanobotsfix-for-IR",
-      "enabled": false
-    },
-    
-    {
       "name": "OpteraLib",
       "enabled": true
-    },
-    
-    {
-      "name": "PersonalTeleporter",
-      "enabled": false
     },
     
     {
@@ -341,11 +136,6 @@
     {
       "name": "pycoalprocessing",
       "enabled": true
-    },
-    
-    {
-      "name": "PyCoalTBaA",
-      "enabled": false
     },
     
     {
@@ -379,23 +169,8 @@
     },
     
     {
-      "name": "pyveganism",
-      "enabled": false
-    },
-    
-    {
       "name": "qol_research",
       "enabled": true
-    },
-    
-    {
-      "name": "Reasonable_Wind_Turbine",
-      "enabled": false
-    },
-    
-    {
-      "name": "Repair_Turret",
-      "enabled": false
     },
     
     {
@@ -424,43 +199,8 @@
     },
     
     {
-      "name": "ScienceCostTweakerM",
-      "enabled": false
-    },
-    
-    {
-      "name": "ShinyAngelGFX",
-      "enabled": false
-    },
-    
-    {
-      "name": "ShinyBobGFX",
-      "enabled": false
-    },
-    
-    {
-      "name": "ShinyIcons",
-      "enabled": false
-    },
-    
-    {
-      "name": "SpaceMod",
-      "enabled": false
-    },
-    
-    {
-      "name": "Squeak Through",
-      "enabled": false
-    },
-    
-    {
       "name": "stdlib",
       "enabled": true
-    },
-    
-    {
-      "name": "Texugo_TA-miners",
-      "enabled": false
     },
     
     {
@@ -476,16 +216,6 @@
     {
       "name": "underground-pipe-pack",
       "enabled": true
-    },
-    
-    {
-      "name": "vanilla-loaders-hd",
-      "enabled": false
-    },
-    
-    {
-      "name": "windturbines",
-      "enabled": false
     }
   ]
 }
