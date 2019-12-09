@@ -8,6 +8,7 @@ require("compatibility.schall-alien-tech")
 require("prototypes.updates-science-materials")
 require("prototypes.updates-module")
 require("prototypes.updates-recipe")
+require("prototypes.roboport")
 
 if not momoPyTweak.DumpOnly then
 	momoPyTweak.updates.ScienceMaterials()
@@ -18,6 +19,7 @@ if not momoPyTweak.DumpOnly then
 	momoPyTweak.updates.InserterTechnology()
 	
 	momoPyTweak.updates.SolarPanelTechnology()
+	momoPyTweak.updates.Roboport()
 	
 	if (momoPyTweak.settings.undergroundBelt) then
 		momoPyTweak.updates.ExtraUndergroundBelt()
