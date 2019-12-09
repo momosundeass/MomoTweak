@@ -1,9 +1,10 @@
 local isPrint = settings.startup["momo-isPrint"].value
 local factor =  settings.startup["momo-evolutionReductFactor"].value
+local maxCounter = settings.startup["momo-evolutionReductCounter"].value
 
 local evolution_offset = 0.00005
 local addition_evo_offset = 0.4
-local rate = 3600
+local rate = math.floor(settings.startup["momo-evolutionReductRate"].value * 3600)
 
 local function InitVariable()
 	if not (global.momoEasyEvo) then global.momoEasyEvo = {} end
@@ -31,10 +32,6 @@ local function addition_reduce_cal(current_evo, factor, progress)
 	counter = counter + 1
 	local result = progress * (evolution_offset / 5) * counter * ((current_evo - addition_evo_offset) / 0.1)
 	result = math.max(0, result)
-	local maxCounter = 10
-	if (game.active_mods["MomoPyTweak"]) then
-		maxCounter = 30
-	end
 	if (counter >= maxCounter) then
 		counter = 0
 	end

@@ -5,7 +5,7 @@
 	"title": "Momo Easy Evolution",
 	"author": "Momosundeass",
 	"homepage": "https://github.com/momosundeass/MomoTweak",
-	"description": "Bitter evolution will decrease overtime base on current bitter evolution",
+	"description": "Decrease bitter evolution overtime",
 	"dependencies": [
 		"base >= 0.17.0"
 	]
