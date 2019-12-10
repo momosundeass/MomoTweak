@@ -14,6 +14,7 @@ if not momoPyTweak.DumpOnly then
 	momoPyTweak.updates.ScienceMaterials()
 	momoPyTweak.updates.BotRecipe()
 	momoPyTweak.updates.BalancedElectronicsCircuit()
+	momoPyTweak.updates.WireRecipe()
 	
 	momoPyTweak.updates.Inserter()
 	momoPyTweak.updates.InserterTechnology()

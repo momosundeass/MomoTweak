@@ -13,3 +13,19 @@ function momoPyTweak.updates.BalancedElectronicsCircuit()
 	momoIRTweak.recipe.SaveAddIngredient("electronic-circuit", ITEM("pcb1", 2))
 	momoIRTweak.recipe.SetResultCount("electronic-circuit", 10)
 end
+
+function momoPyTweak.updates.WireRecipe()
+	momoIRTweak.recipe.ReplaceAllIngredient("red-wire", {
+		ITEM("rubber", 5),
+		ITEM("tinned-cable", 10),
+		ITEM("electronic-circuit", 1)
+	})
+	momoIRTweak.recipe.SetResultCount("red-wire", 20)
+	
+	momoIRTweak.recipe.ReplaceAllIngredient("green-wire", {
+		ITEM("rubber", 5),
+		ITEM("tinned-cable", 10),
+		ITEM("electronic-circuit", 1)
+	})
+	momoIRTweak.recipe.SetResultCount("green-wire", 20)
+end
