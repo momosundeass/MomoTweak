@@ -44,20 +44,39 @@ function momoPyTweak.compatibility.SpaceEx()
 			momoIRTweak.recipe.SaveAddIngredient(recipeName, ITEM(ingredient, amount))
 		end
 
+		AddIngredient("drydock-assembly", "low-density-structure", "super-steel", 2, 200)
+		
+		AddIngredient("drydock-structural", "low-density-structure", "super-steel", 1, 200)
+		AddIngredient("drydock-structural", "low-density-structure", "nbti-alloy", 2, 400)
+		
+		AddIngredient("protection-field", "energy-shield-mk2-equipment", "nbti-alloy", 1, 100)
+		
 		AddIngredient("habitation", "steel-plate", "biopolymer", 3, 100)
 		AddIngredient("habitation", "intelligent-unit", "kondo-processor", 3, 75)
 		AddIngredient("habitation", "", "automated-factory-mk04", 1, 1)
-				
-		AddIngredient("hull-component", "steel-plate", "biopolymer", 5, 100)
-		AddIngredient("hull-component", "steel-plate", "super-alloy", 1, 50)
+		AddIngredient("habitation", "steel-plate", "science-coating", 1, 100)
+		
+		AddIngredient("fuel-cell", "steel-plate", "heavy-fermion", 1, 100)
+		AddIngredient("fuel-cell", "steel-plate", "pdms-graphene", 2, 200)
+		AddIngredient("fuel-cell", "steel-plate", "science-coating", 2, 100)
+		
+		AddIngredient("fusion-reactor", "", "pdms-graphene", 1, 100)
+		AddIngredient("fusion-reactor", "", "quantum-vortex-storage-system", 1, 50)
+		AddIngredient("fusion-reactor", "", "particle-accelerator-mk04", 1, 2)
+	
+		AddIngredient("hull-component", "steel-plate", "biopolymer", 2, 200)
+		AddIngredient("hull-component", "steel-plate", "super-alloy", 1, 100)
+		AddIngredient("hull-component", "steel-plate", "pdms-graphene", 2, 200)
+		AddIngredient("hull-component", "steel-plate", "science-coating", 2, 200)
 		
 		AddIngredient("life-support", "pipe", "super-alloy", 1, 200)
 		AddIngredient("life-support", "intelligent-unit", "kondo-processor", 4, 100)
+		AddIngredient("life-support", "pipe", "pdms-graphene", 1, 200)
 		AddIngredient("life-support", "", "automated-factory-mk04", 1, 2)
 		
 		AddIngredient("ftl-drive", "low-density-structure", "superconductor-servomechanims", 1, 100)
-		AddIngredient("ftl-drive", "low-density-structure", "quantum-vortex-storage-system", 1, 250)
-		AddIngredient("ftl-drive", "intelligent-unit", "kondo-processor", 6, 125 * 6)
+		AddIngredient("ftl-drive", "low-density-structure", "quantum-vortex-storage-system", 2, 200)
+		AddIngredient("ftl-drive", "intelligent-unit", "kondo-processor", 2, 125 * 2)
 		AddIngredient("ftl-drive", "", "quantum-computer", 1, 1)
 		
 		AddIngredient("astrometrics", "low-density-structure", "quantum-vortex-storage-system", 1, 100)
@@ -71,6 +90,7 @@ function momoPyTweak.compatibility.SpaceEx()
 		AddIngredient("command", "", "quantum-computer", 1, 1)
 		
 		AddIngredient("space-thruster", "low-density-structure", "quantum-vortex-storage-system", 1, 100)
+		AddIngredient("space-thruster", "low-density-structure", "science-coating", 1, 100)
 			
 		--- replace technology ingredient with k science
 		local spaceExTechnologies = {
