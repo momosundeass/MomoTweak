@@ -22,6 +22,7 @@ require("naming")
 momoPyTweak.mods.bobInserter = mods["bobinserters"]
 momoPyTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
 momoPyTweak.mods.alienTech = mods["SchallAlienTech"]
+momoPyTweak.mods.spaceEx = mods["SpaceMod"]
 
 momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value
@@ -75,11 +76,4 @@ if not (momoPyTweak.DumpOnly) then
 	end
 	
 	momoPyTweak.ExtraUndergroundBelt()
-	
-	-- Todo
-	-- sciecne recipe
-	-- extra underground belt
-	-- underground pipe pack recipe
-	-- armor add slot
-	
 end

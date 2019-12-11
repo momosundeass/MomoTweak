@@ -3,7 +3,7 @@
 require("compatibility.bob-inserter")
 require("compatibility.underground-pipe-pack")
 require("compatibility.schall-alien-tech")
-
+require("compatibility.space-extension-mod")
 
 require("prototypes.updates-science-materials")
 require("prototypes.updates-module")
@@ -41,6 +41,10 @@ if not momoPyTweak.DumpOnly then
 	
 	if (momoPyTweak.settings.solarPanel) then
 		momoPyTweak.updates.SolarPanel()
+	end
+	
+	if (momoPyTweak.mods.spaceEx) then
+		momoPyTweak.compatibility.SpaceEx()
 	end
 	
 	if (settings.startup["momo-module"].value) then

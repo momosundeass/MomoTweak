@@ -47,15 +47,17 @@ CreateBoolSetting("momo-inserter", true)
 CreateBoolSetting("momo-undergroundBelt", true)
 CreateBoolSetting("momo-miner", true)
 CreateBoolSetting("momo-solarPanel", true)
-
 CreateBoolSetting("momo-electricPole", true)
-CreateBoolSetting("momo-removeLongInserter", true)
 CreateBoolSetting("momo-module", true)
 
 CreateStringSetting("momo-headerTechnology", "")
 
 CreateIntSetting("momo-automationTechnologyCount", 5)
 CreateIntSetting("momo-technologiesTimeMultiplier", 2)
+
+CreateStringSetting("momo-headerCompatibility", "")
+CreateBoolSetting("momo-spaceEx", true)
+CreateBoolSetting("momo-removeLongInserter", true)
 
 CreateStringSetting("momo-headerDebug", "")
 
