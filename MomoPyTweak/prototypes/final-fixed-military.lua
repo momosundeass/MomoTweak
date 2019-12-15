@@ -9,6 +9,6 @@ function momoPyTweak.finalFixes.Military()
 	momoIRTweak.recipe.SetResultCount("firearm-magazine", 6)
 	
 	
-	momoIRTweak.recipe.AddOrUpdateIngredient("piercing-rounds-magazine", ITEM("lead-plate", 8))
-	momoIRTweak.recipe.SetResultCount("piercing-rounds-magazine", 2)
+	momoIRTweak.recipe.AddOrUpdateIngredient("piercing-rounds-magazine", ITEM("lead-plate", 6))
+	momoIRTweak.recipe.SetResultCount("piercing-rounds-magazine", 3)
 end
