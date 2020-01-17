@@ -54,6 +54,12 @@ CreateStringSetting("momo-headerTechnology", "")
 
 CreateIntSetting("momo-automationTechnologyCount", 5)
 CreateIntSetting("momo-technologiesTimeMultiplier", 2)
+CreateIntSetting("momo-logisticScienceCost", 50)
+CreateIntSetting("momo-militaryScienceCost", 50)
+CreateIntSetting("momo-chemicalScienceCost", 100)
+CreateIntSetting("momo-productionScienceCost", 200)
+CreateIntSetting("momo-utilityScienceCost", 350)
+
 
 CreateStringSetting("momo-headerCompatibility", "")
 CreateBoolSetting("momo-spaceEx", true)
