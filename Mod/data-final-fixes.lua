@@ -17,7 +17,9 @@ end
 
 require("prototypes.sci.final-fix")
 
-data.raw.item[momoTweak.burner].subgroup = data.raw.item["assembling-machine-1"].subgroup
+if (data.raw.item[momoTweak.burner]) then
+	data.raw.item[momoTweak.burner].subgroup = data.raw.item["assembling-machine-1"].subgroup
+end
 
 require("prototypes.fix-angels-machine")
 require("prototypes.sci.sci30result-preset")
