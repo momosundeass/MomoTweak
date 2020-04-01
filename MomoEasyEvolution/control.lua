@@ -1,9 +1,10 @@
 local isPrint = settings.startup["momo-isPrint"].value
 local factor =  settings.startup["momo-evolutionReductFactor"].value
+local maxCounter = settings.startup["momo-evolutionReductCounter"].value
 
 local evolution_offset = 0.00005
 local addition_evo_offset = 0.4
-local rate = 3600
+local rate = math.floor(settings.startup["momo-evolutionReductRate"].value * 3600)
 
 local function InitVariable()
 	if not (global.momoEasyEvo) then global.momoEasyEvo = {} end
@@ -31,7 +32,7 @@ local function addition_reduce_cal(current_evo, factor, progress)
 	counter = counter + 1
 	local result = progress * (evolution_offset / 5) * counter * ((current_evo - addition_evo_offset) / 0.1)
 	result = math.max(0, result)
-	if (counter >= 10) then
+	if (counter >= maxCounter) then
 		counter = 0
 	end
 	
@@ -43,12 +44,10 @@ local function evolution_nulifier(current_evo, last_evo, factor)
 	local rand = (current_evo * 100101477) * (last_evo * 100045587)
 	local chance = (1 + (factor - 0.7)) * (last_evo * 38)
 	local null = 0
-	if ((rand % 100) <= chance) then null = current_evo - last_evo end
-	if (isPrint) then
-		local text = "Random: " ..fixed(rand % 100).. " - " ..fixed(chance).. " | null => " .. null
-		PrintToAll(text)
+	if ((rand % 100) <= chance) then 
+		null = current_evo - last_evo
 	end
-	return null
+	return null, chance
 end
 
 script.on_nth_tick(rate, function(e)
@@ -71,8 +70,9 @@ script.on_nth_tick(rate, function(e)
 		end
 		
 		local null = 0
+		local chance = 0
 		if (current_evo >= 0.5) then
-			null = evolution_nulifier(current_evo, global.momoEasyEvo.LastEvolution, factor)
+			null, chance = evolution_nulifier(current_evo, global.momoEasyEvo.LastEvolution, factor)
 		end
 		
 		local reduceByRate = math.max(0, (current_evo - global.momoEasyEvo.LastEvolution) * progress * 0.01)
@@ -82,8 +82,16 @@ script.on_nth_tick(rate, function(e)
 		game.forces.enemy.evolution_factor = current_evo - reduce
 		global.momoEasyEvo.LastEvolution = game.forces.enemy.evolution_factor
 		if (isPrint) then
-			local logtext = "Evolution reduce by " .. fixed_percent(reduce) .. " | Rate: " .. fixed_percent(reduceByRate) 
-				  .. " | Counter: " .. global.momoEasyEvo.Counter .. "=>" .. fixed_percent(addition_reduce)
+			local r = fixed_percent(reduce)
+			local rr = fixed_percent(reduceByRate)
+			local ar = fixed_percent(addition_reduce)
+			local logtext = "Evolution decrease : " .. r .. " + " .. rr
+				  .. " + " .. ar .. "[" .. global.momoEasyEvo.Counter .. "]" 
+			if (null ~= 0 or chance ~= 0) then
+				logtext = logtext .. " + " .. fixed_percent(null) .. "[" .. fixed(chance) .. "%]"
+			end
+			
+			logtext = logtext .. " = " .. (r + rr + ar + fixed_percent(null))
 			PrintToAll(logtext)
 		end
 	end

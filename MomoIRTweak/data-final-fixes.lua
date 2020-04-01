@@ -17,6 +17,7 @@ if not (momoIRTweak.DumpOnly) then
 	
 
 	momoIRTweak.finalFixes.ScienceMaterials()
+	momoIRTweak.finalFixes.FixResearchServer()
 	momoIRTweak.finalFixes.Technogies()
 	momoIRTweak.finalFixes.TieredRecipes()
 	momoIRTweak.finalFixes.Recipe()

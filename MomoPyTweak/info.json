@@ -1,0 +1,23 @@
+{
+	"name": "MomoPyTweak",
+	"version": "0.18.2",
+	"factorio_version": "0.18",
+	"title": "Momo Pyanodon Tweak",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "Make science pack in Pyanodon pack exponential harder to craft",
+	"dependencies": [
+		"base >= 0.18.0",
+		"stdlib >= 1.3.0",
+		"pycoalprocessing >= 1.4.9",
+		"pyfusionenergy >= 1.5.5",
+		"pyhightech >= 1.4.3",
+		"pyindustry >= 1.3.7",
+		"pypetroleumhandling >= 1.5.8",
+		"pyrawores >= 1.8.6",
+		"? pyalienlife >= 1.4.7",
+		"? bobinserters >= 0.17.10",
+		"? underground-pipe-pack >= 0.17.0",
+		"? SchallAlienTech >= 0.17.14"
+	]
+}

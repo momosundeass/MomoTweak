@@ -3,6 +3,7 @@ if not momoTweak.settings then momoTweak.settings = {} end
 if not momoTweak.mods then momoTweak.mods = {} end
 if not momoTweak.require then momoTweak.require = {} end
 if not momoTweak.compatibility then momoTweak.compatibility = {} end
+if not momoTweak.sct then momoTweak.sct = {} end
 
 momoTweak.settings.isLoadBobExtended = true
 

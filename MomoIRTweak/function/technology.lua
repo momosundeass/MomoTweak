@@ -49,6 +49,21 @@ function momoIRTweak.technology.AddUnitCount(technologyName, addAmount)
 	end
 end
 
+function momoIRTweak.technology.IsUnitContain(technologyName, item)
+	local tech = data.raw.technology[technologyName]
+	if tech then
+		for _, ing in pairs(tech.unit.ingredients) do
+			if (ing[1] == momoIRTweak.GetName(item)) then
+				return true
+			end
+		end
+		return false
+	else
+		momoIRTweak.Log("no technology with name to check for unit : " .. tostring(technologyName))
+		return false
+	end
+end
+
 function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName, overrideEnabled)
 	if (data.raw.technology[technologyName]) then
 		table.insert(data.raw.technology[technologyName].effects, {
@@ -82,6 +97,23 @@ function momoIRTweak.technology.RemoveUnlockEffect(technologyName, recipeName)
 		momoIRTweak.Log("no technology with name to remove unlock : " .. tostring(technologyName))
 	end
 	return false
+end
+
+function momoIRTweak.technology.RemoveAllUnlockEffect(recipeNames) 
+	local function RemoveEffect(recipeName) 
+		local techs =  momoIRTweak.technology.FindAllFromRecipe(recipeName)
+		for _, t in pairs(techs) do
+			momoIRTweak.technology.RemoveUnlockEffect(t, recipeName)
+		end
+	end
+	
+	if (type(recipeNames) == "table") then
+		for _, recipeName in pairs(recipeNames) do
+			RemoveEffect(recipeName)
+		end		
+	else
+		RemoveEffect(recipeNames)
+	end
 end
 
 function momoIRTweak.technology.HasIngredient(technology, ingredientToCheck)
@@ -147,11 +179,20 @@ function momoIRTweak.technology.ClonePrototype(technologyName, newName)
 	end
 end
 
-function momoIRTweak.technology.SetPrerequire(technology, prerequireTable)
-	if (type(technology) == "table") then
+function momoIRTweak.technology.SetPrerequire(technologyName, prerequireTable)
+	local technology = data.raw.technology[momoIRTweak.GetName(technologyName)]
+	if (type(technology) == "table" and type(prerequireTable) == "table") then
 		technology.prerequisites = prerequireTable
 	else
 		error("technology.SetPrerequire need table got " .. type(techonlogy))
+	end
+end
+
+function momoIRTweak.technology.SetPrerequirePrototype(technologyPrototype, prerequireTable)
+	if (type(technologyPrototype) == "table") then
+		technologyPrototype.prerequisites = prerequireTable
+	else
+		error("technology.SetPrerequirePrototype need table got " .. type(technologyPrototype))
 	end
 end
 

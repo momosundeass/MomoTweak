@@ -5,14 +5,14 @@ if not momoIRTweak.recipe then momoIRTweak.recipe = {} end
 momoIRTweak.recipe.prefixName = "momo-"
 
 function momoIRTweak.recipe.ValidateRecipe(recipe, callback)
-	if (type(recipe) == "table") then
-		callback(recipe)
+	local recipeTable = data.raw.recipe[momoIRTweak.GetName(recipe)]
+	if (recipeTable) then
+		callback(recipeTable)
 	else
-		local recipeTable = data.raw.recipe[recipe]
-		if (recipeTable) then
-			callback(recipeTable)
+		if (recipe.normal or recipe.ingredients) and (recipe.result or recipe.results) then
+			callback(recipe)
 		else
-			momoIRTweak.Log("no recipe with name " .. recipe)
+			momoIRTweak.Log("no recipe with name " .. tostring(recipe))
 		end
 	end
 end
@@ -243,22 +243,24 @@ function momoIRTweak.recipe.MultipleResultsCount(recipeName, multiplier)
 				recipe.results[i] = basic
 			end
 		else
-			recipe.result_count = math.floor(recipe.result_count * multiplier)
+			if (recipe.result_count) then
+				recipe.result_count = math.floor(recipe.result_count * multiplier)
+			else
+				recipe.result_count = math.floor(multiplier)
+			end
 		end
 	end)
 end
 
 function momoIRTweak.recipe.SetResultCount(recipeName, amount)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
-		if (recipe.result_count) then
-			recipe.result_count = amount
-		else
-			if (recipe.results) then
-				if not (recipe.results[2]) then
-					recipe.results[1].amonut = amount
-				else
-					momoIRTweak.Log("recipe [" .. recipeName .. "] have multiple results.")
-				end
+		recipe.result_count = amount
+		if (recipe.results) then
+			recipe.results[1].amount = amount
+			local count = 0
+			for _, r in pairs(recipe.results) do count = count + 1 end
+			if (count > 1) then
+				momoIRTweak.Log("recipe [" .. recipeName .. "] have multiple results.")
 			end
 		end
 	end)
@@ -273,6 +275,10 @@ function momoIRTweak.recipe.SaveGetResultAmount(recipeName)
 		momoIRTweak.Log("No result for " .. recipeName)
 	end
 	return amount
+end
+
+function momoIRTweak.recipe.SafeGetResultAmount(recipeName)
+	return momoIRTweak.recipe.SaveGetResultAmount(recipeName)
 end
 
 function momoIRTweak.recipe.NormalizedResult(recipeName)
@@ -301,6 +307,26 @@ function momoIRTweak.recipe.GetResultWithAmount(itemName, amountMin, amountMax)
 	item.amount_min = amountMin
     item.amount_max = amountMax
 	return item
+end
+
+function momoIRTweak.recipe.IsContainResult(recipeName, item)
+	local recipe = nil
+	local itemName = momoIRTweak.GetName(item)
+	if (type(recipeName) == "table") then
+		recipe = recipeName
+	else
+		ValidateRecipe(recipeName, function(res) recipe = res end)
+	end
+	
+	if (recipe.results) then
+		for _, res in pairs(recipe.results) do
+			if (momoIRTweak.item.CastToBasic(res).name == itemName) then
+				return true
+			end
+		end
+	else
+		return recipe.result == itemName
+	end
 end
 
 -----------------------------------------------------------------------------------------
@@ -359,6 +385,23 @@ function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
 	end
 end
 
+function momoIRTweak.recipe.SetSubgroup(recipeName, newSubgroup, order)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+		recipe.subgroup = newSubgroup
+		recipe.order = order
+	end)
+end
+
+function momoIRTweak.recipe.GetAllRecipeWithResult(item)
+	local recipes = {}
+	local name = momoIRTweak.GetName(item)
+	for _, recipe in pairs(data.raw.recipe) do
+		if (momoIRTweak.recipe.IsContainResult(recipe, name)) then
+			table.insert(recipes, recipe)
+		end
+	end
+	return recipes
+end
 -- Warning this function may take half a year to finish
 function momoIRTweak.DumpRecipes()
 	momoIRTweak.dumpRecipesText = "Recipe dump \n"

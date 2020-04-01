@@ -83,8 +83,24 @@ end
 function momoIRTweak.item.NewItemFixedSize(itemName, iconSize, itemSubgroup, maxStack)
 	local item = momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
 	item.icon = momoIRTweak.dir.baseIconPath .. iconSize .. "/" .. itemName .. ".png"
-	item.icon_size = 32
+	item.icon_size = iconSize
 	return item
+end
+
+function momoIRTweak.item.ValidateItem(itemName, callback)
+	local item = data.raw.item[itemName]
+	if item then
+		callback(item)
+	else
+		momoIRTweak.Log("no item with name : " ..  itemName)
+	end
+end
+
+function momoIRTweak.item.SetSubgroup(itemName, newSubgroup, order)
+	momoIRTweak.item.ValidateItem(itemName, function(item) 
+		item.subgroup = newSubgroup
+		item.order = order
+	end)
 end
 
 

@@ -110,6 +110,9 @@ momoTweakDirectoryName = ExportModDirectory(momoTweak)
 easyEvo = MOD("MomoEasyEvolution", "\\MomoEasyEvolution")
 momoEasyEvoDirectoryName = ExportModDirectory(easyEvo)
 
+pyTweak = MOD("MomoPyTweak", "\\MomoPyTweak", libPath=LibPath)
+momoPyTweakDirectoryName = ExportModDirectory(pyTweak)
+
 irTweak = MOD("MomoIRTweak", "\\MomoIRTweak")
 momoIRTweakDirectoryName = ExportModDirectory(irTweak)
 

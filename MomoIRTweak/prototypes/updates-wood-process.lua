@@ -58,7 +58,7 @@ end
 
 local function NewTechnology()
 	local prototype = tech.ClonePrototype("deadlock-forestry-2", "momo-forestry")
-	tech.SetPrerequire(prototype, {"deadlock-forestry-2", "deadlock-barrelling"})
+	tech.SetPrerequirePrototype(prototype, {"deadlock-forestry-2", "deadlock-barrelling"})
 	tech.ClearEffects(prototype)
 	tech.SetUnit(prototype, {
 		{momoIRTweak.science.pack1, 1},
