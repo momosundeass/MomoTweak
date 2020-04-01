@@ -14,6 +14,14 @@ momoPyTweak.science.packMilitaryTech = "military-science-pack"
 momoPyTweak.science.packProductionTech = "production-science-pack"
 momoPyTweak.science.packUtilityTech = "utility-science-pack"
 
+momoPyTweak.alScience = {}
+momoPyTweak.alScience.pyPack = "py-science-pack"
+momoPyTweak.alScience.recipe = {}
+momoPyTweak.alScience.recipe.pack2 = "logistic-science-01"
+momoPyTweak.alScience.recipe.pack3 = "chemical-science-01"
+momoPyTweak.alScience.recipe.packProduction = "production-science-01"
+momoPyTweak.alScience.recipe.packUtility = "utility-science-01"
+
 momoPyTweak.mods.icon = {}
 momoPyTweak.mods.icon.raw = "__pyrawores__"
 momoPyTweak.mods.icon.coal = "__pycoalprocessing__"

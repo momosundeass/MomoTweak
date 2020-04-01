@@ -26,6 +26,10 @@ if not momoPyTweak.DumpOnly then
 		momoPyTweak.updates.ExtraUndergroundBelt()
 		momoPyTweak.updates.ExtraUndergroundBeltTech()
 	end
+	
+	if (momoPyTweak.mods.pyAL) then
+		momoPyTweak.updates.ScienceMaterialsAL()
+	end
 
 	if (momoPyTweak.mods.bobInserter) then
 		momoPyTweak.compatibility.bobInserter()

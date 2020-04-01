@@ -4,6 +4,7 @@ local ITEM = momoIRTweak.FastItem
 local NewRecipe = momoIRTweak.recipe.NewRecipe
 local sci = momoPyTweak.science
 local AddIng = momoIRTweak.recipe.SaveAddIngredient
+local GetResultAmount = momoIRTweak.recipe.SafeGetResultAmount
 local FindTechnology = momoIRTweak.technology.FindAllFromRecipe
 local UnlockEffect = momoIRTweak.technology.AddUnlockEffect
 local tech = momoIRTweak.technology
@@ -54,6 +55,7 @@ function momoPyTweak.updates.ScienceMaterials()
 	tech.SetPrerequire(sci.packProductionTech, {"diamond-mining"})
 	tech.RemoveAllUnlockEffect(sci.packProduction)
 	UnlockEffect(sci.packProductionTech, sci.packProduction)
+		
 	UnlockRecipe(sci.packProductionTech, 
 		NewRecipe("advanced-crafting", momoPyTweak.item.packProduction, 5, {
 			ITEM(sci.pack2, 3),
@@ -77,12 +79,24 @@ function momoPyTweak.updates.ScienceMaterials()
 		AddIng(momoPyTweak.item.packUtility.name, ITEM(momoPyTweak.item.stackInserter, 2))
 	end
 	
-	AddIng(sci.pack1, ITEM(momoPyTweak.item.pack1, 1))
-	AddIng(sci.pack2, ITEM(momoPyTweak.item.pack2, 1))
-	AddIng(sci.pack3, ITEM(momoPyTweak.item.pack3, 1))
-	AddIng(sci.packMilitary, ITEM(momoPyTweak.item.packMilitary, 1))
-	AddIng(sci.packProduction, ITEM(momoPyTweak.item.packProduction, 1))
-	AddIng(sci.packUtility, ITEM(momoPyTweak.item.packUtility, 1))
+	AddIng(sci.pack1, ITEM(momoPyTweak.item.pack1, GetResultAmount(sci.pack1)))
+	AddIng(sci.pack2, ITEM(momoPyTweak.item.pack2, GetResultAmount(sci.pack2)))
+	AddIng(sci.pack3, ITEM(momoPyTweak.item.pack3, GetResultAmount(sci.pack3)))
+	AddIng(sci.packMilitary, ITEM(momoPyTweak.item.packMilitary, GetResultAmount(sci.packMilitary)))
+	AddIng(sci.packProduction, ITEM(momoPyTweak.item.packProduction, GetResultAmount(sci.packProduction)))
+	AddIng(sci.packUtility, ITEM(momoPyTweak.item.packUtility, GetResultAmount(sci.packUtility)))
+end
+
+function momoPyTweak.updates.ScienceMaterialsAL()
+	AddIng(momoPyTweak.alScience.pyPack, ITEM(momoPyTweak.item.pack3, GetResultAmount(momoPyTweak.alScience.pyPack)))
+	AddIng(momoPyTweak.alScience.pyPack, ITEM(momoPyTweak.item.pack2, GetResultAmount(momoPyTweak.alScience.pyPack)))
+	
+	local alRecipe = momoPyTweak.alScience.recipe
+	
+	AddIng(alRecipe.pack2, ITEM(momoPyTweak.item.pack2, GetResultAmount(alRecipe.pack2)))
+	AddIng(alRecipe.pack3, ITEM(momoPyTweak.item.pack3, GetResultAmount(alRecipe.pack3)))
+	AddIng(alRecipe.packProduction, ITEM(momoPyTweak.item.packProduction, GetResultAmount(alRecipe.packProduction)))
+	AddIng(alRecipe.packUtility, ITEM(momoPyTweak.item.packUtility, GetResultAmount(alRecipe.packUtility)))
 end
 
 -- due to py remove utility science pack from their tech in final fixes

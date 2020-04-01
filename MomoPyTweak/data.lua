@@ -19,6 +19,7 @@ require("function.technology")
 momoIRTweak.InitItemsLib("__MomoPyTweak__/graphics/icons/", true)
 
 require("naming")
+momoPyTweak.mods.pyAL = mods["pyalienlife"]
 momoPyTweak.mods.bobInserter = mods["bobinserters"]
 momoPyTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
 momoPyTweak.mods.alienTech = mods["SchallAlienTech"]

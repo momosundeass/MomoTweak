@@ -277,6 +277,10 @@ function momoIRTweak.recipe.SaveGetResultAmount(recipeName)
 	return amount
 end
 
+function momoIRTweak.recipe.SafeGetResultAmount(recipeName)
+	return momoIRTweak.recipe.SaveGetResultAmount(recipeName)
+end
+
 function momoIRTweak.recipe.NormalizedResult(recipeName)
 	local item = nil
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
