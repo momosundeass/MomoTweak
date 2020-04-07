@@ -78,6 +78,10 @@ function momoIRTweak.recipe.SaveAddIngredient(recipeName, ingredient)
 	momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
 end
 
+function momoIRTweak.recipe.SafeAddIngredient(recipeName, ingredient)
+	momoIRTweak.recipe.SaveAddIngredient(recipeName, ingredient)
+end
+
 function momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
 		if (recipe.normal) then
