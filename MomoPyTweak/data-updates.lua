@@ -4,6 +4,7 @@ require("compatibility.bob-inserter")
 require("compatibility.underground-pipe-pack")
 require("compatibility.schall-alien-tech")
 require("compatibility.space-extension-mod")
+require("compatibility.ultimate-belt")
 
 require("prototypes.updates-science-materials")
 require("prototypes.updates-module")
@@ -49,6 +50,10 @@ if not momoPyTweak.DumpOnly then
 	
 	if (momoPyTweak.mods.spaceEx) then
 		momoPyTweak.compatibility.SpaceEx()
+	end
+	
+	if (momoPyTweak.mods.ultimateBelt) then
+		momoPyTweak.compatibility.UltimateBeltRecipe()
 	end
 	
 	if (settings.startup["momo-module"].value) then

@@ -1,6 +1,6 @@
 {
 	"name": "MomoPyTweak",
-	"version": "0.18.2",
+	"version": "0.18.3",
 	"factorio_version": "0.18",
 	"title": "Momo Pyanodon Tweak",
 	"author": "Momosundeass",
@@ -16,6 +16,7 @@
 		"pypetroleumhandling >= 1.5.8",
 		"pyrawores >= 1.8.6",
 		"? pyalienlife >= 1.4.7",
+		"? UltimateBelts_Owoshima_And_Pankeko-Mod >= 0.18.1",
 		"? bobinserters >= 0.17.10",
 		"? underground-pipe-pack >= 0.17.0",
 		"? SchallAlienTech >= 0.17.14"

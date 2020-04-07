@@ -42,3 +42,18 @@ momoPyTweak.science.packs = {
 	momoPyTweak.science.packUtility,
 	momoPyTweak.science.packSpace
 }
+
+momoPyTweak.circuit = {}
+momoPyTweak.circuit[1] = "electronic-circuit"
+momoPyTweak.circuit[2] = "advanced-circuit"
+momoPyTweak.circuit[3] = "processing-unit"
+momoPyTweak.circuit[4] = "intelligent-unit"
+
+momoPyTweak.pcb = {}
+momoPyTweak.pcb[1] = "pcb1"
+momoPyTweak.pcb[2] = "pcb2"
+momoPyTweak.pcb[3] = "pcb3"
+momoPyTweak.pcb[32] = "pcb3-2"
+momoPyTweak.pcb[4] = "pcb4"
+
+
