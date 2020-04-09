@@ -49,6 +49,7 @@ CreateBoolSetting("momo-miner", true)
 CreateBoolSetting("momo-solarPanel", true)
 CreateBoolSetting("momo-electricPole", true)
 CreateBoolSetting("momo-module", true)
+CreateBoolSetting("momo-earlyLandfill", false)
 
 CreateStringSetting("momo-headerTechnology", "")
 
@@ -64,6 +65,7 @@ CreateIntSetting("momo-utilityScienceCost", 350)
 CreateStringSetting("momo-headerCompatibility", "")
 CreateBoolSetting("momo-spaceEx", true)
 CreateBoolSetting("momo-removeLongInserter", true)
+CreateBoolSetting("momo-ultimateBelt", true)
 
 CreateStringSetting("momo-headerDebug", "")
 

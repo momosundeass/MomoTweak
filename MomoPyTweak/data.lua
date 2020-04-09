@@ -28,6 +28,7 @@ momoPyTweak.mods.ultimateBelt = mods["UltimateBelts_Owoshima_And_Pankeko-Mod"]
 
 momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value
+
 momoPyTweak.settings.miner = settings.startup["momo-miner"].value
 momoPyTweak.settings.solarPanel = settings.startup["momo-solarPanel"].value
 

@@ -9,6 +9,7 @@ require("compatibility.ultimate-belt")
 require("prototypes.updates-science-materials")
 require("prototypes.updates-module")
 require("prototypes.updates-recipe")
+require("prototypes.updates-technology")
 require("prototypes.roboport")
 
 if not momoPyTweak.DumpOnly then
@@ -58,5 +59,9 @@ if not momoPyTweak.DumpOnly then
 	
 	if (settings.startup["momo-module"].value) then
 		momoPyTweak.updates.Module()
+	end
+	
+	if (settings.startup["momo-earlyLandfill"].value) then
+		momoPyTweak.updates.EarlyLandfill()
 	end
 end
