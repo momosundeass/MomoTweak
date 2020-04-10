@@ -335,6 +335,13 @@ end
 
 -----------------------------------------------------------------------------------------
 
+function momoIRTweak.recipe.UnlockAtRef(recipeName, refRecipeName)
+	momoIRTweak.recipe.UnlockAt(recipeName, momoIRTweak.technology.FindFromRecipe(refRecipeName))
+end
+
+function momoIRTweak.recipe.UnlockAt(recipeName, technologyName)
+	momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName, true)
+end
 
 --- Misc.
 function momoIRTweak.recipe.GetCraftingMachineTint(recipeName)
@@ -393,6 +400,12 @@ function momoIRTweak.recipe.SetSubgroup(recipeName, newSubgroup, order)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
 		recipe.subgroup = newSubgroup
 		recipe.order = order
+	end)
+end
+
+function momoIRTweak.recipe.SetCategory(recipeName, newCategory)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+		recipe.category = newCategory
 	end)
 end
 

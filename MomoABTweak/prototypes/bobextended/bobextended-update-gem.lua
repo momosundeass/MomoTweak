@@ -1,6 +1,6 @@
-function momoTweak.require.ExtendedGemUpdate()
+function momoTweak.updates.ExtendedGemUpdate()
 	for i, gem in pairs({"ruby", "sapphire", "emerald", "amethyst", "topaz", "diamond"}) do
-		local value = settings.startup["momo-enable-bob-extend-gem"].value
+		local value = 3
 		if data.raw.recipe["bob-" .. gem .."-4"] then
 			momoTweak.set_amount_ingredient("bob-" .. gem .. "-3", {gem .. "-ore", value} )
 			momoTweak.set_amount_ingredient("bob-" .. gem .. "-4", {gem .. "-3", (value * 2) - 1} )

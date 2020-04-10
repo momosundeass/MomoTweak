@@ -1,4 +1,4 @@
-function momoTweak.require.ExtendedSlagUpdate()
+function momoTweak.updates.ExtendedSlagUpdate()
 	local ore = momoTweak.ore
 
 	local refrecipe = data.raw.recipe["silicon-ore-smelting"]

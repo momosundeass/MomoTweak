@@ -6,8 +6,12 @@ momoTweak.settings = {}
 momoTweak.mods = {}
 momoTweak.require = {} 
 momoTweak.compatibility = {}
-
 momoTweak.compatibility.msp = {}
+
+
+momoTweak.recipe = {}
+momoTweak.item = {}
+momoTweak.extended = {}
 
 momoTweak.settings.isLoadBobExtended = true
 
@@ -25,5 +29,9 @@ momoIRTweak.Init("AB")
 momoIRTweak.InitItemsLib("__MomoABTweak__/graphics/icons/", false)
 
 require("naming")
+require("prototypes.data-item")
+require("prototypes.bobextended.bobextended-data")
 
+momoTweak.data.CreateItems()
+momoTweak.data.BobExtendedData()
 

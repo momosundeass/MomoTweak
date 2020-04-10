@@ -1,4 +1,5 @@
-function momoTweak.require.ExtendedDataBelt()
+function momoTweak.data.ExtendedDataBelt()
+	local ITEM = momoIRTweak.FastItem
 
 	momoTweak.extended.belt = {}
 	momoTweak.extended.belt.map = {}
@@ -30,13 +31,12 @@ function momoTweak.require.ExtendedDataBelt()
 		if class == "green" then return green_belt_animation_set end
 	end
 
-	local function create(class)
+	local function Create(class)
 		local name = namegen(class)
-		data:extend({
-			{
+		data:extend({{
 				type = "item",
 				  name = name,
-				  icon = "__MomoTweak__/graphics/"..class.."-underground-belt.png",
+				  icon = "__MomoABTweak__/graphics/icons/32/"..class.."-underground-belt.png",
 				  icon_size = 32,
 				  subgroup = "momo-longer-belt",
 				  order = "f[" .. name .. "]",
@@ -46,7 +46,7 @@ function momoTweak.require.ExtendedDataBelt()
 			{
 			type = "underground-belt",
 			name = name,
-			icon = "__MomoTweak__/graphics/"..class.."-underground-belt.png",
+			icon = "__MomoABTweak__/graphics/icons/32/"..class.."-underground-belt.png",
 			icon_size=32,
 			speed = bobmods.logistics.belt_speed(1),
 			flags = {"placeable-neutral", "player-creation"},
@@ -94,7 +94,7 @@ function momoTweak.require.ExtendedDataBelt()
 			{
 			  direction_in = {
 				sheet = {
-				  filename = "__MomoTweak__/graphics/entity/"..class.."-underground-belt-structure.png",
+				  filename = "__MomoABTweak__/graphics/entity/"..class.."-underground-belt-structure.png",
 				  priority = "extra-high",
 				  width = 96,
 				  height = 96,
@@ -102,14 +102,14 @@ function momoTweak.require.ExtendedDataBelt()
 				} },
 			  direction_out = {
 				sheet = {
-				  filename = "__MomoTweak__/graphics/entity/"..class.."-underground-belt-structure.png",
+				  filename = "__MomoABTweak__/graphics/entity/"..class.."-underground-belt-structure.png",
 				  priority = "extra-high",
 				  width = 96,
 				  height = 96,
 				} },
 			  direction_in_side_loading = {
 				sheet = {
-				  filename = "__MomoTweak__/graphics/entity/"..class.."-underground-belt-structure.png",
+				  filename = "__MomoABTweak__/graphics/entity/"..class.."-underground-belt-structure.png",
 				  priority = "extra-high",
 				  width = 96,
 				  height = 96,
@@ -117,7 +117,7 @@ function momoTweak.require.ExtendedDataBelt()
 				} },
 			  direction_out_side_loading = {
 				sheet = {
-				  filename = "__MomoTweak__/graphics/entity/"..class.."-underground-belt-structure.png",
+				  filename = "__MomoABTweak__/graphics/entity/"..class.."-underground-belt-structure.png",
 				  priority = "extra-high",
 				  width = 96,
 				  height = 96,
@@ -156,14 +156,18 @@ function momoTweak.require.ExtendedDataBelt()
 		end
 	end
 
-	local function recipe(class, order, mixer, tech)
+	local function CreateRecipe(class, order, mixer, tech)
+		local levelMap = {}
+		
 		local ing = class .. "-underground-belt"
 		if class == "a" then ing = "underground-belt" end
 		if class == "purple" then ing = "turbo-underground-belt" end
 		if class == "green" then ing = "ultimate-underground-belt" end
-		local ings = {{ing, 4}}
+		local ings = {
+			ITEM(ing, 2),
+		}
 		
-		for i, ii in pairs(mixer) do
+		for _, ii in pairs(mixer) do
 			table.insert(ings, ii)
 		end
 		
@@ -176,36 +180,18 @@ function momoTweak.require.ExtendedDataBelt()
 			  ingredients = ings,
 			  result = namegen(class),
 			  result_count = 2
-		},{
-			  type = "recipe",
-			  name = namegen(class).."-backward",
-			  enabled = "false",
-			  energy_required = 5,
-			  category = "crafting",
-			  subgroup = "momo-longer-belt-reverse",
-			  order = "f"..order.."a",
-			  ingredients = {
-				{namegen(class), 1}
-			  },
-			  result = ing,
-			  result_count = 2,
-			  allow_intermediates = false,
-			  allow_as_intermediate = false
 		}})
 		
 		bobmods.lib.tech.add_recipe_unlock(tech, namegen(class))
-		bobmods.lib.tech.add_recipe_unlock(tech, namegen(class).."-backward")
-		
 		momoTweak.extended.belt[class] = namegen(class)
-		momoTweak.extended.belt[class .. "-backward"] = namegen(class) .. "-backward"
 	end
 
 	if settings.startup["bobmods-logistics-ugdistanceoverhaul"].value == true then
-		create("a")
-		create("fast")
-		create("express")
-		create("purple")
-		create("green")
+		Create("a")
+		Create("fast")
+		Create("express")
+		Create("purple")
+		Create("green")
 	  if settings.startup["bobmods-logistics-beltoverhaul"].value == true then
 			setLevel("a", 2)
 			setLevel("fast", 3)
@@ -222,36 +208,40 @@ function momoTweak.require.ExtendedDataBelt()
 		
 		-- create recipe and put in tech
 		local mixer = "stone-brick"
-		recipe("a", 1,{
+		CreateRecipe("a", 1,{
 			{mixer, 24}, 
 			{"iron-plate", 10}
 		}, "logistics")
 		
 		if data.raw.item["clay-brick"] then mixer = "clay-brick" end
 		
-		recipe("fast", 2,{
+		CreateRecipe("fast", 2,{
 			{mixer, 36},
-			{"iron-plate", 15}
+			{"iron-plate", 15},
+			ITEM(namegen("a"), 2)
 		}, "logistics-2")
-		recipe("express", 3,{
+		CreateRecipe("express", 3,{
 			{mixer, 48},
 			{"steel-plate", 4},
-			{"bronze-alloy", 10}
+			{"bronze-alloy", 10},
+			ITEM(namegen("fast"), 2)
 		}, "logistics-3")
-		recipe("purple", 4,{
+		CreateRecipe("purple", 4,{
 			{mixer, 60},
 			{"invar-alloy", 20},
-			{"bronze-alloy", 10}
+			{"bronze-alloy", 10},
+			ITEM(namegen("express"), 2)
 		}, "bob-logistics-4")
-		recipe("green", 5,{
+		CreateRecipe("green", 5,{
 			{mixer, 72},
 			{"titanium-plate", 20},
-			{"brass-alloy", 10}
+			{"brass-alloy", 10},
+			ITEM(namegen("purple"), 2)
 		}, "bob-logistics-5")
 	else
-		create("a")
-		create("fast")
-		create("express")
+		Create("a")
+		Create("fast")
+		Create("express")
 		data.raw["underground-belt"][namegen("a")].max_distance = 10
 		data.raw["underground-belt"][namegen("fast")].max_distance = 20
 		data.raw["underground-belt"][namegen("express")].max_distance = 30
@@ -260,8 +250,8 @@ function momoTweak.require.ExtendedDataBelt()
 		recipe("a", 1,{{mixer, 24}}, "logistics")
 		if data.raw.item["clay-brick"] then mixer = "clay-brick" end
 		
-		recipe("fast", 2,{{mixer, 36}}, "logistics-2")
-		recipe("express", 3,{{mixer, 48}}, "logistics-3")
+		CreateRecipe("fast", 2,{{mixer, 36}}, "logistics-2")
+		CreateRecipe("express", 3,{{mixer, 48}}, "logistics-3")
 	end
 
 end

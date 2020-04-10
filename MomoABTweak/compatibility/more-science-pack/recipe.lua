@@ -2,25 +2,28 @@ function momoTweak.compatibility.msp.PackRecipe()
 	local ITEM = momoIRTweak.FastItem
 	local Replace = momoIRTweak.recipe.ReplaceIngredient
 	local Rem = momoIRTweak.recipe.removeIngredient
+	local electronics = momoTweak.electronics
+	local circuit = momoTweak.circuit
+	local board = momoTweak.board
+	local components = momoTweak.components
+	local Pack = momoTweak.science.GetMoreSciencePack
 
 	Replace("more-science-pack-3", "light-armor", ITEM("stone-wall", 2))
 	
-	-- bobmods.lib.recipe.add_ingredient("more-science-pack-5", {ele.circuit[1], 2})
+	bobmods.lib.recipe.add_ingredient("more-science-pack-5", ITEM(electronics.red, 1))
 	
 	bobmods.lib.recipe.add_ingredient("more-science-pack-6", {"solder-alloy", 9})
 	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-7", {"plate-pack-1", 1})
-	
-	bobmods.lib.recipe.remove_ingredient("more-science-pack-8", "electronic-circuit")
-	bobmods.lib.recipe.add_ingredient("more-science-pack-8", {"plate-pack-1", 1})
+	bobmods.lib.recipe.add_ingredient(Pack(7), ITEM(momoTweak.item.platePack.name, 1))
+														
+	bobmods.lib.recipe.add_ingredient(Pack(8), ITEM(momoTweak.item.platePack.name, 1))
 	
 	bobmods.lib.recipe.add_ingredient("more-science-pack-9", {"brass-alloy", 3})
 	
 	bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"chemical-boiler", 1})
-	
 	bobmods.lib.recipe.replace_ingredient("chemical-boiler", "pipe", "copper-pipe") 
-	bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"solid-carbon", 2})
 	
+	bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"solid-carbon", 2})
 	
 	if data.raw.item["clay-brick"] then
 		bobmods.lib.recipe.add_ingredient("more-science-pack-11", {"clay-brick", 12})
@@ -43,9 +46,10 @@ function momoTweak.compatibility.msp.PackRecipe()
 	
 	bobmods.lib.recipe.replace_ingredient("more-science-pack-17", "medium-electric-pole", "medium-electric-pole-3")
 	bobmods.lib.recipe.replace_ingredient("more-science-pack-17", "big-electric-pole", "big-electric-pole-3")
-	-- bobmods.lib.recipe.add_ingredient("more-science-pack-17", {momoTweak.ele.unit[2], 3})
 	
-	-- bobmods.lib.recipe.add_ingredient("more-science-pack-18", {ele.board[3], 20})
+	bobmods.lib.recipe.add_ingredient("more-science-pack-17", ITEM(electronics.orange, 1))
+	
+	bobmods.lib.recipe.add_ingredient("more-science-pack-18", ITEM(board.orange, 12))
 	
 	Replace("more-science-pack-20", "red-stack-inserter", ITEM("red-stack-inserter", 7))
 	bobmods.lib.recipe.add_ingredient("more-science-pack-20", {"electric-chemical-mixing-furnace", 1})
@@ -55,8 +59,8 @@ function momoTweak.compatibility.msp.PackRecipe()
 	Replace("more-science-pack-22", "express-transport-belt", ITEM("express-transport-belt", 6))
 	Replace("more-science-pack-22", "express-underground-belt", ITEM("express-underground-belt", 2))
 	
-	-- bobmods.lib.recipe.add_ingredient("more-science-pack-23", {ele.comp[3], 7})
-	-- bobmods.lib.recipe.add_ingredient("more-science-pack-23", {momoTweak.module.board.b, 8})
+	bobmods.lib.recipe.add_ingredient(Pack(23), ITEM(components.microchip, 7))
+	bobmods.lib.recipe.add_ingredient(Pack(23), ITEM(board.blue, 8))
 	
 	bobmods.lib.recipe.add_ingredient("more-science-pack-24", {"robot-brain-construction-3", 1})
 	bobmods.lib.recipe.add_ingredient("more-science-pack-24", {"robot-brain-logistic-3", 1})
@@ -72,12 +76,11 @@ function momoTweak.compatibility.msp.PackRecipe()
 	
 	bobmods.lib.recipe.add_ingredient("more-science-pack-27", {"nitinol-alloy", 4})
 	
-	-- bobmods.lib.recipe.add_ingredient("more-science-pack-28", {momoTweak.ele.unit[4], 3})
-	bobmods.lib.recipe.add_ingredient("more-science-pack-28", {"advanced-plastics", 10})
+	bobmods.lib.recipe.add_ingredient("more-science-pack-28", ITEM(electronics.yellow, 1))
 	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-29", {"silver-zinc-battery", 30})
-	bobmods.lib.recipe.add_ingredient("more-science-pack-29", {"bob-construction-robot-4", 3})
-	bobmods.lib.recipe.add_ingredient("more-science-pack-29", {"bob-logistic-robot-5", 1})
+	bobmods.lib.recipe.add_ingredient(Pack(29), {"silver-zinc-battery", 30})
+	bobmods.lib.recipe.add_ingredient(Pack(29), {"bob-construction-robot-4", 3})
+	bobmods.lib.recipe.add_ingredient(Pack(29), {"bob-logistic-robot-5", 1})
 	
 	if (data.raw.recipe["more-science-pack-30"]) then
 		-- local items = {}
@@ -87,6 +90,6 @@ function momoTweak.compatibility.msp.PackRecipe()
 		-- end
 	end
 	-- data.raw.recipe["more-science-pack-30"].ingredients = items
-	-- bobmods.lib.recipe.add_ingredient("more-science-pack-30", {"heat-shield-tile", 5})
-	-- bobmods.lib.recipe.add_ingredient("more-science-pack-30", {ele.unit[4], 25})
+	bobmods.lib.recipe.add_ingredient(Pack(30), ITEM("heat-shield-tile", 5))
+	bobmods.lib.recipe.add_ingredient(Pack(30), ITEM(electronics.yellow, 15))
 end
