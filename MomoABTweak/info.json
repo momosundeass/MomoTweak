@@ -1,7 +1,7 @@
 {
   "name": "MomoABTweak",
   "version": "0.18.1",
-  "factorio_version": "0.17",
+  "factorio_version": "0.18",
   "title": "MomoABTweak",
   "author": "Momosundeass",
   "homepage": "https://github.com/momosundeass/MomoTweak",
@@ -25,7 +25,7 @@
 	  "angelsrefining >= 0.10.3",
 	  "angelssmelting >= 0.5.3",
 	  "angelsbioprocessing >= 0.6.1",
-	  "angelsindustries >= 0.3.6"
+	  "angelsindustries >= 0.3.6",
 	  
 	  "? MoreSciencePacks >= 0.1.04",
 	  "? underground-pipe-pack >= 0.17.0",

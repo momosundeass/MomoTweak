@@ -1,8 +1,13 @@
-if not momoTweak then momoTweak = {} end
-if not momoTweak.settings then momoTweak.settings = {} end
-if not momoTweak.mods then momoTweak.mods = {} end
-if not momoTweak.require then momoTweak.require = {} end
-if not momoTweak.compatibility then momoTweak.compatibility = {} end
+momoTweak = {}
+momoTweak.data = {}
+momoTweak.updates = {}
+momoTweak.finalFixes = {}
+momoTweak.settings = {}
+momoTweak.mods = {}
+momoTweak.require = {} 
+momoTweak.compatibility = {}
+
+momoTweak.compatibility.msp = {}
 
 momoTweak.settings.isLoadBobExtended = true
 
@@ -21,10 +26,4 @@ momoIRTweak.InitItemsLib("__MomoABTweak__/graphics/icons/", false)
 
 require("naming")
 
-data:extend({{
-  	type = "custom-input",
-  	name = "momo-debug",
-  	key_sequence =  "CONTROL + SHIFT + F2",
-  	consuming = "script-only"
-}})
 
