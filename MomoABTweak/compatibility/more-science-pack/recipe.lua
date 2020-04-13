@@ -37,18 +37,19 @@ function momoTweak.compatibility.msp.PackRecipe()
 	AddIng(Pack(7), ITEM(momoTweak.item.platePack.name, 1))					
 	AddIng(Pack(8), ITEM(momoTweak.item.platePack.name, 2))
 	AddIng("more-science-pack-9", {"brass-alloy", 3})
-	AddIng("more-science-pack-10", {"chemical-boiler", 1})
-	bobmods.lib.recipe.replace_ingredient("chemical-boiler", "pipe", "copper-pipe") 
+
+	AddIng(Pack(10), ITEM("solid-carbon", 4))
 	
-	AddIng(Pack(10), ITEM("solid-carbon", 2))
-	AddIng(Pack(14), ITEM("clay-brick", 5))
 	AddIng(Pack(11), ITEM("clay-brick", 12))
+	
 	AddIng(Pack(19), ITEM("clay-brick", 40))
 	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-12", {"mixing-furnace", 1})
+	AddIng(Pack(12), ITEM("mixing-furnace", 1))
 	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-13", {"zinc-plate", 12})
-	bobmods.lib.recipe.add_ingredient("more-science-pack-14", {"zinc-plate", 5})
+	AddIng(Pack(13), ITEM("zinc-plate", 12))
+	
+	AddIng(Pack(14), ITEM("clay-brick", 15))
+	AddIng(Pack(14), ITEM("zinc-plate", 5))
 	
 	bobmods.lib.recipe.add_ingredient("more-science-pack-15", {"glass", 12})
 	
@@ -85,7 +86,7 @@ function momoTweak.compatibility.msp.PackRecipe()
 		bobmods.lib.recipe.add_ingredient("more-science-pack-"..i, {"nitinol-gear-wheel", 3})
 	end
 	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-26", {"advanced-plastics", 5})
+	bobmods.lib.recipe.add_ingredient("more-science-pack-26", {"plastics-bar", 5})
 	Replace("more-science-pack-26", "battery", ITEM("silver-zinc-battery", 3))
 	
 	bobmods.lib.recipe.add_ingredient("more-science-pack-27", {"nitinol-alloy", 4})

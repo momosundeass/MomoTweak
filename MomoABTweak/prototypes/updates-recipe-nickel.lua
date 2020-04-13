@@ -7,7 +7,7 @@ function momoTweak.recipe.Nickel()
 	AddIng("angels-plating", nickel)
 	AddIng("angels-strut", nickel2)
 	
-	AddIng("angels-explosionchamber", nickel)
+	AddIng("angels-fluidchamber", nickel)
 	AddIng("angels-energycrystal", nickel)
 	
 	AddIng("angels-servo-motor-3", nickel)

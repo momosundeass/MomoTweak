@@ -184,6 +184,15 @@ function momoIRTweak.recipe.ReplaceIngredient(recipeName, targetItem, newItem)
 	Recipe(recipeName):replace_ingredient(targetItem, newItem, true)
 end
 
+function momoIRTweak.recipe.ReplaceIngredientIfExist(recipeName, targetItem, newitem)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
+		if (momoIRTweak.recipe.IsIngredientExist(momoIRTweak.recipe.GetIngredients(recipeName), targetItem)) then
+			momoIRTweak.recipe.ReplaceIngredient(recipeName, targetItem, newitem)
+		end
+	end)
+	
+end
+
 function momoIRTweak.recipe.GetIngredient(recipeName, ingredientName) 
 	if (data.raw.recipe[recipeName]) then
 		local recipe = data.raw.recipe[recipeName]
@@ -203,6 +212,23 @@ function momoIRTweak.recipe.GetIngredient(recipeName, ingredientName)
 			end
 		end
 	end
+	return false
+end
+
+function momoIRTweak.recipe.GetIngredients(recipeName)
+	if (data.raw.recipe[recipeName]) then
+		local recipe = data.raw.recipe[recipeName]
+		
+		local ingredients = {}
+		if (recipe.normal) then
+			ingredients = recipe.normal.ingredients
+		else
+			ingredients = recipe.ingredients
+		end
+		
+		return ingredients
+	end
+	
 	return false
 end
 

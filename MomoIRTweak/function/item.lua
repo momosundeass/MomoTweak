@@ -112,6 +112,10 @@ function momoIRTweak.item.SetSubgroup(itemName, newSubgroup, order)
 end
 
 
+function momoIRTweak.item.ResetOrder()
+	momoIRTweak.itemOrder = 0
+end
+
 function momoIRTweak.item.NewScienceMaterialsItem(itemName)
 	return momoIRTweak.item.NewItem(itemName, momoIRTweak.science.materialSubgroup, 50)
 end

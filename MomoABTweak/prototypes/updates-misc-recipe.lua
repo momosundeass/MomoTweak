@@ -8,4 +8,5 @@ function momoTweak.recipe.MiscRecipe()
 	ResultCount("angels-axle", 2)
 	
 	AddIng("angels-bearing", FLUID("lubricant", 15))
+	AddIng("science-force-analyzer", ITEM("cable-harness-2", 1))
 end

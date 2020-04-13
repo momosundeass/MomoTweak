@@ -4,12 +4,22 @@ function momoTweak.recipe.ScienceComponents()
 	local AddIng = momoIRTweak.recipe.SafeAddIngredient
 	local Unlock = momoIRTweak.recipe.UnlockAtRef
 	local Replace = momoIRTweak.recipe.ReplaceIngredient
+	local myItem = momoTweak.item
 	
-	local platePack = NEW("crafting-machine", momoTweak.item.platePack.name, 1, {
-		ITEM("lead-plate", 3),
-		ITEM("tin-plate", 1)
+	local platePack = NEW("crafting-machine", myItem.platePack.name, 1, {
+		ITEM(myItem.lead.smallPlate.name, 2),
+		ITEM("tin-plate", 3),
+		ITEM("iron-plate", 1)
 	}, 6)
+	
+	local leadSmallPlate = NEW("crafting-machine", myItem.lead.smallPlate.name, 2, {
+		ITEM("lead-plate", 1)
+	}, 3)
+	
+	
+	Unlock(leadSmallPlate.name, "science-force-analyzer")
 	Unlock(platePack.name, "science-force-analyzer")
+	
 	AddIng("science-force-analyzer", ITEM(platePack.name, 2))
 	
 	local e1 = NEW("electronics", momoTweak.item.electronics1.name, 2, {

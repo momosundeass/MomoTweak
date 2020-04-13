@@ -7,9 +7,49 @@ function momoTweak.data.CreateItems()
 	momoIRTweak.CreateSubgroup("momo-science-components", "0-1", "angels-components")
 	local refSubgroup = "momo-science-components"
 	momoTweak.item.platePack = NewItemFixedSize("plate-pack", 32, refSubgroup, 200)
+	momoTweak.item.carbonPlate = NewItemFixedSize("momo-carbon-plate", 64, refSubgroup, 200)
+	momoTweak.item.stoneSlab = NewItemFixedSize("momo-stone-slab", 64, refSubgroup, 200)
+	
+	momoTweak.item.nickel = {}
+	momoTweak.item.cobalt = {}
+	momoIRTweak.CreateSubgroup("momo-nickel-cobalt-components", "z0-a1", "angels-components")
+	refSubgroup = "momo-nickel-cobalt-components"
+	momoIRTweak.item.ResetOrder()
+	momoTweak.item.nickel.smallPlate         = NewItemFixedSize("nickel-small-plate", 64, refSubgroup, 200)
+	momoTweak.item.nickel.smallComponenets   = NewItemFixedSize("nickel-small-components", 64, refSubgroup, 200)
+	momoTweak.item.nickel.complexComponenets = NewItemFixedSize("nickel-complex-components", 64, refSubgroup, 200)
+	momoTweak.item.nickel.tube               = NewItemFixedSize("nickel-tube", 64, refSubgroup, 200)
+	momoTweak.item.cobalt.smallPlate         = NewItemFixedSize("cobalt-small-plate", 64, refSubgroup, 200)
+	momoTweak.item.cobalt.smallComponenets   = NewItemFixedSize("cobalt-small-components", 64, refSubgroup, 200)
+	momoTweak.item.cobalt.complexComponenets = NewItemFixedSize("cobalt-complex-components", 64, refSubgroup, 200)
+	momoTweak.item.cobalt.tube               = NewItemFixedSize("cobalt-tube", 64, refSubgroup, 200)
+	
+	momoTweak.item.zinc = {}
+	momoTweak.item.silver = {}
+	momoIRTweak.CreateSubgroup("momo-zinc-silver-components", "z0-a2", "angels-components")
+	refSubgroup = "momo-zinc-silver-components"
+	momoIRTweak.item.ResetOrder()
+	momoTweak.item.zinc.smallPlate           = NewItemFixedSize("zinc-small-plate", 64, refSubgroup, 200)
+	momoTweak.item.zinc.smallComponenets     = NewItemFixedSize("zinc-small-components", 64, refSubgroup, 200)
+	momoTweak.item.zinc.complexComponenets   = NewItemFixedSize("zinc-complex-components", 64, refSubgroup, 200)
+	momoTweak.item.zinc.tube                 = NewItemFixedSize("zinc-tube", 64, refSubgroup, 200)
+	momoTweak.item.silver.smallPlate         = NewItemFixedSize("silver-small-plate", 64, refSubgroup, 200)
+	momoTweak.item.silver.smallComponenets   = NewItemFixedSize("silver-small-components", 64, refSubgroup, 200)
+	momoTweak.item.silver.complexComponenets = NewItemFixedSize("silver-complex-components", 64, refSubgroup, 200)
+	momoTweak.item.silver.tube               = NewItemFixedSize("silver-tube", 64, refSubgroup, 200)
+	
+	momoTweak.item.lead = {}
+	momoIRTweak.CreateSubgroup("momo-lead-components", "z0-a2", "angels-components")
+	refSubgroup = "momo-lead-components"
+	momoIRTweak.item.ResetOrder()
+	momoTweak.item.lead.smallPlate         = NewItemFixedSize("lead-small-plate", 64, refSubgroup, 200)
+	momoTweak.item.lead.smallComponenets   = NewItemFixedSize("lead-small-components", 64, refSubgroup, 200)
+	momoTweak.item.lead.complexComponenets = NewItemFixedSize("lead-complex-components", 64, refSubgroup, 200)
+	momoTweak.item.lead.tube               = NewItemFixedSize("lead-tube", 64, refSubgroup, 200)
 	
 	momoIRTweak.CreateSubgroup("momo-electronic-components", "0-2", "angels-components")
 	refSubgroup = "momo-electronic-components"
+	momoIRTweak.item.ResetOrder()
 	momoTweak.item.electronics1 = NewItemFixedSize("momo-electronic-mk1", 32, refSubgroup, 200)
 	momoTweak.item.electronics2 = NewItemFixedSize("momo-electronic-mk2", 32, refSubgroup, 200)
 	momoTweak.item.electronics3 = NewItemFixedSize("momo-electronic-mk3", 32, refSubgroup, 200)
@@ -18,6 +58,7 @@ function momoTweak.data.CreateItems()
 	
 	momoIRTweak.CreateSubgroup("momo-msp-components", "zz2", "angels-tech")
 	refSubgroup = "momo-msp-components"
+	momoIRTweak.item.ResetOrder()
 	momoTweak.item.msp1 = NewItemBaseIcon("momo-msp1", "__base__/graphics/icons/automation-science-pack", refSubgroup, 50)
 	momoTweak.item.msp2 = NewItemBaseIcon("momo-msp2", "__base__/graphics/icons/logistic-science-pack", refSubgroup, 50)
 	momoTweak.item.msp3 = NewItemBaseIcon("momo-msp3", "__base__/graphics/icons/chemical-science-pack", refSubgroup, 50)

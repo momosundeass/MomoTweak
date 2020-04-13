@@ -16,6 +16,9 @@ require("prototypes.updates-recipe-cobalt")
 require("prototypes.updates-recipe-alloy")
 require("prototypes.updates-recipe-plastic")
 require("prototypes.updates-recipe-carbon")
+require("prototypes.updates-recipe-momo-item")
+
+require("prototypes.updates-recipe-module")
 
 require("prototypes.bobextended.bobextended-update")
 
@@ -33,9 +36,13 @@ momoTweak.recipe.ScienceComponents()
 momoTweak.recipe.SciencePack()
 momoTweak.recipe.MiscRecipe()
 
+momoTweak.recipe.StoneSlab()
+momoTweak.recipe.CarbonPlate()
+
 momoTweak.updates.Solar() 
 momoTweak.updates.HarderElectronics()
 momoTweak.updates.ExtendedUpdate()
+momoTweak.recipe.Module()
 
 if (momoTweak.mods.msp) then
 	momoTweak.compatibility.msp.PackRecipe()

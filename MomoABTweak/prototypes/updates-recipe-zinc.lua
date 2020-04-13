@@ -10,8 +10,8 @@ function momoTweak.recipe.Zinc()
 	
 	AddIng("cable-harness-3", zinc2)
 	
-	AddIng("angel-roller-chain", zinc2)
-	AddIng("angel-spring", zinc)
+	AddIng("angels-roller-chain", zinc2)
+	AddIng("angels-spring", zinc)
 	
 	AddIng(momoTweak.components.cpu, zinc)
 end

@@ -23,7 +23,6 @@ function momoTweak.updates.HarderElectronics()
 	SetTime(ele.green, 6)
 	SetTime(ele.orange, 9)
 	SetTime(ele.blue, 12)
-	SetTime(ele.red, 15)
 	SetTime(ele.yellow, 20)
 	
 	

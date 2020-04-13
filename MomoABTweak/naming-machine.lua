@@ -49,11 +49,6 @@ momoTweak.machine = {
 		"pellet-press-3",
 		"pellet-press-4",
 	}, {
-		"pre-processing-machine",
-		"pre-processing-machine-2",
-		"pre-processing-machine-3",
-		"pre-processing-machine-4",
-	}, {
 		"powder-mixer",
 		"powder-mixer-2",
 		"powder-mixer-3",
