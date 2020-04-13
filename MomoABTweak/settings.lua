@@ -35,6 +35,16 @@ local function CreateIntSetting(settingName, defaultValue)
 	}}) 
 end
 
+local function CreateFloatSetting(settingName, defaultValue)
+	data:extend({{
+		type = "double-setting",
+		name = settingName,
+		setting_type = "startup",
+		default_value = defaultValue,
+		order = AutoOrder(),
+	}}) 
+end
+
 
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -47,8 +57,7 @@ CreateStringSetting("momo-headerRecipe", "")
 ---------------------------------------------------------------------------------------------------
 CreateStringSetting("momo-headerTechnology", "")
 
-CreateIntSetting("momo-automationTechnologyCount", 10)
-CreateIntSetting("momo-technologiesTimeMultiplier", 1)
+CreateIntSetting("momo-technologiesTimeMultiplier", 3)
 
 ---------------------------------------------------------------------------------------------------
 CreateStringSetting("momo-headerCompatibility", "")

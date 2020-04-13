@@ -98,6 +98,11 @@ function momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
 	end)
 end
 
+function momoIRTweak.recipe.SafeAddIngredientNative(recipeName, ingredient)
+	momoIRTweak.recipe.RemoveIngredient(recipeName, ingredient.name)
+	momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
+end
+
 function momoIRTweak.recipe.RemoveIngredient(recipeName, ingredientName)
 	Recipe(recipeName):remove_ingredient(ingredientName, ingredientName)
 end
@@ -168,7 +173,11 @@ function momoIRTweak.recipe.MultipleIngredientsCount(recipeName, multiplier)
 end
 
 function momoIRTweak.recipe.ReplaceAllIngredient(recipeName, newIngredients)
-	data.raw.recipe[recipeName].ingredients = newIngredients
+	if (data.raw.recipe[recipeName]) then
+		data.raw.recipe[recipeName].ingredients = newIngredients
+	else
+		momoIRTweak.Log("No recipe with name " .. recipeName .. " to replace ingredients")
+	end
 end
 
 function momoIRTweak.recipe.ReplaceIngredient(recipeName, targetItem, newItem)

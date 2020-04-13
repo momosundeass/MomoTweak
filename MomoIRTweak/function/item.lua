@@ -80,6 +80,14 @@ function momoIRTweak.item.NewItemBaseIcon(itemName, iconDir, itemSubgroup, maxSt
 	return item
 end
 
+function momoIRTweak.item.NewItemBaseIconMipmaped(itemName, iconDir, itemSubgroup, maxStack)
+	local item = momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
+	item.icon = iconDir .. ".png"
+	item.icon_size = 64
+	item.icon_mipmaps = 4
+	return item
+end
+
 function momoIRTweak.item.NewItemFixedSize(itemName, iconSize, itemSubgroup, maxStack)
 	local item = momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
 	item.icon = momoIRTweak.dir.baseIconPath .. iconSize .. "/" .. itemName .. ".png"

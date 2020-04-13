@@ -1,35 +1,49 @@
 function momoTweak.compatibility.msp.PackRecipe()
 	local ITEM = momoIRTweak.FastItem
 	local Replace = momoIRTweak.recipe.ReplaceIngredient
-	local Rem = momoIRTweak.recipe.removeIngredient
+	local ReplaceAll = momoIRTweak.recipe.ReplaceAllIngredient
+	local Rem = momoIRTweak.recipe.RemoveIngredient
 	local electronics = momoTweak.electronics
 	local circuit = momoTweak.circuit
 	local board = momoTweak.board
 	local components = momoTweak.components
 	local Pack = momoTweak.science.GetMoreSciencePack
+	local AddIng = momoIRTweak.recipe.SafeAddIngredient
 
-	Replace("more-science-pack-3", "light-armor", ITEM("stone-wall", 2))
+	ReplaceAll(Pack(1), {
+		ITEM("angels-ore1-crushed", 2),
+		ITEM("angels-ore3-crushed", 2),
+	})
 	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-5", ITEM(electronics.red, 1))
+	momoIRTweak.recipe.UnlockAtRef(Pack(2), momoTweak.science.red)
+	ReplaceAll(Pack(2), {
+		ITEM("stone", 5),
+		ITEM("burner-inserter", 1)
+	})
 	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-6", {"solder-alloy", 9})
+	Replace(Pack(3), "light-armor", ITEM("stone-brick", 6))
 	
-	bobmods.lib.recipe.add_ingredient(Pack(7), ITEM(momoTweak.item.platePack.name, 1))
-														
-	bobmods.lib.recipe.add_ingredient(Pack(8), ITEM(momoTweak.item.platePack.name, 1))
+	ReplaceAll(Pack(5), {
+		ITEM(circuit.red, 2),
+		ITEM("wood", 2),
+		ITEM("coal", 5),
+	})
 	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-9", {"brass-alloy", 3})
-	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"chemical-boiler", 1})
+	ReplaceAll(Pack(6), {
+		ITEM("construction-frame-2", 1),
+		ITEM("solder", 9)
+	})
+
+	AddIng(Pack(7), ITEM(momoTweak.item.platePack.name, 1))					
+	AddIng(Pack(8), ITEM(momoTweak.item.platePack.name, 2))
+	AddIng("more-science-pack-9", {"brass-alloy", 3})
+	AddIng("more-science-pack-10", {"chemical-boiler", 1})
 	bobmods.lib.recipe.replace_ingredient("chemical-boiler", "pipe", "copper-pipe") 
 	
-	bobmods.lib.recipe.add_ingredient("more-science-pack-10", {"solid-carbon", 2})
-	
-	if data.raw.item["clay-brick"] then
-		bobmods.lib.recipe.add_ingredient("more-science-pack-11", {"clay-brick", 12})
-		bobmods.lib.recipe.add_ingredient("more-science-pack-14", {"clay-brick", 5})
-		bobmods.lib.recipe.add_ingredient("more-science-pack-19", {"clay-brick", 40})
-	end
+	AddIng(Pack(10), ITEM("solid-carbon", 2))
+	AddIng(Pack(14), ITEM("clay-brick", 5))
+	AddIng(Pack(11), ITEM("clay-brick", 12))
+	AddIng(Pack(19), ITEM("clay-brick", 40))
 	
 	bobmods.lib.recipe.add_ingredient("more-science-pack-12", {"mixing-furnace", 1})
 	
