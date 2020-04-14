@@ -26,14 +26,21 @@ function momoIRTweak.recipe.NewRecipe(categoryCrafting, resultItemName, resultAm
 	return data.raw.recipe[name]
 end
 
+function momoIRTweak.recipe.NewRecipeCustomName(customName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	local prototype = momoIRTweak.recipe.BuildPrototype(customName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	data:extend({prototype})
+	return data.raw.recipe[customName]
+end
+
 function momoIRTweak.recipe.BuildPrototype(prototypeName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	local resultName = momoIRTweak.GetItemName(resultItemName)
 	return {
 		type = "recipe",
 		enabled = false,
 		category = categoryCrafting,
 		name = prototypeName,
 		ingredients = ingredients,
-		result = resultItemName,
+		result = resultName,
 		result_count = resultAmount,
 		energy_required = timeUse
 	}
@@ -375,7 +382,7 @@ function momoIRTweak.recipe.UnlockAtRef(recipeName, refRecipeName)
 end
 
 function momoIRTweak.recipe.UnlockAt(recipeName, technologyName)
-	momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName, true)
+	momoIRTweak.technology.AddUnlockEffect(technologyName, momoIRTweak.GetName(recipeName), true)
 end
 
 --- Misc.

@@ -105,6 +105,7 @@ momoTweak.bob.components = {}
 momoTweak.bob.components.resistor = "basic-electronic-components"
 momoTweak.bob.components.transistor = "electronic-components"
 momoTweak.bob.components.microchip = "intergrated-electronics"
+momoTweak.bob.components.transformer = "momo-transformer"
 momoTweak.bob.components.cpu = "processing-electronics"
 
 

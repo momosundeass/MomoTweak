@@ -1,18 +1,17 @@
+local ITEM = momoIRTweak.FastItem
+local FLUID = momoIRTweak.FastFluid
+local AddIng = momoIRTweak.recipe.SafeAddIngredient
+local Replace = momoIRTweak.recipe.ReplaceIngredient
+local Rem = momoIRTweak.recipe.RemoveIngredient
+local ele = momoTweak.electronics
+local components = momoTweak.components
+local SetTime = momoIRTweak.recipe.SetTime
+local wire = momoTweak.wire
+local NEW = momoIRTweak.recipe.NewRecipe
+local UnlockAt = momoIRTweak.recipe.UnlockAtRef
+local bobComponenets = momoTweak.bob.components
 
 function momoTweak.updates.HarderElectronics()
-	local ITEM = momoIRTweak.FastItem
-	local FLUID = momoIRTweak.FastFluid
-	local AddIng = momoIRTweak.recipe.SafeAddIngredient
-	local Replace = momoIRTweak.recipe.ReplaceIngredient
-	local Rem = momoIRTweak.recipe.RemoveIngredient
-	local ele = momoTweak.electronics
-	local components = momoTweak.components
-	local SetTime = momoIRTweak.recipe.SetTime
-	local wire = momoTweak.wire
-	local NEW = momoIRTweak.recipe.NewRecipe
-	local UnlockAt = momoIRTweak.recipe.UnlockAtRef
-	local bobComponenets = momoTweak.bob.components
-	
 	AddIng(ele.red, ITEM(momoTweak.circuit.grey, 1))
 	AddIng(ele.green, ITEM(ele.red, 1))
 	AddIng(ele.orange, ITEM(ele.green, 1))
@@ -25,7 +24,6 @@ function momoTweak.updates.HarderElectronics()
 	SetTime(ele.blue, 12)
 	SetTime(ele.yellow, 20)
 	
-	
 	Replace(components.transistor, "iron-plate", "copper-plate")
 	AddIng(components.transistor, ITEM(wire.tin, 2))
 	
@@ -33,11 +31,37 @@ function momoTweak.updates.HarderElectronics()
 	AddIng(components.microchip, FLUID("liquid-sulfuric-acid", 20))
 	AddIng(components.microchip, ITEM("angels-wire-silver", 4))
 	
-	Rem(components.transformer, "iron-plate")
+	AddIng(components.transformer, ITEM(wire.gold, 2))
 	
 	AddIng(components.cpu, ITEM("angels-wire-platinum", 2))
 	AddIng(components.cpu, FLUID("liquid-sulfuric-acid", 20))
 	
+	AddIng(ele.green, ITEM(bobComponenets.resistor, 1))
+	Rem(ele.green, components.resistor)
+	
+	AddIng(ele.orange, ITEM(bobComponenets.resistor, 1))
+	AddIng(ele.orange, ITEM(bobComponenets.transistor, 1))
+	Rem(ele.orange, components.resistor)
+	Rem(ele.orange, components.transistor)
+	
+	AddIng(ele.blue, ITEM(bobComponenets.resistor, 3))
+	AddIng(ele.blue, ITEM(bobComponenets.transistor, 2))
+	AddIng(ele.blue, ITEM(bobComponenets.microchip, 2))
+	Rem(ele.blue, components.resistor)
+	Rem(ele.blue, components.transistor)
+	Rem(ele.blue, components.microchip)
+	
+	AddIng(ele.yellow, ITEM(bobComponenets.resistor, 3))
+	AddIng(ele.yellow, ITEM(bobComponenets.transistor, 3))
+	AddIng(ele.yellow, ITEM(bobComponenets.microchip, 4))
+	AddIng(ele.yellow, ITEM(bobComponenets.transformer, 2))
+	Rem(ele.yellow, components.resistor)
+	Rem(ele.yellow, components.transistor)
+	Rem(ele.yellow, components.microchip)
+	Rem(ele.yellow, components.transformer)
+end
+
+function momoTweak.recipe.CreateElectronicsRecipe()
 	local recipe = NEW("electronics", bobComponenets.resistor, 1, {
 		ITEM(components.resistor, 2),
 		ITEM("iron-plate", 1)
@@ -58,6 +82,13 @@ function momoTweak.updates.HarderElectronics()
 	}, 5)
 	UnlockAt(recipe.name, components.transformer)
 	
+	recipe = NEW("electronics", momoTweak.item.transformer, 1, {
+		ITEM(components.resistor, 2),
+		ITEM(components.transformer, 2),
+		ITEM("iron-plate", 1),
+	}, 7)
+	UnlockAt(recipe.name, components.transformer)
+	
 	recipe = NEW("electronics", bobComponenets.cpu, 1, {
 		ITEM(components.cpu, 2),
 		ITEM("angels-coil-glass-fiber", 2),
@@ -65,33 +96,4 @@ function momoTweak.updates.HarderElectronics()
 		ITEM(wire.gold, 2),
 	}, 9)
 	UnlockAt(recipe.name, components.cpu)
-	
-	
-	
-	
-	
-	
-	
-	AddIng(ele.green, ITEM(bobComponenets.resistor, 1))
-	Rem(ele.green, components.resistor)
-	
-	AddIng(ele.orange, ITEM(bobComponenets.resistor, 1))
-	AddIng(ele.orange, ITEM(bobComponenets.transistor, 1))
-	Rem(ele.orange, components.resistor)
-	Rem(ele.orange, components.transistor)
-	
-	AddIng(ele.blue, ITEM(bobComponenets.resistor, 3))
-	AddIng(ele.blue, ITEM(bobComponenets.transistor, 2))
-	AddIng(ele.blue, ITEM(bobComponenets.microchip, 2))
-	Rem(ele.blue, components.resistor)
-	Rem(ele.blue, components.transistor)
-	Rem(ele.blue, components.microchip)
-	
-	AddIng(ele.yellow, ITEM(bobComponenets.resistor, 3))
-	AddIng(ele.yellow, ITEM(bobComponenets.transistor, 3))
-	AddIng(ele.yellow, ITEM(bobComponenets.microchip, 4))
-	AddIng(ele.yellow, ITEM(components.transformer, 2))
-	Rem(ele.yellow, components.resistor)
-	Rem(ele.yellow, components.transistor)
-	Rem(ele.yellow, components.microchip)
 end

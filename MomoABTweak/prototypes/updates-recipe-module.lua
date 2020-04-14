@@ -5,13 +5,13 @@ function momoTweak.recipe.Module()
 	local Replace = momoIRTweak.recipe.ReplaceIngredientIfExist
 	
 	Rem("module-processor-board", momoTweak.board.orange)
-	AddIng("module-processor-board", ITEM(momoTweak.electronics.orange, 4))
+	AddIng("module-processor-board", ITEM(momoTweak.item.electronics3, 4))
 	
 	Rem("module-processor-board-2", momoTweak.board.blue)
-	AddIng("module-processor-board-2", ITEM(momoTweak.electronics.blue, 4))
+	AddIng("module-processor-board-2", ITEM(momoTweak.item.electronics4, 4))
 	
 	Rem("module-processor-board-3", momoTweak.board.blue)
-	AddIng("module-processor-board-3", ITEM(momoTweak.electronics.yellow, 4))
+	AddIng("module-processor-board-3", ITEM(momoTweak.item.electronics5, 4))
 	
 	local baseModules = {
 		"speed-module",
@@ -31,6 +31,7 @@ function momoTweak.recipe.Module()
 		{momoTweak.components.resistor, momoTweak.bob.components.resistor },
 		{momoTweak.components.transistor, momoTweak.bob.components.transistor },
 		{momoTweak.components.microchip, momoTweak.bob.components.microchip },
+		{momoTweak.components.transformer, momoTweak.bob.components.transformer },
 		{momoTweak.components.cpu, momoTweak.bob.components.cpu }
 	}
 	

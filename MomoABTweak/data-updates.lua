@@ -20,8 +20,10 @@ require("prototypes.updates-recipe-momo-item")
 
 require("prototypes.updates-recipe-module")
 
+require("prototypes.updates-stack-size")
 require("prototypes.bobextended.bobextended-update")
 
+momoTweak.recipe.CreateElectronicsRecipe()
 
 momoTweak.recipe.Nickel()
 momoTweak.recipe.Zinc()
@@ -42,7 +44,10 @@ momoTweak.recipe.CarbonPlate()
 momoTweak.updates.Solar() 
 momoTweak.updates.HarderElectronics()
 momoTweak.updates.ExtendedUpdate()
+momoTweak.updates.StackSize()
 momoTweak.recipe.Module()
+
+momoTweak.updates.StackSize()
 
 if (momoTweak.mods.msp) then
 	momoTweak.compatibility.msp.PackRecipe()

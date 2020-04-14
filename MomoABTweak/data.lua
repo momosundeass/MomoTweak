@@ -31,6 +31,7 @@ momoIRTweak.InitItemsLib("__MomoABTweak__/graphics/icons/", false)
 
 require("naming")
 require("naming-machine")
+require("fluid-naming")
 require("prototypes.data-item")
 require("prototypes.bobextended.bobextended-data")
 
