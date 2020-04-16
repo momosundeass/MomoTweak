@@ -61,7 +61,21 @@ function momoIRTweak.FastSciencePack(itemName, itemAmount)
 end
 -- --------------------------------------------- Fast item
 
+function momoIRTweak.ValidateItem(itemName, callback)
+	if (data.raw.item[itemName]) then
+		callback(data.raw.item[itemName])
+	else
+		momoIRTweak.Log("no item in validate function with name ".. itemName)
+	end
+end
 
+function momoIRTweak.ValidateFluid(fluidName, callback)
+	if (data.raw.fluid[fluidName]) then
+		callback(data.raw.fluid[fluidName])
+	else
+		momoIRTweak.Log("no item in validate function with name ".. fluidName)
+	end
+end
 
 function momoIRTweak.item.CastToBasic(item) 
 	local typeItem = "item"

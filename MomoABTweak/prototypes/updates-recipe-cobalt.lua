@@ -17,11 +17,15 @@ function momoTweak.recipe.Cobalt()
 	
 	local tube = NEW("mixing-furnace", COBALT.tube, 1, {
 		ITEM(COBALT.smallComponents, 3),
-		ITEM("brass-alloy", 1)
+		ITEM(myItem.zinc.tube, 1)
 	}, 3)
 	UnlockAt(tube, refTech)
 	
 	
 	AddIng("cable-harness-4", ITEM(COBALT.tube, 1))
 	AddIng("cable-harness-5", ITEM(COBALT.tube, 1))
+	
+	AddIng("bob-laser-turret-3", ITEM("cobalt-plate", 40))
+	AddIng("bob-laser-turret-4", ITEM("cobalt-plate", 40))
+	AddIng("bob-laser-turret-5", ITEM("cobalt-plate", 40))
 end

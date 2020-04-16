@@ -63,13 +63,13 @@ end
 
 function momoTweak.recipe.CreateElectronicsRecipe()
 	local recipe = NEW("electronics", bobComponenets.resistor, 1, {
-		ITEM(components.resistor, 2),
+		ITEM(components.resistor, 1),
 		ITEM("iron-plate", 1)
 	}, 1.5)
 	UnlockAt(recipe.name, components.transistor)
 	
 	recipe = NEW("electronics", bobComponenets.transistor, 1, {
-		ITEM(components.transistor, 2),
+		ITEM(components.transistor, 1),
 		ITEM("solid-carbon", 2),
 		ITEM("nickel-plate", 1)
 	}, 3)

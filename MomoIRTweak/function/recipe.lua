@@ -431,6 +431,23 @@ function momoIRTweak.recipe.SetIcon(recipeName, iconPath, iconSize)
 	end
 end
 
+function momoIRTweak.recipe.SetIcons(recipeName, mainIcon, size, icons)
+	local recipe = data.raw.recipe[recipeName]
+	if (recipe) then
+		recipe.icon = nil
+		recipe.icons = {
+			{
+				icon = mainIcon,
+				icon_size = size,
+			}
+		}
+		
+		for _, icon in pairs(icons) do
+			table.insert(recipe.icons, icon)
+		end
+	end
+end
+
 function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
 	local recipe = data.raw.recipe[recipeName]
 	if (recipe) then

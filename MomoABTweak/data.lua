@@ -5,6 +5,7 @@ momoTweak.finalFixes = {}
 momoTweak.settings = {}
 momoTweak.mods = {}
 momoTweak.require = {} 
+momoTweak.icon = {}
 momoTweak.compatibility = {}
 momoTweak.compatibility.msp = {}
 
@@ -32,11 +33,14 @@ momoIRTweak.InitItemsLib("__MomoABTweak__/graphics/icons/", false)
 require("naming")
 require("naming-machine")
 require("fluid-naming")
+require("angels-number-icon")
 require("prototypes.data-item")
 require("prototypes.bobextended.bobextended-data")
 
+
 momoTweak.data.CreateItems()
 momoTweak.data.BobExtendedData()
+momoTweak.icon.AngelsNumber()
 
 function momoTweak.data.ElectronicsSwapIcon()
 	local angelsProto = data.raw.item[momoTweak.components.resistor]

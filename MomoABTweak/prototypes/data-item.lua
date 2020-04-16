@@ -6,9 +6,11 @@ function momoTweak.data.CreateItems()
 	
 	momoIRTweak.CreateSubgroup("momo-science-components", "0-1", "angels-components")
 	local refSubgroup = "momo-science-components"
-	momoTweak.item.platePack = NewItemFixedSize("plate-pack", 32, refSubgroup, 200)
 	momoTweak.item.carbonPlate = NewItemFixedSize("momo-carbon-plate", 64, refSubgroup, 200)
 	momoTweak.item.stoneSlab = NewItemFixedSize("momo-stone-slab", 64, refSubgroup, 200)
+	momoTweak.item.platePack = NewItemFixedSize("momo-plate-pack", 32, refSubgroup, 200)
+	momoTweak.item.productionPackage = NewItemFixedSize("momo-production-package", 32, refSubgroup, 50)
+	momoTweak.item.vial = NewItemFixedSize("momo-science-vial", 64, refSubgroup, 200)
 	
 	momoTweak.item.nickel = {}
 	momoTweak.item.cobalt = {}
