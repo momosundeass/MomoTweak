@@ -66,7 +66,3 @@ CreateStringSetting("momo-headerCompatibility", "")
 CreateBoolSetting("momo-spaceEx", true)
 CreateBoolSetting("momo-removeLongInserter", true)
 CreateBoolSetting("momo-ultimateBelt", true)
-
-CreateStringSetting("momo-headerDebug", "")
-
-CreateBoolSetting("momo-debug", false)

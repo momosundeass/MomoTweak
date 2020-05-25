@@ -48,14 +48,6 @@ data:extend({{
 momoIRTweak.subgroups["science-pack"].order = "a1"
 momoIRTweak.subgroups["intermediate-product"].order = "a2"
 
---- debug key
-data:extend({{
-  	type = "custom-input",
-  	name = "momo-debug",
-  	key_sequence =  "CONTROL + SHIFT + F2",
-  	consuming = "script-only"
-}})
-
 require("prototypes.electric-pole")
 require("prototypes.underground-belt")
 require("prototypes.inserter")
