@@ -1,13 +1,15 @@
-local function AssignSprite(sprite, path)
-	local fullPath = "__MomoPyTweak__/graphics/entity/mining-drill/" .. path .. ".png"
-	local hr_fullPath = "__MomoPyTweak__/graphics/entity/mining-drill/hr-" .. path .. ".png"
-	sprite.filename = fullPath
-	sprite.hr_version.filename = hr_fullPath
-end
+-- local function AssignSprite(sprite, path)
+	-- local fullPath = "__MomoPyTweak__/graphics/entity/mining-drill/" .. path .. ".png"
+	-- local hr_fullPath = "__MomoPyTweak__/graphics/entity/mining-drill/hr-" .. path .. ".png"
+	-- sprite.filename = fullPath
+	-- sprite.hr_version.filename = hr_fullPath
+-- end
 
 function momoPyTweak.MiningDrill()
 	local prototype = momoIRTweak.DeepCopy(data.raw["mining-drill"]["electric-mining-drill"])
-
+	
+	momoIRTweak.PrintTable(prototype)
+	
 	local refItem = data.raw.item["electric-mining-drill"]
 	momoPyTweak.item.miner = momoIRTweak.item.NewItemFixedSize("momo-express-miner", 32, refItem.subgroup, 50)
 	momoPyTweak.item.miner.order = refItem.order .. "!"
@@ -16,10 +18,10 @@ function momoPyTweak.MiningDrill()
 	
 	prototype.name = "momo-express-miner"
 	prototype.minable.result = "momo-express-miner"
-	AssignSprite(prototype.animations.north, "N")
-	AssignSprite(prototype.animations.east, "E")
-	AssignSprite(prototype.animations.south, "S")
-	AssignSprite(prototype.animations.west, "W")
+	-- AssignSprite(prototype.animations.north, "N")
+	-- AssignSprite(prototype.animations.east, "E")
+	-- AssignSprite(prototype.animations.south, "S")
+	-- AssignSprite(prototype.animations.west, "W")
 	
 	prototype.mining_speed = 2
 	prototype.energy_source.emissions_per_minute = 40
