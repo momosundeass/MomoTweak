@@ -1,14 +1,22 @@
--- local function AssignSprite(sprite, path)
-	-- local fullPath = "__MomoPyTweak__/graphics/entity/mining-drill/" .. path .. ".png"
-	-- local hr_fullPath = "__MomoPyTweak__/graphics/entity/mining-drill/hr-" .. path .. ".png"
-	-- sprite.filename = fullPath
-	-- sprite.hr_version.filename = hr_fullPath
--- end
-
 function momoPyTweak.MiningDrill()
+	-- ref mining drill prototype in base//demo-mining-drill.lua
+
 	local prototype = momoIRTweak.DeepCopy(data.raw["mining-drill"]["electric-mining-drill"])
+	local path = "__MomoPyTweak__/graphics/entity/mining-drill/"
 	
-	momoIRTweak.PrintTable(prototype)
+	local function AssignSprite(layer, spriteNames)
+		if layer.filename then
+			layer.filename = path .. spriteNames[1]
+			layer.hr_version.filename = path .. "hr/hr-" .. spriteNames[1]
+		else
+			for i, sn in pairs(spriteNames) do
+				if sn == "_" then goto continue end
+				layer[i].filename = path .. sn
+				layer[i].hr_version.filename = path .. "hr/hr-" .. sn
+			::continue:: end
+		end
+		
+	end
 	
 	local refItem = data.raw.item["electric-mining-drill"]
 	momoPyTweak.item.miner = momoIRTweak.item.NewItemFixedSize("momo-express-miner", 32, refItem.subgroup, 50)
@@ -18,10 +26,26 @@ function momoPyTweak.MiningDrill()
 	
 	prototype.name = "momo-express-miner"
 	prototype.minable.result = "momo-express-miner"
-	-- AssignSprite(prototype.animations.north, "N")
-	-- AssignSprite(prototype.animations.east, "E")
-	-- AssignSprite(prototype.animations.south, "S")
-	-- AssignSprite(prototype.animations.west, "W")
+
+	local anim = prototype.graphics_set.animation
+	AssignSprite(anim.east.layers, {"electric-mining-drill-E.png"})
+	AssignSprite(anim.north.layers, {"electric-mining-drill-N.png"})
+	AssignSprite(anim.west.layers, {"electric-mining-drill-W.png"})
+		
+	local front = prototype.graphics_set.working_visualisations[7]
+	AssignSprite(front.east_animation, {"electric-mining-drill-E-front.png"})
+	AssignSprite(front.south_animation.layers, {"electric-mining-drill-S-output.png", "electric-mining-drill-S-front.png"})
+	AssignSprite(front.west_animation, {"electric-mining-drill-W-front.png"})
+	
+	local wetAnim = prototype.wet_mining_graphics_set.animation
+	AssignSprite(wetAnim.east.layers, {"electric-mining-drill-E-wet.png"})
+	AssignSprite(wetAnim.north.layers, {"electric-mining-drill-N-wet.png"})
+	AssignSprite(wetAnim.west.layers, {"electric-mining-drill-W-wet.png"})
+	
+	local wetWorking = prototype.wet_mining_graphics_set.working_visualisations[13]
+	AssignSprite(wetWorking.east_animation.layers, {"electric-mining-drill-E-wet-front.png"}) 
+	AssignSprite(wetWorking.south_animation.layers, {"electric-mining-drill-S-output.png", "electric-mining-drill-S-wet-front.png"}) 
+	AssignSprite(wetWorking.west_animation.layers, {"electric-mining-drill-W-wet-front.png"}) 
 	
 	prototype.mining_speed = 2
 	prototype.energy_source.emissions_per_minute = 40
