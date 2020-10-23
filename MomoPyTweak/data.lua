@@ -25,6 +25,7 @@ momoPyTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
 momoPyTweak.mods.alienTech = mods["SchallAlienTech"]
 momoPyTweak.mods.spaceEx = mods["SpaceMod"]
 momoPyTweak.mods.ultimateBelt = mods["UltimateBelts_Owoshima_And_Pankeko-Mod"]
+momoPyTweak.mods.transportDrones = mods["Transport_Drones"]
 
 momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value

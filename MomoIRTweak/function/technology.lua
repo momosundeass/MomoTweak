@@ -198,10 +198,15 @@ end
 
 function momoIRTweak.technology.SetPrerequire(technologyName, prerequireTable)
 	local technology = data.raw.technology[momoIRTweak.GetName(technologyName)]
-	if (type(technology) == "table" and type(prerequireTable) == "table") then
+	if (type(technology) ~= "table") then
+		error("technology.SetPrerequire no technlogy with name " .. technologyName)
+	end 
+	if (type(prerequireTable) == "table") then
 		technology.prerequisites = prerequireTable
+	elseif (type(prerequireTable) == "string") then
+		technology.prerequisites = { prerequireTable }
 	else
-		error("technology.SetPrerequire need table got " .. type(techonlogy))
+		error("technology.SetPrerequire need table or string got " .. type(prerequireTable))
 	end
 end
 

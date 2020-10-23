@@ -19,6 +19,7 @@
 		"? UltimateBelts_Owoshima_And_Pankeko-Mod >= 0.18.1",
 		"? bobinserters >= 0.17.10",
 		"? underground-pipe-pack >= 0.17.0",
-		"? SchallAlienTech >= 0.17.14"
+		"? SchallAlienTech >= 0.17.14",
+		"? Transport_Drones >= 0.7.12"
 	]
 }

@@ -34,7 +34,7 @@ function momoPyTweak.compatibility.UltimateBeltRecipe()
 		"extreme-express-splitter",
 		"original-ultimate-splitter"
 	}
-		local uBelts = {
+	local uBelts = {
 		"ultra-fast-underground-belt",
 		"extreme-fast-underground-belt",
 		"ultra-express-underground-belt",
