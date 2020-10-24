@@ -1,4 +1,8 @@
 function momoPyTweak.compatibility.UltimateBeltRecipe()
+	if not (settings.startup["momo-ultimateBelt"].value) then
+		return
+	end
+
 	local AddIng = momoIRTweak.recipe.SafeAddIngredient
 	local Replace = momoIRTweak.recipe.ReplaceIngredient
 	local Remove = momoIRTweak.recipe.RemoveIngredient
@@ -30,7 +34,7 @@ function momoPyTweak.compatibility.UltimateBeltRecipe()
 		"extreme-express-splitter",
 		"original-ultimate-splitter"
 	}
-		local uBelts = {
+	local uBelts = {
 		"ultra-fast-underground-belt",
 		"extreme-fast-underground-belt",
 		"ultra-express-underground-belt",

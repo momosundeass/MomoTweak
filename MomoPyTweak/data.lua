@@ -25,9 +25,11 @@ momoPyTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
 momoPyTweak.mods.alienTech = mods["SchallAlienTech"]
 momoPyTweak.mods.spaceEx = mods["SpaceMod"]
 momoPyTweak.mods.ultimateBelt = mods["UltimateBelts_Owoshima_And_Pankeko-Mod"]
+momoPyTweak.mods.transportDrones = mods["Transport_Drones"]
 
 momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value
+
 momoPyTweak.settings.miner = settings.startup["momo-miner"].value
 momoPyTweak.settings.solarPanel = settings.startup["momo-solarPanel"].value
 
@@ -46,14 +48,6 @@ data:extend({{
 
 momoIRTweak.subgroups["science-pack"].order = "a1"
 momoIRTweak.subgroups["intermediate-product"].order = "a2"
-
---- debug key
-data:extend({{
-  	type = "custom-input",
-  	name = "momo-debug",
-  	key_sequence =  "CONTROL + SHIFT + F2",
-  	consuming = "script-only"
-}})
 
 require("prototypes.electric-pole")
 require("prototypes.underground-belt")

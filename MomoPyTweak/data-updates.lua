@@ -5,10 +5,12 @@ require("compatibility.underground-pipe-pack")
 require("compatibility.schall-alien-tech")
 require("compatibility.space-extension-mod")
 require("compatibility.ultimate-belt")
+require("compatibility.transport-drones")
 
 require("prototypes.updates-science-materials")
 require("prototypes.updates-module")
 require("prototypes.updates-recipe")
+require("prototypes.updates-technology")
 require("prototypes.roboport")
 
 if not momoPyTweak.DumpOnly then
@@ -56,7 +58,15 @@ if not momoPyTweak.DumpOnly then
 		momoPyTweak.compatibility.UltimateBeltRecipe()
 	end
 	
+	if (momoPyTweak.mods.transportDrones) then
+		momoPyTweak.compatibility.TransportDrones()
+	end
+	
 	if (settings.startup["momo-module"].value) then
 		momoPyTweak.updates.Module()
+	end
+	
+	if (settings.startup["momo-earlyLandfill"].value) then
+		momoPyTweak.updates.EarlyLandfill()
 	end
 end

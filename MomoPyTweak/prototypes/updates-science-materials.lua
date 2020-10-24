@@ -84,6 +84,7 @@ function momoPyTweak.updates.ScienceMaterials()
 	AddIng(sci.pack3, ITEM(momoPyTweak.item.pack3, GetResultAmount(sci.pack3)))
 	AddIng(sci.packMilitary, ITEM(momoPyTweak.item.packMilitary, GetResultAmount(sci.packMilitary)))
 	AddIng(sci.packProduction, ITEM(momoPyTweak.item.packProduction, GetResultAmount(sci.packProduction)))
+	AddIng("random-science-pack", ITEM(momoPyTweak.item.packProduction, GetResultAmount("random-science-pack")))
 	AddIng(sci.packUtility, ITEM(momoPyTweak.item.packUtility, GetResultAmount(sci.packUtility)))
 end
 

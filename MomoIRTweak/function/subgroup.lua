@@ -26,3 +26,12 @@ function momoIRTweak.GetSubgroupFromRecipe(recipeName)
 	local itemSubgroup = data.raw.recipe[recipeName].subgroup
 	return momoIRTweak.subgroups[subgroup]
 end
+
+function momoIRTweak.CreateSubgroup(name, order, group)
+	data:extend({{
+		type = "item-subgroup",
+		name = name,
+		group = group,
+		order = order
+	}})
+end

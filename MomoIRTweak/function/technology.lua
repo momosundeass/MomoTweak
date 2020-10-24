@@ -168,6 +168,23 @@ function momoIRTweak.technology.ReplaceIngredient(technology, tableMapping)
 	end
 end
 
+function momoIRTweak.technology.SetIngredient(technology, ingredientsTable)
+	local technologyName = momoIRTweak.GetName(technology)
+	local tech = data.raw.technology[technologyName]
+	
+	if not (type(ingredientsTable) == "table") then
+		momoIRTweak.Log("ingredients isn't table to set ingredients")
+		return false
+	end
+	
+	if (tech) then
+		tech.unit.ingredients = ingredientsTable
+		return true
+	end
+	momoIRTweak.Log("no technology with name to set ingredients : " .. tostring(technologyName))
+	return false
+end
+
 function momoIRTweak.technology.ClonePrototype(technologyName, newName)
 	if (data.raw.technology[technologyName]) then
 		local tech = momoIRTweak.DeepCopy(data.raw.technology[technologyName])
@@ -181,10 +198,15 @@ end
 
 function momoIRTweak.technology.SetPrerequire(technologyName, prerequireTable)
 	local technology = data.raw.technology[momoIRTweak.GetName(technologyName)]
-	if (type(technology) == "table" and type(prerequireTable) == "table") then
+	if (type(technology) ~= "table") then
+		error("technology.SetPrerequire no technlogy with name " .. technologyName)
+	end 
+	if (type(prerequireTable) == "table") then
 		technology.prerequisites = prerequireTable
+	elseif (type(prerequireTable) == "string") then
+		technology.prerequisites = { prerequireTable }
 	else
-		error("technology.SetPrerequire need table got " .. type(techonlogy))
+		error("technology.SetPrerequire need table or string got " .. type(prerequireTable))
 	end
 end
 

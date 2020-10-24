@@ -19,25 +19,38 @@ function momoIRTweak.InitItemsLib(iconLocation, isHighRes)
 	momoIRTweak.dir.icon = momoIRTweak.dir.icon .. momoIRTweak.dir.iconSize .. "/"
 end
 
+function momoIRTweak.GetItemName(tableOrName)
+	if (type(tableOrName) == "table") then
+		-- Table case
+		if (tableOrName.type == "item" or tableOrName.type == "fluid") then
+			return tableOrName.name
+		elseif (tableOrName[1] and tableOrName[2]) then
+			-- case if is {itemname, amount}
+			if (type(tableOrName[1]) == "string" and type(tableOrName[2] == "number")) then
+				return tableOrName[1]
+			else
+				return false
+			end
+		end
+		
+		-- END: table case
+	elseif (type(tableOrName) == "string") then
+		return tableOrName
+	end
+	return false
+end
+
 -- --------------------------------------------- Fast item
 function momoIRTweak.FastItem(itemName, itemAmount)
-	if type(itemName) == "table" then
-		itemName = itemName.name
-	end
-	if itemAmount == nil then
-		itemAmount = 1
-	end
-	return {type="item", name=itemName, amount=itemAmount}
+	local item = momoIRTweak.GetItemName(itemName)
+	if itemAmount == nil then itemAmount = 1 end
+	return {type="item", name=item, amount=itemAmount}
 end
 
 function momoIRTweak.FastFluid(fluidName, fluidAmount)
-	if type(fluidName) == "table" then
-		fluidName = fluidName.name
-	end
-	if fluidAmount == nil then
-		fluidAmount = 1
-	end
-	return {type="fluid", name=fluidName, amount=fluidAmount}
+	local item = momoIRTweak.GetItemName(fluidName)
+	if fluidAmount == nil then fluidAmount = 1 end
+	return {type="fluid", name=item, amount=fluidAmount}
 end
 
 function momoIRTweak.FastSciencePack(itemName, itemAmount)
@@ -47,6 +60,22 @@ function momoIRTweak.FastSciencePack(itemName, itemAmount)
 	return {itemName, itemAmount}
 end
 -- --------------------------------------------- Fast item
+
+function momoIRTweak.ValidateItem(itemName, callback)
+	if (data.raw.item[itemName]) then
+		callback(data.raw.item[itemName])
+	else
+		momoIRTweak.Log("no item in validate function with name ".. itemName)
+	end
+end
+
+function momoIRTweak.ValidateFluid(fluidName, callback)
+	if (data.raw.fluid[fluidName]) then
+		callback(data.raw.fluid[fluidName])
+	else
+		momoIRTweak.Log("no item in validate function with name ".. fluidName)
+	end
+end
 
 function momoIRTweak.item.CastToBasic(item) 
 	local typeItem = "item"
@@ -80,6 +109,14 @@ function momoIRTweak.item.NewItemBaseIcon(itemName, iconDir, itemSubgroup, maxSt
 	return item
 end
 
+function momoIRTweak.item.NewItemBaseIconMipmaped(itemName, iconDir, itemSubgroup, maxStack)
+	local item = momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
+	item.icon = iconDir .. ".png"
+	item.icon_size = 64
+	item.icon_mipmaps = 4
+	return item
+end
+
 function momoIRTweak.item.NewItemFixedSize(itemName, iconSize, itemSubgroup, maxStack)
 	local item = momoIRTweak.item.NewItem(itemName, itemSubgroup, maxStack)
 	item.icon = momoIRTweak.dir.baseIconPath .. iconSize .. "/" .. itemName .. ".png"
@@ -103,6 +140,17 @@ function momoIRTweak.item.SetSubgroup(itemName, newSubgroup, order)
 	end)
 end
 
+function momoIRTweak.item.SetStackSize(itemName, newStackSize)
+	if (data.raw.item[itemName]) then
+		data.raw.item[itemName].stack_size = newStackSize
+	else
+		momoIRTweak.Log("No item with name : " .. itemName .. " to set stack size")
+	end
+end
+
+function momoIRTweak.item.ResetOrder()
+	momoIRTweak.itemOrder = 0
+end
 
 function momoIRTweak.item.NewScienceMaterialsItem(itemName)
 	return momoIRTweak.item.NewItem(itemName, momoIRTweak.science.materialSubgroup, 50)

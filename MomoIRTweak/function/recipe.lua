@@ -26,14 +26,21 @@ function momoIRTweak.recipe.NewRecipe(categoryCrafting, resultItemName, resultAm
 	return data.raw.recipe[name]
 end
 
+function momoIRTweak.recipe.NewRecipeCustomName(customName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	local prototype = momoIRTweak.recipe.BuildPrototype(customName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	data:extend({prototype})
+	return data.raw.recipe[customName]
+end
+
 function momoIRTweak.recipe.BuildPrototype(prototypeName, categoryCrafting, resultItemName, resultAmount, ingredients, timeUse)
+	local resultName = momoIRTweak.GetItemName(resultItemName)
 	return {
 		type = "recipe",
 		enabled = false,
 		category = categoryCrafting,
 		name = prototypeName,
 		ingredients = ingredients,
-		result = resultItemName,
+		result = resultName,
 		result_count = resultAmount,
 		energy_required = timeUse
 	}
@@ -96,6 +103,11 @@ function momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
 			table.insert(recipe.ingredients, ingredient)
 		end
 	end)
+end
+
+function momoIRTweak.recipe.SafeAddIngredientNative(recipeName, ingredient)
+	momoIRTweak.recipe.RemoveIngredient(recipeName, ingredient.name)
+	momoIRTweak.recipe.AddIngredientNative(recipeName, ingredient)
 end
 
 function momoIRTweak.recipe.RemoveIngredient(recipeName, ingredientName)
@@ -168,11 +180,24 @@ function momoIRTweak.recipe.MultipleIngredientsCount(recipeName, multiplier)
 end
 
 function momoIRTweak.recipe.ReplaceAllIngredient(recipeName, newIngredients)
-	data.raw.recipe[recipeName].ingredients = newIngredients
+	if (data.raw.recipe[recipeName]) then
+		data.raw.recipe[recipeName].ingredients = newIngredients
+	else
+		momoIRTweak.Log("No recipe with name " .. recipeName .. " to replace ingredients")
+	end
 end
 
 function momoIRTweak.recipe.ReplaceIngredient(recipeName, targetItem, newItem)
 	Recipe(recipeName):replace_ingredient(targetItem, newItem, true)
+end
+
+function momoIRTweak.recipe.ReplaceIngredientIfExist(recipeName, targetItem, newitem)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe)
+		if (momoIRTweak.recipe.IsIngredientExist(momoIRTweak.recipe.GetIngredients(recipeName), targetItem)) then
+			momoIRTweak.recipe.ReplaceIngredient(recipeName, targetItem, newitem)
+		end
+	end)
+	
 end
 
 function momoIRTweak.recipe.GetIngredient(recipeName, ingredientName) 
@@ -194,6 +219,23 @@ function momoIRTweak.recipe.GetIngredient(recipeName, ingredientName)
 			end
 		end
 	end
+	return false
+end
+
+function momoIRTweak.recipe.GetIngredients(recipeName)
+	if (data.raw.recipe[recipeName]) then
+		local recipe = data.raw.recipe[recipeName]
+		
+		local ingredients = {}
+		if (recipe.normal) then
+			ingredients = recipe.normal.ingredients
+		else
+			ingredients = recipe.ingredients
+		end
+		
+		return ingredients
+	end
+	
 	return false
 end
 
@@ -335,6 +377,13 @@ end
 
 -----------------------------------------------------------------------------------------
 
+function momoIRTweak.recipe.UnlockAtRef(recipeName, refRecipeName)
+	momoIRTweak.recipe.UnlockAt(recipeName, momoIRTweak.technology.FindFromRecipe(refRecipeName))
+end
+
+function momoIRTweak.recipe.UnlockAt(recipeName, technologyName)
+	momoIRTweak.technology.AddUnlockEffect(technologyName, momoIRTweak.GetName(recipeName), true)
+end
 
 --- Misc.
 function momoIRTweak.recipe.GetCraftingMachineTint(recipeName)
@@ -382,6 +431,23 @@ function momoIRTweak.recipe.SetIcon(recipeName, iconPath, iconSize)
 	end
 end
 
+function momoIRTweak.recipe.SetIcons(recipeName, mainIcon, size, icons)
+	local recipe = data.raw.recipe[recipeName]
+	if (recipe) then
+		recipe.icon = nil
+		recipe.icons = {
+			{
+				icon = mainIcon,
+				icon_size = size,
+			}
+		}
+		
+		for _, icon in pairs(icons) do
+			table.insert(recipe.icons, icon)
+		end
+	end
+end
+
 function momoIRTweak.recipe.SetLocalizedName(recipeName, localName)
 	local recipe = data.raw.recipe[recipeName]
 	if (recipe) then
@@ -393,6 +459,12 @@ function momoIRTweak.recipe.SetSubgroup(recipeName, newSubgroup, order)
 	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
 		recipe.subgroup = newSubgroup
 		recipe.order = order
+	end)
+end
+
+function momoIRTweak.recipe.SetCategory(recipeName, newCategory)
+	momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) 
+		recipe.category = newCategory
 	end)
 end
 

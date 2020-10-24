@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 2020.10.24
+  Update:
+    - Update to version 1.0.0
+    - Mining Drill MK2 graphics
+	- Add production pack to random science pack recipe
+	- Add Transport Drones mod compatibility
+---------------------------------------------------------------------------------------------------
+Version: 0.18.4
+Date: 2020.5.23
+  Fix:
+    - Unable to start cause by debug key (Removed)
+---------------------------------------------------------------------------------------------------
 Version: 0.18.3
 Date: 2020.4.4
   Balance:
