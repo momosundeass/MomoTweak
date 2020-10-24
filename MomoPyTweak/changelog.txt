@@ -4,6 +4,8 @@ Date: 2020.8.19
   Update:
     - Update to version 1.0.0
     - Mining Drill MK2 graphics
+	- Add production pack to random science pack recipe
+	- Add Transport Drones mod compatibility
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.4
 Date: 2020.5.23
