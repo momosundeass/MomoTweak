@@ -3,6 +3,7 @@ local function GetSprite(path)
 end
 
 function momoPyTweak.SolarPanel()
+	local replaceableGroup = ""
 	local prototype = {}
 	
 	local refItem = data.raw.item["solar-panel"]
@@ -10,12 +11,22 @@ function momoPyTweak.SolarPanel()
 	momoPyTweak.item.solarPanel2.order = refItem.order .. "!1"
 	momoPyTweak.item.solarPanel2.place_result = "momo-solar-panel-2"
 	
+	prototype = data.raw["solar-panel"]["solar-panel"]
+	
+	if (prototype.fast_replaceable_group == nil or prototype.fast_replaceable_group == "") then
+		replaceableGroup = "solar-panel"
+		prototype.fast_replaceable_group = replaceableGroup
+	else
+		replaceableGroup = prototype.fast_replaceable_group
+	end
+	
 	prototype = momoIRTweak.DeepCopy(data.raw["solar-panel"]["solar-panel"])
 	prototype.name = "momo-solar-panel-2"
 	prototype.minable.result = "momo-solar-panel-2"
 	prototype.production = "180kW"
 	prototype.picture.layers[1].filename = GetSprite("momo-solar-panel-2")
 	prototype.picture.layers[1].hr_version.filename = GetSprite("hr-momo-solar-panel-2")
+	prototype.fast_replaceable_group = replaceableGroup
 	data:extend({prototype})
 	
 	momoPyTweak.item.solarPanel3 = momoIRTweak.item.NewItemFixedSize("momo-solar-panel-3", 32, refItem.subgroup, 50)
@@ -28,6 +39,7 @@ function momoPyTweak.SolarPanel()
 	prototype.production = "540kW"
 	prototype.picture.layers[1].filename = GetSprite("momo-solar-panel-3")
 	prototype.picture.layers[1].hr_version.filename = GetSprite("hr-momo-solar-panel-3")
+	prototype.fast_replaceable_group = replaceableGroup
 	data:extend({prototype})
 end
 
