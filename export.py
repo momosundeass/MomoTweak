@@ -119,6 +119,12 @@ momoPyTweakDirectoryName = ExportModDirectory(pyTweak)
 irTweak = MOD("MomoIRTweak", "\\MomoIRTweak")
 momoIRTweakDirectoryName = ExportModDirectory(irTweak)
 
+pipeTweak = MOD("MomoUndergroundPipeTweak", "\\MomoUndergroundPipeTweak", libPath=LibPath)
+momoPipeTweakDirectoryName = ExportModDirectory(pipeTweak)
+
+SETweak = MOD("MomoK2SETweak", "\\MomoK2SETweak", libPath=LibPath)
+momoK2SETweakDirectoryName = ExportModDirectory(SETweak)
+
 print("\nExport completed.")
 time.sleep(.500)
 if not (FindFactorioInSystem()):

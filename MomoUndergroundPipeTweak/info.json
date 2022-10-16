@@ -1,0 +1,14 @@
+{
+	"name": "MomoUndergroundPipeTweak",
+	"version": "1.1.0",
+	"factorio_version": "1.1",
+	"title": "Momo Underground Pipe Tweak",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "Make underground pipe pack harder to craft",
+	"dependencies": [
+		"base >= 1.1.0",
+		"underground-pipe-pack",
+		"? space-exploration"
+	]
+}

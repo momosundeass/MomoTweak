@@ -1,5 +1,6 @@
 momoIRTweak.subgroups = data.raw["item-subgroup"]
 momoIRTweak.subgroupOrder = 1
+if not momoIRTweak.subgroup then momoIRTweak.subgroup = {} end
 
 
 function momoIRTweak.NewSubgroup(name, group, order)
@@ -34,4 +35,20 @@ function momoIRTweak.CreateSubgroup(name, order, group)
 		group = group,
 		order = order
 	}})
+end
+
+function momoIRTweak.ChangeGroup(targetGroup, newGroup)
+	for named, subgroup in pairs(momoIRTweak.subgroups) do
+		if subgroup.group == targetGroup then
+			subgroup.group = newGroup
+		end
+	end
+end
+
+function momoIRTweak.subgroup.MergeSubGroup(recipes, newSubgroup)
+	local order = 0
+	for	_, recipe in pairs(recipes) do
+		momoIRTweak.recipe.SetSubgroup(recipe, newSubgroup, order)
+		order = order + 1
+	end
 end
