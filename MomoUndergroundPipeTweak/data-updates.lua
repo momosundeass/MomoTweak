@@ -1,5 +1,8 @@
 require("prototypes.recipes.pipe-recipes")
 require("prototypes.subgroups.pipe-subgroups")
 
-momoPipeTweak.recipes.Update()
+if (settings.startup["momo-pipe-use-recipes"].value) then
+	momoPipeTweak.recipes.Update()
+end
+
 momoPipeTweak.subgroups.Update()

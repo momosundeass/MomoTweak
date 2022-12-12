@@ -1,5 +1,6 @@
 --- using
 local ITEM = momoIRTweak.FastItem
+local Replace = momoIRTweak.recipe.ReplaceIngredientIfExist
 
 
 function momoPyTweak.updates.BotRecipe()
@@ -28,4 +29,9 @@ function momoPyTweak.updates.WireRecipe()
 		ITEM("electronic-circuit", 1)
 	})
 	momoIRTweak.recipe.SetResultCount("green-wire", 20)
+end
+
+function momoPyTweak.updates.undergroundPipeBeltStoneRecipes() 
+	Replace("underground-belt", "iron-plate", ITEM("stone", 10))
+	Replace("pipe-to-ground", "iron-plate", ITEM("stone", 5))
 end

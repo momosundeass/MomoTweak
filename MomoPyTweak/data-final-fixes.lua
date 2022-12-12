@@ -7,24 +7,35 @@ require("prototypes.final-fixed-assembler")
 require("prototypes.armor")
 
 if not (momoPyTweak.DumpOnly) then
-	momoPyTweak.finalFixes.MoveSciencePackSubgroup()
-	momoPyTweak.finalFixes.ElectronicsSubgroup()
-	momoPyTweak.finalFixes.Technogies()
-	momoPyTweak.finalFixes.Military()
-	momoPyTweak.finalFixes.AddUtilitySciencePackToTechnology()
+	if (not momoPyTweak.mods.pyAE) then
+		momoPyTweak.finalFixes.MoveSciencePackSubgroup()
+		momoPyTweak.finalFixes.ElectronicsSubgroup()
+		
+		momoPyTweak.finalFixes.Military()
+		momoPyTweak.finalFixes.AddUtilitySciencePackToTechnology()
+		
+		-- temp fix energy cost
+		momoPyTweak.finalFixes.GlassWorkEnergyCost()
+		
+		-- rearrangement subgroup
+		momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
 	
-	-- temp fix energy cost
-	momoPyTweak.finalFixes.GlassWorkEnergyCost()
+	end
 	
-	-- rearrangement subgroup
-	momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
+	if (settings.startup["momo-enableTechnology"].value and not momoPyTweak.mods.pyAE) then
+		momoPyTweak.finalFixes.Technogies()
+	end
 	
 	if (momoPyTweak.mods.alienTech) then
 		momoPyTweak.compatibility.SchallUraniumMining()
 	end
 	
+	if (momoPyTweak.settings.undergroundBelt) then
+		momoPyTweak.finalFixes.ExtraUndergroundBelt()
+	end
+	
 	momoPyTweak.ArmorInventory()
 else
-	momoIRTweak.DumpTechnologies()
-	momoIRTweak.DumpRecipes()
+	-- momoIRTweak.DumpTechnologies()
+	-- momoIRTweak.DumpRecipes()
 end

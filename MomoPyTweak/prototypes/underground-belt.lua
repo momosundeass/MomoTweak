@@ -107,6 +107,21 @@ function momoPyTweak.updates.ExtraUndergroundBeltTech()
 	momoIRTweak.technology.AddUnlockEffect("logistics", momoPyTweak.item.undergroundBelt.name)
 	momoIRTweak.technology.AddUnlockEffect("logistics-2", momoPyTweak.item.fastUndergroundBelt.name)
 	momoIRTweak.technology.AddUnlockEffect("logistics-3", momoPyTweak.item.expressUndergroundBelt.name)
+	
+	local ref = data.raw["underground-belt"]["underground-belt"]
+	local prototype = data.raw["underground-belt"]["momo-underground-belt"]
+	prototype.max_distance = (ref.max_distance * 2) + 1
+	
+	ref = data.raw["underground-belt"]["fast-underground-belt"]
+	prototype = data.raw["underground-belt"]["momo-fast-underground-belt"]
+	prototype.max_distance = (ref.max_distance * 2) + 1
+	
+	ref = data.raw["underground-belt"]["express-underground-belt"]
+	prototype = data.raw["underground-belt"]["momo-express-underground-belt"]
+	prototype.max_distance = (ref.max_distance * 2) + 1
 end
 
+function momoPyTweak.finalFixes.ExtraUndergroundBelt()
+	
+end
 

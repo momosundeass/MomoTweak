@@ -20,6 +20,7 @@ momoIRTweak.InitItemsLib("__MomoPyTweak__/graphics/icons/", true)
 
 require("naming")
 momoPyTweak.mods.pyAL = mods["pyalienlife"]
+momoPyTweak.mods.pyAE = mods["pyalternativeenergy"]
 momoPyTweak.mods.bobInserter = mods["bobinserters"]
 momoPyTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
 momoPyTweak.mods.alienTech = mods["SchallAlienTech"]
@@ -28,11 +29,14 @@ momoPyTweak.mods.ultimateBelt = mods["UltimateBelts_Owoshima_And_Pankeko-Mod"] o
 momoPyTweak.mods.transportDrones = mods["Transport_Drones"]
 momoPyTweak.mods.advancedModules = mods["Advanced_Modules"]
 
-momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value
+momoPyTweak.settings.undergroundPipeBeltStoneRecipes = settings.startup["momo-undergroundPipeBeltStoneRecipes"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value
+momoPyTweak.settings.buffUndergroundBelt = settings.startup["momo-buffUndergroundBelt"].value
 
-momoPyTweak.settings.miner = settings.startup["momo-miner"].value
-momoPyTweak.settings.solarPanel = settings.startup["momo-solarPanel"].value
+momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value and not momoPyTweak.mods.pyAE
+momoPyTweak.settings.improveInserter = settings.startup["momo-improveInserter"].value
+momoPyTweak.settings.miner = settings.startup["momo-miner"].value and not momoPyTweak.mods.pyAE
+momoPyTweak.settings.solarPanel = settings.startup["momo-solarPanel"].value and not momoPyTweak.mods.pyAE
 
 -- flag to make mod only dump data to log
 momoPyTweak.DumpOnly = false
@@ -59,16 +63,18 @@ require("prototypes.item.science-materials")
 
 
 if not (momoPyTweak.DumpOnly) then
-	momoPyTweak.CreateScienceMaterials()
-	momoPyTweak.Inserter()
-	momoPyTweak.MiningDrill()
-	momoPyTweak.SolarPanel()
+	if (not momoPyTweak.mods.pyAE) then
+		momoPyTweak.CreateScienceMaterials()
+		momoPyTweak.Inserter()
+		momoPyTweak.MiningDrill()
+		momoPyTweak.SolarPanel()
+	end
 	
 	if (settings.startup["momo-electricPole"].value) then
 		momoPyTweak.BuffElectricPole()
 	end
 	
-	if (momoPyTweak.settings.undergroundBelt) then
+	if (momoPyTweak.settings.buffUndergroundBelt) then
 		momoPyTweak.BuffUndergroundBelt()
 	end
 	

@@ -43,16 +43,21 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-CreateBoolSetting("momo-inserter", true)
+local haveAE = mods["pyalternativeenergy"]
+
+CreateBoolSetting("momo-inserter", not haveAE)
+CreateBoolSetting("momo-improveInserter", true)
 CreateBoolSetting("momo-undergroundBelt", true)
-CreateBoolSetting("momo-miner", true)
-CreateBoolSetting("momo-solarPanel", true)
+CreateBoolSetting("momo-buffUndergroundBelt", not haveAE)
+CreateBoolSetting("momo-miner", not haveAE)
+CreateBoolSetting("momo-solarPanel", not haveAE)
 CreateBoolSetting("momo-electricPole", true)
 CreateBoolSetting("momo-module", true)
 CreateBoolSetting("momo-earlyLandfill", false)
+CreateBoolSetting("momo-undergroundPipeBeltStoneRecipes", true)
 
 CreateStringSetting("momo-headerTechnology", "")
-
+CreateBoolSetting("momo-enableTechnology", not mods["pyalternativeenergy"])
 CreateIntSetting("momo-automationTechnologyCount", 5)
 CreateIntSetting("momo-technologiesTimeMultiplier", 2)
 CreateIntSetting("momo-logisticScienceCost", 50)
@@ -63,7 +68,8 @@ CreateIntSetting("momo-utilityScienceCost", 350)
 
 
 CreateStringSetting("momo-headerCompatibility", "")
+CreateBoolSetting("momo-undergroundPipePack", not haveAE)
 CreateBoolSetting("momo-spaceEx", true)
-CreateBoolSetting("momo-removeLongInserter", true)
+CreateBoolSetting("momo-removeLongInserter", not haveAE)
 CreateBoolSetting("momo-ultimateBelt", true)
 CreateBoolSetting("momo-transportDrones", true)

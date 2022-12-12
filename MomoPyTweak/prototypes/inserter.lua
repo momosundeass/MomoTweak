@@ -141,6 +141,22 @@ function momoPyTweak.Inserter()
 	data:extend({prototype})
 end
 
+function momoPyTweak.updates.ImproveInserter()
+	local inserters = {"inserter", "long-handed-inserter", "fast-inserter", "filter-inserter", "stack-inserter", "stack-filter-inserter"}
+	if (momoPyTweak.settings.inserter) then
+		table.insert(inserters, "momo-express-inserter")
+		table.insert(inserters, "momo-express-filter-inserter")
+		table.insert(inserters, "momo-express-stack-inserter")
+		table.insert(inserters, "momo-express-stack-filter-inserter")
+	end
+	
+	for _, name in pairs(inserters) do
+		local prototype = data.raw.inserter[name]
+		prototype.extension_speed = prototype.extension_speed * 2
+		prototype.rotation_speed = prototype.rotation_speed * 2
+	end
+end
+
 function momoPyTweak.updates.Inserter()
 	local ITEM = momoIRTweak.FastItem
 	local item = momoPyTweak.item

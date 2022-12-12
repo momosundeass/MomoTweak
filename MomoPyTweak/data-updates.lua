@@ -15,16 +15,28 @@ require("prototypes.updates-technology")
 require("prototypes.roboport")
 
 if not momoPyTweak.DumpOnly then
-	momoPyTweak.updates.ScienceMaterials()
-	momoPyTweak.updates.BotRecipe()
-	momoPyTweak.updates.BalancedElectronicsCircuit()
-	momoPyTweak.updates.WireRecipe()
+	if (not momoPyTweak.mods.pyAE) then
+		momoPyTweak.updates.ScienceMaterials()
+		momoPyTweak.updates.BotRecipe()
+		momoPyTweak.updates.BalancedElectronicsCircuit()
+		momoPyTweak.updates.WireRecipe()
+		
+		momoPyTweak.updates.SolarPanelTechnology()
+		momoPyTweak.updates.Roboport()
+	end
 	
-	momoPyTweak.updates.Inserter()
-	momoPyTweak.updates.InserterTechnology()
+	if (momoPyTweak.settings.inserter) then
+		momoPyTweak.updates.Inserter()
+		momoPyTweak.updates.InserterTechnology()
+	end
 	
-	momoPyTweak.updates.SolarPanelTechnology()
-	momoPyTweak.updates.Roboport()
+	if (momoPyTweak.settings.improveInserter) then
+		momoPyTweak.updates.ImproveInserter()
+	end
+	
+	if (momoPyTweak.settings.undergroundPipeBeltStoneRecipes) then
+		momoPyTweak.updates.undergroundPipeBeltStoneRecipes()
+	end
 	
 	if (momoPyTweak.settings.undergroundBelt) then
 		momoPyTweak.updates.ExtraUndergroundBelt()
@@ -39,7 +51,7 @@ if not momoPyTweak.DumpOnly then
 		momoPyTweak.compatibility.bobInserter()
 	end
 	
-	if (momoPyTweak.mods.undergroundPipePack) then
+	if (momoPyTweak.mods.undergroundPipePack and settings.startup["momo-undergroundPipePack"].value) then
 		momoPyTweak.compatibility.PipePack()
 	end
 	
@@ -71,7 +83,7 @@ if not momoPyTweak.DumpOnly then
 		momoPyTweak.updates.Module()
 	end
 	
-	if (settings.startup["momo-earlyLandfill"].value) then
+	if (settings.startup["momo-earlyLandfill"].value and not momoPyTweak.mods.pyAE) then
 		momoPyTweak.updates.EarlyLandfill()
 	end
 end
