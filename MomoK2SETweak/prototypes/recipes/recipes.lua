@@ -1,3 +1,5 @@
+local ITEM = momoIRTweak.FastItem
+
 function momoK2SETweak.recipes.FinalFix()
 	if (momoK2SETweak.mods.BobInserter) then
 		local RemoveRecipe = momoIRTweak.technology.RemoveAllUnlockEffect
@@ -9,5 +11,10 @@ function momoK2SETweak.recipes.FinalFix()
 			RemoveRecipe("kr-superior-long-inserter")
 			RemoveRecipe("kr-superior-long-filter-inserter")
 		end
+	end
+	
+	local card = "basic-tech-card"
+	if (data.raw.tool[card]) then
+		momoIRTweak.recipe.SafeAddIngredient("chemical-science-pack", {card, 5})
 	end
 end

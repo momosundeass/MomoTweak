@@ -64,6 +64,8 @@ end
 function momoIRTweak.ValidateItem(itemName, callback)
 	if (data.raw.item[itemName]) then
 		callback(data.raw.item[itemName])
+	elseif (data.raw.tool[itemName]) then
+		callback(data.raw.tool[itemName])
 	else
 		momoIRTweak.Log("no item in validate function with name ".. itemName)
 	end
