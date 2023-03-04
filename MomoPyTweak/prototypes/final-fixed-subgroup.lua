@@ -1,4 +1,4 @@
-function momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
+function momoPyTweak.finalFixes.Resubgroup()
 	local SetSubgroup = momoIRTweak.recipe.SetSubgroup
 	local GetOrder = momoIRTweak.GetSubgroupOrder
 	
@@ -21,4 +21,10 @@ function momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
 	--- move barreled to fluids tab
 	momoIRTweak.subgroups["fill-barrel"].group = "fluids"
 	momoIRTweak.subgroups["empty-barrel"].group = "fluids"
+end
+
+function momoPyTweak.finalFixes.MoveCombatGroup()
+	local combatGroup = "combat"
+	local productionGroup = "logistics" 
+	momoIRTweak.ChangeGroup(combatGroup, productionGroup)
 end

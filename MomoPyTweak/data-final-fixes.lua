@@ -18,8 +18,10 @@ if not (momoPyTweak.DumpOnly) then
 		momoPyTweak.finalFixes.GlassWorkEnergyCost()
 		
 		-- rearrangement subgroup
-		momoPyTweak.finalFixes.PyanodonPleaseFixThatSubgroup()
+		momoPyTweak.finalFixes.Resubgroup()
 	
+	else
+		momoPyTweak.finalFixes.MoveCombatGroup()
 	end
 	
 	if (settings.startup["momo-enableTechnology"].value and not momoPyTweak.mods.pyAE) then
