@@ -4,7 +4,7 @@ require("compatibility.bob-inserter")
 require("compatibility.underground-pipe-pack")
 require("compatibility.schall-alien-tech")
 require("compatibility.space-extension-mod")
-require("compatibility.ultimate-belt")
+
 require("compatibility.transport-drones")
 require("compatibility.advanced-modules")
 
@@ -38,11 +38,6 @@ if not momoPyTweak.DumpOnly then
 		momoPyTweak.updates.undergroundPipeBeltStoneRecipes()
 	end
 	
-	if (momoPyTweak.settings.undergroundBelt) then
-		momoPyTweak.updates.ExtraUndergroundBelt()
-		momoPyTweak.updates.ExtraUndergroundBeltTech()
-	end
-	
 	if (momoPyTweak.mods.pyAL) then
 		momoPyTweak.updates.ScienceMaterialsAL()
 	end
@@ -68,7 +63,13 @@ if not momoPyTweak.DumpOnly then
 	end
 	
 	if (momoPyTweak.mods.ultimateBelt) then
-		momoPyTweak.compatibility.UltimateBeltRecipe()
+		if (momoPyTweak.mods.pyAE) then
+			require("compatibility.ultimate-belt-ae")
+			momoPyTweak.compatibility.UltimateBeltAE()
+		else
+			require("compatibility.ultimate-belt")
+			momoPyTweak.compatibility.UltimateBeltRecipe()
+		end
 	end
 	
 	if (momoPyTweak.mods.transportDrones) then
@@ -86,4 +87,10 @@ if not momoPyTweak.DumpOnly then
 	if (settings.startup["momo-earlyLandfill"].value and not momoPyTweak.mods.pyAE) then
 		momoPyTweak.updates.EarlyLandfill()
 	end
+	
+	if (momoPyTweak.settings.undergroundBelt) then
+		momoPyTweak.updates.ExtraUndergroundBelt()
+		momoPyTweak.updates.ExtraUndergroundBeltTech()
+	end
+	
 end

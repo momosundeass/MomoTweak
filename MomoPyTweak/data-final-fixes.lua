@@ -36,6 +36,10 @@ if not (momoPyTweak.DumpOnly) then
 		momoPyTweak.finalFixes.ExtraUndergroundBelt()
 	end
 	
+	if (momoPyTweak.mods.pyAE and momoPyTweak.mods.miniloader and momoPyTweak.mods.ultimateBelt) then
+		momoPyTweak.finalFixes.UltimateBeltMiniloader()
+	end
+	
 	momoPyTweak.ArmorInventory()
 else
 	-- momoIRTweak.DumpTechnologies()

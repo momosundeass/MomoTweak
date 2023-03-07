@@ -12,10 +12,31 @@ function momoIRTweak.NewSubgroup(name, group, order)
 	}})
 end
 
+function momoIRTweak.CreateSubgroup(name, order, group)
+	data:extend({{
+		type = "item-subgroup",
+		name = name,
+		group = group,
+		order = order
+	}})
+end
+
 function momoIRTweak.GetSubgroupOrder()
 	local order = "a" .. (10000 + momoIRTweak.subgroupOrder)
 	momoIRTweak.subgroupOrder = momoIRTweak.subgroupOrder + 1
 	return order
+end
+
+function momoIRTweak.ChangeSubgroupItemAndRecipe(itemName, newSubgroup, order)
+	momoIRTweak.ValidateItem(itemName, function(itemPro)
+		itemPro.subgroup = newSubgroup
+		itemPro.order = order
+	end)
+	
+	momoIRTweak.recipe.ValidateRecipe(itemName, function(recipePro)
+		recipePro.subgroup = newSubgroup
+		recipePro.order = order
+	end)
 end
 
 function momoIRTweak.GetSubgroupFromItem(itemName)
@@ -26,15 +47,6 @@ end
 function momoIRTweak.GetSubgroupFromRecipe(recipeName)
 	local itemSubgroup = data.raw.recipe[recipeName].subgroup
 	return momoIRTweak.subgroups[subgroup]
-end
-
-function momoIRTweak.CreateSubgroup(name, order, group)
-	data:extend({{
-		type = "item-subgroup",
-		name = name,
-		group = group,
-		order = order
-	}})
 end
 
 function momoIRTweak.ChangeGroup(targetGroup, newGroup)
