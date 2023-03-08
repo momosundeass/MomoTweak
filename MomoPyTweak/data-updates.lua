@@ -19,8 +19,6 @@ if not momoPyTweak.DumpOnly then
 		momoPyTweak.updates.ScienceMaterials()
 		momoPyTweak.updates.BotRecipe()
 		momoPyTweak.updates.BalancedElectronicsCircuit()
-		momoPyTweak.updates.WireRecipe()
-		
 		momoPyTweak.updates.SolarPanelTechnology()
 		momoPyTweak.updates.Roboport()
 	end
@@ -64,8 +62,7 @@ if not momoPyTweak.DumpOnly then
 	
 	if (momoPyTweak.mods.ultimateBelt) then
 		if (momoPyTweak.mods.pyAE) then
-			require("compatibility.ultimate-belt-ae")
-			momoPyTweak.compatibility.UltimateBeltAE()
+			momoPyTweak.updates.UltimateBeltAE()
 		else
 			require("compatibility.ultimate-belt")
 			momoPyTweak.compatibility.UltimateBeltRecipe()

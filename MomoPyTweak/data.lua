@@ -32,7 +32,6 @@ momoPyTweak.mods.advancedModules = mods["Advanced_Modules"]
 
 momoPyTweak.settings.undergroundPipeBeltStoneRecipes = settings.startup["momo-undergroundPipeBeltStoneRecipes"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value
-momoPyTweak.settings.buffUndergroundBelt = settings.startup["momo-buffUndergroundBelt"].value
 
 momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value and not momoPyTweak.mods.pyAE
 momoPyTweak.settings.improveInserter = settings.startup["momo-improveInserter"].value
@@ -62,6 +61,9 @@ require("prototypes.mining-drill")
 require("prototypes.solar-panel")
 require("prototypes.item.science-materials")
 
+if (momoPyTweak.mods.pyAE and momoPyTweak.mods.ultimateBelt) then
+	require("compatibility.ultimate-belt-ae")
+end
 
 if not (momoPyTweak.DumpOnly) then
 	if (not momoPyTweak.mods.pyAE) then
@@ -75,8 +77,8 @@ if not (momoPyTweak.DumpOnly) then
 		momoPyTweak.BuffElectricPole()
 	end
 	
-	if (momoPyTweak.settings.buffUndergroundBelt) then
-		momoPyTweak.BuffUndergroundBelt()
+	if (momoPyTweak.mods.pyAE and momoPyTweak.mods.ultimateBelt) then
+		momoPyTweak.UltimateBeltAE()
 	end
 	
 	momoPyTweak.ExtraUndergroundBelt()

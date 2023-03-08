@@ -48,7 +48,6 @@ local haveAE = mods["pyalternativeenergy"]
 CreateBoolSetting("momo-inserter", not haveAE)
 CreateBoolSetting("momo-improveInserter", true)
 CreateBoolSetting("momo-undergroundBelt", true)
-CreateBoolSetting("momo-buffUndergroundBelt", not haveAE)
 CreateBoolSetting("momo-miner", not haveAE)
 CreateBoolSetting("momo-solarPanel", not haveAE)
 CreateBoolSetting("momo-electricPole", true)
