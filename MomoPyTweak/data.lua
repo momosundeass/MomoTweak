@@ -29,6 +29,7 @@ momoPyTweak.mods.ultimateBelt = mods["UltimateBelts_Owoshima_And_Pankeko-Mod"] o
 momoPyTweak.mods.miniloader = mods["miniloader"]
 momoPyTweak.mods.transportDrones = mods["Transport_Drones"]
 momoPyTweak.mods.advancedModules = mods["Advanced_Modules"]
+momoPyTweak.mods.waterFill = mods["Waterfill_Fork"]
 
 momoPyTweak.settings.undergroundPipeBeltStoneRecipes = settings.startup["momo-undergroundPipeBeltStoneRecipes"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value

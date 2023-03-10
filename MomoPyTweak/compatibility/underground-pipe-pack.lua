@@ -3,7 +3,6 @@ local ITEM = momoIRTweak.FastItem
 local AddIng = momoIRTweak.recipe.SaveAddIngredient
 local Rem = momoIRTweak.recipe.RemoveIngredient
 local Replace = momoIRTweak.recipe.ReplaceIngredient
-local MergeSubGroup = momoIRTweak.subgroups.MergeSubGroup
 
 local function ReplaceIngredientFor(recipe, removeNames, addItem)
 	for _, name in pairs(removeNames) do

@@ -23,6 +23,7 @@
 		"? SchallAlienTech >= 0.17.14",
 		"? Transport_Drones >= 0.7.12",
 		"? miniloader",
-		"? Advanced_Modules"
+		"? Advanced_Modules",
+		"? Waterfill_Fork"
 	]
 }

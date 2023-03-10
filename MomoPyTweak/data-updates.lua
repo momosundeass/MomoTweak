@@ -7,12 +7,14 @@ require("compatibility.space-extension-mod")
 
 require("compatibility.transport-drones")
 require("compatibility.advanced-modules")
+require("compatibility.water-fill")
 
 require("prototypes.updates-science-materials")
 require("prototypes.updates-module")
 require("prototypes.updates-recipe")
 require("prototypes.updates-technology")
 require("prototypes.roboport")
+
 
 if not momoPyTweak.DumpOnly then
 	if (not momoPyTweak.mods.pyAE) then
@@ -88,6 +90,10 @@ if not momoPyTweak.DumpOnly then
 	if (momoPyTweak.settings.undergroundBelt) then
 		momoPyTweak.updates.ExtraUndergroundBelt()
 		momoPyTweak.updates.ExtraUndergroundBeltTech()
+	end
+	
+	if (momoPyTweak.mods.waterFill) then
+		momoPyTweak.updates.WaterFill()
 	end
 	
 end
