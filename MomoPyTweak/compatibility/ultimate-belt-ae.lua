@@ -345,10 +345,11 @@ function momoPyTweak.finalFixes.UltimateBeltAEMiniloader()
 	
 	------ Recipe
 	local fastInserter = "fast-inserter"
+	local inserter = "inserter"
 	SetIngredients(loaders[2], {
 		ITEM(loaders[1]), 
 		ITEM(uBelts[2]),
-		ITEM(fastInserter, 2)
+		ITEM(inserter, 2)
 	})
 	SetIngredients(loaders[3], {
 		ITEM(loaders[2]), 

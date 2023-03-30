@@ -21,6 +21,7 @@ if not (momoPyTweak.DumpOnly) then
 		momoPyTweak.finalFixes.Resubgroup()
 	
 	else
+		data.raw.inserter["burner-inserter"].next_upgrade = "inserter"
 		momoPyTweak.finalFixes.MoveCombatGroup()
 	end
 	
@@ -36,13 +37,15 @@ if not (momoPyTweak.DumpOnly) then
 		momoPyTweak.finalFixes.ExtraUndergroundBelt()
 	end
 	
+	if (momoPyTweak.mods.miniloader) then
+		momoPyTweak.finalFixes.MiniloaderTechnology()
+	end
+	
 	if (momoPyTweak.mods.pyAE and momoPyTweak.mods.ultimateBelt) then
 		momoPyTweak.finalFixes.UltimateBeltAE()
 		if (momoPyTweak.mods.miniloader) then
 			momoPyTweak.finalFixes.UltimateBeltAEMiniloader()
 		end
-		
-		data.raw.inserter["burner-inserter"].next_upgrade = "inserter"
 	end
 	
 	momoPyTweak.ArmorInventory()

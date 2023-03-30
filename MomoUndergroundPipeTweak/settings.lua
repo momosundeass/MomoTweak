@@ -15,3 +15,6 @@ local function CreateBoolSetting(settingName, defaultValue)
 end
 
 CreateBoolSetting("momo-pipe-use-recipes", true)
+
+local haveValve = mods["angelspetrochem"]
+CreateBoolSetting("momo-pipe-disabled-valve", not haveValve)

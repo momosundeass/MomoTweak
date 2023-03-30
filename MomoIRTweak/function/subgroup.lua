@@ -49,14 +49,6 @@ function momoIRTweak.GetSubgroupFromRecipe(recipeName)
 	return momoIRTweak.subgroups[subgroup]
 end
 
-function momoIRTweak.ChangeGroup(targetGroup, newGroup)
-	for named, subgroup in pairs(momoIRTweak.subgroups) do
-		if subgroup.group == targetGroup then
-			subgroup.group = newGroup
-		end
-	end
-end
-
 function momoIRTweak.subgroup.MergeSubgroup(recipes, newSubgroup)
 	local order = 0
 	for	_, recipe in pairs(recipes) do
@@ -70,5 +62,13 @@ function momoIRTweak.subgroup.MergeRecipeItemSubgroup(items, newSubgroup)
 	for	_, item in pairs(items) do
 		momoIRTweak.ChangeSubgroupItemAndRecipe(item, newSubgroup, order)
 		order = order + 1
+	end
+end
+
+function momoIRTweak.ChangeGroup(targetGroup, newGroup)
+	for named, subgroup in pairs(momoIRTweak.subgroups) do
+		if subgroup.group == targetGroup then
+			subgroup.group = newGroup
+		end
 	end
 end

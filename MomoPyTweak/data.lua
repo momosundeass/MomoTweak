@@ -33,6 +33,8 @@ momoPyTweak.mods.waterFill = mods["Waterfill_Fork"]
 
 momoPyTweak.settings.undergroundPipeBeltStoneRecipes = settings.startup["momo-undergroundPipeBeltStoneRecipes"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value
+momoPyTweak.settings.miniloader = settings.startup["momo-miniloader"].value
+
 
 momoPyTweak.settings.inserter = settings.startup["momo-inserter"].value and not momoPyTweak.mods.pyAE
 momoPyTweak.settings.improveInserter = settings.startup["momo-improveInserter"].value

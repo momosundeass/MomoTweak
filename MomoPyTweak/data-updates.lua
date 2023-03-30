@@ -8,6 +8,7 @@ require("compatibility.space-extension-mod")
 require("compatibility.transport-drones")
 require("compatibility.advanced-modules")
 require("compatibility.water-fill")
+require("compatibility.miniloader")
 
 require("prototypes.updates-science-materials")
 require("prototypes.updates-module")
@@ -62,7 +63,13 @@ if not momoPyTweak.DumpOnly then
 		momoPyTweak.compatibility.SpaceEx()
 	end
 	
+	if (momoPyTweak.mods.miniloader) then
+		momoPyTweak.compatibility.MiniloaderRecipe()
+	end
+	
 	if (momoPyTweak.mods.ultimateBelt) then
+		require("compatibility.ultimate-belt-color")
+		momoPyTweak.compatibility.UltimateBeltColor()
 		if (momoPyTweak.mods.pyAE) then
 			momoPyTweak.updates.UltimateBeltAE()
 		else

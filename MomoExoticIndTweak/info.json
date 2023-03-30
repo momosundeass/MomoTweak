@@ -1,0 +1,13 @@
+{
+  "name": "MomoExoticIndTweak",
+  "version": "1.1.0",
+  "factorio_version": "1.1",
+  "title": "Momo - Exotic Industries Improvement",
+  "author": "Momosundeass",
+  "homepage": "",
+  "description": "Improvement for Exotic Industries mods",
+  "dependencies": [
+	  "base",
+	  "exotic-industries"
+  ]
+}

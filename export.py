@@ -104,26 +104,32 @@ def RunFactorio():
 Init()
 InitLib("\\MomoIRTweak\\function", "function")
 
-momoTweak = MOD("MomoTweak", "\\Mod", libPath=LibPath)
-momoTweakDirectoryName = ExportModDirectory(momoTweak)
+#momoTweak = MOD("MomoTweak", "\\Mod", libPath=LibPath)
+#momoTweakDirectoryName = ExportModDirectory(momoTweak)
 
 easyEvo = MOD("MomoEasyEvolution", "\\MomoEasyEvolution")
 momoEasyEvoDirectoryName = ExportModDirectory(easyEvo)
 
-momoABTweak = MOD("MomoABTweak", "\\MomoABTweak", libPath=LibPath)
-momoTweakDirectoryName = ExportModDirectory(momoABTweak)
+momoAngelsBobsTweak = MOD("MomoAngelsBobsTweak", "\\MomoAngelsBobsTweak", libPath=LibPath)
+momoAngelsBobsTweakDirectoryName = ExportModDirectory(momoAngelsBobsTweak)
+
+#momoABTweak = MOD("MomoABTweak", "\\MomoABTweak", libPath=LibPath)
+#momoTweakDirectoryName = ExportModDirectory(momoABTweak)
 
 pyTweak = MOD("MomoPyTweak", "\\MomoPyTweak", libPath=LibPath)
 momoPyTweakDirectoryName = ExportModDirectory(pyTweak)
 
-irTweak = MOD("MomoIRTweak", "\\MomoIRTweak")
-momoIRTweakDirectoryName = ExportModDirectory(irTweak)
+#irTweak = MOD("MomoIRTweak", "\\MomoIRTweak")
+#momoIRTweakDirectoryName = ExportModDirectory(irTweak)
 
 pipeTweak = MOD("MomoUndergroundPipeTweak", "\\MomoUndergroundPipeTweak", libPath=LibPath)
 momoPipeTweakDirectoryName = ExportModDirectory(pipeTweak)
 
 SETweak = MOD("MomoK2SETweak", "\\MomoK2SETweak", libPath=LibPath)
 momoK2SETweakDirectoryName = ExportModDirectory(SETweak)
+
+ExoticIndTweak = MOD("MomoExoticIndTweak", "\\MomoExoticIndTweak", libPath=LibPath)
+ExportModDirectory(ExoticIndTweak)
 
 print("\nExport completed.")
 time.sleep(.500)
