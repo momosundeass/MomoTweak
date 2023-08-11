@@ -1,0 +1,12 @@
+{
+	"name": "ElectricNetworkInfoHotkey",
+	"version": "1.1.0",
+	"factorio_version": "1.1",
+	"title": "Electric Network Info Hotkey",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "Open nearby power pole by hotkey",
+	"dependencies": [
+		"base >= 1.1.0"
+	]
+}

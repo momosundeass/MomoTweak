@@ -131,6 +131,9 @@ momoK2SETweakDirectoryName = ExportModDirectory(SETweak)
 ExoticIndTweak = MOD("MomoExoticIndTweak", "\\MomoExoticIndTweak", libPath=LibPath)
 ExportModDirectory(ExoticIndTweak)
 
+ENI = MOD("ElectricNetworkInfoHotkey", "\\ElectricNetworkInfoHotkey")
+ExportModDirectory(ENI)
+
 print("\nExport completed.")
 time.sleep(.500)
 if not (FindFactorioInSystem()):
