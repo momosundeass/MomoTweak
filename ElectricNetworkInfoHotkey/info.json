@@ -5,7 +5,7 @@
 	"title": "Electric Network Info Hotkey",
 	"author": "Momosundeass",
 	"homepage": "https://github.com/momosundeass/MomoTweak",
-	"description": "Open nearby power pole by hotkey",
+	"description": "Click power pole no more. Open nearby Electric Network Info GUI via keyboard hotkey",
 	"dependencies": [
 		"base >= 1.1.0"
 	]

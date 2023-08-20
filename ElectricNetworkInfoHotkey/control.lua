@@ -1,16 +1,38 @@
+local function GetDistance(posA, posB) 
+	local dx = posA.x - posB.x
+	local dy = posA.y - posB.y
+	return math.sqrt ( dx * dx + dy * dy )
+end
+
 local function OpenNearbyPowerPole(player)
 	player.opened = nil
 	
-	local count = 0
+	local playerPos = player.position
 	local reach = player.reach_distance
+	
+	local minDis = reach
+	local nearest = nil
+	
 	for _, entity in ipairs(player.surface.find_entities_filtered{position = player.position, radius = reach, type = "electric-pole", force = player.force}) do
-		count = count + 1
+		local dis = GetDistance(playerPos, entity.position)
+		if (dis < minDis) then
+			minDis = dis
+			nearest = entity
+		end
 	end
 	
-	player.create_local_flying_text{
-      text = {count .. "eni.out-of-reach"},
-	  position = player.position,
-    }
+	if (nearest) then
+		player.opened = nearest
+		player.create_local_flying_text{
+		  text = {"eni.opening"},
+		  position = nearest.position,
+		}
+	else
+		player.create_local_flying_text{
+		  text = {"eni.out-of-reach"},
+		  position = playerPos,
+		}
+	end
 end
 
 local function OnHotkey(event) 
