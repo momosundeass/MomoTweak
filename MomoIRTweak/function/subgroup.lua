@@ -65,10 +65,13 @@ function momoIRTweak.subgroup.MergeRecipeItemSubgroup(items, newSubgroup)
 	end
 end
 
-function momoIRTweak.ChangeGroup(targetGroup, newGroup)
+function momoIRTweak.ChangeGroup(targetGroup, newGroup, prefix)
 	for named, subgroup in pairs(momoIRTweak.subgroups) do
 		if subgroup.group == targetGroup then
 			subgroup.group = newGroup
+			if (prefix ~= nil) then
+				subgroup.order = prefix .. subgroup.order
+			end
 		end
 	end
 end

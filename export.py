@@ -134,6 +134,9 @@ ExportModDirectory(ExoticIndTweak)
 ENI = MOD("ElectricNetworkInfoHotkey", "\\ElectricNetworkInfoHotkey")
 ExportModDirectory(ENI)
 
+AESoftcore = MOD("PyAESoftcoreLogistics", "\\PyAESoftcoreLogistics", libPath=LibPath)
+ExportModDirectory(AESoftcore)
+
 print("\nExport completed.")
 time.sleep(.500)
 if not (FindFactorioInSystem()):

@@ -66,6 +66,7 @@ end
 
 function momoIRTweak.technology.AddUnlockEffect(technologyName, recipeName, overrideEnabled)
 	if (data.raw.technology[technologyName]) then
+		momoIRTweak.recipe.ValidateRecipe(recipeName, function(recipe) end)
 		table.insert(data.raw.technology[technologyName].effects, {
 			type = "unlock-recipe",
 			recipe = recipeName
@@ -199,11 +200,21 @@ end
 function momoIRTweak.technology.SetPrerequire(technologyName, prerequireTable)
 	local technology = data.raw.technology[momoIRTweak.GetName(technologyName)]
 	if (type(technology) ~= "table") then
-		error("technology.SetPrerequire no technlogy with name " .. technologyName)
+		momoIRTweak.Log("technology.SetPrerequire no technology with name " .. technologyName)
+		return
 	end 
-	if (type(prerequireTable) == "table") then
+	if (type(prerequireTable) == "table") then ---------------- table case
+		for _, name in pairs(prerequireTable) do
+			if (data.raw.technology[name] == nil) then
+				momoIRTweak.Log("technology.SetPrerequire no prereq technology with name " .. name " from " .. technologyName)
+			return end
+		end
 		technology.prerequisites = prerequireTable
-	elseif (type(prerequireTable) == "string") then
+		
+	elseif (type(prerequireTable) == "string") then ---------------- string case
+		if (data.raw.technology[prerequireTable] == nil) then
+			momoIRTweak.Log("technology.SetPrerequire no prereq technology with name " .. prerequireTable " from " .. technologyName)
+		return end
 		technology.prerequisites = { prerequireTable }
 	else
 		error("technology.SetPrerequire need table or string got " .. type(prerequireTable))
@@ -213,13 +224,19 @@ end
 function momoIRTweak.technology.AddPrerequire(technologyName, prerequire)
 	local technology = data.raw.technology[momoIRTweak.GetName(technologyName)]
 	if (type(technology) ~= "table") then
-		error("technology.AddPrerequire no technlogy with name " .. technologyName)
+		momoIRTweak.Log("technology.AddPrerequire no technology with name " .. technologyName)
+		return
 	end 
-	if (type(prerequire) == "string") then
-		table.insert(technology.prerequisites, prerequire)
-	else
+	if (type(prerequire) ~= "string") then
 		error("technology.AddPrerequire need string got " .. type(prerequireTable))
+		return
 	end
+	if (data.raw.technology[prerequire] == nil) then 
+		momoIRTweak.Log("technology.AddPrerequire no prereq technology with name " .. prerequire)
+		return
+	end
+	table.insert(technology.prerequisites, prerequire)
+	
 end
 
 function momoIRTweak.technology.SetPrerequirePrototype(technologyPrototype, prerequireTable)
