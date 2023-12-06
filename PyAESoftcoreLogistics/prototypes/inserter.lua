@@ -8,7 +8,6 @@ function momoPyTweak.updates.ImproveInserter()
 		"stack-inserter", 
 		"stack-filter-inserter"
 	}
-	
 	for _, name in pairs(inserters) do
 		local inserter = data.raw.inserter[name]
 		inserter.extension_speed  = inserter.extension_speed * 2

@@ -5,7 +5,9 @@ require("compatibility.inserters")
 
 require("prototypes.inserter")
 require("prototypes.updates-module")
-require("prototypes.updates-recipe")
+require("prototypes.updates-recipes")
+require("prototypes.stacksize")
+require("prototypes.pipe-to-ground")
 
 -- inserters
 if (momoPyTweak.settings.improveInserter) then
@@ -16,8 +18,9 @@ if (momoPyTweak.mods.bobInserter) then
 	momoPyTweak.compatibility.BobInserter()
 end
 
-if (momoPyTweak.settings.undergroundPipeBeltStoneRecipes) then
-	momoPyTweak.updates.undergroundPipeBeltStoneRecipes()
+if (settings.startup["momo-recipe"].value) then
+	momoPyTweak.updates.UndergroundPipeBeltStone()
+	momoPyTweak.updates.PowerPoleChain()
 end
 
 if (momoPyTweak.mods.undergroundPipePack and settings.startup["momo-undergroundPipePack"].value) then
@@ -40,6 +43,14 @@ end
 
 if (settings.startup["momo-module"].value) then
 	momoPyTweak.updates.Module()
+end
+
+if (settings.startup["momo-stacksize"].value) then
+	momoPyTweak.updates.Stacksize()
+end
+
+if (settings.startup["momo-pipetoground"].value) then
+	momoPyTweak.updates.PipeToGround()
 end
 
 if (momoPyTweak.settings.undergroundBelt) then

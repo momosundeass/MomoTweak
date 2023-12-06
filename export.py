@@ -122,7 +122,7 @@ momoPyTweakDirectoryName = ExportModDirectory(pyTweak)
 #irTweak = MOD("MomoIRTweak", "\\MomoIRTweak")
 #momoIRTweakDirectoryName = ExportModDirectory(irTweak)
 
-pipeTweak = MOD("MomoUndergroundPipeTweak", "\\MomoUndergroundPipeTweak", libPath=LibPath)
+pipeTweak = MOD("UpgradableUndergroundPipePack", "\\UpgradableUndergroundPipePack", libPath=LibPath)
 momoPipeTweakDirectoryName = ExportModDirectory(pipeTweak)
 
 SETweak = MOD("MomoK2SETweak", "\\MomoK2SETweak", libPath=LibPath)
@@ -136,6 +136,9 @@ ExportModDirectory(ENI)
 
 AESoftcore = MOD("PyAESoftcoreLogistics", "\\PyAESoftcoreLogistics", libPath=LibPath)
 ExportModDirectory(AESoftcore)
+
+NoMoreUseless = MOD("248kExpensiveMachine", "\\248kExpensiveMachine", libPath=LibPath)
+ExportModDirectory(NoMoreUseless)
 
 print("\nExport completed.")
 time.sleep(.500)

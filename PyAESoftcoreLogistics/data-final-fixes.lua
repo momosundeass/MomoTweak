@@ -1,11 +1,10 @@
 require("prototypes.armor")
+require("prototypes.subgroup")
 
 data.raw.inserter["burner-inserter"].next_upgrade = "inserter"
 
-local combatGroup = "combat"
-local logisticsGroup = "logistics" 
-momoIRTweak.ChangeGroup(combatGroup, logisticsGroup, "zzzz")
-
+momoPyTweak.finalFixes.Subgroup()
+ 
 if (momoPyTweak.settings.undergroundBelt) then
 	momoPyTweak.finalFixes.ExtraUndergroundBelt()
 end

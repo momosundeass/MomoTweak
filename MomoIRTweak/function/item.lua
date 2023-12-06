@@ -161,3 +161,5 @@ end
 function momoIRTweak.item.NewScienceMaterialsBaseItem(itemName, dir)
 	return momoIRTweak.item.NewItemBaseIcon(itemName, dir, momoIRTweak.science.materialSubgroup, 50)
 end
+
+momoIRTweak.Log("Item load completed")

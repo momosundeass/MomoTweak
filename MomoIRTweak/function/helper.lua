@@ -9,6 +9,7 @@ momoIRTweak.indentAmount = 0
 
 function momoIRTweak.Init(modName)
 	momoIRTweak.modName = modName
+	momoIRTweak.Log("Init mod name : " .. modName)
 end
 
 function momoIRTweak.Log(str)
@@ -66,3 +67,5 @@ function momoIRTweak.PrintTable(_table)
 	momoIRTweak.DumpTable(_table)
 	momoIRTweak.PrintDump()
 end
+
+momoIRTweak.Log("Helper load completed")

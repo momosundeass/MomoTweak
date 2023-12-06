@@ -46,7 +46,9 @@ end
 CreateBoolSetting("momo-improveInserter", true)
 CreateBoolSetting("momo-undergroundBelt", true)
 CreateBoolSetting("momo-module", true)
-CreateBoolSetting("momo-undergroundPipeBeltStoneRecipes", true)
+CreateBoolSetting("momo-stacksize", true)
+CreateBoolSetting("momo-pipetoground", true)
+CreateBoolSetting("momo-recipe", true)
 
 CreateStringSetting("momo-headerCompatibility", "")
 CreateBoolSetting("momo-undergroundPipePack", true)

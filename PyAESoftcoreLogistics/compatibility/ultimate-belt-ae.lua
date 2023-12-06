@@ -414,4 +414,12 @@ function momoPyTweak.finalFixes.UltimateBeltAEMiniloader()
 	Replace(filterLoaders[5], filterLoaders[3], ITEM(filterLoaders[4]))
 	Replace(filterLoaders[7], filterLoaders[4], ITEM(filterLoaders[6]))
 	Replace(filterLoaders[8], filterLoaders[6], ITEM(filterLoaders[7]))
+	
+	Replace(filterLoaders[1], "filter-inserter", ITEM("inserter", 4))
+	Replace(filterLoaders[2], "stack-filter-inserter", ITEM("inserter", 6))
+	Replace(filterLoaders[3], "stack-filter-inserter", ITEM("filter-inserter", 2))
+	Replace(filterLoaders[4], "stack-filter-inserter", ITEM("filter-inserter", 4))
+	Replace(filterLoaders[5], "stack-filter-inserter", ITEM("filter-inserter", 6))
+	
+	Replace(filterLoaders[7], "stack-filter-inserter", ITEM("stack-filter-inserter", 6))
 end

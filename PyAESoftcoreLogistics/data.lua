@@ -17,6 +17,7 @@ require("function.item")
 require("function.recipe")
 require("function.technology")
 momoIRTweak.InitItemsLib("__PyAESoftcoreLogistics__/graphics/icons/", true)
+momoPyTweak.functions = momoIRTweak
 
 require("naming")
 momoPyTweak.mods.smartInserter = mods["Smart_Inserters"]
@@ -26,7 +27,6 @@ momoPyTweak.mods.ultimateBelt = mods["UltimateBelts_Owoshima_And_Pankeko-Mod"] o
 momoPyTweak.mods.miniloader = mods["miniloader"]
 momoPyTweak.mods.transportDrones = mods["Transport_Drones"]
 
-momoPyTweak.settings.undergroundPipeBeltStoneRecipes = settings.startup["momo-undergroundPipeBeltStoneRecipes"].value
 momoPyTweak.settings.undergroundBelt = settings.startup["momo-undergroundBelt"].value
 momoPyTweak.settings.miniloader = settings.startup["momo-miniloader"].value
 momoPyTweak.settings.ultimateBelt = settings.startup["momo-ultimateBelt"].value
