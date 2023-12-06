@@ -56,22 +56,11 @@ if (settings.startup["momo-2k2-electronics"].value) then
 	Add("processing-unit", ITEM("heat-pipe", 2))
 end
 
-if (settings.startup["momo-2k2-science"].value) then
-	Rep("chemical-sciecne-pack", "blank-tech-card", ITEM("basic-tech-card", 5))
-	Rep("production-sciecne-pack", "blank-tech-card", ITEM("automation-science-pack", 10))
-	Add("utility-sciecne-pack", ITEM("chemical-sciecne-pack", 10))
-	Add("space-sciecne-pack", ITEM("production-sciecne-pack", 5))
-	Add("matter-tech-card", ITEM("production-sciecne-pack", 5))
-	Add("advanced-tech-card", ITEM("utility-sciecne-pack", 5))
-	Add("singularity-tech-card", ITEM("utility-sciecne-pack", 5))
-end
-
 if (settings.startup["momo-2k2-248k"].value) then
 	Rep("electric-furnace", "steel-plate", ITEM("steel-furnace", 1))
 	Rep("heat-exchanger", "pipe", ITEM("boiler", 4))
 	Add("steel-furnace", ITEM("stone-furnace", 1))
 	
-
 	Add("el_purifier_recipe", ITEM("burner-mining-drill", 2))
 	Add("el_purifier_recipe", ITEM("inserter", 4))
 	
@@ -87,7 +76,7 @@ if (settings.startup["momo-2k2-248k"].value) then
 	Add("fu_burner_recipe", ITEM("assembling-machine-2", 2))
 	Add("fu_burner_recipe", ITEM("kr-crusher", 2))
 	
-	Rep("el_charger_recipe", "stone-furnace", ITEM("kr-electrolyesis-plant", 2))
+	Rep("el_charger_recipe", "stone-furnace", ITEM("kr-electrolysis-plant", 2))
 	Rep("el_charger_recipe", "iron-gear-wheel", ITEM("steam-engine", 5))
 	Add("el_charger_recipe", ITEM("chemical-plant", 2))
 	
