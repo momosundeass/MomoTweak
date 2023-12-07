@@ -15,8 +15,10 @@ end
 
 if (settings.startup["momo-2k2-science"].value) then
 	--- 248k set recipe for these in final fixes
-	Rep("chemical-science-pack", "blank-tech-card", {"basic-tech-card", 5})
-	Rep("production-science-pack", "blank-tech-card", {"automation-science-pack", 10})
+	Rep("logistic-science-pack", "blank-tech-card", {"basic-tech-card", 5})
+	Add("military-science-pack", ITEM("automation-science-pack", 5))
+	Rep("chemical-science-pack", "blank-tech-card", {"automation-science-pack", 5})
+	Rep("production-science-pack", "blank-tech-card", {"logistic-science-pack", 10})
 	Add("utility-science-pack", ITEM("chemical-science-pack", 10))
 	Add("space-science-pack", ITEM("production-science-pack", 5))
 	Add("matter-tech-card", ITEM("production-science-pack", 5))

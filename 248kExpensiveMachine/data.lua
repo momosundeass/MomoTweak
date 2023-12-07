@@ -15,5 +15,6 @@ momo2k2.Set = momo2k2.functions.recipe.ReplaceAllIngredient
 momo2k2.mods.K2 = mods["Krastorio2"]
 momo2k2.mods.K248 = mods["248k"]
 momo2k2.mods.pipe = mods["underground-pipe-pack"]
+momo2k2.mods.naturalGas = mods["bzgas"]
 
 momoIRTweak.Init("NoMoreUseless")

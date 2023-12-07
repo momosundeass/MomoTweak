@@ -4,8 +4,8 @@ local Rep = momo2k2.Rep
 local Set = momo2k2.Set
 
 if momo2k2.mods.pipe then
-	Rep("medium-pipe-coupler", "iron-plate", ITEM("steel-plate", 1))
-	Rep("underground-pipe-segment-t2", "iron-plate", ITEM("steel-plate", 1))
+	Rep("medium-pipe-coupler", "iron-plate", ITEM("kr-steel-pipe", 1))
+	Rep("underground-pipe-segment-t2", "iron-plate", ITEM("kr-steel-pipe", 1))
 	
 	Rep("large-pipe-coupler", "steel-plate", ITEM("fi_materials_GFK", 1))
 	Rep("underground-pipe-segment-t3", "steel-plate", ITEM("fi_materials_GFK", 1))
@@ -13,6 +13,9 @@ end
 
 if (settings.startup["momo-2k2-wood-pole"].value) then
 	Add("steam-engine", ITEM("small-electric-pole", 2))
+	Rep("medium-electric-pole", "iron-beam", ITEM("small-electric-pole", 2))
+	Rep("big-electric-pole", "iron-stick", ITEM("medium-electric-pole", 2))
+	Add("substation", ITEM("medium-electric-pole", 4))
 end
 
 if (settings.startup["momo-2k2-burner-miner"].value) then
@@ -22,7 +25,6 @@ if (settings.startup["momo-2k2-burner-miner"].value) then
 	Rep("kr-mineral-water-pumpjack", "steel-gear-wheel", ITEM("burner-mining-drill", 1))
 	
 	Rep("oil-refinery", "pipe", ITEM("boiler", 4))
-	Rep("chemical-plant", "pipe", ITEM("boiler", 2))
 
 end
 
@@ -60,6 +62,8 @@ if (settings.startup["momo-2k2-248k"].value) then
 	Rep("electric-furnace", "steel-plate", ITEM("steel-furnace", 1))
 	Rep("heat-exchanger", "pipe", ITEM("boiler", 4))
 	Add("steel-furnace", ITEM("stone-furnace", 1))
+	Rep("kr-advanced-chemical-plant", "kr-steel-pipe", ITEM("chemical-plant", 2))
+	Add("radar", ITEM("kr-sentinel"))
 	
 	Add("el_purifier_recipe", ITEM("burner-mining-drill", 2))
 	Add("el_purifier_recipe", ITEM("inserter", 4))
@@ -75,6 +79,7 @@ if (settings.startup["momo-2k2-248k"].value) then
 	
 	Add("fu_burner_recipe", ITEM("assembling-machine-2", 2))
 	Add("fu_burner_recipe", ITEM("kr-crusher", 2))
+	Rep("fu_burner_recipe", "pipe", ITEM("kr-steel-pipe", 30))
 	
 	Rep("el_charger_recipe", "stone-furnace", ITEM("kr-electrolysis-plant", 2))
 	Rep("el_charger_recipe", "iron-gear-wheel", ITEM("steam-engine", 5))
@@ -169,4 +174,12 @@ if (settings.startup["momo-2k2-248k"].value) then
 	Rep("gr_charger_recipe", "concrete", ITEM("fu_plasma_item", 2))
 	
 	Rep("gr_lab_recipe", "lab", ITEM("kr-singularity-lab", 12))
+	
+	
+	if momo2k2.mods.naturalGas then
+		local earlyChem = "basic-chemical-plant"
+		Rep(earlyChem, "aluminum-plate", ITEM("burner-inserter", 2))
+		Rep("chemical-plant", "pipe", ITEM(earlyChem, 1))
+		Rep("kr-fuel-refinery", "pipe", ITEM(earlyChem, 1))
+	end
 end
