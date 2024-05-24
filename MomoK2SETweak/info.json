@@ -11,6 +11,8 @@
 		"Krastorio2",
 		"space-exploration",
 		"space-exploration-postprocess",
-		"? bobinserters"
+		"? bobinserters",
+		"? Smart_Inserters",
+		"? underground-pipe-pack"
 	]
 }

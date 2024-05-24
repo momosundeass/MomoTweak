@@ -1,7 +1,7 @@
 local ITEM = momoIRTweak.FastItem
 
 function momoK2SETweak.recipes.FinalFix()
-	if (momoK2SETweak.mods.BobInserter) then
+	if (momoK2SETweak.smartInserter) then
 		local RemoveRecipe = momoIRTweak.technology.RemoveAllUnlockEffect
 		
 		RemoveRecipe("long-handed-inserter")
