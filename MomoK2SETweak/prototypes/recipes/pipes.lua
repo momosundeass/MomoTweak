@@ -7,6 +7,11 @@ function momoK2SETweak.recipes.Pipes()
 	recipe.ReplaceIngredient("kr-steel-pipe-to-ground", "steel-plate", ITEM("stone-brick", 5))
 	
 	if momoK2SETweak.mods.AdvancedPipe then
+	
+		momoIRTweak.technology.SetPrerequire("advanced-underground-piping-t2", {"kr-steel-fluid-handling", "advanced-underground-piping"})
+		momoIRTweak.technology.AddPrerequire("advanced-underground-piping-t3", "concrete")
+		
+	
 		local pipeIngs = {
 			"small-pipe-coupler",  "underground-pipe-segment-t1",
 			"medium-pipe-coupler", "underground-pipe-segment-t2",
@@ -92,13 +97,13 @@ function momoK2SETweak.recipes.Pipes()
 			recipe.ReplaceAllIngredient(item, {ITEM("kr-steel-pipe-to-ground", 1), ITEM(p1[index], 1)})
 		end
 		for index, item in pairs(u2) do
-			recipe.ReplaceAllIngredient(item, {ITEM("glass", 3), ITEM(p2[index], 1)})
+			recipe.ReplaceAllIngredient(item, {ITEM(p2[1], 1), ITEM(u1[index], 1)})
 		end
 		for index, item in pairs(p3) do
 			recipe.ReplaceAllIngredient(item, {ITEM("refined-concrete", 5), ITEM(p2[index], 1)})
 		end
 		for index, item in pairs(u3) do
-			recipe.ReplaceAllIngredient(item, {ITEM("glass", 4), ITEM(p3[index], 1)})
+			recipe.ReplaceAllIngredient(item, {ITEM(p3[1], 1), ITEM(u2[index], 1)})
 		end		
 		
 		recipe.ReplaceAllIngredient(p4[1], {ITEM("low-density-structure", 1), ITEM("se-space-pipe-to-ground", 1)})
