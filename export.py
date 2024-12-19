@@ -107,17 +107,17 @@ InitLib("\\MomoIRTweak\\function", "function")
 #momoTweak = MOD("MomoTweak", "\\Mod", libPath=LibPath)
 #momoTweakDirectoryName = ExportModDirectory(momoTweak)
 
-easyEvo = MOD("MomoEasyEvolution", "\\MomoEasyEvolution")
-momoEasyEvoDirectoryName = ExportModDirectory(easyEvo)
+# easyEvo = MOD("MomoEasyEvolution", "\\MomoEasyEvolution")
+# momoEasyEvoDirectoryName = ExportModDirectory(easyEvo)
 
-momoAngelsBobsTweak = MOD("MomoAngelsBobsTweak", "\\MomoAngelsBobsTweak", libPath=LibPath)
-momoAngelsBobsTweakDirectoryName = ExportModDirectory(momoAngelsBobsTweak)
+# momoAngelsBobsTweak = MOD("MomoAngelsBobsTweak", "\\MomoAngelsBobsTweak", libPath=LibPath)
+# momoAngelsBobsTweakDirectoryName = ExportModDirectory(momoAngelsBobsTweak)
 
 #momoABTweak = MOD("MomoABTweak", "\\MomoABTweak", libPath=LibPath)
 #momoTweakDirectoryName = ExportModDirectory(momoABTweak)
 
-pyTweak = MOD("MomoPyTweak", "\\MomoPyTweak", libPath=LibPath)
-momoPyTweakDirectoryName = ExportModDirectory(pyTweak)
+# pyTweak = MOD("MomoPyTweak", "\\MomoPyTweak", libPath=LibPath)
+# momoPyTweakDirectoryName = ExportModDirectory(pyTweak)
 
 #irTweak = MOD("MomoIRTweak", "\\MomoIRTweak")
 #momoIRTweakDirectoryName = ExportModDirectory(irTweak)
@@ -125,20 +125,25 @@ momoPyTweakDirectoryName = ExportModDirectory(pyTweak)
 pipeTweak = MOD("UpgradableUndergroundPipePack", "\\UpgradableUndergroundPipePack", libPath=LibPath)
 momoPipeTweakDirectoryName = ExportModDirectory(pipeTweak)
 
-SETweak = MOD("MomoK2SETweak", "\\MomoK2SETweak", libPath=LibPath)
-momoK2SETweakDirectoryName = ExportModDirectory(SETweak)
+# SETweak = MOD("MomoK2SETweak", "\\MomoK2SETweak", libPath=LibPath)
+# momoK2SETweakDirectoryName = ExportModDirectory(SETweak)
 
-ExoticIndTweak = MOD("MomoExoticIndTweak", "\\MomoExoticIndTweak", libPath=LibPath)
-ExportModDirectory(ExoticIndTweak)
+# ExoticIndTweak = MOD("MomoExoticIndTweak", "\\MomoExoticIndTweak", libPath=LibPath)
+# ExportModDirectory(ExoticIndTweak)
 
-ENI = MOD("ElectricNetworkInfoHotkey", "\\ElectricNetworkInfoHotkey")
-ExportModDirectory(ENI)
+# ENI = MOD("ElectricNetworkInfoHotkey", "\\ElectricNetworkInfoHotkey")
+# ExportModDirectory(ENI)
 
-AESoftcore = MOD("PyAESoftcoreLogistics", "\\PyAESoftcoreLogistics", libPath=LibPath)
-ExportModDirectory(AESoftcore)
+# AESoftcore = MOD("PyAESoftcoreLogistics", "\\PyAESoftcoreLogistics", libPath=LibPath)
+# ExportModDirectory(AESoftcore)
 
-NoMoreUseless = MOD("248kExpensiveMachine", "\\248kExpensiveMachine", libPath=LibPath)
-ExportModDirectory(NoMoreUseless)
+
+InitLib("\\MomoLib", "MomoLib")
+ExportModDirectory(MOD("MomoPy2Tweak", "\\MomoPy2Tweak", libPath=LibPath))
+ExportModDirectory(MOD("NauvisAgeOverhaul", "\\NauvisAgeOverhaul", libPath=LibPath))
+ExportModDirectory(MOD("BraidedUndergroundPipePack", "\\BraidedUndergroundPipePack", libPath=LibPath))
+# NoMoreUseless = MOD("248kExpensiveMachine", "\\248kExpensiveMachine", libPath=LibPath)
+# ExportModDirectory(NoMoreUseless)
 
 print("\nExport completed.")
 time.sleep(.500)

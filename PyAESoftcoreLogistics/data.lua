@@ -23,7 +23,7 @@ require("naming")
 momoPyTweak.mods.smartInserter = mods["Smart_Inserters"]
 momoPyTweak.mods.bobInserter = mods["bobinserters"]
 momoPyTweak.mods.undergroundPipePack = mods["underground-pipe-pack"]
-momoPyTweak.mods.ultimateBelt = mods["UltimateBelts_Owoshima_And_Pankeko-Mod"] or mods["UltimateBelts"]
+momoPyTweak.mods.ultimateBelt = mods["UltimateBelts_Owoshima_And_Pankeko-Mod"] or mods["UltimateBelts"] or mod[""]
 momoPyTweak.mods.miniloader = mods["miniloader"]
 momoPyTweak.mods.transportDrones = mods["Transport_Drones"]
 

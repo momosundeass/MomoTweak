@@ -1,4 +1,3 @@
-local table = require('__stdlib__/stdlib/utils/table')
 if not momoIRTweak then momoIRTweak = {} end
 
 momoIRTweak.modName = ""
@@ -23,8 +22,18 @@ function momoIRTweak.GetName(obj)
 	return obj
 end
 
-function momoIRTweak.DeepCopy(tableToCopy)
-	return table.deep_copy(tableToCopy)
+function momoIRTweak.DeepCopy(orig)
+	local orig_type = type(orig)
+	if orig_type == 'table' then
+		local copy = {}
+		for orig_key, orig_value in next, orig, nil do
+			copy[deepcopy(orig_key)] = deepcopy(orig_value)
+		end
+		setmetatable(copy, deepcopy(getmetatable(orig)))
+		return copy
+	end
+	local copy = orig
+	return copy
 end
 
 function momoIRTweak.DumpTable(_table)

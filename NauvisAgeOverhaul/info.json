@@ -1,0 +1,17 @@
+{
+	"name": "NauvisAgeOverhaul",
+	"version": "2.0.0",
+	"factorio_version": "2.0",
+	"title": "Nauvis Age Overhaul",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "An overhaul to SpaceAgeWithoutSpace",
+	"dependencies": [
+		"base >= 2.0",
+		"flib",
+		"aai-industry",
+		"SpaceAgeWithoutSpace",
+		
+		"? underground-pipe-pack"
+	]
+}

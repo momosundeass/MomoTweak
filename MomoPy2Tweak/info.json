@@ -1,0 +1,24 @@
+{
+	"name": "MomoPy2Tweak",
+	"version": "2.0.0",
+	"factorio_version": "2.0",
+	"title": "I neeed this mod to save my sanity playing PY",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "Yep another version another tweak",
+	"dependencies": [
+		"base >= 2.0",
+		"flib",
+		"pypostprocessing",
+		"pycoalprocessing",
+		"? pyfusionenergy",
+		"? pyhightech",
+		"? pyindustry",
+		"? pypetroleumhandling",
+		"? pyrawores",
+		"? pyalienlife",
+		"? pyalternativeenergy",
+		
+		"? underground-pipe-pack"
+	]
+}

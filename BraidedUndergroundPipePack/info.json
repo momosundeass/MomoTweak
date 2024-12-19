@@ -1,0 +1,16 @@
+{
+	"name": "BraidedUndergroundPipePack",
+	"version": "2.0.1",
+	"factorio_version": "2.0",
+	"title": "Braided Underground Pipe Pack",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "Allow pipe weaving",
+	"dependencies": [
+		"base >= 2.0",
+		"flib",
+		"underground-pipe-pack",
+		"? pypostprocessing",
+		"? pyindustry"
+	]
+}

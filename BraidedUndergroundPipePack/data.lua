@@ -1,0 +1,1 @@
+require("MomoLib/data-init")
