@@ -77,4 +77,30 @@ function funcs.NormalizedIngredient(ing)
 	return ing
 end
 
+function funcs.New(ingredients, results, name)
+	local recipeResults = results
+	if not MomoLib.IsArray(results) then
+		recipeResults = {results}
+	end
+	local recipeName = name or MomoLib.First(recipeResults).name
+	
+	return {
+		type = "recipe",
+		enabled = false,
+		name = recipeName,
+		results = recipeResults,
+		ingredients = ingredients
+	}
+end
+
+function funcs.Remove(name)
+	MomoLib.GetRecipe(name, function (proto)
+		proto.enabled = false
+		proto.hidden = true
+		proto.hidden_in_factoriopedia = true
+		
+		MomoLib.technology.RemoveAllRecipe(name)
+	end)
+end
+
 MomoLib.recipe = funcs

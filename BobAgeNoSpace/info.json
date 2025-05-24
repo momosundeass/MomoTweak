@@ -1,0 +1,17 @@
+{
+	"name": "BobAgeNoSpace",
+	"version": "2.0.0",
+	"space_travel_required": true,
+    "factorio_version": "2.0",
+	"title": "Bob's age no space.",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "Make bob's armors able to flight. Bob's bulk inserter as a stack inserter. Still requires Space Age expansion to have been purchased.",
+	"dependencies": [
+		"base >= 2.0",
+		"bobassembly",
+		"bobwarfare",
+		"mech-armor",
+		"stack-inserters"
+	]
+}

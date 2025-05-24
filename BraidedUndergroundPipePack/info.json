@@ -10,7 +10,6 @@
 		"base >= 2.0",
 		"flib",
 		"underground-pipe-pack",
-		"? pypostprocessing",
 		"? pyindustry"
 	]
 }

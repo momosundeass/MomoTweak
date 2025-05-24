@@ -1,0 +1,5 @@
+require("prototypes.mech")
+require("prototypes.inserter")
+require("prototypes.mining")
+require("prototypes.assembling-machine")
+require("prototypes.logistics-subgroups")

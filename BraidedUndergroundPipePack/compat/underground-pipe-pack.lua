@@ -1,6 +1,6 @@
 local isPyBraided = mods["pyindustry"] and settings.startup["py-braided-pipes"].value
 
-local name = require("compat/underground-pipe-pack-name")
+local name = require("MomoLib/underground-pipe-pack-name")
 
 local pipeCats = { "pipe-pack-1", "pipe-pack-2", "pipe-pack-3" }
 if isPyBraided then pipeCats = { "pipe", "niobium-pipe", "ht-pipes" } end

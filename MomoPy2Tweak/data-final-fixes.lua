@@ -1,3 +1,0 @@
-if mods["underground-pipe-pack"] then
-	require("compat/underground-pipe-pack")
-end

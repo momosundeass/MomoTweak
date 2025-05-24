@@ -20,6 +20,18 @@ function funcs.RemoveRecipe(name, recipeName)
 	end)
 end
 
+function funcs.RemoveAllRecipe(recipeName)
+	for _, t in pairs(data.raw.technology) do
+		if t.effects == nil then goto continue end
+		for i, eff in pairs(t.effects) do
+			if eff.type == "unlock-recipe" and eff.recipe == recipeName then
+				table.remove(t.effects, i)
+			return end
+		end
+		::continue::
+	end	
+end
+
 function funcs.AddRequired(name, required)
 	MomoLib.GetTechnology(name, function(proto)
 		if MomoLib.GetTechnology(required, nil) then

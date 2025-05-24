@@ -30,17 +30,34 @@ function MomoLib.MakeFluidIngredient(name, amount)
 	return {type="fluid", name=name, amount=amount}
 end
 
-function MomoLib.subgroup.ChangeItem(name, newSubgroup, order)
+function MomoLib.subgroup.New(name, group, order)
+	return {
+		type = "item-subgroup",
+		name = name,
+		group = group,
+		order = order
+	}
+end
+
+function MomoLib.subgroup.ChangeItem(name, newSubgroup, order, alsoRecipe)
 	MomoLib.GetItem(name, function(itemPro)
 		itemPro.subgroup = newSubgroup
 		itemPro.order = order
 	end)
+	
+	if alsoRecipe then
+		MomoLib.subgroup.ChangeRecipe(name, newSubgroup, order)
+	end
 end
-function MomoLib.subgroup.ChangeRecipe(name, newSubgroup, order)
+function MomoLib.subgroup.ChangeRecipe(name, newSubgroup, order, alsoItem)
 	MomoLib.GetRecipe(name, function(recipePro)
 		recipePro.subgroup = newSubgroup
 		recipePro.order = order
 	end)
+	
+	if alsoItem then
+		MomoLib.subgroup.ChangeItem(name, newSubgroup, order)
+	end
 end
 
 

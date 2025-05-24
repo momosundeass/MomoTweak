@@ -1,7 +1,6 @@
 local function GetSheet(path)
 	return "__MomoPyTweak__/graphics/entity/underground-belt/" .. path .. ".png" 
 end
-
 local function AssignSheet(sheet, newPath)
 	sheet.filename = GetSheet(newPath)
 	if (sheet.hr_version) then

@@ -1,0 +1,15 @@
+{
+	"name": "SimpleUndergroundPipePack",
+	"version": "2.0.1",
+	"factorio_version": "2.0",
+	"title": "Simple Underground Pipe Pack",
+	"author": "Momosundeass",
+	"homepage": "https://github.com/momosundeass/MomoTweak",
+	"description": "Simple recipes and subgroup of underground pipe pack",
+	"dependencies": [
+		"base >= 2.0",
+		"flib",
+		"underground-pipe-pack",
+		"boblogistics"
+	]
+}
