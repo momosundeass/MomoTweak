@@ -15,5 +15,18 @@ function funcs.AfterRecipe(itemName)
     return order .. MomoLib.currentOrder
 end
 
+function funcs.Auto(key)
+    local order 
+    if MomoLib.autoOrder[key] == nil then
+        order = 0
+    else
+        order = MomoLib.autoOrder[key]
+    end
+    order = order + 1
+    MomoLib.autoOrder[key] = order
+    return "z" .. tostring(order)
+end
+
 MomoLib.currentOrder = 1
+MomoLib.autoOrder = {}
 MomoLib.order = funcs

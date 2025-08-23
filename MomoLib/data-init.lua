@@ -59,7 +59,7 @@ function MomoLib.GetIngredient(name, onValid)
 end
 
 function MomoLib.GetRecipe(name, onValid) return MomoLib.GetPrototype("recipe", name, function(p) MomoLib._OnValidWrapObject("recipe", onValid, p) end) end
-function MomoLib.GetTechnology(name, onValid) return MomoLib.GetPrototype("technology", name, onValid) end
+function MomoLib.GetTechnology(name, onValid) return MomoLib.GetPrototype("technology", name, function(p) MomoLib._OnValidWrapObject("technology", onValid, p) end) end
 
 function MomoLib.MakeIngredient(name, amount, probFloat01) 
 	local tbl = MomoLib._ConcatAmount({type="item", name=name}, amount)

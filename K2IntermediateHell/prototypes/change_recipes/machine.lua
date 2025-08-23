@@ -3,7 +3,7 @@ MomoLib.recipe.SetIngredients(Item.steamEngine.n, {Item.fuelProc:I(), Item.burne
 
 MomoLib.recipe.ReplaceIngredient(Item.burnerAssembly.n, Item.ironPlate.n, Item.chest:I())
 MomoLib.recipe.ReplaceIngredient(Item.assembly.n, Item.ironGear.n, Item.inserter:I(3))
-MomoLib.recipe.ReplaceIngredient(Item.assembly.n, Item.electricMotor, Item.steamEngine:I())
+MomoLib.recipe.ReplaceIngredient(Item.assembly.n, Item.electricMotor, Item.steamEngine:I()):AMOUNT(2)
 MomoLib.technology.SetRequired("automation", {"steam-power"})
 
 
@@ -32,3 +32,15 @@ MomoLib.recipe.SetIngredients(Item.refinery, {
     Item.steelBeam:I(10),
     Item.storageTank:I(2),
 })
+
+MomoLib.recipe.SetIngredients(Item.assembly2, {
+    Item.greenChip:I(5),
+    Item.fastInserter:I(2),
+    Item.steamEngine:I(),
+    Item.assembly:I()
+})
+MomoLib.technology.SetRequired("automation-2", {"fast-inserter", Item.greenSci.n})
+
+-- TODO: Flare stack
+-- TODO: Atmospherer condenser
+-- TODO: Electrolyser

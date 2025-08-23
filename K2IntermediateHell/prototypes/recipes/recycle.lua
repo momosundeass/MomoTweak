@@ -10,4 +10,3 @@ MomoLib.recipe.New({
     Item.copperPlate:I(3)
 }, "constant-recycle"):UNLOCK("circuit-network"):SUBGROUP(subgroup):ICON{Item.constant, Item.repair}:Extend()
 MomoLib.technology.AddRequired("advanced-circuit", "circuit-network")
-

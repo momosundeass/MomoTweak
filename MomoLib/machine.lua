@@ -68,6 +68,23 @@ function funcs.CopySounds(sourceName, pasteAtName)
     if source.ambient_sounds then pasteAt.ambient_sounds = source.ambient_sounds end
 end
 
+function funcs.Power(prototypeName, power)
+    funcs.GetPrototype(prototypeName).energy_usage = power
+end
+
+function funcs.Speed(prototypeName, speed)
+    funcs.GetPrototype(prototypeName).crafting_speed = speed
+end
+
+function funcs.AddCategory(prototypeName, categories)
+    local prototype = funcs.GetPrototype(prototypeName)
+    if prototype.crafting_categories == nil then prototype.additionalcrafting_categories_categories = {} end
+	if type(categories) ~= "table" then categories = {categories} end
+	for _, c in pairs(categories) do
+		table.insert(prototype.crafting_categories, c)	
+	end
+end
+
 function funcs.GetPrototype(prototypeName)
     return data.raw["assembling-machine"][prototypeName] or data.raw["furnace"][prototypeName]
 end

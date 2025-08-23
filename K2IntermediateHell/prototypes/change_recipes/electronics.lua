@@ -11,6 +11,7 @@ MomoLib.recipe.ReplaceIngredient(Item.greenChip.n .. "-wood", Item.cable.n, Item
 
 MomoLib.recipe.ReplaceIngredient(Item.redChip, Item.eComponent, Item.arithmetic:I(4))
 MomoLib.recipe.ReplaceIngredient(Item.redChip, Item.cable, Item.decider:I(2))
+MomoLib.recipe.SafeAddIngredients(Item.redChip, Item.chlorine:F(5)):ADDCATEGORY{MomoLib.category.chemical}
 -- doing arithmetics-constant recycle
 MomoLib.recipe.SetIngredients(Item.arithmetic, {
     Item.decider:I(1), 

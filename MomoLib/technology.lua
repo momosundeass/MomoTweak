@@ -95,20 +95,30 @@ function funcs.Clone(name, newName)
 end
 
 function funcs:TIME(timePerCount)
+	if self.unit == nil then self.unit = {} end
 	self.unit.time = timePerCount
 return self end
 
 function funcs:COUNT(count)
+	if self.unit == nil then self.unit = {} end
 	self.unit.count = count
 return self end
 
 function funcs:INGREDIENTS(ings)
+	if self.unit == nil then self.unit = {} end
 	self.unit.ingredients = ings
 return self end
 
 function funcs:EFFECTS(effects)
 	if effects == nil then effects = {} end
 	self.effects = effects
+return self end
+
+function funcs:RECIPE(recipes)
+	if self.effects == nil then self.effects = {} end
+	for _, recipe in pairs(recipes) do
+		self.effects[#self.effects + 1] = {type = "unlock-recipe", recipe = recipe}
+	end
 return self end
 
 function funcs:PRE(pres)

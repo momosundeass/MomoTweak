@@ -1,0 +1,10 @@
+MomoLib.recipe.New({
+    Item.lab:I(5),
+    Item.fastInserter:I(16),
+    Item.concrete:I(100),
+    Item.steamEngine:I(2),
+    Item.chemicalPlant:I(6)
+},
+{
+    Item.resCenter:I()
+}):UNLOCK(Item.blueSci.n):TIME(5):Extend()

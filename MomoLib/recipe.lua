@@ -201,7 +201,7 @@ function funcs.New(ingredients, results, name)
 	end
 	local recipeName = name or MomoLib.First(recipeResults).name
 	funcs._AddToRecipes(recipeName)
-	return MomoLib.recipe:_New{
+	local recipe = MomoLib.recipe:_New{
 		type = "recipe",
 		enabled = false,
 		name = recipeName,
@@ -209,6 +209,12 @@ function funcs.New(ingredients, results, name)
 		ingredients = recipeIngredients,
 		auto_recycle = false
 	}
+	if #recipeResults > 1 then
+		-- if (recipeResults[1].name == Item.green)
+		-- error("main product set as " .. recipeResults[1].name)
+		recipe.main_product = recipeResults[1].name
+	end
+	return recipe
 end
 
 function funcs.NewRecycle(item, results)
@@ -311,7 +317,16 @@ end
 function funcs:CATEGORY(category)
 	self.category = category
 	return self end
+
 	
+function funcs:ADDCATEGORY(categories)
+	if self.additional_categories == nil then self.additional_categories = {} end
+	if type(categories) ~= "table" then categories = {categories} end
+	for _, c in pairs(categories) do
+		table.insert(self.additional_categories, c)	
+	end
+	return self end
+
 function funcs:TIME(energy_required)
 	self.energy_required = energy_required
 	return self end
@@ -331,7 +346,11 @@ end
 	
 function funcs:SUBGROUP(subgroup, order)
 	self.subgroup = subgroup
-	if order ~= nil then self.order = order end
+	if order ~= nil then 
+		if order == "auto" then order = MomoLib.order.Auto(subgroup) end
+		self.order = order 
+	end
+
 	return self end
 
 function funcs:UNLOCK(technologies)

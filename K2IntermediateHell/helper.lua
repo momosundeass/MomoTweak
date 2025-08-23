@@ -1,4 +1,10 @@
 
+function MomoLib.K2Card(icon) return "__Krastorio2Assets__/icons/cards/" .. icon .. ".png" end
+function MomoLib.AltCard(icon) return "__tech-cards-retexture-AI-powered/graphics/icons/".. icon .. ".png" end
+function MomoLib.QualityGlassware(icon) return "__quality_glassware__/graphics/icons".. icon .. ".png" end
+
+-- quality didn't load on data state yet, so use this function instead
+-- reference to same function in __quality__/prototypes/recycling.lua
 function generate_recycling_recipe_icons_from_item(item)
   local icons = {}
   if item.icons == nil then
