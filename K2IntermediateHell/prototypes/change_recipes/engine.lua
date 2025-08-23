@@ -1,0 +1,1 @@
+MomoLib.recipe.ReplaceIngredient(Item.engine, Item.ironGear, Item.inserter:I(2))

@@ -1,33 +1,87 @@
 if not MomoLib then 
 	MomoLib = {} 
-else return end
+else
+	MomoLib.Log("MomoLib already loaded.")
+	return
+end
 
 if not MomoLib.helper then require("helper") end
+if not MomoLib.icon then require("icon") end
 if not MomoLib.subgroup then MomoLib.subgroup = {} end
 MomoLib.subgroups = data.raw["item-subgroup"]
+if not MomoLib.item then require("item") end
 if not MomoLib.recipe then require("recipe") end
 if not MomoLib.technology then require("technology") end
+if not MomoLib.machine then require("machine") end
+if not MomoLib.prototype then require("prototype") end
+if not MomoLib.order then require("order") end
 
 
-function MomoLib.prototype(category, name, onValid)
-	if data.raw[category][name] then 
-		onValid(data.raw[category][name]) 
-		return true
+MomoLib.ModName = ""
+MomoLib.state = "data"
+
+function MomoLib.GetPrototype(category, name, onValid, isLog)
+	if isLog == nil then isLog = true end
+	if type(name) == "table" then name = name.name or name[1] end
+	if type(category) ~= "string" then 
+		if isLog then MomoLib.Log("category:" .. type(category) .. " isn't string") end
+		return false 
 	end
+	if type(name) ~= "string" then
+		if isLog then MomoLib.Log("name:" .. type(name) .. " isn't string or a table with name in category " .. category) end
+		return false
+	end
+	if data.raw[category][name] ~= nil then 
+		if onValid ~= nil then
+			onValid(data.raw[category][name], category) 
+		end return true
+	end
+	if isLog then MomoLib.Log("No [" .. name .. "] with category [".. category .."]") end
 	return false 
 end
-
-function MomoLib.GetItem(name, onValid) return MomoLib.prototype("item", name, onValid) end
-function MomoLib.GetRecipe(name, onValid) return MomoLib.prototype("recipe", name, onValid) end
-function MomoLib.GetTechnology(name, onValid) return MomoLib.prototype("technology", name, onValid) end
-
-function MomoLib.MakeIngredient(name, amount) 
-	if amount == nil then amount = 1 end
-	return {type="item", name=name, amount=amount}
+function MomoLib.GetPrototypes(category, names, onEachValid, isLog)
+	local any = true
+	for _, n in pairs(names) do
+		if not MomoLib.GetPrototype(category, n, onEachValid, isLog) then any = false end
+	end
+	return any
 end
-function MomoLib.MakeFluidIngredient(name, amount) 
+
+function MomoLib.GetItem(name, onValid) return MomoLib.GetPrototype("item", name, function(p) MomoLib._OnValidWrapObject("item", onValid, p) end) end
+function MomoLib.GetFluid(name, onValid) return MomoLib.GetPrototype("fluid", name, onValid) end
+function MomoLib.GetIngredient(name, onValid) 
+	if MomoLib.GetPrototype("item", name, onValid, false) then return true end
+	if MomoLib.GetPrototype("tool", name, onValid, false) then return true end
+	if MomoLib.GetPrototype("module", name, onValid, false) then return true end
+	if MomoLib.GetPrototype("fluid", name, onValid, false) then return true end
+	if MomoLib.GetPrototype("repair-tool", name, onValid, false) then return true end
+	return false
+end
+
+function MomoLib.GetRecipe(name, onValid) return MomoLib.GetPrototype("recipe", name, function(p) MomoLib._OnValidWrapObject("recipe", onValid, p) end) end
+function MomoLib.GetTechnology(name, onValid) return MomoLib.GetPrototype("technology", name, onValid) end
+
+function MomoLib.MakeIngredient(name, amount, probFloat01) 
+	local tbl = MomoLib._ConcatAmount({type="item", name=name}, amount)
+	if probFloat01 then tbl["probability"] = probFloat01 end
+	return tbl
+end
+function MomoLib.MakeFluidIngredient(name, amount) return MomoLib._ConcatAmount({type="fluid", name=name}, amount) end
+function MomoLib.MakeResearchIngredient(name, amount) return {name, amount} end
+
+function MomoLib._ConcatAmount(ingsTable, amount)
 	if amount == nil then amount = 1 end
-	return {type="fluid", name=name, amount=amount}
+	if type(amount) == "table" then 
+		ingsTable["amount_min"] = amount[1]
+		ingsTable["amount_max"] = amount[2]
+	return ingsTable end
+	ingsTable["amount"] = amount
+	return ingsTable 
+end
+
+function MomoLib._OnValidWrapObject(category, onValid, prototype)
+	if onValid == nil then return end
+	onValid(MomoLib[category]:FromPrototype(prototype))
 end
 
 function MomoLib.subgroup.New(name, group, order)
@@ -60,7 +114,6 @@ function MomoLib.subgroup.ChangeRecipe(name, newSubgroup, order, alsoItem)
 	end
 end
 
-
 function MomoLib.ChangeGroup(targetGroup, newGroup, prefix)
 	for named, subgroup in pairs(MomoLib.subgroups) do
 		if subgroup.group == targetGroup then
@@ -72,6 +125,17 @@ function MomoLib.ChangeGroup(targetGroup, newGroup, prefix)
 	end
 end
 
-function MomoLib.Log(str)
-	log("MomoLib : " .. str)
+function MomoLib.Graphics(path)
+	return "__" .. MomoLib.ModName .. "__/graphics/" .. path
 end
+
+function MomoLib.Log(str)
+	local toLog = tostring(str)
+	if type(str) == "table" then
+		toLog = MomoLib.TableToString(str)
+	end
+	log("MomoLib : " .. toLog)
+	return str
+end
+
+function MoLog(str) return MomoLib.Log(str) end 

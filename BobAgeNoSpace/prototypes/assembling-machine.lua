@@ -22,3 +22,5 @@ ProductivityAdded("bob-fluid-chemical-furnace", 0.1)
 ProductivityAdded("bob-electric-chemical-furnace", 0.3)
 
 data.raw["assembling-machine"]["bob-electric-chemical-furnace"].module_slots = 4
+
+MomoLib.GetPrototype("furnace", "recycler", function(e) table.insert(e.allowed_effects, "productivity") end)

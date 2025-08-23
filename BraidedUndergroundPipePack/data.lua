@@ -1,1 +1,1 @@
-require("MomoLib/data-init")
+require("MomoLib.data-init")

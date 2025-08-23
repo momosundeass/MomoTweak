@@ -36,10 +36,17 @@ function MomoLib.IsArray(tblOrArr)
   return true
 end
 
+function MomoLib.ToString(obj)
+	if obj == nil then return "Object = nil" end
+	if type(obj) == "table" then return MomoLib.TableToString(obj) end
+	return type(obj).. ":" .. tostring(obj)
+end
+
 function MomoLib.TableToString(tbl)
-	local str = #tbl .. " element > "
+	if tbl == nil then return "Table = nil" end
+	local str = "(".. #tbl .. "Es)>"
 	for i, e in pairs(tbl) do
-		str = str .. "[" .. i .. ":" .. e .. "] "
+		str = str .. "[" .. tostring(i) .. "=" .. MomoLib.ToString(e) .. "] "
 	end
 	return str
 end
@@ -67,9 +74,9 @@ function MomoLib.DeepCopy(orig)
 	if orig_type == 'table' then
 		local copy = {}
 		for orig_key, orig_value in next, orig, nil do
-			copy[deepcopy(orig_key)] = deepcopy(orig_value)
+			copy[MomoLib.DeepCopy(orig_key)] = MomoLib.DeepCopy(orig_value)
 		end
-		setmetatable(copy, deepcopy(getmetatable(orig)))
+		setmetatable(copy, MomoLib.DeepCopy(getmetatable(orig)))
 		return copy
 	end
 	local copy = orig
@@ -83,11 +90,30 @@ function MomoLib.First(tbl)
 end
 
 function MomoLib.Foreach(tbl, callback)
+	if type(tbl) ~= "table" then return end
 	tableUtil.for_each(tbl, callback)
 end
 
 function MomoLib.ContainKey(tbl, key)
 	return tbl[key] ~= nil
+end
+
+function MomoLib.Extend(tbl, keyValuePairs)
+	if type(keyValuePairs) ~= "table" then
+		error("keyValuePairs must be table.")
+	end
+	
+	if #keyValuePairs == 2 then
+		tbl[keyValuePairs[1]] = keyValuePairs[2]
+	return end
+	
+	if MomoLib.IsArray(keyValuePairs) then
+		for _, kvp in pairs(keyValuePairs) do
+			tbl[kvp[1]] = kvp[2]
+		end
+	return end
+	
+	error("keyValuePairs must be table with 2 element or array of paired key-value")
 end
 
 return MomoLib

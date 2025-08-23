@@ -1,5 +1,7 @@
 local function ResourcesDrain(miningDrill, drainPercent)
-	data.raw["mining-drill"][miningDrill].resource_drain_rate_percent = drainPercent
+	local miner = data.raw["mining-drill"][miningDrill]
+	miner.resource_drain_rate_percent = drainPercent
+	miner.drops_full_belt_stacks = true
 end
 
 ResourcesDrain("bob-mining-drill-1", 90)

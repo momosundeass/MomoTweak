@@ -10,7 +10,7 @@ local function CreateBoolSetting(settingName, defaultValue)
 		name = settingName,
 		setting_type = "startup",
 		default_value = defaultValue,
-		order = AutoOrder()
+		order = AutoOrder() 
 	}})
 end
 
