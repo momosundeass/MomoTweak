@@ -55,6 +55,9 @@ function MomoLib.GetIngredient(name, onValid)
 	if MomoLib.GetPrototype("module", name, onValid, false) then return true end
 	if MomoLib.GetPrototype("fluid", name, onValid, false) then return true end
 	if MomoLib.GetPrototype("repair-tool", name, onValid, false) then return true end
+	if MomoLib.GetPrototype("ammo", name, onValid, false) then return true end
+	if MomoLib.GetPrototype("projectile", name, onValid, false) then return true end
+	if MomoLib.GetPrototype("gun", name, onValid, false) then return true end
 	return false
 end
 

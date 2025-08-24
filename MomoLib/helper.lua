@@ -29,6 +29,7 @@ end
 
 function MomoLib.IsArray(tblOrArr)
   local i = 0
+  if type(tblOrArr) ~= "table" then return false end
   for _ in pairs(tblOrArr) do
       i = i + 1
       if tblOrArr[i] == nil then return false end
@@ -114,6 +115,16 @@ function MomoLib.Extend(tbl, keyValuePairs)
 	return end
 	
 	error("keyValuePairs must be table with 2 element or array of paired key-value")
+end
+
+function table.rpairs(t)
+    local i = #t + 1
+    return function()
+        i = i - 1
+        if i > 0 then
+            return i, t[i]
+        end
+    end
 end
 
 return MomoLib

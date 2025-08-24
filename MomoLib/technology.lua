@@ -47,10 +47,27 @@ function funcs.RemoveAllRecipe(recipeName)
 	end	
 end
 
+function funcs.FindUnlock(itemName)
+	for _, r in pairs(MomoLib.recipe.AllFromResult(itemName)) do
+		for _, t in pairs(data.raw.technology) do
+			if t.effects == nil then goto next_tech end
+			for i, eff in pairs(t.effects) do
+				if eff.type == "unlock-recipe" and eff.recipe == r then
+					return t.name
+				end
+			end
+			::next_tech::
+		end
+	end
+	return nil
+end
+
 function funcs.AddRequired(name, required)
 	MomoLib.GetTechnology(name, function(proto)
-		if MomoLib.GetTechnology(required, nil) then
-			table.insert(proto.prerequisites, required)
+		for _, t in pairs(type(required) == "table" and required or {required}) do		
+			if MomoLib.GetTechnology(t, nil) then
+				table.insert(proto.prerequisites, t)
+		end
 		end
 	end)
 end
@@ -88,10 +105,46 @@ function funcs.GetIngredient(tech, ingredient)
 	return nil
 end
 
+function funcs.MakeProductivity(fromTech, recipes)
+	if MomoLib.SciencePackOrder == nil then error("MomoLib.SciencePackOrder must assign.") end
+	if type(fromTech) == "string" then MomoLib.GetTechnology(fromTech, function(p) fromTech = p end) end
+	if type(recipes) ~= "table" then recipes = {recipes} end
+	local itemName = recipes[1].main_product or recipes[1].results[1].name or recipes[1].results[1][1]
+	local item 
+	MomoLib.GetIngredient(itemName, function (p) item = p end)
+	local techs = {}
+	local startSciencePackIndex = nil
+	local createNeeded = 5
+	for i, sp in table.rpairs(MomoLib.SciencePackOrder) do
+		if funcs.GetIngredient(fromTech, sp) then
+			startSciencePackIndex = i
+			goto found
+		end
+		createNeeded = createNeeded + 1
+	end
+	::found::
+	if startSciencePackIndex == nil then error("cant find start science pack for productivity") end
 
-function funcs.Clone(name, newName)
-	local newTech = funcs:_New(MomoLib.ClonePrototype(data.raw.technology[name], newName, function(p) end))
+	for i = 1, createNeeded, 1 do
+		local tech = funcs.Clone(fromTech, item.name .. "-productivity-" .. tostring(i))
+		-- TODO: create technology
+		table.insert(techs, tech)
+	end
+end
+
+
+function funcs.Clone(source, newName)
+	local newTech = funcs:_New(MomoLib.ClonePrototype(data.raw.technology[source], newName, function(p) end))
 	return newTech
+end
+
+function funcs:PRODUCTIVITY(recipes, amount)
+	if type(recipes) ~= "table" then recipes = {recipes} end
+	if amount == nil then amount = 0.10 end
+	if self.effects == nil then self.effects = {} end
+	for _, recipe in pairs(recipes) do
+		self.effects[#self.effects + 1] = {type = "change-recipe-productivity", recipe = recipe, change = amount}
+	end
 end
 
 function funcs:TIME(timePerCount)
@@ -130,3 +183,4 @@ function funcs:Extend()
 end
 
 MomoLib.technology = funcs
+MomoLib.SciencePackOrder = nil

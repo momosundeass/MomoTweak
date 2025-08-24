@@ -33,9 +33,19 @@ function funcs.SafeAddIngredients(recipeName, ingredients)
 end
 
 function funcs.ReplaceIngredient(recipeName, ingName, newIng)
-	if type(ingName) == "table" and ingName.name then ingName = ingName.name end
-	funcs.RemoveIngredient(recipeName, ingName)
-	return funcs.SafeAddIngredients(recipeName, newIng)
+	if not MomoLib.IsArray(ingName) then ingName = {ingName} end
+	for _,i in pairs(ingName) do
+		local n = i
+		if type(i) == "table" and i.name then n = i.name end
+		funcs.RemoveIngredient(recipeName, n)
+	end
+	
+	if not MomoLib.IsArray(newIng) then newIng = {newIng} end
+	local recipe 
+	for _, i in pairs(newIng) do
+		recipe = funcs.SafeAddIngredients(recipeName, i)
+	end
+	return recipe
 end
 
 function funcs.RemoveIngredient(recipeName, ingName, isPostProcessingMode)

@@ -2,7 +2,7 @@ local item = {}
 local itemName = {
     name = "invalid"
 }
-function itemName:New(nameOrTbl)
+function itemName:New(nameOrTbl, tech)
     local tbl = {}
     if type(nameOrTbl) == "string" then
         tbl.name = nameOrTbl
@@ -12,15 +12,36 @@ function itemName:New(nameOrTbl)
     setmetatable(tbl, self)
     self.__index = self
     tbl.n = tbl.name
+    if tech == nil then
+       tbl.tech = MomoLib.technology.FindUnlock(tbl.name)                     
+    else
+        tbl.tech = tech
+    end
     return tbl
 end
+item.ItemType = {}
+item.Prototypes = {}
 function itemName:Prototype()
-    local prototype 
-    MomoLib.GetIngredient(self.name, function(p) prototype = p end)
-    return prototype
+    if item.Prototypes[self] ~= nil then
+        return item.Prototypes[self]
+    end
+    if not MomoLib.GetIngredient(self.name, function(p) item.Prototypes[self] = p end) then
+        error(self.name .. " have no Prototype")
+    end
+    return item.Prototypes[self]
 end
-function itemName:I(amount, prob) return MomoLib.MakeIngredient(self.name, amount, prob) end
+function itemName:I(amount, prob)
+    if item.ItemType[self] == nil then
+        item.ItemType[self] = self:Prototype().type
+    end
+    if item.ItemType[self] == "fluid" then
+        return self:F(amount)
+    end
+    return MomoLib.MakeIngredient(self.name, amount, prob)
+end
 function itemName:F(amount) return MomoLib.MakeFluidIngredient(self.name, amount) end
+
+
 
 item.techCard       = itemName:New("kr-blank-tech-card")
 item.basicSci       = itemName:New("kr-basic-tech-card")
@@ -40,11 +61,14 @@ item.ironPlate   = itemName:New("iron-plate")
 item.ironGear    = itemName:New("iron-gear-wheel")
 item.ironBeam    = itemName:New("kr-iron-beam")
 item.ironStick   = itemName:New("iron-stick")
+item.pipe        = itemName:New("pipe")
+item.undergroundPipe = itemName:New("pipe-to-ground")
 item.copperPlate = itemName:New("copper-plate")
 item.cable       = itemName:New("copper-cable")
 item.steelPlate  = itemName:New("steel-plate")
 item.steelGear   = itemName:New("kr-steel-gear-wheel")
 item.steelBeam   = itemName:New("kr-steel-beam")
+item.steelPipe   = itemName:New("kr-steel-pipe")
 item.brick       = itemName:New("stone-brick")
 item.concrete    = itemName:New("concrete")
 item.refConcrete = itemName:New("refined-concrete")
@@ -61,6 +85,7 @@ item.rareMetal   = itemName:New("kr-rare-metals")
 item.u235        = itemName:New("uranium-235")
 item.u238        = itemName:New("uranium-238")
 item.plastic     = itemName:New("plastic-bar")
+item.sulfur      = itemName:New("sulfur")
 
 item.repair = itemName:New("repair-pack")
 
@@ -103,8 +128,10 @@ item.blueChip = itemName:New("processing-unit")
 item.decider = itemName:New("decider-combinator")
 item.constant = itemName:New("constant-combinator")
 item.arithmetic = itemName:New("arithmetic-combinator")
+item.selector = itemName:New("selector-combinator", "advanced-combinators")
 item.lamp = itemName:New("small-lamp")
 item.eComponent = itemName:New("kr-electronic-components")
+item.electrolytic = itemName:New("electrolytic-unit")
 
 -- engine
 item.core = itemName:New("kr-automation-core")
@@ -122,14 +149,17 @@ item.assembly3 = itemName:New("assembling-machine-3")
 item.assembly4 = itemName:New("kr-advanced-assembling-machine")
 item.chemicalPlant = itemName:New("chemical-plant")
 item.refinery = itemName:New("oil-refinery")
+item.fuelRef = itemName:New("kr-fuel-refinery")
 item.crusher = itemName:New("kr-crusher")
+item.jawCrusher = itemName:New("jaw-crusher")
 item.oreCrusher = itemName:New("crusher1")
 item.oreCrusher2 = itemName:New("crusher2")
 item.oreCrusher3 = itemName:New("crusher3")
 item.fuelProc = itemName:New("fuel-processor")
 item.greenHouse = itemName:New("kr-greenhouse")
-item.greenHouse2 = itemName:New("kr-bio-lab")
+item.biolab = itemName:New("kr-bio-lab")
 item.lab = itemName:New("lab")
+item.lab2 = itemName:New("kr-advanced-lab")
 item.foundry = itemName:New("foundry")
 item.chipShooter = itemName:New("electromagnetic-plant")
 item.furnace = itemName:New("stone-furnace")
@@ -137,15 +167,31 @@ item.steelFurnace = itemName:New("steel-furnace")
 item.elecFurnace = itemName:New("electric-furnace")
 item.indFurnace = itemName:New("industrial-furnace")
 item.advancedFurnace = itemName:New("advanced-furnace")
-item.electrolyser = itemName:New("kr-electrolysis-plant")
-
+item.flareStack = itemName:New("kr-flare-stack")
+item.electrolyser = itemName:New("kr-electrolysis-plant", "kr-advanced-chemistry")
+item.atmospheric = itemName:New("kr-atmospheric-condenser", "kr-atmosphere-condensation")
+item.mineralWaterPump = itemName:New("kr-mineral-water-pumpjack")
+item.oilPump = itemName:New("pumpjack")
+item.pump = itemName:New("pump")
+item.steelPump = itemName:New("kr-steel-pump")
+item.filtration = itemName:New("kr-filtration-plant") 
+item.echamber1 = itemName:New("echamber1")
+item.echamber2 = itemName:New("echamber1")
+item.echamber3 = itemName:New("echamber1")
+item.researchServer = itemName:New("kr-research-server")
+item.radar = itemName:New("radar")
 
 -- electric
 item.boiler = itemName:New("boiler")
 item.burnerTurbine = itemName:New("burner-turbine")
 item.steamEngine = itemName:New("steam-engine")
 item.steamTurbine = itemName:New("steam-turbine")
-
+item.gasPower = itemName:New("kr-gas-power-station")
+item.solar = itemName:New("solar-panel")
+item.bigPole = itemName:New("big-electric-pole")
+item.accumulator = itemName:New("accumulator")
+item.substation = itemName:New("substation", "electric-energy-distribution-2")
+item.substation2 = itemName:New("kr-superior-substation")
 -- miner
 item.burnerMiner = itemName:New("burner-mining-drill")
 item.miningDrill = itemName:New("electric-mining-drill")
@@ -165,12 +211,17 @@ item.grenade = itemName:New("grenade")
 -- fluid
 item.sulfuricAcid  = itemName:New("sulfuric-acid")
 item.water         = itemName:New("water") 
+item.mineralWater  = itemName:New("kr-mineral-water")
 item.oil           = itemName:New("crude-oil")
 item.oxygen        = itemName:New("kr-oxygen")
 item.hydrogen      = itemName:New("kr-hydrogen")
 item.nitrogen      = itemName:New("kr-nitrogen")
 item.chlorine      = itemName:New("kr-chlorine")
 item.nitricAcid    = itemName:New("kr-nitric-acid")
+item.heavyOil      = itemName:New("heavy-oil")
+item.lightOil      = itemName:New("light-oil")
+item.lubricant     = itemName:New("lubricant")
+item.ammonia       = itemName:New("kr-ammonia")
 
 MomoLib.itemNames = item    
 MomoLib.itemName = itemName

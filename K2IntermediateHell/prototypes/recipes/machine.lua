@@ -1,7 +1,7 @@
 MomoLib.recipe.New({
     Item.lab:I(5),
     Item.fastInserter:I(16),
-    Item.concrete:I(100),
+    Item.plastic:I(40),
     Item.steamEngine:I(2),
     Item.chemicalPlant:I(6)
 },

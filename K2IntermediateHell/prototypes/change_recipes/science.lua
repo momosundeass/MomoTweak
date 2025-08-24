@@ -38,3 +38,4 @@ MomoLib.recipe.AddProduct(Item.blueSci, {Item.blueSci1:I(2), Item.blueSci2:I(16)
 -- idea
 -- science craft give residue as byproduct 
 -- residue can use to craft more science
+

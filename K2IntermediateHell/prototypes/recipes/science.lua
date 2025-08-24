@@ -71,14 +71,15 @@ MomoLib.recipe.New({
 
 MomoLib.recipe.New({
     Item.blueSci1:I(6),
-    Item.elecFurnace:I(),
-    Item.chemicalPlant:I(2),
+    Item.flareStack:I(2),
+    Item.oilPump:I(2),
 },{
     Item.blueSci:I(9)
 }, "blue-sci-1"):UNLOCK(Item.blueSci.n):TIME(30):SUBGROUP(re1, "auto")
 :ICON(MomoLib.icon.RecycleIcons(Item.blueSci1:Prototype())):Extend()
 MomoLib.recipe.New({
     Item.blueSci2:I(2),
+    Item.sulfur:I()
 },{
     Item.blueSci1:I(),
 }, "blue-sci-2"):CATEGORY(MomoLib.category.researchCenter):UNLOCK(Item.blueSci.n):TIME(24):SUBGROUP(re1, "auto")

@@ -93,6 +93,7 @@ def RunFactorio():
   for factorio in FactorioPath :
     if os.path.isfile(factorio) :
       os.startfile(factorio)
+      subprocess.popen([factorio, "--start-server-load-latest"])
       print("Run Factorio")
       return
   print("No Factorio in path.")
@@ -155,6 +156,9 @@ if not (FindFactorioInSystem()):
   print("")
 else:
   print("\nFactorio already running please close") 
+  subprocess.call("TASKKILL /F /IM " + FACTORIO, shell=True)
+  time.sleep(1.000) 
+  RunFactorio()
     
 time.sleep(5.000)
 
