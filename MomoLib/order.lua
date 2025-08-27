@@ -24,7 +24,7 @@ function funcs.Auto(key)
     end
     order = order + 1
     MomoLib.autoOrder[key] = order
-    return "z" .. tostring(order)
+    return "z-" .. string.char(string.byte("a") + order)
 end
 
 MomoLib.currentOrder = 1

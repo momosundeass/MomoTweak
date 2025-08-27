@@ -2,10 +2,7 @@ local funcs = {}
 funcs.DefaultSize = defines.default_icon_size
 
 function funcs.Get(iconPath, size)
-	if size == nil then
-		return "__" .. MomoLib.ModName .. "__/graphics/icons/" .. iconPath 
-	end
-	return {"__" .. MomoLib.ModName .. "__/graphics/icons/" .. iconPath, size} 
+	return MomoLib.Graphics("icons/" .. iconPath, size)
 end
 
 function funcs.FromIngredient(item)
@@ -23,9 +20,9 @@ function funcs.FromIngredientWithSize(item)
 		i = p.icon
 		s = p.icon_size or funcs.DefaultSize
 	end) then
-		return {i, s}
+		return {i, s, icon = i, icon_size = s}
 	end
-	return {item, s}
+	return {item, s, icon = item, icon_size = s}
 end
 
 function funcs.MakeLayeredItemIcon(bgItem, fgItem)
@@ -94,5 +91,8 @@ function funcs.FromPrototype(prototype)
 	return {prototype.icon, prototype.icon_size}
 end
 	
+function funcs.ProductivityIcon()
+	return {icon = "__core__/graphics/icons/technology/effect-constant/effect-constant-recipe-productivity.png", icon_size = 64}
+end
 
 MomoLib.icon = funcs

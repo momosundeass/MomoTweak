@@ -15,6 +15,7 @@ if not MomoLib.technology then require("technology") end
 if not MomoLib.machine then require("machine") end
 if not MomoLib.prototype then require("prototype") end
 if not MomoLib.order then require("order") end
+if not MomoLib.category then require("category") end
 
 
 MomoLib.ModName = ""
@@ -58,11 +59,12 @@ function MomoLib.GetIngredient(name, onValid)
 	if MomoLib.GetPrototype("ammo", name, onValid, false) then return true end
 	if MomoLib.GetPrototype("projectile", name, onValid, false) then return true end
 	if MomoLib.GetPrototype("gun", name, onValid, false) then return true end
+	if MomoLib.GetPrototype("rail-planner", name, onValid, false) then return true end
 	return false
 end
 
 function MomoLib.GetRecipe(name, onValid) return MomoLib.GetPrototype("recipe", name, function(p) MomoLib._OnValidWrapObject("recipe", onValid, p) end) end
-function MomoLib.GetTechnology(name, onValid) return MomoLib.GetPrototype("technology", name, function(p) MomoLib._OnValidWrapObject("technology", onValid, p) end) end
+function MomoLib.GetTechnology(name, onValid, isLog) return MomoLib.GetPrototype("technology", name, function(p) MomoLib._OnValidWrapObject("technology", onValid, p) end, isLog) end
 
 function MomoLib.MakeIngredient(name, amount, probFloat01) 
 	local tbl = MomoLib._ConcatAmount({type="item", name=name}, amount)
@@ -128,10 +130,6 @@ function MomoLib.ChangeGroup(targetGroup, newGroup, prefix)
 	end
 end
 
-function MomoLib.Graphics(path)
-	return "__" .. MomoLib.ModName .. "__/graphics/" .. path
-end
-
 function MomoLib.Log(str)
 	local toLog = tostring(str)
 	if type(str) == "table" then
@@ -139,6 +137,14 @@ function MomoLib.Log(str)
 	end
 	log("MomoLib : " .. toLog)
 	return str
+end
+
+function MomoLib.Graphics(path, size) 
+	if size == nil then
+		return "__" .. MomoLib.ModName .. "__/graphics/" .. path 
+	end
+	local icon = "__" .. MomoLib.ModName .. "__/graphics/" .. path
+	return {icon, size, icon = icon, icon_size = size} 
 end
 
 function MoLog(str) return MomoLib.Log(str) end 

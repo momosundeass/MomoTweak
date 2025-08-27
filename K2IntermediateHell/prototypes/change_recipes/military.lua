@@ -1,1 +1,0 @@
-MomoLib.recipe.ReplaceIngredient(Item.turret, Item.ironGear, Item.submachineGun:I())

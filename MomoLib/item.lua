@@ -3,27 +3,35 @@ local funcs = {}
 funcs.isNew = true
 funcs.isEmpty = true
 
-function funcs:_New(tab)
-   tab = tab or {}
-   setmetatable(tab, self)
+function funcs:_New(tbl)
+   tbl = tbl or {}
+   setmetatable(tbl, self)
    self.__index = self
-   tab.isEmpty = false
-   return tab
+   tbl.isEmpty = false
+   return tbl
 end
-function funcs:FromPrototype(tab)
-	local obj = funcs:_New(tab)
+function funcs:FromPrototype(tblorname)
+	if type(tblorname) == "string" then MomoLib.GetIngredient(tblorname, function (p) tblorname = p end) end
+	local obj = funcs:_New(tblorname)
 	obj.isNew = false
 	obj.isEmpty = false
 	return obj
 end
 
-function funcs.Create(name, icon, stackSize, itemType)
+function funcs.Create(name, icon, stackSize, itemType, color)
 	itemType = itemType or "item"
 	local prototype = {
 		type = itemType,
 		name = name,
 		stack_size = stackSize or 100,
 	}
+	if itemType == "fluid" then
+		if color == nil then error("new fluid requires color") end
+		prototype.base_color = color
+		prototype.flow_color = color
+		prototype.default_temperature = 25
+		
+	end
 	MomoLib.icon.Assign(prototype, icon)
 	local item = funcs:_New(prototype)
 	item:Extend()
@@ -66,6 +74,12 @@ function funcs:SUBGROUP(subgroup, order)
 	if order ~= nil then self.order = order end
 	return self
 end
+
+function funcs:SUPERHOT()
+	self.default_temperature = 1000000
+    self.max_temperature = 10000000
+    self.heat_capacity = "25J"
+return self end
 
 function funcs:Extend()
 	data:extend{self}

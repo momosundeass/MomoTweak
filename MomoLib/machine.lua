@@ -37,6 +37,51 @@ function funcs._CollisionBox(box)
     return { newLeftBottom, newRightTop }
 end
 
+function funcs.FluidBoxes(prototypeName, fluidBoxes)
+    if not MomoLib.IsArray(fluidBoxes) then fluidBoxes = {fluidBoxes} end
+    funcs.GetPrototype(prototypeName).fluid_boxes = fluidBoxes
+end
+
+funcs.fluidbox = {}
+function funcs.fluidbox:New(o)
+    setmetatable(o, self)
+    self.__index = self
+    return o
+end
+function funcs.FluidBox(position, production_type, direction, picture, cover)
+    if direction == nil then direction = defines.direction.north end
+    if picture == nil then
+       picture = assembler2pipepictures()
+    end
+    if cover == nil then
+        cover = pipecoverspictures()
+    end
+    return funcs.fluidbox:New{
+        production_type = production_type,
+        pipe_picture = picture,
+        pipe_covers = cover,
+        volume = 100,
+        pipe_connections = {{ flow_direction = production_type, direction = direction, position = position }},
+        secondary_draw_orders = { north = -1 }
+    }
+end
+function funcs.fluidbox:FILTER(filter)
+    self.filter = filter
+return self end
+function funcs.fluidbox:SUPERHOT()
+    self.max_temperature = 10000000
+return self end
+function funcs.fluidbox:CATEGORY(categories)
+    for _, pc in pairs(self.pipe_connections) do
+        pc.connection_category = categories    
+    end
+return self end
+function funcs.fluidbox:FLOW(flow_direction)
+    for _, pc in pairs(self.pipe_connections) do
+        pc.flow_direction = flow_direction
+    end
+end
+
 function funcs.ProductivityAdded(machine, prod)
 	local prototype = data.raw["assembling-machine"][machine] or data.raw["furnace"][machine]
 	if prototype == nil then error("No assembling-machine or furnace; with name : " .. machine) end
@@ -85,8 +130,24 @@ function funcs.AddCategory(prototypeName, categories)
 	end
 end
 
+function funcs.ModuleSlot(prototypeName, slot)
+    funcs.GetPrototype(prototypeName).module_slots = slot
+end
+
 function funcs.GetPrototype(prototypeName)
-    return data.raw["assembling-machine"][prototypeName] or data.raw["furnace"][prototypeName]
+    if type(prototypeName) ~= "string" then prototypeName = prototypeName.name end
+    return data.raw["assembling-machine"][prototypeName] 
+        or data.raw["furnace"][prototypeName] 
+        or data.raw["mining-drill"][prototypeName]
+end
+
+function funcs.MinerDrainRate(minerName, drainRate) 
+    MomoLib.GetPrototype("mining-drill", minerName, function(p) p.resource_drain_rate_percent = drainRate end)
+end
+
+function funcs.MinerBeltStack(minerName, isStack)
+    if isStack == nil then isStack = true end
+    MomoLib.GetPrototype("mining-drill", minerName, function(p) p.drops_full_belt_stacks = isStack end)
 end
 
 MomoLib.machine = funcs

@@ -145,7 +145,7 @@ ExportModDirectory(MOD("NauvisAgeOverhaul", "\\NauvisAgeOverhaul", libPath=LibPa
 ExportModDirectory(MOD("BraidedUndergroundPipePack", "\\BraidedUndergroundPipePack", libPath=LibPath))
 ExportModDirectory(MOD("SimpleUndergroundPipePack", "\\SimpleUndergroundPipePack", libPath=LibPath))
 ExportModDirectory(MOD("BobAgeNoSpace", "\\BobAgeNoSpace", libPath=LibPath))
-ExportModDirectory(MOD("K2IntermediateHell", "\\K2IntermediateHell", libPath=LibPath))
+ExportModDirectory(MOD("K2ScienceProcessing", "\\K2ScienceProcessing", libPath=LibPath))
 # NoMoreUseless = MOD("248kExpensiveMachine", "\\248kExpensiveMachine", libPath=LibPath)
 # ExportModDirectory(NoMoreUseless)
 

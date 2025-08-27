@@ -185,9 +185,7 @@ end
 
 function funcs.AllFromResult(item)
 	local itemName = item
-	if type(item) == "table" then
-		itemName = item.name
-	end
+	if type(item) == "table" then itemName = item.name end
 	if not MomoLib.GetItem(itemName) then return {} end
 	local recipes = {}
 	MomoLib.Foreach(data.raw.recipe, function(recipe)
@@ -220,10 +218,11 @@ function funcs.New(ingredients, results, name)
 		auto_recycle = false
 	}
 	if #recipeResults > 1 then
-		-- if (recipeResults[1].name == Item.green)
-		-- error("main product set as " .. recipeResults[1].name)
 		recipe.main_product = recipeResults[1].name
 	end
+	if funcs.AlwaysProductivity then
+		recipe:PRODUCTIVITY()
+	end 
 	return recipe
 end
 
@@ -388,5 +387,14 @@ function funcs:INGREDIENTS(tbl)
 function funcs:AMOUNT(amount)
 	self.SetProductAmount(self.name, amount)
 	return self end
+	
+function funcs:ADDPRODUCT(products)
+	funcs.AddProduct(self.name, products)
+	return self end
 
+function funcs:NORECYCLE()
+	funcs.NoRecycle(self)
+	return self end
+
+funcs.AlwaysProductivity = false
 MomoLib.recipe = funcs
