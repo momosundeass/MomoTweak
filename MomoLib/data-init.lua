@@ -16,6 +16,7 @@ if not MomoLib.machine then require("machine") end
 if not MomoLib.prototype then require("prototype") end
 if not MomoLib.order then require("order") end
 if not MomoLib.category then require("category") end
+if not MomoLib.effect then require("effect") end
 
 
 MomoLib.ModName = ""
@@ -89,6 +90,10 @@ function MomoLib._OnValidWrapObject(category, onValid, prototype)
 	onValid(MomoLib[category]:FromPrototype(prototype))
 end
 
+function MomoLib.WrapObject(momoCategory, prototype)
+	return MomoLib[momoCategory]:FromPrototype(prototype)
+end
+
 function MomoLib.subgroup.New(name, group, order)
 	return {
 		type = "item-subgroup",
@@ -147,4 +152,5 @@ function MomoLib.Graphics(path, size)
 	return {icon, size, icon = icon, icon_size = size} 
 end
 
+function MoErr(str) if DEBUG then error(MomoLib.ToString(str)) end end
 function MoLog(str) return MomoLib.Log(str) end 

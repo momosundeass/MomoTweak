@@ -150,4 +150,11 @@ function funcs.MinerBeltStack(minerName, isStack)
     MomoLib.GetPrototype("mining-drill", minerName, function(p) p.drops_full_belt_stacks = isStack end)
 end
 
+--[[
+    see https://lua-api.factorio.com/latest/types/IconDrawSpecification.html
+]]
+function funcs.IconDraw(prototypeName, drawSpecific)
+    funcs.GetPrototype(prototypeName).icon_draw_specification = drawSpecific
+end
+
 MomoLib.machine = funcs

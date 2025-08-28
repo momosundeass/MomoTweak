@@ -6,6 +6,13 @@ local function NewScience(name, icon, stackSize)
     item.auto_recycle = false
     return item
 end  
+
+local function NewIntermediate(name, icon, stackSize)
+    local item = MomoLib.itemName:New(MomoLib.item.Create(name, icon, stackSize))
+    item.subgroup = "intermediate-product"
+    item.auto_recycle = false
+    return item
+end  
 local function NewFluid(name, icon, color, isSuperHot)
     local prototype = MomoLib.item.Create(name, icon, 100, "fluid", color)
     if isSuperHot then prototype:SUPERHOT() end
@@ -34,6 +41,7 @@ MomoLib.itemNames.purpleSci1 = NewScience("purple-sci-1", MomoLib.icon.FromIngre
 MomoLib.itemNames.purpleSci2 = NewScience("purple-sci-2", MomoLib.AltCard("production-science-pack"), 100)
 MomoLib.itemNames.purpleSci3 = NewScience("purple-sci-3", {MomoLib.icon.Get("purple-sci-3.png"), 32}, 100)
 
+MomoLib.itemNames.carbon = NewIntermediate("carbon", MomoLib.Graphics("space-age/carbon.png"), 100)
 MomoLib.itemNames.scienceHardware = NewScience("science-hardware", MomoLib.icon.Get("science-hardware.png"), 50)
 MomoLib.itemNames.lattice = NewScience("lattice", MomoLib.icon.Get("lattice.png", 32), 50)
 

@@ -4,6 +4,7 @@ function MomoLib.K2ItemIcon(icon) return "__Krastorio2Assets__/icons/items/" .. 
 function MomoLib.AltCard(icon) return "__tech-cards-retexture-AI-powered__/graphics/icons/".. icon .. ".png" end
 function MomoLib.QualityGlassware(icon) return "__quality_glassware__/graphics/icons/".. icon .. ".png" end
 function MomoLib.SpaceEx(icon) return "__space-exploration-graphics__/graphics/icons/".. icon .. ".png" end
+function MomoLib.SpaceExGraphics(icon) return "__space-exploration-graphics__/graphics/".. icon .. ".png" end
 
 -- quality didn't load on data state yet, so use this function instead
 -- reference to same function in __quality__/prototypes/recycling.lua

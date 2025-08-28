@@ -6,5 +6,5 @@ MomoLib.recipe.New({
     Item.chemicalPlant:I(6)
 },
 {
-    Item.resCenter:I()
+    Item.researchCenter:I()
 }):UNLOCK(Item.blueSci.n):TIME(5):Extend()

@@ -10,9 +10,8 @@ MomoLib.recipe.ReplaceIngredient(Item.airPurifier, {
     Item.steelBeam.n,
     Item.engine.n,
 }, {
-    Item.mineralWaterPump:I(),
-    Item.flareStack:I()
-})
+    Item.mineralWaterPump:I()
+}):TIME(8):CATEGORY(MomoLib.category.refinery)
 
 MomoLib.recipe.SetIngredients(Item.steamEngine.n, {Item.fuelProc:I(), Item.burnerTurbine:I(), Item.inserter:I(3)})
 
@@ -24,7 +23,7 @@ MomoLib.recipe.SetIngredients(Item.steamTurbine, {
     Item.titaniumPlate:I(20),
     Item.electricMotor:I(40),
     Item.concrete:I(80)
-})
+}):TIME(30)
 
 MomoLib.recipe.SetIngredients(Item.nuclearPlant, {
     Item.heatPipe:I(80),

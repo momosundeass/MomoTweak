@@ -129,7 +129,7 @@ local resCenter = MomoLib.machine.CreateEntity("assembling-machine", "assembling
         },
     }
 })
-MomoLib.itemNames.resCenter = MomoLib.itemName:New(resCenter.item)
+MomoLib.itemNames.researchCenter = MomoLib.itemName:New(resCenter.item)
 MomoLib.machine.FluidBoxes(resCenter.machine, {
     MomoLib.machine.FluidBox({0, -4}, "output"),
     MomoLib.machine.FluidBox({0, 4}, "input", defines.direction.south),
@@ -137,5 +137,6 @@ MomoLib.machine.FluidBoxes(resCenter.machine, {
     MomoLib.machine.FluidBox({2, 4}, "input", defines.direction.south),
 })
 MomoLib.machine.CopySounds("k11-advanced-centrifuge", resCenter.machine.name)
+MomoLib.machine.Power(resCenter.machine.name, "300kW")
 MomoLib.machine.ProductivityAdded(resCenter.machine.name, 0.3)
 MomoLib.machine.ModuleSlot(resCenter.machine, 4)

@@ -32,7 +32,7 @@ MomoLib.recipe.ReplaceIngredient(Item.biterResearch, Item.coke.n, Item.eComponen
 MomoLib.recipe.SetIngredients(Item.blueSci, {
     Item.redChip:I(5),
     Item.greenSci2:I(5),
-    Item.assembly2:I(),
+    Item.chemicalPlant:I(2),
     Item.memoryBlock:I(8)
 }):ADDPRODUCT{Item.blueSci1:I(2), Item.blueSci2:I(16)}:NORECYCLE()
 
@@ -48,6 +48,11 @@ MomoLib.recipe.SetIngredients(Item.purpleSci, {
 }):AMOUNT(2):ADDPRODUCT{Item.purpleSci1:I(1), Item.purpleSci2:I(32)}:NORECYCLE()
 
 -- Yellow sci
+MomoLib.technology.AddRequired(Item.yellowSci.n, Item.steamTurbine.tech)
 MomoLib.recipe.SetIngredients(Item.yellowSci, {
-
-}):AMOUNT(1):ADDPRODUCT({Item.yellowSci1:I(2), Item.yellowSci2:I(9)}):NORECYCLE()
+    Item.steamTurbine:I(2),
+    Item.airPurifier:I(4),
+    Item.robotFrame:I(4),
+    Item.scienceHardware:I(),
+    Item.lattice:I(2),
+}):AMOUNT(1):ADDPRODUCT({Item.yellowSci1:I(2), Item.yellowSci2:I(9), Item.yellowSci4:I(2)}):NORECYCLE()

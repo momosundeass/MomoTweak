@@ -2,48 +2,33 @@ require("MomoLib.data-init")
 MomoLib.ModName = "K2ScienceProcessing"
 require("helper")
 require("item-name")
-
 MomoLib.recipe.AlwaysProductivity = true
+require("prototypes.category")
 
-MomoLib.category = {}
-MomoLib.category.fluidCrafting = "crafting-with-fluid"
-MomoLib.category.chemical = "chemistry"
-MomoLib.category.electrolysis = "kr-electrolysis"
-MomoLib.category.electronics = "electronics"
-MomoLib.category.filtration = "kr-fluid-filtration"
-MomoLib.category.researchServer = "researching-server"
-MomoLib.category.quantumComputer = "quantum-computing"
-MomoLib.category.chemicalOnly = "chemistry-only"
-MomoLib.category.refinery = "oil-processing"
-MomoLib.category.centrifugeOnly = "centrifuge-only"
-MomoLib.category.advancedCentrifugeOnly = "advanced-centrifuge-only"
-MomoLib.category.oxidizer = "oxidize"
-MomoLib.category.researchCenter = "research-center"
-MomoLib.category.indFurnace = "industrial-furnace-only"
+data:extend{{
+        type="item-group",
+        name="science",
+        order=data.raw["item-group"]["intermediate-products"].order .. "-a",
+        icon=MomoLib.SpaceExGraphics("item-group/science"),
+        icon_size=128
+}}
+MomoLib.subgroup.sciInter = MomoLib.subgroup.New("science-intermediate", "science", "z")
+MomoLib.subgroup.sciRe = MomoLib.subgroup.New("science-pack-recycle", "science", "z1")
+MomoLib.subgroup.sciRe1 = MomoLib.subgroup.New("science-pack-recycle-1", "science", "z2")
+MomoLib.subgroup.sciRe2 = MomoLib.subgroup.New("science-pack-recycle-2", "science", "z3")
+MomoLib.subgroup.sciRe3 = MomoLib.subgroup.New("science-pack-recycle-3", "science", "z4")
+MomoLib.subgroup.inRe = MomoLib.subgroup.New("intermediate-recycle", "science", "zz")
 data:extend{
-    {type="recipe-category", name=MomoLib.category.chemicalOnly},
-    {type="recipe-category", name=MomoLib.category.centrifugeOnly},
-    {type="recipe-category", name=MomoLib.category.advancedCentrifugeOnly},
-    {type="recipe-category", name=MomoLib.category.oxidizer},
-    {type="recipe-category", name=MomoLib.category.researchCenter},
-    {type="recipe-category", name=MomoLib.category.researchServer},
-    {type="recipe-category", name=MomoLib.category.quantumComputer},
-    {type="recipe-category", name=MomoLib.category.indFurnace}
+    MomoLib.subgroup.sciRe,
+    MomoLib.subgroup.sciRe1,
+    MomoLib.subgroup.sciRe2,
+    MomoLib.subgroup.sciRe3,
+    MomoLib.subgroup.inRe,
+    MomoLib.subgroup.sciInter
 }
-MomoLib.machine.AddCategory(MomoLib.itemNames.chemicalPlant.n, MomoLib.category.chemicalOnly)
-MomoLib.machine.AddCategory(MomoLib.itemNames.researchServer.n, MomoLib.category.researchServer)
-MomoLib.machine.AddCategory(MomoLib.itemNames.quantumComputer.n, MomoLib.category.quantumComputer)
-MomoLib.machine.AddCategory(MomoLib.itemNames.indFurnace.n, MomoLib.category.indFurnace)
 
+MomoLib.subgroups["science-pack"].group = "science"
 
-MomoLib.subgroup.sciInter = MomoLib.subgroup.New("science-intermediate", "intermediate-products", "z")
-data:extend{MomoLib.subgroup.sciInter}
-
-MomoLib.subgroup.sciRe1 = MomoLib.subgroup.New("science-pack-recycle-1", "intermediate-products", "z1")
-data:extend{MomoLib.subgroup.sciRe1}
-
-MomoLib.subgroup.inRe = MomoLib.subgroup.New("intermediate-recycle", "intermediate-products", "zz")
-data:extend{MomoLib.subgroup.inRe}
 
 require("prototypes.items")
 require("prototypes.machines")
@@ -53,6 +38,7 @@ local tempItem = Item
 Item = MomoLib.itemNames
 MomoLib.MomoProcessing.Data()
 require("prototypes.recipes.recipes")
+require("prototypes.recipes.Intermediate")
 require("prototypes.recipes.science")
 
 require("prototypes.recipes.machine")

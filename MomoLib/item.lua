@@ -64,6 +64,16 @@ function funcs.DisableRecipe(name)
 	end)
 end
 
+--[[
+	set module effect
+	@param use 'MomoLib.NewEffect()' or see 'MomoLib.effect.lua'
+]]
+function funcs:MODULEEFFECT(effs)
+	if self.type ~= "module" then error("change effect required 'module' for : " .. self.name) end
+	self.effect = effs
+	return self 
+end
+
 function funcs:NORECYCLE()
 	funcs.NoRecycle(self.name)
 	return self

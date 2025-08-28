@@ -10,7 +10,11 @@ MomoLib.technology.AddRequired(Item.strongBox.tech, "concrete")
 MomoLib.recipe.SafeAddIngredients(Item.strongBox, {Item.concrete:I(50)})
 MomoLib.recipe.SafeAddIngredients(Item.strongBox2, {Item.refConcrete:I(100)})
 
--- TODO: train sets
+MomoLib.recipe.SetIngredients(Item.signal, {Item.lamp:I(1), Item.ironPlate:I(5), Item.greenChip:I(1)})
+MomoLib.recipe.SetIngredients(Item.chainSignal, {Item.steelPlate:I(2), Item.signal:I(1), Item.lamp:I(2)})
+MomoLib.recipe.SetIngredients(Item.station, {Item.ironBeam:I(4), Item.steelPlate:I(2), Item.constant:I(8), Item.signal:I(2)})
+-- TODO: locomotive?
+
 
 -- TODO: robot sets
 MomoLib.technology.AddRequired(Item.robotFrame.tech, Item.bulkInserter.tech)

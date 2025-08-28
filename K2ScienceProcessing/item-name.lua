@@ -21,6 +21,7 @@ function itemName:New(nameOrTbl, tech)
 end
 item.ItemType = {}
 item.Prototypes = {}
+
 function itemName:Prototype()
     if item.Prototypes[self] ~= nil then
         return item.Prototypes[self]
@@ -30,6 +31,7 @@ function itemName:Prototype()
     end
     return item.Prototypes[self]
 end
+
 function itemName:I(amount, prob)
     if item.ItemType[self] == nil then
         item.ItemType[self] = self:Prototype().type
@@ -56,11 +58,15 @@ item.matterSci      = itemName:New("kr-matter-tech-card")
 item.advancedSci    = itemName:New("kr-advanced-tech-card")
 item.singularitySci = itemName:New("kr-singularity-tech-card")
 item.biterResearch  = itemName:New("kr-biter-research-data")
+
+
 item.ironPlate      = itemName:New("iron-plate")
 item.ironGear       = itemName:New("iron-gear-wheel")
 item.ironBeam       = itemName:New("kr-iron-beam")
 item.ironStick      = itemName:New("iron-stick")
+item.ironMolten     = itemName:New("molten-iron")
 item.copperPlate    = itemName:New("copper-plate")
+item.copperMolten   = itemName:New("molten-copper")
 item.cable          = itemName:New("copper-cable")
 item.steelPlate     = itemName:New("steel-plate")
 item.steelGear      = itemName:New("kr-steel-gear-wheel")
@@ -76,6 +82,8 @@ item.stone          = itemName:New("stone")
 item.sand           = itemName:New("kr-sand")
 item.wood           = itemName:New("wood")
 item.coal           = itemName:New("coal")
+item.enrichedCoal   = itemName:New("enriched-coal")
+item.solidFuel      = itemName:New("solid-fuel")
 item.coke           = itemName:New("kr-coke")
 item.tritium        = itemName:New("kr-tritium")
 item.lithium        = itemName:New("kr-lithium", "kr-lithium-processing")
@@ -127,6 +135,9 @@ item.superiorLoader          = itemName:New("kr-superior-loader")
 item.heatPipe                = itemName:New("heat-pipe", "nuclear-power")
 
 item.rail = itemName:New("rail")
+item.signal = itemName:New("rail-signal")
+item.chainSignal = itemName:New("rail-chain-signal")
+item.station = itemName:New("train-stop")
 
 item.robotFrame = itemName:New("flying-robot-frame", "robotics")
 
@@ -169,6 +180,7 @@ item.assembly2        = itemName:New("assembling-machine-2")
 item.assembly3        = itemName:New("assembling-machine-3", "automation-3")
 item.assembly4        = itemName:New("kr-advanced-assembling-machine")
 item.chemicalPlant    = itemName:New("chemical-plant")
+item.advChemicalPlant = itemName:New("kr-advanced-chemical-plant")
 item.refinery         = itemName:New("oil-refinery")
 item.fuelRef          = itemName:New("kr-fuel-refinery")
 item.crusher          = itemName:New("kr-crusher")
@@ -187,8 +199,8 @@ item.furnace          = itemName:New("stone-furnace")
 item.steelFurnace     = itemName:New("steel-furnace")
 item.elecFurnace      = itemName:New("electric-furnace", "advanced-material-processing-2")
 item.indFurnace       = itemName:New("industrial-furnace", "industrial-furnace")
-item.advancedFurnace  = itemName:New("advanced-furnace")
-item.flareStack       = itemName:New("kr-flare-stack")
+item.advancedFurnace  = itemName:New("kr-advanced-furnace")
+item.flareStack       = itemName:New("kr-flare-stack", "kr-fluid-excess-handling")
 item.electrolyser     = itemName:New("kr-electrolysis-plant", "kr-advanced-chemistry")
 item.atmospheric      = itemName:New("kr-atmospheric-condenser", "kr-atmosphere-condensation")
 item.mineralWaterPump = itemName:New("kr-mineral-water-pumpjack")
