@@ -8,10 +8,12 @@ MomoLib.GetPrototype("resource", "kr-imersite", function(res)
     res.minable.fluid_amount = 15
 end)
 
+MomoLib.recipe.ReplaceIngredient(Item.imersiteCrystal, Item.imersite, Item.imersiteJelly:I(12))
+
+MomoLib.technology.AddRequired(Item.quarry.tech,{ Item.rareMetalClump.tech, Item.assembly3.tech })
 MomoLib.recipe.SetIngredients(Item.quarry, {
-    Item.steamTurbine:I(2),
+    Item.assembly3:I(4),
     Item.jawCrusher:I(20),
-    Item.mineralWaterPump:I(4),
     Item.atmospheric:I(2),
     Item.electricMotor:I(100),
     Item.blueChip:I(40),

@@ -7,4 +7,4 @@ MomoLib.recipe.New({
 },
 {
     Item.researchCenter:I()
-}):UNLOCK(Item.blueSci.n):TIME(5):Extend()
+}):UNLOCK(Item.blueSci.n):TIME(5):RECYCLEABLE():Extend()

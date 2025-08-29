@@ -25,14 +25,6 @@ MomoLib.recipe.New({
     Item.redSci:I(2)
 }, "red-sci-1"):UNLOCK(Item.redSci.n):TIME(4):SUBGROUP(re1, "auto")
 :ICON(MomoLib.icon.RecycleIcons(Item.redSci1:Prototype())):Extend()
-MomoLib.recipe.New({
-    Item.redSci:I(),
-    Item.burnerInserter:I(),
-},{
-    Item.inserterPart:I(1, 0.3)
-}, "red-sci-recycle"):UNLOCK{Item.blackSci.n, Item.blueSci.n}:TIME(24):SUBGROUP(re, "auto")
-:ICON(MomoLib.icon.RecycleIcons(MomoLib.K2Card("automation-tech-card"))):Extend()
-
 
 -- green
 MomoLib.recipe.New({
@@ -43,16 +35,6 @@ MomoLib.recipe.New({
     Item.greenSci:I(5)
 }, "green-sci-1"):UNLOCK(Item.greenSci.n):CATEGORY(cat.chemicalOnly):TIME(12):SUBGROUP(re1, "auto")
 :ICON(MomoLib.icon.RecycleIcons(Item.greenSci:Prototype())):Extend()
-
-MomoLib.recipe.New({
-    Item.greenSci:I(3),
-    Item.basicSci:I(5),
-    Item.sulfuricAcid:F(50),
-    Item.water:F(100)
-}, {
-    Item.redSci:I(5)
-}, "green-sci-recycle"):CATEGORY(cat.refinery):UNLOCK(Item.blueSci.n):TIME(12):SUBGROUP(re, "auto")
-:ICON(MomoLib.icon.RecycleIcons(MomoLib.K2Card("logistic-tech-card"))):Extend()
 
 MomoLib.recipe.New({
     Item.greenSci1:I(4),
@@ -110,15 +92,6 @@ MomoLib.recipe.New({
 }, Item.redSci1:I(6), "red-sci-1-2"):TIME(6):UNLOCK(Item.purpleSci.n):SUBGROUP(inter, "auto")
 :CATEGORY(cat.filtration):ICON(Item.redSci1):Extend()
 
-MomoLib.recipe.New({
-    Item.blueSci:I(4),
-    Item.sulfur:I(16),
-    Item.hydrogen:I(50),
-},{
-    Item.greenSci:I(4),
-    Item.sulfuricAcid:I(80)
-}, "blue-sci-recycle"):CATEGORY(cat.refinery):UNLOCK(Item.purpleSci.n):TIME(12):SUBGROUP(re, "auto")
-:ICON(MomoLib.icon.RecycleIcons(MomoLib.K2Card("chemical-tech-card"))):Extend()
 
 MomoLib.recipe.New({},{
     Item.ionMatter:F(20)

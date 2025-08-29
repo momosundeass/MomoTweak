@@ -56,3 +56,9 @@ MomoLib.recipe.SetIngredients(Item.yellowSci, {
     Item.scienceHardware:I(),
     Item.lattice:I(2),
 }):AMOUNT(1):ADDPRODUCT({Item.yellowSci1:I(2), Item.yellowSci2:I(9), Item.yellowSci4:I(2)}):NORECYCLE()
+
+-- White sci
+MomoLib.recipe.SetIngredients(Item.whiteSci, {
+    Item.spaceResearch:I(5),
+    Item.scienceHardware:I(10)
+}):CATEGORY(MomoLib.category.researchCenter):AMOUNT(1):ADDPRODUCT({Item.whiteSci1:I(1), Item.whiteSci2:I(12), Item.whiteSci4:I(6)}):NORECYCLE()

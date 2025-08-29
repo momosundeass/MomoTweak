@@ -30,3 +30,17 @@ function MomoLib.SetEffect(effect, power, speed, prod, pollution, quality)
     if (quality ~= nil) then effect.quality     = quality end
     return effect
 end
+
+--[[
+    see https://lua-api.factorio.com/latest/types/EffectTypeLimitation.html
+    use in machine.allowed_effects
+]]
+function MomoLib.EffectLimitation(power, speed, prod, pollution, quality)
+    local limit = {}
+    if (power == nil) or power then table.insert(limit, "consumption") end
+    if (speed == nil) or speed then table.insert(limit, "speed") end
+    if (prod == nil) or prod then table.insert(limit, "productivity") end
+    if (pollution == nil) or pollution then table.insert(limit, "pollution") end
+    if (quality == nil) or quality then table.insert(limit, "quality") end
+    return limit
+end

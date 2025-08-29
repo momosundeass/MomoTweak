@@ -1,6 +1,7 @@
 local shift = {0, 0}
 local line_length = 8
 local length = 60
+local ingameScale = 1
 local oxidizer = MomoLib.machine.CreateEntity("assembling-machine", "assembling-machine-2", {
     name = "oxidizer",
     icon = MomoLib.Graphics("oxidizer/oxidizer-icon.png"),
@@ -140,3 +141,94 @@ MomoLib.machine.CopySounds("k11-advanced-centrifuge", resCenter.machine.name)
 MomoLib.machine.Power(resCenter.machine.name, "300kW")
 MomoLib.machine.ProductivityAdded(resCenter.machine.name, 0.3)
 MomoLib.machine.ModuleSlot(resCenter.machine, 4)
+
+
+shift = {0,-0.5}
+line_length = 8
+length = 64 * 2
+ingameScale = 1.25
+local manufacturer = MomoLib.machine.CreateEntity("assembling-machine", "assembling-machine-2", {
+    name = "manufacturer",
+    icon = MomoLib.Graphics("manufacturer/manufacturer-icon.png"),
+    icon_size = MomoLib.icon.DefaultSize,
+    selection_box = { { -2.5, -2.5 }, { 2.5, 2.5 } },
+    drawing_box_vertical_extension = 0.3, 
+    crafting_categories = {MomoLib.category.manufacture, MomoLib.category.manufactureCrafting},
+    graphics_set = {
+        animation = {
+            layers = {
+                {
+                    filename = MomoLib.Graphics("manufacturer/manufacturer-hr-shadow.png"),
+                    priority = "high",
+                    size = { 1200, 700 },
+                    scale = 0.35 * ingameScale,
+                    line_length = 1,
+                    repeat_count = length,
+                    draw_as_shadow = true,
+                    animation_speed = 0.8,
+                    shift = shift,
+                },
+                {
+                    size = { 2160 / 8, 2256 / 8 },
+                    scale = 0.5 * ingameScale,
+                    frame_count = length,
+                    animation_speed = 0.8,
+                    shift = shift,
+                    stripes = {
+                        {
+                            filename = MomoLib.Graphics("manufacturer/manufacturer-hr-animation-1.png"),
+                            width_in_frames = 8,
+                            height_in_frames = 8,
+                        },
+                        {
+                            filename = MomoLib.Graphics("manufacturer/manufacturer-hr-animation-2.png"),
+                            width_in_frames = 8,
+                            height_in_frames = 8,
+                        },
+                    },
+                }
+            },
+        },
+        working_visualisations = {
+            {
+                fadeout = true,
+                secondary_draw_order = 1,
+                animation = {
+                    layers = {
+                        {
+                            size = { 2160 / 8, 2256 / 8 },
+                            scale = 0.5 * ingameScale,
+                            frame_count = length,
+                            draw_as_glow = true,
+                            blend_mode = "additive",
+                            animation_speed = 0.8,
+                            shift = shift,
+                            stripes = {
+                                {
+                                    filename = MomoLib.Graphics("manufacturer/manufacturer-hr-emission-1.png"),
+                                    width_in_frames = 8,
+                                    height_in_frames = 8,
+                                },
+                                {
+                                    filename = MomoLib.Graphics("manufacturer/manufacturer-hr-emission-2.png"),
+                                    width_in_frames = 8,
+                                    height_in_frames = 8,
+                                },
+                            },
+                        },
+                    }
+                },
+            },
+        },
+    }
+})
+MomoLib.itemNames.manufacturer = MomoLib.itemName:New(manufacturer.item)
+MomoLib.machine.CopySounds("k11-advanced-centrifuge", manufacturer.machine.name)
+MomoLib.machine.Power(manufacturer.machine.name, "1MW")
+MomoLib.machine.Speed(manufacturer.machine.name, 2)
+MomoLib.machine.ProductivityAdded(manufacturer.machine.name, 0.25)
+MomoLib.machine.ModuleSlot(manufacturer.machine, 4)
+MomoLib.machine.FluidBoxes(manufacturer.machine, {
+    MomoLib.machine.FluidBox({0, 2}, "input", defines.direction.south)
+})
+manufacturer.machine.allowed_effects = MomoLib.EffectLimitation(false)

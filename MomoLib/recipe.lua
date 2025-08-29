@@ -428,8 +428,11 @@ end
 
 function funcs:NORECYCLE()
 	funcs.NoRecycle(self)
-	return self
-end
+return self end
+
+function funcs:RECYCLEABLE()
+	self.auto_recycle = true
+return self end
 
 funcs.AlwaysProductivity = false
 MomoLib.recipe = funcs

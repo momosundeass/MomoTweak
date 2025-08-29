@@ -1,15 +1,15 @@
 local funcs = {}
 
 funcs.isNewTechnology = true
-function funcs:_New(tab)
-	tab = tab or {}
-	setmetatable(tab, self)
+function funcs:_New(tbl)
+	tbl = tbl or {}
+	setmetatable(tbl, self)
 	self.__index = self
-	return tab
+	return tbl
 end
 
-function funcs:FromPrototype(tab)
-	local obj = funcs:_New(tab)
+function funcs:FromPrototype(tbl)
+	local obj = funcs:_New(tbl)
 	obj.isNewTechnology = false
 	return obj
 end
@@ -88,6 +88,10 @@ function funcs.SetRequired(name, requires)
 	end)
 end
 
+function funcs.SetIngredients(name, ingredients)
+    MomoLib.GetTechnology(name, function(p) p:INGREDIENTS(ingredients) end)
+end
+
 function funcs.GetIngredient(tech, ingredient)
 	local ingredientName = ingredient
 	if type(ingredient) == "table" then
@@ -106,6 +110,19 @@ function funcs.GetIngredient(tech, ingredient)
 		end
 	end
 	return nil
+end
+
+function funcs.RemoveIngredient(tech, ingredientName)
+	if type(ingredientName) == "table" then ingredientName = ingredientName.name or ingredientName[1] end
+	local prototype = tech
+	if type(tech) == "string" then MomoLib.GetTechnology(tech, function(proto) prototype = proto end) end
+	if prototype.unit == nil or prototype.unit.ingredients == nil then return end
+ 	for i, ing in ipairs(prototype.unit.ingredients) do
+		if ing[1] == ingredientName then
+			table.remove(prototype.unit.ingredients, i)
+			break
+		end
+	end
 end
 
 function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, extend)

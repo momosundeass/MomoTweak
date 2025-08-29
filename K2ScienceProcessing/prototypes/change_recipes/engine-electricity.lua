@@ -33,14 +33,89 @@ MomoLib.recipe.SetIngredients(Item.nuclearPlant, {
     Item.bulkInserter:I(40),
     Item.centrifuge:I(2),
     Item.electrolyser:I(2)
+}):TIME(60)
+
+MomoLib.technology.AddRequired(Item.fusionPlant.tech, {
+    Item.rocketSilo.tech, 
+    Item.productivityModule3.tech,
+    Item.eqBigBattery2.tech,
+    Item.radioactivePolymer.tech
 })
+MomoLib.recipe.SetIngredients(Item.fusionPlant, {
+    Item.rocketSilo:I(),
+    Item.nuclearPlant:I(2),
+    Item.researchCenter:I(10),
+    Item.warehouse:I(2),
+    Item.productivityModule3:I(20),
+    Item.eqBigBattery2:I(200),
+}):TIME(120)
+MomoLib.recipe.SetIngredients(Item.steamTurbine2, {
+    Item.steamTurbine:I(2),
+    Item.bigStorageTank:I(),
+    Item.mineralWaterPump:I(6),
+    Item.electricEngine:I(65),
+    Item.eqBigBattery2:I(100),
+    Item.steelGear:I(100)
+}):TIME(60)
+MomoLib.recipe.SafeAddIngredients(Item.fusionCell, { Item.rocketFuel:I()})
 
 -- miner
 MomoLib.technology.SetRequired(Item.miningDrill2.n, Item.electricEngine.tech)
 MomoLib.recipe.ReplaceIngredient(Item.miningDrill2, Item.steelGear, {Item.bulkInserter:I(8), Item.jawCrusher:I(4), Item.electricEngine:I(4)})
 
-MomoLib.recipe.SafeAddIngredients(Item.accumulator, {Item.bigPole:I()})
+local b2, b3
+MomoLib.GetTechnology(Item.eqBigBattery2.tech, function (p) b2 = p end)
+MomoLib.GetTechnology(Item.eqBigBattery3.tech, function (p) b3 = p end)
+MomoLib.technology.SetIngredients(b2.name, MomoLib.DeepCopy(b3.unit.ingredients))
+MomoLib.technology.SetRequired(b2.name, {Item.eqBattery.tech, Item.batteryLithium.tech})
+MomoLib.technology.SetIngredients(b3.name, {
+    MomoLib.MakeResearchIngredient(Item.yellowSci.n),
+    MomoLib.MakeResearchIngredient(Item.purpleSci.n),
+    MomoLib.MakeResearchIngredient(Item.matterSci.n),
+})
+MomoLib.technology.SetRequired(b3.name, {Item.eqBattery2.tech, Item.imersitePlate.tech})
+ MomoLib.recipe.SetIngredients(Item.eqBigBattery, {
+     Item.eqBattery:I(4),
+     Item.rareMetal:I(2)
+})
+MomoLib.recipe.SetIngredients(Item.eqBattery2, {
+    Item.eqBigBattery:I(),
+    Item.batteryLithium:I(2),
+    Item.titaniumPlate:I(4)
+}):CATEGORY(MomoLib.category.refinery)
+MomoLib.recipe.SetIngredients(Item.eqBigBattery2, {
+    Item.eqBattery2:I(2),
+    Item.batteryLithium:I(4),
+    Item.titaniumPlate:I(2)
+}):CATEGORY(MomoLib.category.refinery)
+MomoLib.recipe.SetIngredients(Item.eqBattery3, {
+    Item.eqBigBattery2:I(),
+    Item.imersitePlate:I(2),
+    Item.blueChip:I(4),
+}):CATEGORY(MomoLib.category.refinery)
+MomoLib.recipe.SetIngredients(Item.eqBigBattery3, {
+    Item.eqBattery3:I(2),
+    Item.imersitePlate:I(4),
+    Item.blueChip:I(8),
+}):CATEGORY(MomoLib.category.refinery)
 
--- TODO: accumulator 2
+MomoLib.recipe.SafeAddIngredients(Item.accumulator, {Item.bigPole:I()})
+MomoLib.technology.AddRequired(Item.accumulator2.tech, Item.eqBattery3.tech)
+MomoLib.recipe.SetIngredients(Item.accumulator2, {
+    Item.accumulator:I(8),
+    Item.ecu:I(50),
+    Item.eqBigBattery3:I(16),
+    Item.heatPipe:I(20),
+    Item.steelBeam:I(10)
+})
+
+MomoLib.technology.AddRequired(Item.solar2.tech, Item.eqBattery2.tech)
+MomoLib.recipe.SetIngredients(Item.solar2, {
+    Item.imersiteCrystal:I(10),
+    Item.solar:I(2),
+    Item.nitricAcid:I(50),
+    Item.eqBigBattery2:I()
+}):AMOUNT(2)
+
 -- TODO: Solar 2
 -- TODO: Miner 3 

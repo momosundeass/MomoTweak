@@ -2,7 +2,10 @@ local item = MomoLib.itemNames
 
 require("prototypes.mech")
 
-if mods["bobinserters"] then MomoLib.item.DisableRecipe("long-handed-inserter") end
+if mods["bobinserters"] then 
+    MomoLib.item.DisableRecipe("long-handed-inserter")
+    MomoLib.item.DisableRecipe("kr-superior-long-inserter")
+end
 MomoLib.item.Disable("area-mining-drill")
 
 -- recycle
@@ -35,6 +38,9 @@ MomoLib.machine.MinerBeltStack(true)
 MomoLib.machine.ProductivityAdded(item.elecFurnace.n, 0.10)
 MomoLib.machine.ProductivityAdded(item.indFurnace.n, 0.25)
 MomoLib.machine.ProductivityAdded(item.advancedFurnace.n, 0.40)
+
+MomoLib.GetPrototype("lab", item.lab2.n, function(p) p.science_pack_drain_rate_percent = 95 end)
+MomoLib.GetPrototypes("lab", {item.lab.n, item.lab2.n, item.lab3.n}, function(p) p.uses_quality_drain_modifier = true end) 
 
 
 -- subgroups

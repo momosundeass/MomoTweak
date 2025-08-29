@@ -44,4 +44,8 @@ require("prototypes.recipes.science")
 require("prototypes.recipes.machine")
 require("prototypes.recipes.recycle")
 require("prototypes.productivity-technologies")
+require("prototypes.stack-inserter")
+MomoLib.StackBeltData()
+require("prototypes.manufacturer")
+MomoLib.ManufacturerData()
 Item = tempItem

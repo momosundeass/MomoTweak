@@ -102,7 +102,7 @@ MomoLib.recipe.SetIngredients(Item.fuelRef, {
     Item.chemicalPlant:I(),
     Item.pump:I(2),
     Item.pipe:I(10)
-}):TIME(10)
+}):TIME(10):AMOUNT(2)
 
 MomoLib.technology.AddRequired(Item.blueChip.n, Item.electrolyser.tech)
 MomoLib.technology.SetRequired(Item.researchServer.n, {Item.substation.tech, Item.radar.n, Item.lab2.n})
@@ -125,9 +125,9 @@ MomoLib.technology.SetRequired(Item.lab2.n, {Item.blueChip.n})
 MomoLib.recipe.SetIngredients(Item.lab2, {
     Item.blueChip:I(14),
     Item.fastSplitter:I(6),
-    Item.lab:I(2),
+    Item.lab:I(3),
     Item.biolab:I(),
-    Item.atmospheric:I()
+    Item.assembly2:I(3)
 }):AMOUNT(3)
 
 MomoLib.recipe.SetIngredients(Item.gasPower, {
@@ -136,18 +136,19 @@ MomoLib.recipe.SetIngredients(Item.gasPower, {
     Item.storageTank:I(2),
     Item.steelPump:I(2),
 })
-MomoLib.technology.SetRequired(Item.indFurnace.tech, {Item.gasPower.tech, Item.recycler.tech, Item.heatPipe.tech})
+MomoLib.technology.SetRequired(Item.indFurnace.tech, {Item.gasPower.tech, Item.recycler.tech, Item.heatPipe.tech, Item.electrolytic.tech})
 MomoLib.recipe.SetIngredients(Item.indFurnace, {
     Item.gasPower:I(),
     Item.recycler:I(),
     Item.atmospheric:I(2),
     Item.heatPipe:I(20),
+    Item.electrolytic:I(45),
     Item.refConcrete:I(100),
 })
-MomoLib.technology.SetRequired(Item.recycler, {"logistics-3", Item.elecFurnace.tech})
+MomoLib.technology.SetRequired(Item.recycler.tech, {"logistics-3", Item.elecFurnace.tech})
 MomoLib.recipe.SetIngredients(Item.recycler, {  
     Item.elecFurnace:I(),
-    Item.fastInserter:I(6),
+    Item.crusher:I(2),
     Item.airPurifier:I(2), 
     Item.expressBelt:I(20),
     Item.blueChip:I(6),
@@ -211,11 +212,11 @@ MomoLib.recipe.SetIngredients(Item.pchamber1, {
     Item.electricEngine:I(8)
 })
 
--- TODO: oreCrusher3
--- TODO: echamber3
--- TODOL pchamber2
-
-
--- TODO: ind furnace -> advanced furnace
-
--- TODO: electromagnetic need researchServer
+MomoLib.recipe.SetIngredients(Item.rocketSilo, {
+    Item.mineralWaterPump:I(25),
+    Item.electricEngine:I(200),
+    Item.bigStorageTank:I(4),
+    Item.blueChip:I(200),
+    Item.logisticBot:I(120),
+    Item.refConcrete:I(1000)
+})

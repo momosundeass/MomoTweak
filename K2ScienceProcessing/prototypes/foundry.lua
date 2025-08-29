@@ -14,8 +14,8 @@ MomoLib.recipe.SetIngredients(Item.foundry, {
     Item.elecFurnace:I(2),
     Item.crusher:I(),
     Item.concrete:I(100),
-    Item.hdpeAlloy:I(10),
-    Item.echamber1:I(1)
+    Item.hdpeAlloy:I(40),
+    Item.echamber1:I(2)
 })
 
 MomoLib.GetRecipe(Item.chemicalPlant.n,          function(p) p:ADDCATEGORY{"metallurgy"} end)

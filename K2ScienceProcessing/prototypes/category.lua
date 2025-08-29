@@ -4,16 +4,19 @@ MomoLib.category.chemical = "chemistry"
 MomoLib.category.advChemical = "adv-chemistry"
 MomoLib.category.electrolysis = "kr-electrolysis"
 MomoLib.category.electronics = "electronics"
+MomoLib.category.electromagnetic = "electromagnetics"
 MomoLib.category.filtration = "kr-fluid-filtration"
 MomoLib.category.researchServer = "researching-server"
 MomoLib.category.quantumComputer = "quantum-computing"
 MomoLib.category.chemicalOnly = "chemistry-only"
 MomoLib.category.refinery = "oil-processing"
+MomoLib.category.centrifuge = "centrifuging"
 MomoLib.category.centrifugeOnly = "centrifuge-only"
 MomoLib.category.advancedCentrifugeOnly = "advanced-centrifuge-only"
 MomoLib.category.oxidizer = "oxidize"
 MomoLib.category.researchCenter = "research-center"
 MomoLib.category.indFurnace = "industrial-furnace-only"
+MomoLib.category.manufacture = "manufacture"
 data:extend{
     {type="recipe-category", name=MomoLib.category.chemicalOnly},
     {type="recipe-category", name=MomoLib.category.advChemical},
@@ -23,7 +26,8 @@ data:extend{
     {type="recipe-category", name=MomoLib.category.researchCenter},
     {type="recipe-category", name=MomoLib.category.researchServer},
     {type="recipe-category", name=MomoLib.category.quantumComputer},
-    {type="recipe-category", name=MomoLib.category.indFurnace}
+    {type="recipe-category", name=MomoLib.category.indFurnace},
+    {type="recipe-category", name=MomoLib.category.manufacture},
 }
 MomoLib.machine.AddCategory(MomoLib.itemNames.chemicalPlant.n, MomoLib.category.chemicalOnly)
 MomoLib.machine.AddCategory(MomoLib.itemNames.researchServer.n, MomoLib.category.researchServer)

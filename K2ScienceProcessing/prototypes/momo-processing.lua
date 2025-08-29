@@ -2,9 +2,10 @@ local funcs = {}
 local item = MomoLib.itemNames
 
 function funcs.Data()
-    item.radioactivePolymer = MomoLib.itemName:New(MomoLib.item.Create("radioactive-polymer", MomoLib.icon.Get("radioactive-polymer.png", 32), 100)
+    MomoLib.itemNames.radioactivePolymer = MomoLib.itemName:New(MomoLib.item.Create("radioactive-polymer", MomoLib.icon.Get("radioactive-polymer.png", 32), 100)
     :SUBGROUP("uranium-processing", MomoLib.order.AfterItem(item.tritium.n)))
-    item.radioactivePolymer2 = MomoLib.itemName:New(MomoLib.item.Create("radioactive-polymer-2", MomoLib.icon.Get("radioactive-polymer-2.png", 32), 100)
+    item.radioactivePolymer.tech = "nuclear-reprocessing"
+    MomoLib.itemNames.radioactivePolymer2 = MomoLib.itemName:New(MomoLib.item.Create("radioactive-polymer-2", MomoLib.icon.Get("radioactive-polymer-2.png", 32), 100)
     :NORECYCLE():SUBGROUP("uranium-processing", MomoLib.order.AfterItem(item.tritium.n)))
     MomoLib.item.FromPrototype(item.tritium.n):SUBGROUP("uranium-processing", MomoLib.order.AfterItem(item.tritium.n))
 

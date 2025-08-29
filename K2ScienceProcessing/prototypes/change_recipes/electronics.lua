@@ -86,12 +86,12 @@ MomoLib.recipe.SetIngredients(Item.speedModule2, {
     Item.blueSci:I(2),
     Item.speedModule:I(5),
     Item.selector:I(8),
-}):ADDPRODUCT{Item.powerSwitch:I(2), Item.memoryBlock:I(2)}
+}):ADDPRODUCT{Item.powerSwitch:I(2)}
 MomoLib.recipe.SetIngredients(Item.efficiencyModule2, {
     Item.blueSci:I(2),
     Item.efficiencyModule:I(10),
     Item.selector:I(16),
-}):AMOUNT(2):ADDPRODUCT{Item.powerSwitch:I(2), Item.memoryBlock:I(2)}
+}):AMOUNT(2):ADDPRODUCT{Item.powerSwitch:I(2)}
 MomoLib.technology.SetRequired(Item.productivityModule2.tech, {Item.speedModule2.tech, Item.efficiencyModule2.tech})
 MomoLib.recipe.SetIngredients(Item.productivityModule2, {
     Item.blueSci:I(2),
@@ -99,12 +99,38 @@ MomoLib.recipe.SetIngredients(Item.productivityModule2, {
     Item.efficiencyModule2:I(),
     Item.productivityModule:I(5),
     Item.selector:I(2),
-}):ADDPRODUCT{Item.powerSwitch:I(2), Item.memoryBlock:I(2)}
+}):ADDPRODUCT{Item.powerSwitch:I(2)}
 MomoLib.technology.SetRequired(Item.qualityModule2.tech, {Item.productivityModule2.tech})
 MomoLib.recipe.SetIngredients(Item.qualityModule2, {
     Item.blueSci:I(4),
     Item.qualityModule:I(5),
     Item.productivityModule2:I(2),
-}):ADDPRODUCT{Item.powerSwitch:I(2), Item.memoryBlock:I(2)}
+}):ADDPRODUCT{Item.powerSwitch:I(2)}
 
--- TODO: Module 3
+MomoLib.recipe.SetIngredients(Item.speedModule3, {
+    Item.blueChip:I(2),
+    Item.purpleSci2:I(4),
+    Item.inconShape:I(2),
+    Item.speedModule2:I(5)
+}):ADDPRODUCT{Item.speaker:I(2)}
+MomoLib.recipe.SetIngredients(Item.efficiencyModule3, {
+    Item.blueChip:I(2),
+    Item.purpleSci2:I(4),
+    Item.inconShape:I(2),
+    Item.efficiencyModule2:I(10)
+}):AMOUNT(2):ADDPRODUCT{Item.speaker:I(2)}
+MomoLib.technology.SetRequired(Item.productivityModule3.tech, {Item.speedModule3.tech, Item.efficiencyModule3.tech, Item.quarry.tech})
+MomoLib.recipe.SetIngredients(Item.productivityModule3, {
+    Item.blueChip:I(4),
+    Item.imersiteCrystal:I(3),
+    Item.speedModule3:I(),
+    Item.efficiencyModule3:I(),
+    Item.productivityModule2:I(5)
+}):ADDPRODUCT{Item.speaker:I(2)}
+MomoLib.technology.SetRequired(Item.qualityModule3.tech, {Item.productivityModule3.tech})
+MomoLib.recipe.SetIngredients(Item.qualityModule3, {
+    Item.blueChip:I(12),
+    Item.inconShape:I(2),
+    Item.qualityModule2:I(5),
+    Item.productivityModule3:I(2),
+}):ADDPRODUCT{Item.speaker:I(2)}

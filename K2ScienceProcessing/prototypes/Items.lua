@@ -6,7 +6,6 @@ local function NewScience(name, icon, stackSize)
     item.auto_recycle = false
     return item
 end  
-
 local function NewIntermediate(name, icon, stackSize)
     local item = MomoLib.itemName:New(MomoLib.item.Create(name, icon, stackSize))
     item.subgroup = "intermediate-product"
@@ -17,10 +16,12 @@ local function NewFluid(name, icon, color, isSuperHot)
     local prototype = MomoLib.item.Create(name, icon, 100, "fluid", color)
     if isSuperHot then prototype:SUPERHOT() end
     local item = MomoLib.itemName:New(prototype)
-    item.subgroup = "science-pack"
+    item.subgroup = "fluid-recipes"
     item.auto_recycle = false
     return item
 end  
+
+MomoLib.itemNames.imersiteJelly = NewIntermediate("imersite-jelly", MomoLib.SpaceEx("naquium-tessaract"), 100)
 
 MomoLib.itemNames.redSci1 = NewScience("red-sci-1", MomoLib.icon.FromIngredientWithSize(item.redSci), 20)
 
@@ -35,6 +36,7 @@ MomoLib.itemNames.blueSci1 = NewScience("blue-sci-1", MomoLib.icon.FromIngredien
 MomoLib.itemNames.blueSci2 = NewScience("blue-sci-2", MomoLib.AltCard("chemical-science-pack"), 20)
 
 MomoLib.itemNames.ionMatter  = NewFluid("ion-matter", MomoLib.Graphics("space-age/thruster-oxidizer.png"), {r = 84/255, g = 233/255, b=248/255, a=1}, true)
+MomoLib.itemNames.ionizedMatter = NewFluid("ionized-matter", MomoLib.SpaceEx("fluid/ion-stream"), {r = 84/255, g = 233/255, b=248/255, a=1}, true)
 MomoLib.itemNames.inconShape = NewScience("incontinue-shape", {MomoLib.icon.Get("incontinue-shape.png"), 32}, 100)
 
 MomoLib.itemNames.purpleSci1 = NewScience("purple-sci-1", MomoLib.icon.FromIngredientWithSize(item.purpleSci), 20)
@@ -49,5 +51,15 @@ MomoLib.itemNames.yellowSci1 = NewScience("yellow-sci-1", MomoLib.icon.FromIngre
 MomoLib.itemNames.yellowSci2 = NewScience("yellow-sci-2", MomoLib.AltCard("utility-science-pack"), 500)
 MomoLib.itemNames.yellowSci3 = NewScience("yellow-sci-3", MomoLib.icon.Get("yellow-sci-3.png", 32), 50)
 MomoLib.itemNames.yellowSci4 = NewScience("yellow-sci-4", MomoLib.SpaceEx("data/significant"), 100)
+
+MomoLib.itemNames.whiteSci1 = NewScience("white-sci-1", MomoLib.icon.FromIngredientWithSize(item.whiteSci), 20)
+MomoLib.itemNames.whiteSci2 = NewScience("white-sci-2", MomoLib.AltCard("space-science-pack"), 500)
+MomoLib.itemNames.whiteSci3 = NewScience("white-sci-3", MomoLib.icon.Get("white-sci-3.png", 32), 50)
+MomoLib.itemNames.whiteSci4 = NewScience("white-sci-4", MomoLib.SpaceEx("data/orbital"), 100)
+MomoLib.itemNames.whiteSci5 = NewScience("white-sci-5", MomoLib.SpaceEx("catalogue/deep-1"), 100)
+MomoLib.itemNames.whiteSci6 = NewScience("white-sci-6", MomoLib.SpaceEx("catalogue/deep-4"), 100)
+
+MomoLib.itemNames.whiteSciN = NewScience("white-sci-n", MomoLib.SpaceEx("data/empty"), 100)
+
 
 MomoLib.itemNames.matterSci3 = NewScience("matter-sci-3", MomoLib.SpaceEx("data/doppler-shift"), 100)

@@ -73,7 +73,7 @@ function MomoLib.MakeIngredient(name, amount, probFloat01)
 	return tbl
 end
 function MomoLib.MakeFluidIngredient(name, amount) return MomoLib._ConcatAmount({type="fluid", name=name}, amount) end
-function MomoLib.MakeResearchIngredient(name, amount) return {name, amount} end
+function MomoLib.MakeResearchIngredient(name, amount) return {name, amount or 1} end
 
 function MomoLib._ConcatAmount(ingsTable, amount)
 	if amount == nil then amount = 1 end
