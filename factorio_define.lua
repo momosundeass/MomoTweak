@@ -2,6 +2,8 @@ mods = {}
 data = {}
 defines = {}
 util = {}
+settings = {}
+settings.startup = {}
 function log(str) end
 function add_recipe_values(structure, input, result)
     -- This function is a placeholder for the actual implementation

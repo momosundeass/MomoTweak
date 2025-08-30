@@ -176,7 +176,7 @@ end
 function funcs.AllFromResult(item)
 	local itemName = item
 	if type(item) == "table" then itemName = item.name end
-	if not MomoLib.GetItem(itemName) then return {} end
+	if not MomoLib.GetIngredient(itemName) then return {} end
 	local recipes = {}
 	MomoLib.Foreach(data.raw.recipe, function(recipe)
 		if recipe.results then
@@ -411,10 +411,16 @@ function funcs:CONSUMPTION(isAllow)
 	self.allow_consumption = isAllow
 return self end
 
-function funcs:INGREDIENTS(tbl)
-	self.SetIngredients(self.name, tbl)
-	return self
-end
+---@param tbl table ingredients
+---@param additive boolean is additive to ingredient
+function funcs:INGREDIENTS(tbl, additive)
+	additive = additive or false 
+	if additive then
+		funcs.SafeAddIngredients(self.name, tbl)
+	else
+		self.SetIngredients(self.name, tbl)
+	end
+return self end
 
 function funcs:AMOUNT(amount)
 	self.SetProductAmount(self.name, amount)

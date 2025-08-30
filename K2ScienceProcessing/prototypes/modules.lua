@@ -17,4 +17,4 @@ MomoLib.SetEffect(item.qualityModule2.n, nil, nil, nil, nil, 0.05)
 MomoLib.SetEffect(item.qualityModule3.n, nil, nil, nil, nil, 0.08)
 
 -- TODO: Width beacon
--- TODO: Module 4-5 no quality
+-- TODO: Module yield and pure 4-6 no quality

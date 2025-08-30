@@ -2,7 +2,7 @@ local item = MomoLib.itemNames
 
 require("prototypes.mech")
 
-if mods["bobinserters"] then 
+if mods["bobinserters"] or mods["Smart_Inserters"] then 
     MomoLib.item.DisableRecipe("long-handed-inserter")
     MomoLib.item.DisableRecipe("kr-superior-long-inserter")
 end
@@ -21,7 +21,8 @@ MomoLib.recipe.SetCategory(item.steelPipe, "pressing")
 MomoLib.recipe.SetCategory(item.steelPipeGround, "pressing")
 
 
--- machine update
+-- entities update
+MomoLib.UpdateUndergroundBeltNextUpgrade()
 MomoLib.MomoProcessing.Update()
 require("prototypes.chemical")
 

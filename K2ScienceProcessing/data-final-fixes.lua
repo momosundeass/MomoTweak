@@ -1,4 +1,4 @@
-require("prototypes.wall")
+require("prototypes.entities.wall")
 
 local tempItem = Item
 Item = MomoLib.itemNames
@@ -11,8 +11,8 @@ require("prototypes.change_recipes.machine-post-yellow")
 require("prototypes.change_recipes.science")
 require("prototypes.change_recipes.military")
 
-require("prototypes.foundry")
-require("prototypes.electromagnetic-plant")
+require("prototypes.entities.foundry")
+require("prototypes.entities.electromagnetic-plant")
 require("prototypes.imersite")
 MomoLib.ManufacturerDataFinal()
 MomoLib.StackBeltDataFinal()
@@ -43,8 +43,11 @@ RestoreIcon(Item.whiteSci, "optimization-tech-card")
 RestoreIcon(Item.matterSci, "matter-tech-card")
 RestoreIcon(Item.advancedSci, "advanced-tech-card")
 RestoreIcon(Item.singularitySci, "singularity-tech-card")
-
 Item = tempItem 
+
+require("prototypes.entities.storage")
+MomoLib.ReduceStorage()
+
 
 require("prototypes.sci-cost")
 require("MomoLib.regenerated-recycle-recipe")

@@ -12,7 +12,7 @@ MomoLib.recipe.SafeAddIngredients(Item.warehouse, {Item.refConcrete:I(100)})
 
 MomoLib.recipe.SetIngredients(Item.signal, {Item.lamp:I(1), Item.ironPlate:I(5), Item.greenChip:I(1)})
 MomoLib.recipe.SetIngredients(Item.chainSignal, {Item.steelPlate:I(2), Item.signal:I(1), Item.lamp:I(2)})
-MomoLib.recipe.SetIngredients(Item.station, {Item.ironBeam:I(4), Item.steelPlate:I(2), Item.constant:I(8), Item.signal:I(2)})
+MomoLib.recipe.SetIngredients(Item.station, {Item.ironBeam:I(4), Item.steelPlate:I(2), Item.speaker:I(8), Item.signal:I(2)})
 -- TODO: locomotive?
 
 MomoLib.technology.SetRequired(Item.beltIm.tech, {Item.titaniumPlate.tech})
@@ -40,7 +40,7 @@ MomoLib.recipe.SetIngredients(Item.roboport, {
     Item.radar:I(),
     Item.strongBox:I(),
     Item.accumulator:I(2),
-    Item.electricMotor:I(12),
+    Item.station:I(4),
     Item.plastic:I(40)
 })
 -- TODO: small and big robotport

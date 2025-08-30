@@ -21,7 +21,12 @@ local function NewFluid(name, icon, color, isSuperHot)
     return item
 end  
 
-MomoLib.itemNames.imersiteJelly = NewIntermediate("imersite-jelly", MomoLib.SpaceEx("naquium-tessaract"), 100)
+MomoLib.itemNames.imersiteJelly    = NewIntermediate("imersite-jelly", MomoLib.SpaceEx("naquium-tessaract"), 100)
+MomoLib.itemNames.electrolyte      = NewFluid("electrolyte", MomoLib.Graphics("space-age/electrolyte.png"), {r = 200/255, g = 51/255, b=104/255, a=1}, false)
+MomoLib.itemNames.supercapacitor   = NewIntermediate("supercapacitor", MomoLib.Graphics("space-age/supercapacitor.png"))
+MomoLib.itemNames.superconductor   = NewIntermediate("superconductor", MomoLib.Graphics("space-age/superconductor.png"))
+MomoLib.itemNames.quantumProcessor = NewIntermediate("quantum-processor", MomoLib.Graphics("space-age/quantum-processor.png"))
+MomoLib.itemNames.carbine          = NewIntermediate("carbine", MomoLib.Graphics("space-age/tungsten-carbide.png"))
 
 MomoLib.itemNames.redSci1 = NewScience("red-sci-1", MomoLib.icon.FromIngredientWithSize(item.redSci), 20)
 
@@ -45,7 +50,7 @@ MomoLib.itemNames.purpleSci3 = NewScience("purple-sci-3", {MomoLib.icon.Get("pur
 
 MomoLib.itemNames.carbon = NewIntermediate("carbon", MomoLib.Graphics("space-age/carbon.png"), 100)
 MomoLib.itemNames.scienceHardware = NewScience("science-hardware", MomoLib.icon.Get("science-hardware.png"), 50)
-MomoLib.itemNames.lattice = NewScience("lattice", MomoLib.icon.Get("lattice.png", 32), 50)
+MomoLib.itemNames.lattice = NewScience("lattice", MomoLib.Graphics("space-age/lithium-plate.png"), 50)
 
 MomoLib.itemNames.yellowSci1 = NewScience("yellow-sci-1", MomoLib.icon.FromIngredientWithSize(item.yellowSci), 20)
 MomoLib.itemNames.yellowSci2 = NewScience("yellow-sci-2", MomoLib.AltCard("utility-science-pack"), 500)

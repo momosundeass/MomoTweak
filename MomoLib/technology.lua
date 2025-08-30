@@ -50,13 +50,15 @@ function funcs.RemoveAllRecipe(recipeName)
 	end
 end
 
+
+---@return table prototype "technology prototype"
 function funcs.FindUnlock(itemName)
 	for _, r in pairs(MomoLib.recipe.AllFromResult(itemName)) do
 		for _, t in pairs(data.raw.technology) do
 			if t.effects == nil then goto next_tech end
 			for i, eff in pairs(t.effects) do
 				if eff.type == "unlock-recipe" and eff.recipe == r then
-					return t.name
+					return funcs:FromPrototype(t)
 				end
 			end
 			::next_tech::
@@ -138,7 +140,7 @@ function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, extend)
 	MomoLib.GetIngredient(itemName, function(p) item = p end)
 	local techs = {}
 	local startSciencePackIndex = nil
-	for i, sp in table.rpairs(sciencePackOrder) do
+	for i, sp in MomoLib.ReversePairs(sciencePackOrder) do
 		if funcs.GetIngredient(fromTech, sp) then
 			startSciencePackIndex = i
 			goto found

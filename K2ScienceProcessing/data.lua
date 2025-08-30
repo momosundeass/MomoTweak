@@ -18,20 +18,23 @@ MomoLib.subgroup.sciRe1 = MomoLib.subgroup.New("science-pack-recycle-1", "scienc
 MomoLib.subgroup.sciRe2 = MomoLib.subgroup.New("science-pack-recycle-2", "science", "z3")
 MomoLib.subgroup.sciRe3 = MomoLib.subgroup.New("science-pack-recycle-3", "science", "z4")
 MomoLib.subgroup.inRe = MomoLib.subgroup.New("intermediate-recycle", "science", "zz")
+MomoLib.subgroup.uBelt = MomoLib.subgroup.New("underground-belt-2", "logistics", "b-2")
 data:extend{
     MomoLib.subgroup.sciRe,
     MomoLib.subgroup.sciRe1,
     MomoLib.subgroup.sciRe2,
     MomoLib.subgroup.sciRe3,
     MomoLib.subgroup.inRe,
-    MomoLib.subgroup.sciInter
+    MomoLib.subgroup.sciInter,
+    MomoLib.subgroup.uBelt
 }
 
 MomoLib.subgroups["science-pack"].group = "science"
 
 
 require("prototypes.items")
-require("prototypes.machines")
+require("prototypes.entities.machines")
+require("prototypes.entities.underground-belt")
 MomoLib.MomoProcessing = require("prototypes.momo-processing")
 
 local tempItem = Item
@@ -46,6 +49,6 @@ require("prototypes.recipes.recycle")
 require("prototypes.productivity-technologies")
 require("prototypes.stack-inserter")
 MomoLib.StackBeltData()
-require("prototypes.manufacturer")
+require("prototypes.entities.manufacturer")
 MomoLib.ManufacturerData()
 Item = tempItem

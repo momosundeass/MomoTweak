@@ -117,7 +117,7 @@ function MomoLib.Extend(tbl, keyValuePairs)
 	error("keyValuePairs must be table with 2 element or array of paired key-value")
 end
 
-function table.rpairs(t)
+function MomoLib.ReversePairs(t)
     local i = #t + 1
     return function()
         i = i - 1

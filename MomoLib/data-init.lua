@@ -30,7 +30,7 @@ function MomoLib.GetPrototype(category, name, onValid, isLog)
 		return false 
 	end
 	if type(name) ~= "string" then
-		if isLog then MomoLib.Log("name:" .. type(name) .. " isn't string or a table with name in category " .. category) end
+		if isLog then MomoLib.Log("name:"..type(name).." isn't string or a table with name in category " .. category) end
 		return false
 	end
 	if data.raw[category][name] ~= nil then 
@@ -38,7 +38,9 @@ function MomoLib.GetPrototype(category, name, onValid, isLog)
 			onValid(data.raw[category][name], category) 
 		end return true
 	end
-	if isLog then MomoLib.Log("No [" .. name .. "] with category [".. category .."]") end
+	if isLog then 
+		MomoLib.Log("No ["..name.."] with category ["..category.."]") 
+	end
 	return false 
 end
 function MomoLib.GetPrototypes(category, names, onEachValid, isLog)
@@ -68,12 +70,12 @@ function MomoLib.GetRecipe(name, onValid) return MomoLib.GetPrototype("recipe", 
 function MomoLib.GetTechnology(name, onValid, isLog) return MomoLib.GetPrototype("technology", name, function(p) MomoLib._OnValidWrapObject("technology", onValid, p) end, isLog) end
 
 function MomoLib.MakeIngredient(name, amount, probFloat01) 
-	local tbl = MomoLib._ConcatAmount({type="item", name=name}, amount)
+	local tbl = MomoLib._ConcatAmount({type="item", name=name.name or name}, amount)
 	if probFloat01 then tbl["probability"] = probFloat01 end
 	return tbl
 end
-function MomoLib.MakeFluidIngredient(name, amount) return MomoLib._ConcatAmount({type="fluid", name=name}, amount) end
-function MomoLib.MakeResearchIngredient(name, amount) return {name, amount or 1} end
+function MomoLib.MakeFluidIngredient(name, amount) return MomoLib._ConcatAmount({type="fluid", name=name.name or name}, amount) end
+function MomoLib.MakeResearchIngredient(name, amount) return {name.name or name, amount or 1} end
 
 function MomoLib._ConcatAmount(ingsTable, amount)
 	if amount == nil then amount = 1 end

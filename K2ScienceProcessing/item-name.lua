@@ -13,7 +13,8 @@ function itemName:New(nameOrTbl, tech)
     self.__index = self
     tbl.n = tbl.name
     if tech == nil then
-       tbl.tech = MomoLib.technology.FindUnlock(tbl.name)                     
+        local result = MomoLib.technology.FindUnlock(tbl.name)
+        if result then tbl.tech = result.name end
     else
         tbl.tech = tech
     end

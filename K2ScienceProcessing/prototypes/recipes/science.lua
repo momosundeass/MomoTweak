@@ -111,7 +111,7 @@ MomoLib.recipe.New({
 MomoLib.recipe.New({
     Item.purpleSci1:I(),
     Item.blueSci2:I(6),
-    Item.rail:I(16),
+    Item.rail:I(48),
     Item.methanol:I(100),
     Item.lubricant:I(80)
 },{

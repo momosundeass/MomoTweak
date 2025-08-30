@@ -84,6 +84,12 @@ function funcs.Assign(prototype, icon)
 	end
 end
 
+function funcs.GetIcons(prototype)
+	if (prototype.icon == nil and prototype.icons == nil) then error("prototype have no icon : GetIcons") end
+	if prototype.icons ~= nil then return prototype.icons end
+	return {{icon = prototype.icon, icon_size = prototype.icon_size or funcs.DefaultSize }}
+end
+
 function funcs.FromPrototype(prototype)
 	if prototype.icons then
 		return prototype.icons
@@ -93,6 +99,16 @@ end
 	
 function funcs.ProductivityIcon()
 	return {icon = "__core__/graphics/icons/technology/effect-constant/effect-constant-recipe-productivity.png", icon_size = 64}
+end
+
+function funcs.AddPlusOverlay(prototype)
+	if (prototype.icon == nil and prototype.icons == nil) then error("prototype have no icon  : AddPlusOverlay") end
+	local plus = "__"..MomoLib.ModName.."__/MomoLib/graphics/plus.png"
+	local ori = funcs.GetIcons(prototype)
+	prototype.icon = nil
+	prototype.icon_size = nil
+	table.insert(ori, {icon = plus, icon_size = funcs.DefaultSize})
+	prototype.icons = ori
 end
 
 MomoLib.icon = funcs
