@@ -62,7 +62,9 @@ function MomoLib.GetIngredient(name, onValid)
 	if MomoLib.GetPrototype("ammo", name, onValid, false) then return true end
 	if MomoLib.GetPrototype("projectile", name, onValid, false) then return true end
 	if MomoLib.GetPrototype("gun", name, onValid, false) then return true end
+	if MomoLib.GetPrototype("capsule", name, onValid, false) then return true end
 	if MomoLib.GetPrototype("rail-planner", name, onValid, false) then return true end
+	MomoLib.Log("No ingredient with name "..name)
 	return false
 end
 
@@ -96,19 +98,22 @@ function MomoLib.WrapObject(momoCategory, prototype)
 	return MomoLib[momoCategory]:FromPrototype(prototype)
 end
 
-function MomoLib.subgroup.New(name, group, order)
-	return {
+---@param extend? boolean
+function MomoLib.subgroup.New(name, group, order, extend)
+	local obj = {
 		type = "item-subgroup",
 		name = name,
 		group = group,
 		order = order
 	}
+	if extend or false then data:extend{obj} end
+	return obj
 end
 
 function MomoLib.subgroup.ChangeItem(name, newSubgroup, order, alsoRecipe)
-	MomoLib.GetItem(name, function(itemPro)
+	MomoLib.GetIngredient(name, function(itemPro)
 		itemPro.subgroup = newSubgroup
-		itemPro.order = order
+		itemPro.order = order == "auto" and MomoLib.order.Auto(newSubgroup) or order
 	end)
 	
 	if alsoRecipe then
@@ -118,7 +123,7 @@ end
 function MomoLib.subgroup.ChangeRecipe(name, newSubgroup, order, alsoItem)
 	MomoLib.GetRecipe(name, function(recipePro)
 		recipePro.subgroup = newSubgroup
-		recipePro.order = order
+		recipePro.order = order == "auto" and MomoLib.order.Auto(newSubgroup) or order
 	end)
 	
 	if alsoItem then

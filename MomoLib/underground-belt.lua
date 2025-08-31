@@ -8,8 +8,6 @@ function MomoLib.GenAllUndergroundBeltEntityItem(distanceMul, newSubgroup)
         local newItemName = u.name.."-2"
         newBelt.name = newItemName
         newBelt.minable.result = newItemName
-        MoLog(u.name.." => "..tostring(u.next_upgrade))
-
         MomoLib.MakeAltUndergroundGraphic(newBelt)
         
         local newItem

@@ -13,3 +13,8 @@ MomoLib.technology.AddRequired(Item.rocketSilo.tech, {Item.radar2.tech, Item.sol
 MomoLib.recipe.ReplaceIngredient(Item.satellite, 
 {Item.accumulator, Item.radar, Item.solar, Item.glass}, 
 {Item.eqBigBattery2:I(40), Item.radar2:I(2), Item.solar2:I(50), Item.lab2:I(10)})
+
+MomoLib.technology.RemoveAllRecipe(Item.hdpeAlloy.n)
+MomoLib.technology.AddRecipe(Item.lds.tech, Item.hdpeAlloy.name)
+Item.hdpeAlloy.tech = Item.lds.tech
+MomoLib.recipe.SafeAddIngredients(Item.hdpeAlloy, Item.lds:I(6))

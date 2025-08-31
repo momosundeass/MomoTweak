@@ -131,7 +131,7 @@ local resCenter = MomoLib.machine.CreateEntity("assembling-machine", "assembling
     }
 })
 MomoLib.itemNames.researchCenter = MomoLib.itemName:New(resCenter.item)
-MomoLib.machine.FluidBoxes(resCenter.machine, {
+MomoLib.machine.FluidBoxes(resCenter.machine.name, {
     MomoLib.machine.FluidBox({0, -4}, "output"),
     MomoLib.machine.FluidBox({0, 4}, "input", defines.direction.south),
     MomoLib.machine.FluidBox({2, -4}, "output"),
@@ -232,3 +232,10 @@ MomoLib.machine.FluidBoxes(manufacturer.machine, {
     MomoLib.machine.FluidBox({0, 2}, "input", defines.direction.south)
 })
 manufacturer.machine.allowed_effects = MomoLib.EffectLimitation(false)
+
+
+
+MomoLib.machine.FluidBoxes(MomoLib.itemNames.filtration.n, {
+    MomoLib.machine.FluidBox({-3, 0}, "input", defines.direction.west, MomoLib.machine.PipeEmptyPictures()),
+    MomoLib.machine.FluidBox({3, 0}, "input", defines.direction.east, MomoLib.machine.PipeEmptyPictures()),
+}, true)

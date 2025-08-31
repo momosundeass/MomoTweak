@@ -1,4 +1,4 @@
-MomoLib.technology.SetRequired(Item.foundry.n, {"advanced-ore-processing", "advanced-material-processing-2"})
+MomoLib.technology.SetRequired(Item.foundry.n, {"advanced-ore-processing", "advanced-material-processing-2", Item.hdpeAlloy.tech})
 
 MomoLib.GetTechnology(Item.foundry.n, function(p) 
     p:EFFECTS():COUNT(300):INGREDIENTS({

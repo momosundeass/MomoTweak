@@ -6,6 +6,18 @@ function MomoLib.QualityGlassware(icon) return "__quality_glassware__/graphics/i
 function MomoLib.SpaceEx(icon) return "__space-exploration-graphics__/graphics/icons/".. icon .. ".png" end
 function MomoLib.SpaceExGraphics(icon) return "__space-exploration-graphics__/graphics/".. icon .. ".png" end
 
+---@param fullSize? boolean
+function MomoLib.UnusedRenders(icon, fullSize) 
+  fullSize = fullSize or false
+  return {
+    filename = "__"..MomoLib.ModName.."__/graphics/icons/unused-renders/" .. icon .. ".png", 
+    size = fullSize and 1024 or 64,
+    mipmap_count = fullSize and 1 or 4,
+    scale = 0.5
+  }  
+end
+
+
 -- quality didn't load on data state yet, so use this function instead
 -- reference to same function in __quality__/prototypes/recycling.lua
 function generate_recycling_recipe_icons_from_item(item)

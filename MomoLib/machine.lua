@@ -37,9 +37,18 @@ function funcs._CollisionBox(box)
     return { newLeftBottom, newRightTop }
 end
 
-function funcs.FluidBoxes(prototypeName, fluidBoxes)
+---@param insertMode? boolean
+function funcs.FluidBoxes(prototypeName, fluidBoxes, insertMode)
     if not MomoLib.IsArray(fluidBoxes) then fluidBoxes = {fluidBoxes} end
-    funcs.GetPrototype(prototypeName).fluid_boxes = fluidBoxes
+    insertMode = insertMode or false
+    local prototype = funcs.GetPrototype(prototypeName)
+    if insertMode then
+        for _, f in pairs(fluidBoxes) do
+            table.insert(prototype.fluid_boxes, f)
+        end
+    else 
+        prototype.fluid_boxes = fluidBoxes
+    end
 end
 
 funcs.fluidbox = {}
@@ -48,6 +57,12 @@ function funcs.fluidbox:New(o)
     self.__index = self
     return o
 end
+---@alias production
+---| '"input"'
+---| '"output"'
+---@param production_type production
+---@param picture? table
+---@param cover? table 
 function funcs.FluidBox(position, production_type, direction, picture, cover)
     if direction == nil then direction = defines.direction.north end
     if picture == nil then
@@ -76,10 +91,23 @@ function funcs.fluidbox:CATEGORY(categories)
         pc.connection_category = categories    
     end
 return self end
+---@alias flow
+---| '"input"'
+---| '"output"'
+---| '"input-output"'
+---@param flow_direction flow
 function funcs.fluidbox:FLOW(flow_direction)
     for _, pc in pairs(self.pipe_connections) do
         pc.flow_direction = flow_direction
     end
+end
+function funcs.PipeEmptyPictures()
+    return {
+        north = util.empty_sprite(),
+        east = util.empty_sprite(),
+        south = util.empty_sprite(),
+        west = util.empty_sprite(),
+    }
 end
 
 function funcs.ProductivityAdded(machine, prod)

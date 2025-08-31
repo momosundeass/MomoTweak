@@ -196,6 +196,7 @@ MomoLib.recipe.ReplaceIngredient(Item.echamber1, {
     Item.strongBox:I(),
 })
 
+MomoLib.technology.AddRequired(Item.echamber2.tech, Item.hdpeAlloy.tech)
 MomoLib.recipe.SetIngredients(Item.echamber2, {
     Item.productivityModule2:I(2),
     Item.hdpeAlloy:I(12),
@@ -206,10 +207,10 @@ MomoLib.recipe.SetIngredients(Item.echamber2, {
 
 MomoLib.recipe.SetIngredients(Item.pchamber1, {
     Item.assembly3:I(),
+    Item.filtration:I(1),
     Item.strongBox:I(),
     Item.blueChip:I(12),
     Item.electrolytic:I(16),
-    Item.electricEngine:I(8)
 })
 
 MomoLib.recipe.SetIngredients(Item.rocketSilo, {

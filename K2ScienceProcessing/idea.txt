@@ -3,7 +3,10 @@
 -- TODO: improve quality
 -- TODO: add infinite tech using all vanilla science pack
 
-Spoilage singularity tech card, encourage building quantum computer near lab.
+-- TODO: move k11 advanced centrifuge to matter science
+-- TODO: move advanced assembly to matter science
+
+3 new advanced ore (holmium space-age)
 
 Quantum computer and research server loop. Use percentage result and ingredients loop to create a pair of buildings.
 IngA can be crafted from stuff.
@@ -13,3 +16,5 @@ IngB -> [Quantum com]
 25% resultA + IngA
 resultA + IngB -> Final result
 Maybe add some cooling ingredients
+
+Spoilage singularity tech card, encourage building quantum computer near lab.

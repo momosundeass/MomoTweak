@@ -26,9 +26,8 @@ function funcs.FromIngredientWithSize(item)
 end
 
 function funcs.MakeLayeredItemIcon(bgItem, fgItem)
-	local bg = funcs.FromIngredientWithSize(bgItem)
-	local fg = funcs.FromIngredientWithSize(fgItem)
-	
+	local bg = (type(bgItem) == "string" and string.find(bgItem, "__") ~= nil) and {bgItem, funcs.DefaultSize} or funcs.FromIngredientWithSize(bgItem)
+	local fg = (type(fgItem) == "string" and string.find(fgItem, "__") ~= nil) and {fgItem, funcs.DefaultSize} or funcs.FromIngredientWithSize(fgItem)
 	return {
 		{icon=bg[1], scale=0.5, icon_size=bg[2]},
 		{icon=fg[1], scale=0.75, icon_size=fg[2], shift={16,16}}
@@ -75,10 +74,21 @@ end
 function funcs.Assign(prototype, icon)
 	if type(icon) == "string" then
 		prototype.icon = icon
-		prototype.icon_size = MomoLib.icon.DefaultSize
-	elseif type(icon) == "table" and type(icon[1]) == "string" and type(icon[2]) == "number" then
+		prototype.icon_size = funcs.DefaultSize
+	elseif type(icon) == "table" and icon.pictures then
+		prototype.icon = icon.pictures[1].filename
+		prototype.icon_size = icon.pictures[1].size or funcs.DefaultSize
+		prototype.pictures = icon.pictures
+	elseif type(icon) == "table" 
+	and type(icon[1]) == "string" and type(icon[2]) == "number" then
 		prototype.icon = icon[1]
 		prototype.icon_size = icon[2]
+	elseif type(icon) == "table" and icon.filename then
+		prototype.icon = icon.filename
+		prototype.icon_size = icon.size or funcs.DefaultSize
+ 	elseif type(icon) == "table" and icon.icon then
+		prototype.icon = icon.icon
+		prototype.icon_size = icon.icon_size or funcs.DefaultSize
 	else
 		prototype.icons = icon
 	end

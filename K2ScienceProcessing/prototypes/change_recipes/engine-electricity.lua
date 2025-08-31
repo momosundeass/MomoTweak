@@ -75,7 +75,7 @@ MomoLib.technology.SetIngredients(b3.name, {
 })
 MomoLib.technology.SetRequired(b3.name, {Item.eqBattery2.tech, Item.imersitePlate.tech})
  MomoLib.recipe.SetIngredients(Item.eqBigBattery, {
-     Item.eqBattery:I(4),
+     Item.eqBattery:I(1),
      Item.rareMetal:I(2)
 })
 MomoLib.recipe.SetIngredients(Item.eqBattery2, {
@@ -84,8 +84,8 @@ MomoLib.recipe.SetIngredients(Item.eqBattery2, {
     Item.titaniumPlate:I(4)
 }):CATEGORY(MomoLib.category.refinery)
 MomoLib.recipe.SetIngredients(Item.eqBigBattery2, {
-    Item.eqBattery2:I(2),
-    Item.batteryLithium:I(4),
+    Item.eqBattery2:I(1),
+    Item.batteryLithium:I(8),
     Item.titaniumPlate:I(2)
 }):CATEGORY(MomoLib.category.refinery)
 MomoLib.recipe.SetIngredients(Item.eqBattery3, {
@@ -94,7 +94,7 @@ MomoLib.recipe.SetIngredients(Item.eqBattery3, {
     Item.blueChip:I(4),
 }):CATEGORY(MomoLib.category.refinery)
 MomoLib.recipe.SetIngredients(Item.eqBigBattery3, {
-    Item.eqBattery3:I(2),
+    Item.eqBattery3:I(1),
     Item.imersitePlate:I(4),
     Item.blueChip:I(8),
 }):CATEGORY(MomoLib.category.refinery)
@@ -116,6 +116,15 @@ MomoLib.recipe.SetIngredients(Item.solar2, {
     Item.nitricAcid:I(50),
     Item.eqBigBattery2:I()
 }):AMOUNT(2)
+
+
+MomoLib.recipe.SetIngredients(Item.ecu, {
+    Item.hdpeAlloy:I(6),
+    Item.electrolytic:I(2),
+    Item.imersiteCrystal:I(3),
+    Item.blueChip:I(4),
+    Item.eqBigBattery2:I()
+}):CATEGORY(MomoLib.category.manufacture):PRODUCTIVITY()
 
 -- TODO: Solar 2
 -- TODO: Miner 3 

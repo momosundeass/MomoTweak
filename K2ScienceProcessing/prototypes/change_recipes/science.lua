@@ -39,26 +39,43 @@ MomoLib.recipe.SetIngredients(Item.blueSci, {
 
 -- Purple sci
 MomoLib.technology.AddRequired(Item.purpleSci.n, Item.lithium.tech)
-MomoLib.recipe.SetIngredients(Item.purpleSci, {
+Item.purpleSci.ingredients = {
     Item.elecFurnace:I(4),
     Item.echamber1:I(),
     Item.inconShape:I(2),
     Item.productivityModule:I(2),
     Item.memoryBlock:I(16)
-}):AMOUNT(2):ADDPRODUCT{Item.purpleSci1:I(1), Item.purpleSci2:I(32)}:NORECYCLE()
+}
+MomoLib.recipe.SetIngredients(Item.purpleSci, Item.purpleSci.ingredients):AMOUNT(2):ADDPRODUCT{Item.purpleSci1:I(1), Item.purpleSci2:I(32)}:NORECYCLE()
 
 -- Yellow sci
 MomoLib.technology.AddRequired(Item.yellowSci.n, Item.steamTurbine.tech)
 MomoLib.recipe.SetIngredients(Item.yellowSci, {
     Item.steamTurbine:I(2),
     Item.airPurifier:I(4),
-    Item.robotFrame:I(4),
+    Item.robotFrame:I(3),
     Item.scienceHardware:I(),
     Item.lattice:I(2),
 }):AMOUNT(1):ADDPRODUCT({Item.yellowSci1:I(2), Item.yellowSci2:I(9), Item.yellowSci4:I(2)}):NORECYCLE()
 
 -- White sci
+MomoLib.recipe.ReplaceIngredient("rocket-part", Item.lds.n, Item.hdpeAlloy:I(10))
+
 MomoLib.recipe.SetIngredients(Item.whiteSci, {
-    Item.spaceResearch:I(5),
-    Item.scienceHardware:I(10)
-}):CATEGORY(MomoLib.category.researchCenter):AMOUNT(1):ADDPRODUCT({Item.whiteSci1:I(1), Item.whiteSci2:I(12), Item.whiteSci4:I(6)}):NORECYCLE()
+    Item.spaceResearch:I(20),
+    Item.scienceHardware:I(30),
+    Item.blackSci:I(80),
+    Item.lab2:I(2)
+}):AMOUNT(20):ADDPRODUCT{
+    Item.whiteSci1:I(1), 
+    Item.whiteSci2:I(24),
+    Item.whiteSci4:I(12)
+}:CATEGORY(MomoLib.category.researchCenter):TIME(80):NORECYCLE()
+
+-- Matter sci
+MomoLib.recipe.SetIngredients(Item.matterSci, {
+    Item.matterResearch:I(15),
+    Item.matterSci4:I(8),
+    Item.matterSci7:I(3),
+    Item.scienceHardware2:I(4),
+}):AMOUNT(2):ADDPRODUCT{Item.matterSci1:I(2), Item.matterSci2:I(8)}:NORECYCLE()

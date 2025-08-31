@@ -50,7 +50,6 @@ function funcs.RemoveAllRecipe(recipeName)
 	end
 end
 
-
 ---@return table prototype "technology prototype"
 function funcs.FindUnlock(itemName)
 	for _, r in pairs(MomoLib.recipe.AllFromResult(itemName)) do
@@ -92,6 +91,10 @@ end
 
 function funcs.SetIngredients(name, ingredients)
     MomoLib.GetTechnology(name, function(p) p:INGREDIENTS(ingredients) end)
+end
+
+function funcs.AddIngredient(name, ing)
+	MomoLib.GetTechnology(name, function(p) p:ADDINGREDIENT(ing) end)
 end
 
 function funcs.GetIngredient(tech, ingredient)
@@ -171,7 +174,7 @@ function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, extend)
 		tech.unit.count = fromTech.unit.count * i
 		if (i > #sciencePackOrder) then 
 			local dif = (i - #sciencePackOrder) + 1
-			tech.unit.count = tech.unit.count * i * (dif^4.8)
+			tech.unit.count = tech.unit.count * i * (dif^MomoLib.HardInfiniteTechnologyPower)
 		end
 		tech:PRE{preReq.name}
 		tech.upgrade = true
@@ -186,8 +189,18 @@ function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, extend)
 	return techs
 end
 
+---@param mathExpression string see https://lua-api.factorio.com/latest/types/MathExpression.html
+function funcs.Infinity(prototype, mathExpression)
+	prototype.max_level = "infinite"
+	prototype.unit = prototype.unit or {}
+	prototype.unit.count_formula = mathExpression
+	prototype.unit.count = nil
+end
+
 function funcs.Clone(sourceName, newName)
-	local newTech = funcs:_New(MomoLib.ClonePrototype(data.raw.technology[sourceName], newName, function(p) end))
+	local tech = data.raw.technology[sourceName]  
+	if not tech then error("No source technology with name "..sourceName) end
+	local newTech = funcs:_New(MomoLib.ClonePrototype(tech, newName, function(p) end))
 	return newTech
 end
 
@@ -224,11 +237,22 @@ function funcs:ADDINGREDIENT(ing)
 	return self
 end
 
+---@param effects table an array of Modifier see https://lua-api.factorio.com/latest/types/Modifier.html
 function funcs:EFFECTS(effects)
 	if effects == nil then effects = {} end
 	self.effects = effects
 	return self
 end
+
+---@function only working with Modifier with "modifier" value
+function funcs:EFFECTAMOUNT(amount)
+	if not self.effects then return self end 
+	for _, e in pairs(self.effects) do
+		if e.modifier then
+			e.modifier = amount
+		end
+	end
+return self end
 
 function funcs:RECIPE(recipes)
 	if self.effects == nil then self.effects = {} end
@@ -239,12 +263,19 @@ function funcs:RECIPE(recipes)
 end
 
 function funcs:PRE(pres)
+	if not MomoLib.IsArray(pres) then pres = {pres} end
 	self.prerequisites = pres
 	return self
 end
+
+function funcs:ICON(icon)
+	MomoLib.icon.Assign(self, icon)
+return self end
 
 function funcs:Extend()
 	data:extend { self }
 end
 
+MomoLib.HardInfiniteTechnologyPower = 4.8
+MomoLib.InfiniteTechnologyPower = 2.2
 MomoLib.technology = funcs

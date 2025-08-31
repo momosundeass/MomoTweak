@@ -64,10 +64,14 @@ function funcs.DisableRecipe(name)
 	end)
 end
 
---[[
-	set module effect
-	@param use 'MomoLib.NewEffect()' or see 'MomoLib.effect.lua'
-]]
+function funcs.RocketProduct(name, results)
+	MomoLib.GetIngredient(name.name or name, function (p) 
+		p.rocket_launch_products = results
+		p.send_to_orbit_mode = "automated"
+	end)
+end
+
+---@param effs table use 'MomoLib.NewEffect()' or see 'MomoLib.effect.lua'
 function funcs:MODULEEFFECT(effs)
 	if self.type ~= "module" then error("change effect required 'module' for : " .. self.name) end
 	self.effect = effs
@@ -89,6 +93,19 @@ function funcs:SUPERHOT()
 	self.default_temperature = 1000000
     self.max_temperature = 10000000
     self.heat_capacity = "25J"
+return self end
+
+function funcs:ROCKETPRODUCT(results)
+	self.rocket_launch_products = results
+	self.send_to_orbit_mode = "automated"
+return self end
+
+function funcs:FUEL(energy, result, category)
+	self.fuel_value = energy
+	self.burnt_result = result.name or result
+	if category then
+		self.fuel_category = category
+	end
 return self end
 
 function funcs:Extend()

@@ -3,22 +3,18 @@ local itemName = {
     name = "invalid"
 }
 function itemName:New(nameOrTbl, tech)
-    local tbl = {}
-    if type(nameOrTbl) == "string" then
-        tbl.name = nameOrTbl
-    else
-        tbl = nameOrTbl
-    end
-    setmetatable(tbl, self)
+    local obj = {}
+    obj.name = nameOrTbl.name or nameOrTbl
+    setmetatable(obj, self)
     self.__index = self
-    tbl.n = tbl.name
+    obj.n = obj.name
     if tech == nil then
-        local result = MomoLib.technology.FindUnlock(tbl.name)
-        if result then tbl.tech = result.name end
+        local result = MomoLib.technology.FindUnlock(obj.name)
+        if result then obj.tech = result.name end
     else
-        tbl.tech = tech
+        obj.tech = tech
     end
-    return tbl
+    return obj
 end
 item.ItemType = {}
 item.Prototypes = {}
@@ -60,6 +56,7 @@ item.advancedSci    = itemName:New("kr-advanced-tech-card")
 item.singularitySci = itemName:New("kr-singularity-tech-card")
 item.biterResearch  = itemName:New("kr-biter-research-data")
 item.spaceResearch  = itemName:New("kr-space-research-data")
+item.matterResearch  = itemName:New("kr-matter-research-data")
 
 
 item.ironPlate      = itemName:New("iron-plate")
@@ -107,6 +104,7 @@ item.imersiteBeam   = itemName:New("kr-imersium-beam", "kr-imersium-processing")
 item.battery        = itemName:New("battery", "battery")
 item.batteryLithium = itemName:New("kr-lithium-sulfur-battery", "kr-lithium-sulfur-battery")
 item.rocketFuel     = itemName:New("rocket-fuel")
+item.uraniumFuel    = itemName:New("uranium-fuel-cell")
 
 item.repair = itemName:New("repair-pack")
 
@@ -236,9 +234,12 @@ item.radar2           = itemName:New("kr-advanced-radar", "kr-advanced-radar")
 item.recycler         = itemName:New("recycler", "recycling")
 item.airPurifier      = itemName:New("kr-air-purifier", "kr-air-purification")
 item.centrifuge       = itemName:New("centrifuge", "uranium-processing")
-item.bigCentrifuge    = itemName:New("k11-advanced-centrifuge", "k11-advanced-centrifuge")
+item.advCentrifuge    = itemName:New("k11-advanced-centrifuge", "k11-advanced-centrifuge")
 item.rocketSilo       = itemName:New("rocket-silo")
 item.satellite        = itemName:New("satellite")
+item.matterPlant      = itemName:New("kr-matter-plant", "kr-matter-processing")
+item.matterAssociator = itemName:New("kr-matter-associator", "kr-matter-processing")
+item.matterStabilizer = itemName:New("kr-stabilizer-charging-station", "kr-matter-processing")
 
 -- electric
 item.boiler        = itemName:New("boiler")
@@ -281,6 +282,7 @@ item.turret        = itemName:New("gun-turret")
 item.laserTurret   = itemName:New("laser-turret")
 item.grenade       = itemName:New("grenade")
 item.explosive     = itemName:New("explosives")
+item.destroyer     = itemName:New("destroyer-capsule", "destroyer")
 
 -- module
 item.speedModule         = itemName:New("speed-module", "speed-module")
@@ -301,6 +303,8 @@ item.beacon2              = itemName:New("kr-singularity-beacon", "kr-singularit
 -- fluid
 item.sulfuricAcid  = itemName:New("sulfuric-acid")
 item.water         = itemName:New("water") 
+item.dirtyWater    = itemName:New("kr-dirty-water") 
+item.heavyWater    = itemName:New("kr-heavy-water")
 item.mineralWater  = itemName:New("kr-mineral-water")
 item.oil           = itemName:New("crude-oil")
 item.oxygen        = itemName:New("kr-oxygen")
@@ -311,8 +315,10 @@ item.nitricAcid    = itemName:New("kr-nitric-acid")
 item.heavyOil      = itemName:New("heavy-oil")
 item.lightOil      = itemName:New("light-oil")
 item.lubricant     = itemName:New("lubricant")
+item.petroGas      = itemName:New("petroleum-gas")
 item.ammonia       = itemName:New("kr-ammonia")
 item.methanol      = itemName:New("kr-biomethanol")
+item.hChloride     = itemName:New("kr-hydrogen-chloride")
 
 MomoLib.itemNames = item    
 MomoLib.itemName = itemName
