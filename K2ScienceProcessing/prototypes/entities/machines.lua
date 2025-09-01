@@ -142,7 +142,6 @@ MomoLib.machine.Power(resCenter.machine.name, "300kW")
 MomoLib.machine.ProductivityAdded(resCenter.machine.name, 0.3)
 MomoLib.machine.ModuleSlot(resCenter.machine, 4)
 
-
 shift = {0,-0.5}
 line_length = 8
 length = 64 * 2

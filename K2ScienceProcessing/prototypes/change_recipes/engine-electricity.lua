@@ -4,16 +4,20 @@ MomoLib.recipe.ReplaceIngredient(Item.electricEngine, {Item.steelPlate, Item.gre
     Item.electricMotor:I(4), 
     Item.rareMetal:I(6),
     Item.chest:I()
-})
+}):INTERMEDIATE()
 
 MomoLib.recipe.ReplaceIngredient(Item.airPurifier, {
     Item.steelBeam.n,
     Item.engine.n,
 }, {
     Item.mineralWaterPump:I()
-}):TIME(8):CATEGORY(MomoLib.category.refinery)
+}):TIME(8):CATEGORY(MomoLib.category.refinery):INTERMEDIATE()
 
-MomoLib.recipe.SetIngredients(Item.steamEngine.n, {Item.fuelProc:I(), Item.burnerTurbine:I(), Item.inserter:I(3)})
+MomoLib.recipe.SetIngredients(Item.steamEngine.n, {
+    Item.fuelProc:I(), 
+    Item.burnerTurbine:I(),
+    Item.inserter:I(3)
+}):AMOUNT(2):INTERMEDIATE()
 
 MomoLib.technology.AddRequired(Item.nuclearPlant.tech, {Item.bulkInserter.tech, Item.electrolyser.tech})
 MomoLib.recipe.SetIngredients(Item.steamTurbine, {
@@ -23,7 +27,7 @@ MomoLib.recipe.SetIngredients(Item.steamTurbine, {
     Item.titaniumPlate:I(20),
     Item.electricMotor:I(40),
     Item.concrete:I(80)
-}):TIME(30)
+}):TIME(30):INTERMEDIATE()
 
 MomoLib.recipe.SetIngredients(Item.nuclearPlant, {
     Item.heatPipe:I(80),
@@ -56,7 +60,7 @@ MomoLib.recipe.SetIngredients(Item.steamTurbine2, {
     Item.electricEngine:I(65),
     Item.eqBigBattery2:I(100),
     Item.steelGear:I(100)
-}):TIME(60)
+}):TIME(60):INTERMEDIATE()
 MomoLib.recipe.SafeAddIngredients(Item.fusionCell, { Item.rocketFuel:I()})
 
 -- miner
@@ -77,27 +81,29 @@ MomoLib.technology.SetRequired(b3.name, {Item.eqBattery2.tech, Item.imersitePlat
  MomoLib.recipe.SetIngredients(Item.eqBigBattery, {
      Item.eqBattery:I(1),
      Item.rareMetal:I(2)
-})
+}):INTERMEDIATE()
 MomoLib.recipe.SetIngredients(Item.eqBattery2, {
     Item.eqBigBattery:I(),
     Item.batteryLithium:I(2),
     Item.titaniumPlate:I(4)
-}):CATEGORY(MomoLib.category.refinery)
+}):CATEGORY(MomoLib.category.refinery):INTERMEDIATE()
 MomoLib.recipe.SetIngredients(Item.eqBigBattery2, {
     Item.eqBattery2:I(1),
     Item.batteryLithium:I(8),
     Item.titaniumPlate:I(2)
-}):CATEGORY(MomoLib.category.refinery)
+}):CATEGORY(MomoLib.category.refinery):INTERMEDIATE()
 MomoLib.recipe.SetIngredients(Item.eqBattery3, {
     Item.eqBigBattery2:I(),
     Item.imersitePlate:I(2),
+    Item.iron2:I(4),
     Item.blueChip:I(4),
-}):CATEGORY(MomoLib.category.refinery)
+}):CATEGORY(MomoLib.category.refinery):INTERMEDIATE()
 MomoLib.recipe.SetIngredients(Item.eqBigBattery3, {
     Item.eqBattery3:I(1),
     Item.imersitePlate:I(4),
+    Item.iron2:I(16),
     Item.blueChip:I(8),
-}):CATEGORY(MomoLib.category.refinery)
+}):CATEGORY(MomoLib.category.refinery):INTERMEDIATE()
 
 MomoLib.recipe.SafeAddIngredients(Item.accumulator, {Item.bigPole:I()})
 MomoLib.technology.AddRequired(Item.accumulator2.tech, Item.eqBattery3.tech)
@@ -107,7 +113,7 @@ MomoLib.recipe.SetIngredients(Item.accumulator2, {
     Item.eqBigBattery3:I(16),
     Item.heatPipe:I(20),
     Item.steelBeam:I(10)
-})
+}):INTERMEDIATE()
 
 MomoLib.technology.AddRequired(Item.solar2.tech, Item.eqBattery2.tech)
 MomoLib.recipe.SetIngredients(Item.solar2, {
@@ -117,14 +123,12 @@ MomoLib.recipe.SetIngredients(Item.solar2, {
     Item.eqBigBattery2:I()
 }):AMOUNT(2)
 
-
 MomoLib.recipe.SetIngredients(Item.ecu, {
     Item.hdpeAlloy:I(6),
     Item.electrolytic:I(2),
     Item.imersiteCrystal:I(3),
     Item.blueChip:I(4),
     Item.eqBigBattery2:I()
-}):CATEGORY(MomoLib.category.manufacture):PRODUCTIVITY()
+}):CATEGORY(MomoLib.category.manufacture):INTERMEDIATE()
 
--- TODO: Solar 2
 -- TODO: Miner 3 

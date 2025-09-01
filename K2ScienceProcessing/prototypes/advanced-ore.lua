@@ -56,3 +56,26 @@ MomoLib.recipe.New({
 },{
     Item.copper2:I()
 }):CATEGORY(MomoLib.category.indFurnace):TIME(240):UNLOCK("caterium"):Extend()
+
+
+MomoLib.itemNames.iron2Raw = MomoLib.NewRawResource("iron-2-raw", {
+    pictures = {
+        MomoLib.UnusedRenders("material-crystal-pyrite-1"),
+        MomoLib.UnusedRenders("material-crystal-pyrite-2"),
+        MomoLib.UnusedRenders("material-crystal-pyrite-3"),
+    }
+}, 100)
+
+MomoLib.itemNames.iron2 = MomoLib.NewIntermediate("iron-2", {
+    pictures = { MomoLib.UnusedRenders("part-metal-beam-2"), }
+}, 100)
+
+MomoLib.recipe.New({
+    Item.ironDust:I(80),
+    Item.batteryLithium:I(8),
+    Item.sulfur:I(16)
+}, {Item.iron2Raw:I(2), Item.uraniumOre:I()}):CATEGORY(MomoLib.category.centrifuge):TIME(120):UNLOCK(Item.imersiteBeam.tech):Extend()
+MomoLib.recipe.New({
+    Item.iron2Raw:I(),
+    Item.hChloride:I(300),
+}, Item.iron2:I(2)):CATEGORY(MomoLib.category.chemical):TIME(60):UNLOCK(Item.imersiteBeam.tech):Extend()

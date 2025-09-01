@@ -18,3 +18,7 @@ MomoLib.recipe.SetIngredients(Item.quarry, {
     Item.electricMotor:I(100),
     Item.blueChip:I(40),
 })
+
+MomoLib.recipe.SafeAddIngredients(Item.imersiteBeam, Item.iron2:I(8))
+MomoLib.recipe.SafeAddIngredients("kr-easy-imersium-beam", Item.iron2:I(8))
+MomoLib.recipe.SafeAddIngredients(Item.imersiteGear, Item.iron2:I(6))

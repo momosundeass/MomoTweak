@@ -36,4 +36,19 @@ function settings.CreateIntSetting(settingName, defaultValue)
 	}}) 
 end
 
+function settings.Hide(target, forceValue)
+	local category = "double-setting"
+	if type(forceValue) == "number" then
+		category = "int-setting"
+	elseif type(forceValue) == "string" then
+		category = "string-setting"
+	elseif type(forceValue) == "boolean" then
+		category = "bool-setting"
+	end
+	if data.raw[category][target] then
+		data.raw[category][target].forced_value = forceValue
+		data.raw[category][target].hidden = true
+	end
+end
+
 return settings

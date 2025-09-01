@@ -10,3 +10,11 @@ end)
 MomoLib.machine.Power(Item.electrolyser.n, "2MW")
 MomoLib.machine.Speed(Item.electrolyser.n, 5)
 
+MomoLib.recipe.New({
+    Item.electrolytic:I(5),
+    Item.lubricant:I(20),
+    Item.ironMolten:I(10),
+    Item.iron2:I(4)
+}, {
+    Item.electrolyte:I(10)
+}):TIME(30):UNLOCK(Item.matterStabilizer.tech):CATEGORY(MomoLib.category.electromagnetic):Extend()

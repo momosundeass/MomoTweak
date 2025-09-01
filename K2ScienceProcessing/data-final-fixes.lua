@@ -7,7 +7,7 @@ require("prototypes.change_recipes.engine-electricity")
 require("prototypes.change_recipes.logistic")
 require("prototypes.change_recipes.electronics")
 require("prototypes.change_recipes.machine")
-require("prototypes.change_recipes.machine-post-yellow")
+require("prototypes.change_recipes.machine-2")
 require("prototypes.change_recipes.science")
 require("prototypes.change_recipes.military")
 

@@ -1,7 +1,0 @@
-Factorio Hard version
-Recipe: ~1400 Technology: ~680
-https://mods.factorio.com/mod/MomoIRTweak
-
-Factorio Very Hard version
-Recipe: ~2950 Technology: ~1150
-https://mods.factorio.com/mod/MomoTweak

@@ -19,22 +19,31 @@ function MomoLib.ChangeEffect(effect, power, speed, prod, pollution, quality)
     if (quality ~= nil) then effect.quality     = effect.quality + quality end
     return effect
 end
-function MomoLib.SetEffect(effect, power, speed, prod, pollution, quality)
-    if type(effect) == "string" then
-        MomoLib.GetPrototype("module", effect, function(p) effect = p.effect end)
+
+---@alias effect
+---| '"consumption"'
+---| '"speed"'
+---| '"productivity"'
+---| '"pollution"'
+---| '"quality"'
+---@param effect effect
+function MomoLib.SetEffect(target, effect, power)
+    if type(target) == "string" then
+        MomoLib.GetPrototype("module", target, function(p) target = p.effect end)
     end
-    if (power ~= nil) then effect.consumption   = power end
-    if (speed ~= nil) then effect.speed         = speed end
-    if (prod ~= nil) then effect.productivity   = prod end
-    if (pollution ~= nil) then effect.pollution = pollution end
-    if (quality ~= nil) then effect.quality     = quality end
-    return effect
+    target[effect] = power
+    return target
 end
 
 --[[
     see https://lua-api.factorio.com/latest/types/EffectTypeLimitation.html
     use in machine.allowed_effects
 ]]
+---@param power boolean
+---@param speed? boolean
+---@param prod? boolean
+---@param pollution? boolean
+---@param quality? boolean
 function MomoLib.EffectLimitation(power, speed, prod, pollution, quality)
     local limit = {}
     if (power == nil) or power then table.insert(limit, "consumption") end

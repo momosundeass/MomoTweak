@@ -4,9 +4,12 @@ local sb = MomoLib.subgroup
 
 MomoLib.itemNames.imersiteJelly    = MomoLib.NewIntermediate("imersite-jelly", MomoLib.SpaceEx("naquium-tessaract"), 100)
 MomoLib.itemNames.electrolyte      = MomoLib.NewFluid("electrolyte", MomoLib.Graphics("space-age/electrolyte.png"), {r = 200/255, g = 51/255, b=104/255, a=1}, false)
+
+-- advanced
 MomoLib.itemNames.supercapacitor   = MomoLib.NewIntermediate("supercapacitor", MomoLib.Graphics("space-age/supercapacitor.png"))
 MomoLib.itemNames.superconductor   = MomoLib.NewIntermediate("superconductor", MomoLib.Graphics("space-age/superconductor.png"))
 MomoLib.itemNames.quantumProcessor = MomoLib.NewIntermediate("quantum-processor", MomoLib.Graphics("space-age/quantum-processor.png"))
+MomoLib.itemNames.nanoCarbon       = MomoLib.NewIntermediate("nano-carbon", MomoLib.Graphics("space-age/carbon-fiber.png"))
 
 MomoLib.subgroup.ChangeItem(item.basicSci.n, sb.redSci.name)
 MomoLib.subgroup.ChangeItem(item.techCard.n, sb.redSci.name)

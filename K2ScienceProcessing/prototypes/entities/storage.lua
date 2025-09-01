@@ -1,5 +1,5 @@
 function MomoLib.ReduceStorage()
-    if not settings.startup["hardcore-storage"].value then return end
+    if not settings.startup["momo-hardcore-storage"].value then return end
     local types = { "container", "logistic-container" }
     for _, type in pairs(types) do
         for _, container in pairs(data.raw[type]) do

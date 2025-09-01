@@ -8,6 +8,7 @@ local re4 = MomoLib.subgroup.sciRe4.name
 local cat = MomoLib.category
 local sb = MomoLib.subgroup
 
+-- matter 
 MomoLib.recipe.New({
     Item.blueChip:I(16),
     Item.electrolytic:I(2),
@@ -92,6 +93,9 @@ MomoLib.recipe.New({
 MomoLib.recipe.New({
     Item.matterSci3:I(48),
     Item.fusionIon:I(),
-    Item.water:I(100)
-}, Item.matterSci:I(12), "matter-sci"):UNLOCK(matter):TIME(80):CATEGORY(cat.refinery)
+    Item.water:I(4500)
+}, {Item.matterSci:I(12), Item.lightOil:I(80)}, "matter-sci"):UNLOCK(matter):TIME(80):CATEGORY(cat.refinery)
 :ICON(MomoLib.icon.RecycleIcons(Item.matterSci3:Prototype())):Extend()
+
+
+-- advanced

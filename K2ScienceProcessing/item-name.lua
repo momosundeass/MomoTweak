@@ -64,6 +64,7 @@ item.ironGear       = itemName:New("iron-gear-wheel")
 item.ironBeam       = itemName:New("kr-iron-beam")
 item.ironStick      = itemName:New("iron-stick")
 item.ironMolten     = itemName:New("molten-iron")
+item.ironDust       = itemName:New("iron-dust")
 item.copperPlate    = itemName:New("copper-plate")
 item.copperMolten   = itemName:New("molten-copper")
 item.cable          = itemName:New("copper-cable")
@@ -91,6 +92,7 @@ item.rareMetalClump = itemName:New("rare-metals-clump", "advanced-ore-processing
 item.rareMetalChunk = itemName:New("rare-metals-chunk", "elite-ore-processing")
 item.u235           = itemName:New("uranium-235")
 item.u238           = itemName:New("uranium-238")
+item.uraniumOre     = itemName:New("uranium-ore")
 item.plastic        = itemName:New("plastic-bar")
 item.sulfur         = itemName:New("sulfur")
 item.titaniumPlate  = itemName:New("titanium-plate", "titanium-processing")
@@ -243,6 +245,7 @@ item.matterStabilizer = itemName:New("kr-stabilizer-charging-station", "kr-matte
 
 -- electric
 item.boiler        = itemName:New("boiler")
+item.windmill      = itemName:New("kr-wind-turbine")
 item.heatExchange  = itemName:New("heat-exchanger", "nuclear-power")
 item.burnerTurbine = itemName:New("burner-turbine")
 item.steamEngine   = itemName:New("steam-engine")
@@ -298,7 +301,7 @@ item.qualityModule       = itemName:New("quality-module", "quality-module")
 item.qualityModule2      = itemName:New("quality-module-2", "quality-module-2")
 item.qualityModule3      = itemName:New("quality-module-3", "quality-module-3")
 item.beacon              = itemName:New("beacon", "effect-transmission")
-item.beacon2              = itemName:New("kr-singularity-beacon", "kr-singularity-beacon")
+item.beacon2             = itemName:New("kr-singularity-beacon", "kr-singularity-beacon")
 
 -- fluid
 item.sulfuricAcid  = itemName:New("sulfuric-acid")

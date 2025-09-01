@@ -36,9 +36,13 @@ MomoLib.subgroups["science-pack"].group = "science"
 
 require("prototypes.item-helper")
 require("prototypes.items")
-require("prototypes.ore")
+require("prototypes.advanced-ore")
 require("prototypes.entities.machines")
 require("prototypes.entities.underground-belt")
+require("prototypes.modules")
+MomoLib.WideBeacon()
+MomoLib.NewModules()
+MomoLib.ModulesTechRecipe()
 MomoLib.MomoProcessing = require("prototypes.momo-processing")
 
 local tempItem = Item

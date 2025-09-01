@@ -259,5 +259,5 @@ MomoLib.recipe.New({
 MomoLib.recipe.New({
     Item.whiteSci:I(16),
     Item.lab2:I()
-}, Item.whiteSciN:I()):UNLOCK(Item.advancedSci.n):TIME(30)
+}, Item.whiteSciN:I(16)):UNLOCK(Item.advancedSci.n):TIME(30)
 :ICON{MomoLib.K2Card("optimization-tech-card"), Item.whiteSciN.n}:Extend()

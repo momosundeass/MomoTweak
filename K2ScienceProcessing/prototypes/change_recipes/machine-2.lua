@@ -20,13 +20,13 @@ MomoLib.recipe.SetIngredients(Item.lab3, {
 -- assembly 4
 MomoLib.technology.SetRequired(Item.assembly4.tech, {Item.matterSci.tech, Item.stackInserter.tech})
 MomoLib.technology.RemoveIngredient(Item.assembly4.tech, Item.advancedSci.n)
-MomoLib.recipe.SetIngredients(Item.assembly4.tech, {
+MomoLib.recipe.SetIngredients(Item.assembly4, {
     Item.assembly3:I(4),
+    Item.steamTurbine:I(2),
     Item.researchServer:I(2),
     Item.aiCore:I(60),
     Item.electricEngine:I(60),
     Item.stackInserter:I(42),
-    Item.copper2:I(200)
 })
 
 -- ore crusher
@@ -56,14 +56,39 @@ MomoLib.recipe.SetIngredients(Item.pchamber2, {
 }):AMOUNT(2):CATEGORY(MomoLib.category.manufacture)
 
 -- matter
--- MomoLib.recipe.SetIngredients(Item.matterStabilizer {
+MomoLib.recipe.SetIngredients(Item.matterStabilizer, {
+    Item.electrolyte:I(80),
+    Item.imersiteGear:I(10),
+    Item.steamTurbine2:I(2),
+    Item.ecu:I(40)
+}):AMOUNT(4):TIME(60):CATEGORY(MomoLib.category.manufacture):INTERMEDIATE()
 
--- })
+MomoLib.recipe.SetIngredients(Item.matterPlant, {
+    Item.electrolyte:I(160),
+    Item.fusionPlant:I(1),
+    Item.matterStabilizer:I(2),
+    Item.imersiteBeam:I(20)
+}):TIME(30):CATEGORY(MomoLib.category.fluidCrafting)
+MomoLib.recipe.SetIngredients(Item.matterAssociator, {
+    Item.electrolyte:I(160),
+    Item.fusionPlant:I(2),
+    Item.matterStabilizer:I(4),
+    Item.imersiteBeam:I(40),
+    Item.steelPipe:I(220),
+    Item.steamTurbine2:I(2)
+}):TIME(30):CATEGORY(MomoLib.category.fluidCrafting)
 
 -- adv centrifuge
 MomoLib.technology.SetRequired(Item.advCentrifuge.tech, Item.matterPlant.tech)
 MomoLib.technology.RemoveIngredient(Item.advCentrifuge.tech, Item.advancedSci.n)
--- MomoLib.recipe.SetIngredients(Item.advCentrifuge)
+MomoLib.recipe.SetIngredients(Item.advCentrifuge,{
+    Item.centrifuge:I(8),
+    Item.matterStabilizer:I(8),
+    Item.steelPipe:I(400),
+    Item.aiCore:I(100),
+    Item.electricEngine:I(80),
+    Item.refConcrete:I(200),
+}):TIME(120)
 
 
 -- TODO: ind furnace -> advanced furnace

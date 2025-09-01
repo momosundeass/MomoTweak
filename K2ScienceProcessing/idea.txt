@@ -1,12 +1,10 @@
 
 -- TODO: incoporate military to science and machine
 -- TODO: improve quality
--- TODO: add infinite tech using all vanilla science pack
 
--- TODO: move k11 advanced centrifuge to matter science
--- TODO: move advanced assembly to matter science
+3 new advanced ore (holmium space-age) Done:2
 
-3 new advanced ore (holmium space-age)
+
 
 Quantum computer and research server loop. Use percentage result and ingredients loop to create a pair of buildings.
 IngA can be crafted from stuff.

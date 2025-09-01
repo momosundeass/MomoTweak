@@ -53,7 +53,7 @@ end
 
 
 -- module
-require("prototypes.modules")
+MomoLib.UpdateModulesEffect()
 
 
 -- visual

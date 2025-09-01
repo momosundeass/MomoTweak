@@ -66,7 +66,7 @@ MomoLib.recipe.New({
 MomoLib.recipe.New({
     Item.purpleSci:I(2),
     Item.inconShape:I(4),
-    Item.nitrogen:I(20),
+    Item.nitrogen:I(200),
     Item.water:I(100)
 },{
     Item.blueSci:I(2),

@@ -79,3 +79,6 @@ MomoLib.recipe.SetIngredients(Item.matterSci, {
     Item.matterSci7:I(3),
     Item.scienceHardware2:I(4),
 }):AMOUNT(2):ADDPRODUCT{Item.matterSci1:I(2), Item.matterSci2:I(8)}:NORECYCLE()
+
+-- advanced sci
+MomoLib.technology.SetRequired(Item.advancedSci.n, {Item.catalyticCopper.tech, Item.matterStabilizer.tech, Item.accumulator2.tech})

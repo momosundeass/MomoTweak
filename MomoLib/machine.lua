@@ -60,6 +60,7 @@ end
 ---@alias production
 ---| '"input"'
 ---| '"output"'
+---| '"input-output"'
 ---@param production_type production
 ---@param picture? table
 ---@param cover? table 
@@ -167,6 +168,7 @@ function funcs.GetPrototype(prototypeName)
     return data.raw["assembling-machine"][prototypeName] 
         or data.raw["furnace"][prototypeName] 
         or data.raw["mining-drill"][prototypeName]
+        or data.raw["beacon"][prototypeName]
 end
 
 function funcs.MinerDrainRate(minerName, drainRate) 

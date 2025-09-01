@@ -401,6 +401,13 @@ function funcs:PRODUCTIVITY(isAllow)
 	self.allow_productivity = isAllow
 return self end
 
+function funcs:INTERMEDIATE()
+	self:PRODUCTIVITY(true)
+	self.allow_decomposition = true
+	self.allow_as_intermediate = true
+	self.allow_intermediates = true
+	return self end
+
 function funcs:SPEED(isAllow)
 	if isAllow == nil then isAllow = true end
 	self.allow_speed = isAllow

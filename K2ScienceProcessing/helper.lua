@@ -5,6 +5,7 @@ function MomoLib.AltCard(icon) return "__tech-cards-retexture-AI-powered__/graph
 function MomoLib.QualityGlassware(icon) return "__quality_glassware__/graphics/icons/".. icon .. ".png" end
 function MomoLib.SpaceEx(icon) return "__space-exploration-graphics__/graphics/icons/".. icon .. ".png" end
 function MomoLib.SpaceExGraphics(icon) return "__space-exploration-graphics__/graphics/".. icon .. ".png" end
+function MomoLib.SpaceExGraphics4(icon) return "__space-exploration-graphics-4__/graphics/".. icon .. ".png" end
 
 ---@param fullSize? boolean
 function MomoLib.UnusedRenders(icon, fullSize) 
