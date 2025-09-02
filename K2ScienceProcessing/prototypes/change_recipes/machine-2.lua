@@ -19,7 +19,7 @@ MomoLib.recipe.SetIngredients(Item.lab3, {
 
 -- assembly 4
 MomoLib.technology.SetRequired(Item.assembly4.tech, {Item.matterSci.tech, Item.stackInserter.tech})
-MomoLib.technology.RemoveIngredient(Item.assembly4.tech, Item.advancedSci.n)
+MomoLib.technology.RemoveIngredient(Item.assembly4.tech, Item.advSci.n)
 MomoLib.recipe.SetIngredients(Item.assembly4, {
     Item.assembly3:I(4),
     Item.steamTurbine:I(2),
@@ -79,15 +79,15 @@ MomoLib.recipe.SetIngredients(Item.matterAssociator, {
 }):TIME(30):CATEGORY(MomoLib.category.fluidCrafting)
 
 -- adv centrifuge
-MomoLib.technology.SetRequired(Item.advCentrifuge.tech, Item.matterPlant.tech)
-MomoLib.technology.RemoveIngredient(Item.advCentrifuge.tech, Item.advancedSci.n)
+MomoLib.technology.SetRequired(Item.advCentrifuge.tech, Item.matterPlant.tech, Item.warehouse.tech)
+MomoLib.technology.RemoveIngredient(Item.advCentrifuge.tech, Item.advSci.n)
 MomoLib.recipe.SetIngredients(Item.advCentrifuge,{
     Item.centrifuge:I(8),
     Item.matterStabilizer:I(8),
     Item.steelPipe:I(400),
     Item.aiCore:I(100),
     Item.electricEngine:I(80),
-    Item.refConcrete:I(200),
+    Item.warehouse:I(1),
 }):TIME(120)
 
 

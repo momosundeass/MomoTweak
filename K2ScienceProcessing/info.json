@@ -7,7 +7,7 @@
 	"homepage": "https://github.com/momosundeass/MomoTweak",
 	"description": "Machines art by hurricane046. In the world where tedium exists. Ever want to automate inserter at a grand scale. Ever want to automate steam engine. Here you are this is the mod for you.",
 	"dependencies": [
-		"base >= 2.0.58",
+		"base >= 2.0.65",
 		"! quality",
 		"K2QualityCompat",
 		"aai-industry",
@@ -23,6 +23,8 @@
 		"um-standalone-foundry",
 		"quality_glassware",
 		"tech-cards-retexture-AI-powered",
-		"? bobinserters"
+		"? bobinserters",
+		"? aai-containers",
+		"? Smart_Inserters"
 	]
 }

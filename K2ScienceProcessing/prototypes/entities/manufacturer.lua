@@ -14,8 +14,8 @@ function MomoLib.ManufacturerDataFinal()
     MomoLib.technology.SetRequired(Item.electrolytic.tech, Item.titaniumPlate.tech)
     MomoLib.recipe.SetIngredients(Item.electrolytic, {
         Item.electrolyser:I(),
-        Item.ironPlate:I(16),
-        Item.titaniumPlate:I(4),
+        Item.ironPlate:I(4),
+        Item.titaniumPlate:I(20),
         Item.eComponent:I(16)
     }):AMOUNT(4):TIME(80):CATEGORY(MomoLib.category.manufacture):PRODUCTIVITY()
 

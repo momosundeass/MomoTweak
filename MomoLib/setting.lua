@@ -48,6 +48,8 @@ function settings.Hide(target, forceValue)
 	if data.raw[category][target] then
 		data.raw[category][target].forced_value = forceValue
 		data.raw[category][target].hidden = true
+	else
+		log("MomoLib : cant hide settings for ["..tostring(category).."]["..tostring(target).."]")
 	end
 end
 

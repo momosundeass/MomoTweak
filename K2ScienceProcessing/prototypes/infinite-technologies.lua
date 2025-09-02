@@ -22,6 +22,12 @@ tech:Extend()
 MomoLib.technology.Infinity(tech, "2000+((L^"..MomoLib.HardInfiniteTechnologyPower..")*1000)")
 MomoLib.icon.Assign(tech, icon)
 
+tech = MomoLib.technology.Clone("artillery", "artillery-range-vanilla")
+:EFFECTS{{type="artillery-range", modifier=0.15}}
+:ADDINGREDIENT(MomoLib.MakeResearchIngredient(MomoLib.itemNames.purpleSci))
+tech:Extend()
+MomoLib.technology.Infinity(tech, "2000+((L^"..MomoLib.HardInfiniteTechnologyPower..")*2000)")
+MomoLib.icon.Assign(tech, MomoLib.icon.FromPrototype(data.raw.technology["artillery-shell-range-1"]))
 
 -- weapon-shooting-speed-6
 -- laser-weapons-damage-6

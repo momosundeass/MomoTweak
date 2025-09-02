@@ -19,6 +19,7 @@ MomoLib.itemNames.redSci1 = NewScience("red-sci-1", MomoLib.icon.FromIngredientW
 MomoLib.subgroup.ChangeItem(item.greenSci.n, sb.greenSci.name)
 MomoLib.itemNames.greenSci1 = NewScience("green-sci-1", MomoLib.icon.FromIngredientWithSize(item.greenSci), 20, sb.greenSci.name)
 MomoLib.itemNames.greenSci2 = NewScience("green-sci-2", MomoLib.AltCard("logistic-science-pack"), 100, sb.greenSci.name)
+MomoLib.itemNames.greenSci3 = NewScience("green-sci-3", MomoLib.Graphics("space-age/jelly.png"), 20, sb.greenSci.name)
 
 MomoLib.itemNames.memoryBlock = NewScience("memory-block-a", {MomoLib.icon.Get("memory-block.png"), 32}, 100, sb.sciInter.name)
 
@@ -73,3 +74,8 @@ MomoLib.itemNames.matterSci4 = NewScience("matter-sci-4", MomoLib.SpaceEx("data/
 MomoLib.itemNames.matterSci5 = NewScience("matter-sci-5", MomoLib.SpaceEx("catalogue/astronomic-catalogue-3"), 100, sb.matterSci.name)
 MomoLib.itemNames.matterSci6 = NewScience("matter-sci-6", MomoLib.SpaceEx("catalogue/astronomic-3"), 10, sb.matterSci.name)
 MomoLib.itemNames.matterSci7 = NewScience("matter-sci-7", MomoLib.SpaceEx("data/darkmatter"), 100, sb.matterSci.name)
+
+
+
+MomoLib.subgroup.ChangeItem(item.advSci, sb.advSci.name)
+-- MomoLib.itemNames.advSci1 = NewScience("matter-sci-1", MomoLib.Graphics("space-age/cryogenic-science-pack.png"), 20, sb.matterSci.name)

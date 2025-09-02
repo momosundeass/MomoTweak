@@ -41,7 +41,7 @@ RestoreIcon(Item.purpleSci, "production-tech-card")
 RestoreIcon(Item.yellowSci, "utility-tech-card")
 RestoreIcon(Item.whiteSci, "optimization-tech-card")
 RestoreIcon(Item.matterSci, "matter-tech-card")
-RestoreIcon(Item.advancedSci, "advanced-tech-card")
+RestoreIcon(Item.advSci, "advanced-tech-card")
 RestoreIcon(Item.singularitySci, "singularity-tech-card")
 Item = tempItem 
 

@@ -21,7 +21,7 @@ function MomoLib.StackBeltData()
         MomoLib.MakeResearchIngredient(Item.yellowSci.n),
         MomoLib.MakeResearchIngredient(Item.whiteSci.n),
         MomoLib.MakeResearchIngredient(Item.matterSci.n),
-        MomoLib.MakeResearchIngredient(Item.advancedSci.n),
+        MomoLib.MakeResearchIngredient(Item.advSci.n),
     }
     tech.effects = {{type = "belt-stack-size-bonus", modifier=1}}
     data:extend{tech}

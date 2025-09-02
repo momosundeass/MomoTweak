@@ -9,7 +9,11 @@ func.Hide("aai-fuel-processor", true)
 
 -- k2
 func.Hide("kr-loaders", true)
-func.Hide("kr-container", true)
+if mods["aai-containers"] then 
+    func.Hide("kr-containers", false)
+else
+    func.Hide("kr-containers", true)
+end
 
 -- ev
 local table = {

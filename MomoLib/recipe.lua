@@ -145,25 +145,22 @@ function funcs.RemoveResult(recipeName, resultName, isPostProcessingMode)
 	-- end)
 end
 
-function funcs._AddIngredientsIfExist(proto, ingredient)
+function funcs._AddIngredientsIfExist(prototype, ingredient)
 	local normals = {}
-
-	MomoLib.Foreach(proto.ingredients, function(ing)
+	MomoLib.Foreach(prototype.ingredients, function(ing)
 		normals[#normals + 1] = funcs.NormalizedIngredient(ing)
 	end)
-
+	local contain = false
 	MomoLib.Foreach(normals, function(ing)
 		if ing.name == ingredient.name then
 			ing.amount = ing.amount + ingredient.amount
-
-			proto.ingredients = normals
-			return
+			prototype.ingredients = normals
+			contain = true
 		end
 	end)
-
+	if contain then return end
 	normals[#normals + 1] = ingredient
-	proto.ingredients = normals
-	return
+	prototype.ingredients = normals
 end
 
 function funcs.NormalizedIngredient(ing)

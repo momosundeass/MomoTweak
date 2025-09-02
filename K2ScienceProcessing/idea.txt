@@ -1,3 +1,5 @@
+-- TODO: fix out of proportion icon 
+
 
 -- TODO: incoporate military to science and machine
 -- TODO: improve quality

@@ -19,7 +19,7 @@ MomoLib.technology.MakeProductivity(brick[#brick], {Item.brick.n, "gravel-to-bri
 local steel = MomoLib.technology.MakeProductivity("advanced-material-processing", {"steel-plate", "steel-dust-smelting", "steel-oxygen-casting"}, vanillaOrder, 0)
 MomoLib.technology.MakeProductivity(steel[#steel], {"steel-plate", "steel-dust-smelting", "steel-oxygen-casting"}, advancedOrder, 10)
 
-local plastic = MomoLib.technology.MakeProductivity("plastics", {"plastic-bar", "plastics-from-enriched-coal"}, vanillaOrder, 0)
+local plastic = MomoLib.technology.MakeProductivity("plastics", {"plastic-bar", "plastics-from-enriched-coal"}, vanillaOrder, 2)
 MomoLib.technology.MakeProductivity(plastic[#plastic], {"plastic-bar", "plastics-from-enriched-coal"}, advancedOrder, 5)
 
 local lds = MomoLib.technology.MakeProductivity(Item.lds.tech, {Item.lds.n}, vanillaOrder, 0)

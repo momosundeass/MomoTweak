@@ -12,7 +12,7 @@ MomoLib.recipe.AddProduct(Item.redSci, {Item.redSci1:I(2)})
 MomoLib.recipe.SetIngredients(Item.greenSci, {
     Item.inserter:I(5),
     Item.belt:I(10),
-    Item.techCard:I(5)
+    Item.greenChip:I(4)
 }):NORECYCLE()
 MomoLib.recipe.AddProduct(Item.greenSci, {Item.greenSci1:I(2)})
 
@@ -39,13 +39,6 @@ MomoLib.recipe.SetIngredients(Item.blueSci, {
 
 -- Purple sci
 MomoLib.technology.AddRequired(Item.purpleSci.n, Item.lithium.tech)
-Item.purpleSci.ingredients = {
-    Item.elecFurnace:I(4),
-    Item.echamber1:I(),
-    Item.inconShape:I(2),
-    Item.productivityModule:I(2),
-    Item.memoryBlock:I(16)
-}
 MomoLib.recipe.SetIngredients(Item.purpleSci, Item.purpleSci.ingredients):AMOUNT(2):ADDPRODUCT{Item.purpleSci1:I(1), Item.purpleSci2:I(32)}:NORECYCLE()
 
 -- Yellow sci
@@ -81,4 +74,4 @@ MomoLib.recipe.SetIngredients(Item.matterSci, {
 }):AMOUNT(2):ADDPRODUCT{Item.matterSci1:I(2), Item.matterSci2:I(8)}:NORECYCLE()
 
 -- advanced sci
-MomoLib.technology.SetRequired(Item.advancedSci.n, {Item.catalyticCopper.tech, Item.matterStabilizer.tech, Item.accumulator2.tech})
+MomoLib.technology.SetRequired(Item.advSci.n, {Item.catalyticCopper.tech, Item.matterStabilizer.tech, Item.accumulator2.tech})

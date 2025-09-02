@@ -13,7 +13,7 @@ MomoLib.recipe.SetIngredients(Item.radar2, {
     Item.lamp:I(15),
     Item.radar:I(),
     Item.heatPipe:I(5),
-    Item.refConcrete:I(50),
+    Item.strongBox:I(1),
     Item.electricEngine:I(10)
 })
 MomoLib.technology.SetRequired(Item.aiCore.tech, {Item.emPlant.tech, Item.speedModule3.tech})

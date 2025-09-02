@@ -6,8 +6,7 @@ MomoLib.recipe.ReplaceIngredient(Item.assembly.n, Item.electricMotor, Item.steam
 MomoLib.technology.SetRequired("automation", {"steam-power"})
 
 
-MomoLib.recipe.ReplaceIngredient(Item.crusher, Item.cable, Item.belt:I(6))
-MomoLib.recipe.ReplaceIngredient(Item.crusher, Item.core, Item.burnerAssembly:I())
+MomoLib.recipe.ReplaceIngredient(Item.crusher, {Item.cable, Item.core}, {Item.belt:I(20), Item.burnerMiner:I()})
 
 -- Miner
 MomoLib.recipe.ReplaceIngredient(Item.miningDrill, Item.electricMotor, Item.inserter:I(2))
@@ -27,9 +26,10 @@ MomoLib.recipe.SetIngredients(Item.lab, {
     MomoLib.MakeIngredient("burner-lab", 1)
 }):INTERMEDIATE()
 
+MomoLib.technology.SetRequired(Item.chemicalPlant.tech, {Item.steelBeam.tech, Item.greenChip.tech, Item.lamp.tech})
 MomoLib.recipe.SetIngredients(Item.chemicalPlant, {
     Item.lamp:I(3),
-    Item.boiler:I(2),
+    Item.greenChip:I(8),
     Item.steelBeam:I(4),
     Item.assembly:I(1)
 }):INTERMEDIATE()
@@ -40,7 +40,7 @@ MomoLib.recipe.SetIngredients(Item.refinery, {
     Item.boiler:I(6),
     Item.steelBeam:I(10),
     Item.storageTank:I(2),
-}):ADDPRODUCT(Item.windmill:I(2))
+}):ADDPRODUCT(Item.windmill:I(1))
 
 MomoLib.recipe.SetIngredients(Item.assembly2, {
     Item.greenChip:I(15),
@@ -64,12 +64,12 @@ MomoLib.recipe.SetIngredients(Item.filtration, {
     Item.storageTank:I(2),
     Item.lamp:I(8),
 }):ADDPRODUCT(Item.windmill:I())
-MomoLib.technology.SetRequired(Item.atmospheric.tech, {"kr-mineral-water-gathering", Item.flareStack.tech, Item.blueSci.n})
+MomoLib.technology.SetRequired(Item.atmospheric.tech, {"kr-mineral-water-gathering", Item.flareStack.tech, Item.blueSci.n, Item.strongBox.tech})
 MomoLib.recipe.SetIngredients(Item.atmospheric, {
     Item.filtration:I(1),
     Item.redChip:I(20),
     Item.mineralWaterPump:I(4),
-    Item.steelChest:I(2)
+    Item.strongBox:I(1)
 }):TIME(10):INTERMEDIATE():ADDPRODUCT(Item.windmill:I())
 
 MomoLib.technology.SetRequired("kr-mineral-water-gathering", {"plastics", Item.flareStack.tech})
@@ -143,14 +143,22 @@ MomoLib.recipe.SetIngredients(Item.gasPower, {
     Item.storageTank:I(2),
     Item.steelPump:I(2),
 })
+
+MomoLib.technology.AddRequired(Item.elecFurnace.tech, Item.strongBox.tech)
+MomoLib.recipe.SetIngredients(Item.elecFurnace, {
+    Item.steelFurnace:I(2),
+    Item.strongBox:I(1),
+    Item.redChip:I(12),
+    Item.flareStack:I(1)
+})
+
 MomoLib.technology.SetRequired(Item.indFurnace.tech, {Item.gasPower.tech, Item.recycler.tech, Item.heatPipe.tech, Item.electrolytic.tech})
 MomoLib.recipe.SetIngredients(Item.indFurnace, {
     Item.gasPower:I(),
     Item.recycler:I(),
-    Item.atmospheric:I(2),
-    Item.heatPipe:I(20),
+    Item.elecFurnace:I(1),
+    Item.heatPipe:I(40),
     Item.electrolytic:I(45),
-    Item.refConcrete:I(100),
 })
 MomoLib.technology.SetRequired(Item.recycler.tech, {"logistics-3", Item.elecFurnace.tech})
 MomoLib.recipe.SetIngredients(Item.recycler, {  

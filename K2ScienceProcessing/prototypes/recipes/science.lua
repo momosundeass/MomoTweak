@@ -15,7 +15,7 @@ MomoLib.recipe.NoRecycle(Item.purpleSci)
 MomoLib.recipe.NoRecycle(Item.yellowSci)
 MomoLib.recipe.NoRecycle(Item.whiteSci)
 MomoLib.recipe.NoRecycle(Item.matterSci)
-MomoLib.recipe.NoRecycle(Item.advancedSci)
+MomoLib.recipe.NoRecycle(Item.advSci)
 MomoLib.recipe.NoRecycle(Item.singularitySci)
 
 
@@ -33,6 +33,7 @@ MomoLib.recipe.New({
     Item.greenSci1:I(2),
     Item.steamEngine:I(1),
     Item.techCard:I(5),
+    Item.steelPlate:I(8)
 }, {
     Item.greenSci:I(5)
 }, "green-sci-1"):UNLOCK(Item.greenSci.n):CATEGORY(cat.chemicalOnly):TIME(12)
@@ -40,8 +41,8 @@ MomoLib.recipe.New({
 
 MomoLib.recipe.New({
     Item.greenSci1:I(4),
-    Item.chemicalPlant:I(3),
-    Item.glass:I(30),
+    Item.engine:I(4),
+    Item.sulfur:I(12),
     Item.sulfuricAcid:F(300)
 },{
     Item.greenSci2:I(10),
@@ -80,9 +81,10 @@ MomoLib.recipe.New({
 :ICON(MomoLib.icon.RecycleIcons(Item.blueSci1:Prototype())):Extend()
 MomoLib.recipe.New({
     Item.blueSci2:I(6),
-    Item.sulfur:I(6)
+    Item.assembly2:I(1)
 },{
     Item.blueSci1:I(6),
+    Item.assembly2:I(1, 0.75)
 }, "blue-sci-2"):CATEGORY(cat.researchCenter):UNLOCK(Item.blueSci.n):TIME(4)
 :ICON(MomoLib.icon.RecycleIcons(Item.blueSci2:Prototype())):Extend()
 
@@ -259,5 +261,5 @@ MomoLib.recipe.New({
 MomoLib.recipe.New({
     Item.whiteSci:I(16),
     Item.lab2:I()
-}, Item.whiteSciN:I(16)):UNLOCK(Item.advancedSci.n):TIME(30)
+}, Item.whiteSciN:I(16)):UNLOCK(Item.advSci.n):TIME(30)
 :ICON{MomoLib.K2Card("optimization-tech-card"), Item.whiteSciN.n}:Extend()

@@ -8,37 +8,49 @@ end
 function funcs.FromIngredient(item)
 	return funcs.FromIngredientWithSize(item)[1]
 end
+
 function funcs.FromIngredientWithSize(item)
 	if type(item) == "table" then item = item.name end
 	local i = ""
 	local s = funcs.DefaultSize
-	if MomoLib.GetIngredient(item, function(p) 
-		if p.icon == nil or p.icon == "" then
-			i = p.icons[1].icon
-			s = p.icons[1].icon_size or funcs.DefaultSize
-		return end
-		i = p.icon
-		s = p.icon_size or funcs.DefaultSize
-	end) then
-		return {i, s, icon = i, icon_size = s}
+	if MomoLib.GetIngredient(item, function(p)
+			if p.icon == nil or p.icon == "" then
+				i = p.icons[1].icon
+				s = p.icons[1].icon_size or funcs.DefaultSize
+				return
+			end
+			i = p.icon
+			s = p.icon_size or funcs.DefaultSize
+		end) then
+		return { i, s, icon = i, icon_size = s }
 	end
-	return {item, s, icon = item, icon_size = s}
+	return { item, s, icon = item, icon_size = s }
 end
 
 function funcs.MakeLayeredItemIcon(bgItem, fgItem)
-	local bg = (type(bgItem) == "string" and string.find(bgItem, "__") ~= nil) and {bgItem, funcs.DefaultSize} or funcs.FromIngredientWithSize(bgItem)
-	local fg = (type(fgItem) == "string" and string.find(fgItem, "__") ~= nil) and {fgItem, funcs.DefaultSize} or funcs.FromIngredientWithSize(fgItem)
+	local Assign = function(iconIn)
+		if type(iconIn) == "string" and string.find(iconIn, "__") then
+			return { iconIn, funcs.DefaultSize }
+		elseif iconIn.icon then
+			return { iconIn.icon, iconIn.icon_size }
+		else
+			return funcs.FromIngredientWithSize(iconIn)
+		end
+	end
+	-- local bg = (type(bgItem) == "string" and string.find(bgItem, "__") ~= nil) and {bgItem, funcs.DefaultSize} or funcs.FromIngredientWithSize(bgItem)
+	-- local fg = (type(fgItem) == "string" and string.find(fgItem, "__") ~= nil) and {fgItem, funcs.DefaultSize} or funcs.FromIngredientWithSize(fgItem)
+	local bg, fg = Assign(bgItem), Assign(fgItem)
 	return {
-		{icon=bg[1], scale=0.5, icon_size=bg[2]},
-		{icon=fg[1], scale=0.75, icon_size=fg[2], shift={16,16}}
+		{ icon = bg[1], scale = 0.5, icon_size = bg[2] },
+		{ icon = fg[1], scale = 0.75, icon_size = fg[2], shift = { 16, 16 } }
 	}
 end
 
 function funcs.MakeIconTable(iconPath)
 	if type(iconPath) == "table" and #iconPath == 2 and type(iconPath[2]) == "number" then
-		return {icon = iconPath[1], icon_size = iconPath[2]}	
+		return { icon = iconPath[1], icon_size = iconPath[2] }
 	end
-	return {icon = iconPath, icon_size = funcs.DefaultSize}
+	return { icon = iconPath, icon_size = funcs.DefaultSize }
 end
 
 -- required quality base mod (data-updates)
@@ -63,7 +75,7 @@ function funcs.EntityModuleIcons(entity)
 	end
 	local icons = {
 		inventory_index = defines.inventory.crafter_modules,
-		shift = {0, 0.8},
+		shift = { 0, 0.8 },
 		max_icons_per_row = 3,
 		max_icon_rows = 2,
 	}
@@ -79,14 +91,14 @@ function funcs.Assign(prototype, icon)
 		prototype.icon = icon.pictures[1].filename
 		prototype.icon_size = icon.pictures[1].size or funcs.DefaultSize
 		prototype.pictures = icon.pictures
-	elseif type(icon) == "table" 
-	and type(icon[1]) == "string" and type(icon[2]) == "number" then
+	elseif type(icon) == "table"
+		and type(icon[1]) == "string" and type(icon[2]) == "number" then
 		prototype.icon = icon[1]
 		prototype.icon_size = icon[2]
 	elseif type(icon) == "table" and icon.filename then
 		prototype.icon = icon.filename
 		prototype.icon_size = icon.size or funcs.DefaultSize
- 	elseif type(icon) == "table" and icon.icon then
+	elseif type(icon) == "table" and icon.icon then
 		prototype.icon = icon.icon
 		prototype.icon_size = icon.icon_size or funcs.DefaultSize
 	else
@@ -97,27 +109,27 @@ end
 function funcs.GetIcons(prototype)
 	if (prototype.icon == nil and prototype.icons == nil) then error("prototype have no icon : GetIcons") end
 	if prototype.icons ~= nil then return prototype.icons end
-	return {{icon = prototype.icon, icon_size = prototype.icon_size or funcs.DefaultSize }}
+	return { { icon = prototype.icon, icon_size = prototype.icon_size or funcs.DefaultSize } }
 end
 
 function funcs.FromPrototype(prototype)
 	if prototype.icons then
 		return prototype.icons
 	end
-	return {prototype.icon, prototype.icon_size}
+	return { prototype.icon, prototype.icon_size }
 end
-	
+
 function funcs.ProductivityIcon()
-	return {icon = "__core__/graphics/icons/technology/effect-constant/effect-constant-recipe-productivity.png", icon_size = 64}
+	return { icon = "__core__/graphics/icons/technology/effect-constant/effect-constant-recipe-productivity.png", icon_size = 64 }
 end
 
 function funcs.AddPlusOverlay(prototype)
 	if (prototype.icon == nil and prototype.icons == nil) then error("prototype have no icon  : AddPlusOverlay") end
-	local plus = "__"..MomoLib.ModName.."__/MomoLib/graphics/plus.png"
+	local plus = "__" .. MomoLib.ModName .. "__/MomoLib/graphics/plus.png"
 	local ori = funcs.GetIcons(prototype)
 	prototype.icon = nil
 	prototype.icon_size = nil
-	table.insert(ori, {icon = plus, icon_size = funcs.DefaultSize})
+	table.insert(ori, { icon = plus, icon_size = funcs.DefaultSize })
 	prototype.icons = ori
 end
 

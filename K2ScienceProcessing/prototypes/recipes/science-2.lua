@@ -60,6 +60,7 @@ MomoLib.recipe.New({
     Item.scienceHardware:I(2),
     Item.speaker:I(12),
     Item.speedModule3:I(1),
+    Item.greenSci1:I(20),
     Item.hChloride:I(80)
 }, Item.scienceHardware2:I(2)):UNLOCK(matter):TIME(30):CATEGORY(cat.fluidCrafting):Extend()
 
@@ -71,6 +72,13 @@ MomoLib.recipe.New({
 
 MomoLib.item:FromPrototype(Item.matterSci5:Prototype()):FUEL("1GJ", Item.matterSci1:I(2), "nuclear")
 
+Item.purpleSci.ingredients = {
+    Item.elecFurnace:I(4),
+    Item.echamber1:I(),
+    Item.inconShape:I(2),
+    Item.productivityModule:I(2),
+    Item.memoryBlock:I(16)
+}
 MomoLib.recipe.New(
     Item.purpleSci.ingredients
 , {
@@ -96,6 +104,27 @@ MomoLib.recipe.New({
     Item.water:I(4500)
 }, {Item.matterSci:I(12), Item.lightOil:I(80)}, "matter-sci"):UNLOCK(matter):TIME(80):CATEGORY(cat.refinery)
 :ICON(MomoLib.icon.RecycleIcons(Item.matterSci3:Prototype())):Extend()
+
+MomoLib.recipe.New({
+    Item.ecu:I(1),
+    Item.inconShape:I(2),
+    Item.lubricant:I(160),
+    Item.advancedBelt:I(10),
+    Item.blueChip:I(10)
+}, {
+    Item.greenSci1:I(120), 
+    Item.greenSci3:I(10)
+}, "green-sci-1-2"):TIME(20):CATEGORY(cat.researchCenter):UNLOCK(Item.ecu.tech)
+:ICON{Item.ecu.n, Item.greenSci1.n}:Extend()
+
+MomoLib.recipe.New({
+    Item.greenSci3:I(8),
+    Item.greenSci:I(4),
+    Item.aiCore:I()
+}, {
+    Item.purpleSci2:I(16),
+}, "green-sci-3"):TIME(60):UNLOCK(Item.ecu.tech)
+:ICON(MomoLib.icon.RecycleIcons(Item.greenSci3:Prototype())):Extend()
 
 
 -- advanced

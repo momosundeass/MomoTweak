@@ -50,7 +50,7 @@ function funcs.RemoveAllRecipe(recipeName)
 	end
 end
 
----@return table prototype "technology prototype"
+---@return table|nil prototype "technology prototype"
 function funcs.FindUnlock(itemName)
 	for _, r in pairs(MomoLib.recipe.AllFromResult(itemName)) do
 		for _, t in pairs(data.raw.technology) do
@@ -67,16 +67,29 @@ function funcs.FindUnlock(itemName)
 end
 
 function funcs.AddRequired(name, required)
-	MomoLib.GetTechnology(name, function(proto)
-		for _, t in pairs(type(required) == "table" and required or { required }) do
-			if MomoLib.GetTechnology(t, nil) then
-				table.insert(proto.prerequisites, t)
+	MomoLib.GetTechnology(name, function(prototype)
+		for _, req in pairs(type(required) == "table" and required or { required }) do
+			if MomoLib.GetTechnology(req, nil) and not funcs.AlreadyRequired(prototype, req) then
+				table.insert(prototype.prerequisites, req)
 			end
 		end
 	end)
 end
 
-function funcs.SetRequired(name, requires)
+---@return boolean
+function funcs.AlreadyRequired(tech, pre)
+	if type(tech) == "string" then
+		if not MomoLib.GetTechnology(tech, function (p) tech = p end) then return false end
+	end
+	if tech.prerequisites ~= nil then
+		for _, p in pairs(tech.prerequisites) do
+			if p == pre then return true end
+		end
+	end
+	return false
+end
+
+function funcs.SetRequired(name, requires, ...)
 	MomoLib.GetTechnology(name, function(proto)
 		requires = MomoLib.ToTable(requires)
 		local newReqs = {}
@@ -240,6 +253,7 @@ end
 ---@param effects table an array of Modifier see https://lua-api.factorio.com/latest/types/Modifier.html
 function funcs:EFFECTS(effects)
 	if effects == nil then effects = {} end
+	if not MomoLib.IsArray(effects) and effects.type then effects = {effects} end 
 	self.effects = effects
 	return self
 end

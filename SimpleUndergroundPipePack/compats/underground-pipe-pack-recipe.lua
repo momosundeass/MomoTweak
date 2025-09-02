@@ -37,6 +37,7 @@ Remove("underground-cross-t3-pipe")
 
 
 local bob = mods["boblogistics"]
+local k2 = mods["Krastorio2"]
 
 local item = MomoLib.MakeIngredient
 
@@ -64,6 +65,7 @@ Set("underground-i-t2-pipe", { item(gPipe, 2), item("concrete", 4)})
 Set("underground-L-t2-pipe", { item(gPipe), item("underground-i-t2-pipe")})
 Set("underground-t-t2-pipe", { item(gPipe), item("underground-L-t2-pipe")})
 
+if k2 then gPipe = "kr-steel-pipe-to-ground" end
 if bob then gPipe = "bob-tungsten-pipe-to-ground" end
 Set("one-to-one-forward-t3-pipe", { item(gPipe, 2), item("refined-concrete", 8)})
 Set("one-to-two-perpendicular-t3-pipe", { item(gPipe), item("one-to-one-forward-t3-pipe")})

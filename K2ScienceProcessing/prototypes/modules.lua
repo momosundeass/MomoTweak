@@ -117,6 +117,7 @@ function MomoLib.WideBeacon()
                     line_length = 4,
                     frame_count = frame,
                     draw_as_shadow = true,
+                    animation_speed = 0.7,
                     shift = {0.6, -0.8 + 1.1},
                 },
                 {
@@ -125,6 +126,7 @@ function MomoLib.WideBeacon()
                     line_length = 8,
                     frame_count = frame,
                     shift = shift,
+                    animation_speed = 0.7,
                     filename = MomoLib.SpaceExGraphics4("entity/wide-beacon/wide-beacon-2"),
                 }
             }

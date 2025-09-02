@@ -29,7 +29,7 @@ MomoLib.subgroup.purpleSci      = MomoLib.subgroup.New("purple-sci", "science", 
 MomoLib.subgroup.yellowSci      = MomoLib.subgroup.New("yellow-sci", "science", "f", true)
 MomoLib.subgroup.whiteSci       = MomoLib.subgroup.New("white-sci", "science", "g", true)
 MomoLib.subgroup.matterSci      = MomoLib.subgroup.New("matter-sci", "science", "h", true)
-MomoLib.subgroup.advancedSci    = MomoLib.subgroup.New("advanced-sci", "science", "i", true)
+MomoLib.subgroup.advSci    = MomoLib.subgroup.New("advanced-sci", "science", "i", true)
 MomoLib.subgroup.singularitySci = MomoLib.subgroup.New("singularity-sci", "science", "j", true)
 
 MomoLib.subgroups["science-pack"].group = "science"
@@ -49,7 +49,7 @@ local tempItem = Item
 Item = MomoLib.itemNames
 
 MomoLib.vanillaSciences = {Item.redSci.n, Item.greenSci.n, Item.blueSci.n, Item.purpleSci.n, Item.yellowSci.n}
-MomoLib.k2Sciences = {Item.purpleSci.n, Item.yellowSci.n, Item.whiteSci.n, Item.matterSci.n, Item.advancedSci.n, Item.singularitySci.n}
+MomoLib.k2Sciences = {Item.purpleSci.n, Item.yellowSci.n, Item.whiteSci.n, Item.matterSci.n, Item.advSci.n, Item.singularitySci.n}
 
 MomoLib.MomoProcessing.Data()
 require("prototypes.recipes.recipes")

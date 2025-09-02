@@ -41,7 +41,7 @@ local profiles = {
         {target = s.yellowSci, add = 6},
         {target = s.whiteSci, add = 12},
     }},
-    {have = s.advancedSci, add = 20000, increases = {
+    {have = s.advSci, add = 20000, increases = {
         {target = s.redSci, add = 20},
         {target = s.greenSci, add = 16},
         {target = s.blackSci, add = 14},
@@ -60,7 +60,7 @@ local profiles = {
         {target = s.yellowSci, add = 14},
         {target = s.whiteSci, add = 24},
         {target = s.matterSci, add = 6},
-        {target = s.advancedSci, add = 3},
+        {target = s.advSci, add = 3},
     }},
 }
 
