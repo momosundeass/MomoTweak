@@ -10,7 +10,7 @@ MomoLib.recipe.ReplaceIngredient(Item.airPurifier, {
     Item.steelBeam.n,
     Item.engine.n,
 }, {
-    Item.mineralWaterPump:I()
+    Item.mineralWaterPump:I(2)
 }):TIME(8):CATEGORY(MomoLib.category.refinery):INTERMEDIATE()
 
 MomoLib.recipe.SetIngredients(Item.steamEngine.n, {
@@ -19,7 +19,7 @@ MomoLib.recipe.SetIngredients(Item.steamEngine.n, {
     Item.inserter:I(3)
 }):AMOUNT(2):INTERMEDIATE()
 
-MomoLib.technology.AddRequired(Item.nuclearPlant.tech, {Item.bulkInserter.tech, Item.electrolyser.tech})
+MomoLib.technology.AddRequired(Item.nuclearPlant.tech, {Item.bulkInserter.tech, Item.electrolyser.tech, Item.bigStorageTank.tech})
 MomoLib.recipe.SetIngredients(Item.steamTurbine, {
     Item.steamEngine:I(4),
     Item.bigStorageTank:I(),
@@ -57,7 +57,7 @@ MomoLib.recipe.SetIngredients(Item.fusionPlant, {
 MomoLib.recipe.SetIngredients(Item.steamTurbine2, {
     Item.steamTurbine:I(2),
     Item.bigStorageTank:I(),
-    Item.mineralWaterPump:I(6),
+    Item.mineralWaterPump:I(12),
     Item.electricEngine:I(65),
     Item.eqBigBattery2:I(100),
     Item.steelGear:I(100)

@@ -89,7 +89,7 @@ function MomoLib.ModulesTechRecipe()
         MomoLib.MakeResearchIngredient(item.matterSci),
     }:EFFECTS():PRE{"yield-module-1", "pure-module-1", item.beacon.tech, item.eqBattery3.tech}:ICON{MomoLib.SpaceExGraphics("technology/wide-beacon-2"), 128}:Extend()
     MomoLib.recipe.New({
-        item.beacon:I(2),
+        item.beacon:I(4),
         item.matterStabilizer:I(4),
         item.researchServer:I(6),
         item.inconShape:I(40),
@@ -144,9 +144,9 @@ function MomoLib.WideBeacon()
 end 
 
 function MomoLib.UpdateModulesEffect()
-    MomoLib.SetEffect(item.efficiencyModule.n,  "consumption", -0.50)
-    MomoLib.SetEffect(item.efficiencyModule2.n, "consumption", -1.20)
-    MomoLib.SetEffect(item.efficiencyModule3.n, "consumption", -2.00)
+    MomoLib.SetEffect(item.efficiencyModule.n,  "consumption", -0.80)
+    MomoLib.SetEffect(item.efficiencyModule2.n, "consumption", -1.60)
+    MomoLib.SetEffect(item.efficiencyModule3.n, "consumption", -2.80)
 
     MomoLib.SetEffect(item.qualityModule.n,  "quality", 0.02)
     MomoLib.SetEffect(item.qualityModule2.n, "quality", 0.05)
@@ -159,9 +159,7 @@ function MomoLib.UpdateModulesEffect()
     MomoLib.GetPrototype("beacon", MomoLib.itemNames.beacon2.name, function (p)
         p.allowed_effects = MomoLib.EffectLimitation(true, true, true, true, false)
         p.allowed_module_categories = {"efficiency", "speed", "productivity" }
-
-        -- TODO: change how module icons here
-        -- p.quality_affects_module_slots = true
+        p.quality_affects_module_slots = true
     end)
 end
 

@@ -1,9 +1,10 @@
--- TODO: fix out of proportion icon 
-
+-- TODO: fix out of proportion layered icon 
 
 -- TODO: incoporate military to science and machine
--- TODO: improve quality
 
+-- TODO: End game tech that increase inserter capacity
+--     | Pocket dimension searching
+--     | Alternate pocket 4th-dimension searching
 3 new advanced ore (holmium space-age) Done:2
 
 

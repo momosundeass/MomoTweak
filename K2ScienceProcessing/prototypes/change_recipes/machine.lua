@@ -19,11 +19,11 @@ MomoLib.recipe.ReplaceIngredient(Item.greenHouse, Item.core, Item.assembly:I(2))
 
 MomoLib.technology.SetRequired("electric-lab", Item.lamp.n)
 MomoLib.recipe.SetIngredients(Item.lab, {
-    Item.lamp:I(2),
-    Item.belt:I(10),
-    Item.electricMotor:I(8),
+    Item.glass:I(20),
+    Item.lamp:I(4),
+    Item.core:I(10),
     Item.greenChip:I(20),
-    MomoLib.MakeIngredient("burner-lab", 1)
+    Item.burnerLab:I()
 }):INTERMEDIATE()
 
 MomoLib.technology.SetRequired(Item.chemicalPlant.tech, {Item.steelBeam.tech, Item.greenChip.tech, Item.lamp.tech})
@@ -68,7 +68,7 @@ MomoLib.technology.SetRequired(Item.atmospheric.tech, {"kr-mineral-water-gatheri
 MomoLib.recipe.SetIngredients(Item.atmospheric, {
     Item.filtration:I(1),
     Item.redChip:I(20),
-    Item.mineralWaterPump:I(4),
+    Item.mineralWaterPump:I(8),
     Item.strongBox:I(1)
 }):TIME(10):INTERMEDIATE():ADDPRODUCT(Item.windmill:I())
 
@@ -78,7 +78,7 @@ MomoLib.recipe.SetIngredients(Item.mineralWaterPump, {
     Item.burnerMiner:I(2),
     Item.plastic:I(12),
     Item.flareStack:I(),
-}):TIME(10):INTERMEDIATE()
+}):AMOUNT(2):TIME(10):INTERMEDIATE():ADDPRODUCT(Item.windmill:I())
 
 MomoLib.recipe.SetIngredients(Item.oilPump, {
     Item.pipe:I(8),
@@ -200,14 +200,14 @@ MomoLib.recipe.ReplaceIngredient(Item.oreCrusher2, {
     Item.redChip.n,
     Item.brick.n,
 },{
-    Item.mineralWaterPump:I(2),
+    Item.mineralWaterPump:I(4),
     Item.bulkInserter:I(6)
 })
 MomoLib.recipe.ReplaceIngredient(Item.echamber1, {
     Item.redChip.n,
     Item.brick.n,
 },{
-    Item.mineralWaterPump:I(2),
+    Item.mineralWaterPump:I(4),
     Item.strongBox:I(),
 })
 
@@ -229,7 +229,7 @@ MomoLib.recipe.SetIngredients(Item.pchamber1, {
 })
 
 MomoLib.recipe.SetIngredients(Item.rocketSilo, {
-    Item.mineralWaterPump:I(25),
+    Item.mineralWaterPump:I(50),
     Item.electricEngine:I(200),
     Item.bigStorageTank:I(4),
     Item.blueChip:I(200),

@@ -4,7 +4,7 @@ function MomoLib.GenAllUndergroundBeltEntityItem(distanceMul, newSubgroup)
     MomoLib.uBelts = {}
     for _, u in pairs(data.raw["underground-belt"]) do
         local newBelt = MomoLib.DeepCopy(u)
-        newBelt.max_distance = u.max_distance * (distanceMul or 2)
+        newBelt.max_distance = u.max_distance * (distanceMul or 2) + 1
         local newItemName = u.name.."-2"
         newBelt.name = newItemName
         newBelt.minable.result = newItemName

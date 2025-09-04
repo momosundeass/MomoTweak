@@ -16,6 +16,9 @@ MomoLib.technology.MakeProductivity(glass[#glass], {"glass"}, advancedOrder, 5)
 local brick = MomoLib.technology.MakeProductivity("advanced-material-processing", {Item.brick.n, "gravel-to-brick", "sand-to-brick"}, vanillaOrder, 0)
 MomoLib.technology.MakeProductivity(brick[#brick], {Item.brick.n, "gravel-to-brick", "sand-to-brick"}, advancedOrder, 5)
 
+local concrete = MomoLib.technology.MakeProductivity("advanced-ore-processing", {Item.refConcrete.n, Item.concrete.n, "concrete-finishing"}, vanillaOrder, 0)
+MomoLib.technology.MakeProductivity(concrete[#concrete], {Item.refConcrete.n, Item.concrete.n, "concrete-finishing"}, advancedOrder, 5)
+
 local steel = MomoLib.technology.MakeProductivity("advanced-material-processing", {"steel-plate", "steel-dust-smelting", "steel-oxygen-casting"}, vanillaOrder, 0)
 MomoLib.technology.MakeProductivity(steel[#steel], {"steel-plate", "steel-dust-smelting", "steel-oxygen-casting"}, advancedOrder, 10)
 
@@ -27,7 +30,6 @@ MomoLib.technology.MakeProductivity(lds[#lds], {Item.lds.n}, advancedOrder, 10)
 
 local titanium = MomoLib.technology.MakeProductivity("enriched-titanium", MomoLib.recipe.AllFromResult(Item.titaniumPlate), advancedOrder, 5)
 local rareMetal = MomoLib.technology.MakeProductivity("elite-ore-processing", MomoLib.recipe.AllFromResult(Item.rareMetal), advancedOrder, 5)
-
 local sulfuricAcid = MomoLib.technology.MakeProductivity("elite-ore-processing", {Item.sulfuricAcid.n}, advancedOrder, 10)
 
 local gc = MomoLib.technology.MakeProductivity(Item.productivityModule.tech, MomoLib.recipe.AllFromResult(Item.greenChip), vanillaOrder, 0)
@@ -38,6 +40,8 @@ MomoLib.technology.MakeProductivity(rc[#rc], MomoLib.recipe.AllFromResult(Item.r
 
 local bc = MomoLib.technology.MakeProductivity(Item.productivityModule3.tech, MomoLib.recipe.AllFromResult(Item.blueChip), vanillaOrder, 0)
 MomoLib.technology.MakeProductivity(bc[#bc], MomoLib.recipe.AllFromResult(Item.blueChip), advancedOrder, 5)
+
+local ai = MomoLib.technology.MakeProductivity(Item.aiCore.tech, MomoLib.recipe.AllFromResult(Item.aiCore), advancedOrder, 10, true)
 
 
 for _, tech in pairs(MomoLib.technology.MakeProductivity("caterium", "rocket-part", advancedOrder, 11)) do

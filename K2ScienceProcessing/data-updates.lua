@@ -1,12 +1,12 @@
 local item = MomoLib.itemNames
 
 require("prototypes.mech")
+require("prototypes.quality")
 
 if mods["bobinserters"] or mods["Smart_Inserters"] then 
     MomoLib.item.DisableRecipe("long-handed-inserter")
     MomoLib.item.DisableRecipe("kr-superior-long-inserter")
 end
-MomoLib.item.Disable("area-mining-drill")
 
 -- recycle
 item.inserterPart:Prototype():NoRecycle()
@@ -45,6 +45,7 @@ MomoLib.GetPrototypes("lab", {item.lab.n, item.lab2.n, item.lab3.n}, function(p)
 
 
 -- subgroups
+MomoLib.UpdateMachineSubgroup()
 if MomoLib.subgroups["pipes-to-ground-t2"] then
     MomoLib.item:FromPrototype(item.steelPipe.n):SUBGROUP("pipes-to-ground-t2", "a1")
     MomoLib.item:FromPrototype(item.steelPipeGround.n):SUBGROUP("pipes-to-ground-t2", "a2")
@@ -60,3 +61,4 @@ MomoLib.UpdateModulesEffect()
 MomoLib.machine.IconDraw(item.electrolyser.n, {scale=1, scale_for_many=1})
 MomoLib.machine.IconDraw(item.researchCenter.n, {scale=1.3, scale_for_many=1.3})
 MomoLib.machine.IconDraw(item.atmospheric.n, {scale=1, scale_for_many=1})
+

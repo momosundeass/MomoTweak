@@ -111,6 +111,21 @@ function funcs.PipeEmptyPictures()
     }
 end
 
+function funcs.CopySounds(sourceName, pasteAtName)
+    local source = funcs.GetPrototype(sourceName)
+    local pasteAt = funcs.GetPrototype(pasteAtName)
+    
+    if source.working_sound then pasteAt.working_sound = source.working_sound end
+    if source.repair_sound then pasteAt.repair_sound = source.repair_sound end
+    if source.build_sound then pasteAt.build_sound = source.build_sound end
+    if source.mined_sound then pasteAt.mined_sound = source.mined_sound end
+    if source.mining_sound then pasteAt.mining_sound = source.mining_sound end
+    if source.open_sound then pasteAt.open_sound = source.open_sound end
+    if source.close_sound then pasteAt.close_sound = source.close_sound end
+    if source.ambient_sounds_group then pasteAt.ambient_sounds_group = source.ambient_sounds_group end
+    if source.ambient_sounds then pasteAt.ambient_sounds = source.ambient_sounds end
+end
+
 function funcs.ProductivityAdded(machine, prod)
 	local prototype = data.raw["assembling-machine"][machine] or data.raw["furnace"][machine]
 	if prototype == nil then error("No assembling-machine or furnace; with name : " .. machine) end
@@ -125,21 +140,6 @@ function funcs.ProductivityAdded(machine, prod)
     else
         prototype.effect_receiver.base_effect.productivity = prototype.effect_receiver.base_effect.productivity + prod
     end
-end
-
-function funcs.CopySounds(sourceName, pasteAtName)
-    local source = funcs.GetPrototype(sourceName)
-    local pasteAt = funcs.GetPrototype(pasteAtName)
-    
-    if source.working_sound then pasteAt.working_sound = source.working_sound end
-    if source.repair_sound then pasteAt.repair_sound = source.repair_sound end
-    if source.build_sound then pasteAt.build_sound = source.build_sound end
-    if source.mined_sound then pasteAt.mined_sound = source.mined_sound end
-    if source.mining_sound then pasteAt.mining_sound = source.mining_sound end
-    if source.open_sound then pasteAt.open_sound = source.open_sound end
-    if source.close_sound then pasteAt.close_sound = source.close_sound end
-    if source.ambient_sounds_group then pasteAt.ambient_sounds_group = source.ambient_sounds_group end
-    if source.ambient_sounds then pasteAt.ambient_sounds = source.ambient_sounds end
 end
 
 function funcs.Power(prototypeName, power)
@@ -163,12 +163,28 @@ function funcs.ModuleSlot(prototypeName, slot)
     funcs.GetPrototype(prototypeName).module_slots = slot
 end
 
+function funcs.EnableQualityModuleSlot(machine)
+    machine = machine.name or machine
+    local p = funcs.GetPrototype(machine)
+    p.quality_affects_module_slots = true
+end
+
+---@param effectLimiter table see MomoLib.EffectLimitation
+function funcs.ModuleLimit(prototypeName, effectLimiter)
+    funcs.GetPrototype(prototypeName).allowed_effects = effectLimiter
+end
+
+---@param allowed table of string module category
+function funcs.ModuleCategory(prototypeName, allowed)
+    funcs.GetPrototype(prototypeName).allowed_module_categories = allowed
+end
 function funcs.GetPrototype(prototypeName)
     if type(prototypeName) ~= "string" then prototypeName = prototypeName.name end
     return data.raw["assembling-machine"][prototypeName] 
         or data.raw["furnace"][prototypeName] 
         or data.raw["mining-drill"][prototypeName]
         or data.raw["beacon"][prototypeName]
+        or data.raw["lab"][prototypeName]
 end
 
 function funcs.MinerDrainRate(minerName, drainRate) 

@@ -57,6 +57,8 @@ end
 
 function funcs.DisableRecipe(name)
 	MomoLib.GetItem(name, function(item)
+		item.order = "z"
+		item.subgroup = "other"
 		for _, recipe in pairs(MomoLib.recipe.AllFromResult(item)) do
 		 	MomoLib.recipe.Remove(recipe)
 		end

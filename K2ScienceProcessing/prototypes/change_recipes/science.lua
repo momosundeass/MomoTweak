@@ -52,7 +52,7 @@ MomoLib.recipe.SetIngredients(Item.yellowSci, {
 }):AMOUNT(1):ADDPRODUCT({Item.yellowSci1:I(2), Item.yellowSci2:I(9), Item.yellowSci4:I(2)}):NORECYCLE()
 
 -- White sci
-MomoLib.recipe.ReplaceIngredient("rocket-part", Item.lds.n, Item.hdpeAlloy:I(10))
+MomoLib.recipe.ReplaceIngredient("rocket-part", Item.lds.n, {Item.hdpeAlloy:I(10), Item.consBot:I(2)})
 
 MomoLib.recipe.SetIngredients(Item.whiteSci, {
     Item.spaceResearch:I(20),

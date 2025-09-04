@@ -62,7 +62,7 @@ MomoLib.recipe.New({
     Item.speedModule3:I(1),
     Item.greenSci1:I(20),
     Item.hChloride:I(80)
-}, Item.scienceHardware2:I(2)):UNLOCK(matter):TIME(30):CATEGORY(cat.fluidCrafting):Extend()
+}, Item.scienceHardware2:I(2)):UNLOCK(matter):TIME(30):CATEGORY(cat.photometricCrafting):Extend()
 
 MomoLib.recipe.New({
     Item.matterSci6:I(8),
@@ -102,7 +102,7 @@ MomoLib.recipe.New({
     Item.matterSci3:I(48),
     Item.fusionIon:I(),
     Item.water:I(4500)
-}, {Item.matterSci:I(12), Item.lightOil:I(80)}, "matter-sci"):UNLOCK(matter):TIME(80):CATEGORY(cat.refinery)
+}, {Item.matterSci:I(6), Item.lightOil:I(80)}, "matter-sci"):UNLOCK(matter):TIME(80):CATEGORY(cat.refinery)
 :ICON(MomoLib.icon.RecycleIcons(Item.matterSci3:Prototype())):Extend()
 
 MomoLib.recipe.New({

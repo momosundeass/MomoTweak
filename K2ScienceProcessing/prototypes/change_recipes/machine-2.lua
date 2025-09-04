@@ -23,9 +23,9 @@ MomoLib.technology.RemoveIngredient(Item.assembly4.tech, Item.advSci.n)
 MomoLib.recipe.SetIngredients(Item.assembly4, {
     Item.assembly3:I(4),
     Item.steamTurbine:I(2),
-    Item.researchServer:I(2),
-    Item.aiCore:I(60),
-    Item.electricEngine:I(60),
+    Item.researchServer:I(),
+    Item.aiCore:I(20),
+    Item.logisticBot:I(12),
     Item.stackInserter:I(42),
 })
 

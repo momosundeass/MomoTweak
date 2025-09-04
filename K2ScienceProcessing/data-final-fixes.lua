@@ -13,6 +13,7 @@ require("prototypes.change_recipes.military")
 
 require("prototypes.entities.foundry")
 require("prototypes.entities.electromagnetic-plant")
+require("prototypes.entities.cryogenic")
 require("prototypes.imersite")
 MomoLib.ManufacturerDataFinal()
 MomoLib.StackBeltDataFinal()

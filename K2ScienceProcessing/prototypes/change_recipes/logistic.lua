@@ -20,6 +20,7 @@ MomoLib.recipe.SafeAddIngredients(Item.warehouse, {Item.refConcrete:I(200)})
 -- train
 MomoLib.recipe.SetIngredients(Item.signal, {Item.lamp:I(1), Item.ironPlate:I(5), Item.greenChip:I(1)})
 MomoLib.recipe.SetIngredients(Item.chainSignal, {Item.steelPlate:I(2), Item.signal:I(1), Item.lamp:I(2)})
+MomoLib.technology.AddRequired(Item.station.tech, Item.speaker.tech)
 MomoLib.recipe.SetIngredients(Item.station, {Item.ironBeam:I(4), Item.steelPlate:I(2), Item.speaker:I(8), Item.signal:I(2)})
 -- TODO: locomotive?
 
@@ -52,4 +53,24 @@ MomoLib.recipe.SetIngredients(Item.roboport, {
     Item.station:I(4),
     Item.plastic:I(40)
 })
--- TODO: small and big robotport
+
+MomoLib.technology.SetRequired(Item.roboportSmall.tech, {Item.accumulator2.tech, Item.copper2.tech})
+MomoLib.technology.SetIngredients(Item.roboportSmall.tech, {Item.purpleSci.n, Item.yellowSci.n, Item.whiteSci.n, Item.matterSci.n})
+MomoLib.recipe.SetIngredients(Item.roboportSmall, {
+    Item.roboport:I(2),
+    Item.accumulator2:I(1),
+    Item.copper2:I(40),
+    Item.imersiteBeam:I(10),
+    Item.aiCore:I(3),
+}):AMOUNT(2)
+MomoLib.recipe.SetIngredients(Item.roboportBig, {
+    Item.roboportSmall:I(8),
+    Item.imersiteBeam:I(40),
+    Item.imersiteGear:I(20),
+    Item.accumulator2:I(2),
+    Item.ecu:I(20)
+})
+
+
+-- yellow tech
+MomoLib.technology.SetRequired("personal-roboport-mk2-equipment", "logistic-system")

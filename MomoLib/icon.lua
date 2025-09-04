@@ -37,13 +37,15 @@ function funcs.MakeLayeredItemIcon(bgItem, fgItem)
 			return funcs.FromIngredientWithSize(iconIn)
 		end
 	end
-	-- local bg = (type(bgItem) == "string" and string.find(bgItem, "__") ~= nil) and {bgItem, funcs.DefaultSize} or funcs.FromIngredientWithSize(bgItem)
-	-- local fg = (type(fgItem) == "string" and string.find(fgItem, "__") ~= nil) and {fgItem, funcs.DefaultSize} or funcs.FromIngredientWithSize(fgItem)
 	local bg, fg = Assign(bgItem), Assign(fgItem)
 	return {
-		{ icon = bg[1], scale = 0.5, icon_size = bg[2] },
-		{ icon = fg[1], scale = 0.75, icon_size = fg[2], shift = { 16, 16 } }
+		{ icon = fg[1], icon_size = fg[2], scale = 0.5, },
+		{ icon = bg[1], icon_size = bg[2], scale = 0.3, shift = {-7, -7}},
 	}
+	-- return {
+	-- 	{ icon = bg[1], scale = 0.5, icon_size = bg[2] },
+	-- 	{ icon = fg[1], scale = 0.75, icon_size = fg[2], shift = { 16, 16 } }
+	-- }
 end
 
 function funcs.MakeIconTable(iconPath)
@@ -106,10 +108,21 @@ function funcs.Assign(prototype, icon)
 	end
 end
 
-function funcs.GetIcons(prototype)
+function funcs.GetIcons(prototype, moreIcons)
 	if (prototype.icon == nil and prototype.icons == nil) then error("prototype have no icon : GetIcons") end
-	if prototype.icons ~= nil then return prototype.icons end
-	return { { icon = prototype.icon, icon_size = prototype.icon_size or funcs.DefaultSize } }
+	local icons
+	if prototype.icons ~= nil then 
+		icons = prototype.icons 
+	else
+		icons = { { icon = prototype.icon, icon_size = prototype.icon_size or funcs.DefaultSize } }
+	end
+	if moreIcons ~= nil then
+		for _, moreIcon in pairs(moreIcons) do
+			table.insert(icons, moreIcon)
+		end
+	end
+
+	return icons
 end
 
 function funcs.FromPrototype(prototype)

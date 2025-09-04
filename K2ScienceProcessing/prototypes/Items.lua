@@ -5,11 +5,6 @@ local sb = MomoLib.subgroup
 MomoLib.itemNames.imersiteJelly    = MomoLib.NewIntermediate("imersite-jelly", MomoLib.SpaceEx("naquium-tessaract"), 100)
 MomoLib.itemNames.electrolyte      = MomoLib.NewFluid("electrolyte", MomoLib.Graphics("space-age/electrolyte.png"), {r = 200/255, g = 51/255, b=104/255, a=1}, false)
 
--- advanced
-MomoLib.itemNames.supercapacitor   = MomoLib.NewIntermediate("supercapacitor", MomoLib.Graphics("space-age/supercapacitor.png"))
-MomoLib.itemNames.superconductor   = MomoLib.NewIntermediate("superconductor", MomoLib.Graphics("space-age/superconductor.png"))
-MomoLib.itemNames.quantumProcessor = MomoLib.NewIntermediate("quantum-processor", MomoLib.Graphics("space-age/quantum-processor.png"))
-MomoLib.itemNames.nanoCarbon       = MomoLib.NewIntermediate("nano-carbon", MomoLib.Graphics("space-age/carbon-fiber.png"))
 
 MomoLib.subgroup.ChangeItem(item.basicSci.n, sb.redSci.name)
 MomoLib.subgroup.ChangeItem(item.techCard.n, sb.redSci.name)
@@ -75,7 +70,14 @@ MomoLib.itemNames.matterSci5 = NewScience("matter-sci-5", MomoLib.SpaceEx("catal
 MomoLib.itemNames.matterSci6 = NewScience("matter-sci-6", MomoLib.SpaceEx("catalogue/astronomic-3"), 10, sb.matterSci.name)
 MomoLib.itemNames.matterSci7 = NewScience("matter-sci-7", MomoLib.SpaceEx("data/darkmatter"), 100, sb.matterSci.name)
 
-
+-- advanced
+MomoLib.itemNames.fusionJelly = MomoLib.NewIntermediate("fusion-ion-jelly", MomoLib.Graphics("space-age/jelly-blue.png"), 10)
+data:extend{{type="fuel-category", name="fusion-ion"}}
+MomoLib.item.FUEL(MomoLib.itemNames.fusionIon:Prototype(), "2GJ", MomoLib.itemNames.fusionJelly.n, "fusion-ion")
+MomoLib.itemNames.supercapacitor   = MomoLib.NewIntermediate("supercapacitor", MomoLib.Graphics("space-age/supercapacitor.png"))
+MomoLib.itemNames.superconductor   = MomoLib.NewIntermediate("superconductor", MomoLib.Graphics("space-age/superconductor.png"))
+MomoLib.itemNames.quantumProcessor = MomoLib.NewIntermediate("quantum-processor", MomoLib.Graphics("space-age/quantum-processor.png"))
+MomoLib.itemNames.nanoCarbon       = MomoLib.NewIntermediate("nano-carbon", MomoLib.Graphics("space-age/carbon-fiber.png"))
 
 MomoLib.subgroup.ChangeItem(item.advSci, sb.advSci.name)
 -- MomoLib.itemNames.advSci1 = NewScience("matter-sci-1", MomoLib.Graphics("space-age/cryogenic-science-pack.png"), 20, sb.matterSci.name)

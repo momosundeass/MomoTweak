@@ -9,7 +9,7 @@ local function AllowFlight(armorName)
     armor.moving_sound = data.raw.armor["mech-armor"].moving_sound 
 end
 
-local armors = {"kr-power-armor-mk3", "kr-power-armor-mk4"}
+local armors = {"power-armor-mk2", "kr-power-armor-mk3", "kr-power-armor-mk4"}
 for i, armor in pairs(armors) do
 	AllowFlight(armor)
 end

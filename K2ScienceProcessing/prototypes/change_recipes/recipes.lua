@@ -18,3 +18,5 @@ MomoLib.technology.RemoveAllRecipe(Item.hdpeAlloy.n)
 MomoLib.technology.AddRecipe(Item.lds.tech, Item.hdpeAlloy.name)
 Item.hdpeAlloy.tech = Item.lds.tech
 MomoLib.recipe.SafeAddIngredients(Item.hdpeAlloy, Item.lds:I(6))
+
+MomoLib.recipe.SetCategory("gravel-to-sand", MomoLib.category.crusher)

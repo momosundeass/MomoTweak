@@ -128,7 +128,7 @@ MomoLib.recipe.New({
     Item.purpleSci3:I(2),
     Item.blueChip:I(3),
 },{
-    Item.purpleSci:I(2)
+    Item.purpleSci:I()
 }, Item.purpleSci3.n):CATEGORY(cat.researchServer):UNLOCK(Item.purpleSci.n):TIME(2)
 :ICON(MomoLib.icon.RecycleIcons(Item.purpleSci3:Prototype())):Extend()
 
@@ -181,7 +181,7 @@ MomoLib.recipe.New({
     Item.blueChip:I(2),
     Item.ionMatter:I(80)
 }, {
-    Item.yellowSci:I(2),
+    Item.yellowSci:I(),
     Item.yellowSci4:I(),
     Item.speaker:I(35)
 }, "yellow-sci-3"):UNLOCK(Item.yellowSci.n):CATEGORY(cat.researchServer):TIME(8)
@@ -218,7 +218,7 @@ MomoLib.recipe.New({
     Item.inconShape:I(2),
     Item.purpleSci3:I(2),
     Item.lab2:I(2)
-}, Item.whiteSci:I(36), "white-sci-2"):UNLOCK(Item.whiteSci.n):TIME(80)
+}, Item.whiteSci:I(18), "white-sci-2"):UNLOCK(Item.whiteSci.n):TIME(80)
 :ICON(MomoLib.icon.RecycleIcons(Item.whiteSci2:Prototype())):Extend()
 
 MomoLib.recipe.New({
@@ -254,7 +254,7 @@ MomoLib.recipe.New({
     Item.eqBattery2:I(2)
 }, {
     Item.whiteSciN:I(),
-    Item.whiteSci:I(2)
+    Item.whiteSci:I()
 }, "white-sci-6"):UNLOCK(Item.whiteSci.n):CATEGORY(cat.researchServer):TIME(30)
 :ICON{Item.whiteSci6.n, Item.whiteSciN.n}:Extend()
 

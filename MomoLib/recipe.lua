@@ -199,6 +199,7 @@ function funcs.SetTime(recipe, _time)
 	end)
 end
 
+---@param categories string|table [1] can be false to skip setting main category 
 function funcs.SetCategory(recipe, categories)
 	local prototype
 	if type(recipe) == "string" or (type(recipe) == "table" and recipe.type ~= "recipe") then 
@@ -208,7 +209,9 @@ function funcs.SetCategory(recipe, categories)
 	end
 
 	if not MomoLib.IsArray(categories) then categories = { categories } end
-	prototype.category = categories[1]
+	if (categories[1] ~= nil and categories[1] ~= false) then
+		prototype.category = categories[1]
+	end
 	if #categories > 1 then
 		table.remove(categories, 1)
 		prototype.additional_categories = categories
@@ -293,7 +296,8 @@ function funcs.Remove(name)
 		proto.enabled = false
 		proto.hidden = true
 		proto.hidden_in_factoriopedia = true
-
+		proto.order = "z"
+		proto.subgroup = "other"
 		MomoLib.technology.RemoveAllRecipe(name)
 	end)
 end

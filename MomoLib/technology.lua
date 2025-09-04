@@ -143,7 +143,9 @@ function funcs.RemoveIngredient(tech, ingredientName)
 	end
 end
 
-function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, extend)
+---@param sciencePackOrder string[] of science pack name
+---@param useFromTechIcon? boolean
+function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, additionLevel, useFromTechIcon)
 	if type(fromTech) == "string" then MomoLib.GetTechnology(fromTech, function(p) fromTech = p end) end
 	if type(recipes) ~= "table" then recipes = { recipes } end
 	local itemName
@@ -167,7 +169,7 @@ function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, extend)
 	local preReq = fromTech
 	local nameSurfix = "-productivity"
 	local level = 1
-	for i = startSciencePackIndex, #sciencePackOrder + extend, 1 do
+	for i = startSciencePackIndex, #sciencePackOrder + additionLevel, 1 do
 		local newName = item.name .. nameSurfix .. "-" .. tostring(level)
 		if MomoLib.GetTechnology(newName, function()end, false) then
 			nameSurfix = "-t2-productivity"
@@ -192,7 +194,11 @@ function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, extend)
 		tech:PRE{preReq.name}
 		tech.upgrade = true
 		tech.localised_name = {"", {item.type .. "-name." .. item.name}, " : " , {"description.technology" .. nameSurfix}}
-		MomoLib.icon.Assign(tech, { MomoLib.icon.FromIngredientWithSize(item), MomoLib.icon.ProductivityIcon() }) 
+		if useFromTechIcon then
+			MomoLib.icon.Assign(tech, MomoLib.icon.GetIcons(fromTech, {MomoLib.icon.ProductivityIcon()})) 
+		else
+			MomoLib.icon.Assign(tech, { MomoLib.icon.FromIngredientWithSize(item), MomoLib.icon.ProductivityIcon() }) 
+		end
 		tech.order = (fromTech.order or "productivity-") .. "z" .. i
 		table.insert(techs, tech)
 		preReq = tech
@@ -240,6 +246,13 @@ end
 
 function funcs:INGREDIENTS(ings)
 	if self.unit == nil then self.unit = {} end
+	if type(ings[1]) == "string" then 
+		local casted = {}
+		for _, ing in ipairs(ings) do
+			casted[#casted+1] = MomoLib.MakeResearchIngredient(ing)
+		end
+		ings = casted
+	end
 	self.unit.ingredients = ings
 	return self
 end

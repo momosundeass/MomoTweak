@@ -1,4 +1,5 @@
 MomoLib.category = {}
+MomoLib.category.crusher = "kr-crushing"
 MomoLib.category.fluidCrafting = "crafting-with-fluid"
 MomoLib.category.chemical = "chemistry"
 MomoLib.category.advChemical = "adv-chemistry"
@@ -17,6 +18,8 @@ MomoLib.category.oxidizer = "oxidize"
 MomoLib.category.researchCenter = "research-center"
 MomoLib.category.indFurnace = "industrial-furnace-only"
 MomoLib.category.manufacture = "manufacture"
+MomoLib.category.photometric = "photometric"
+MomoLib.category.photometricCrafting = "photometric-crafting"
 data:extend{
     {type="recipe-category", name=MomoLib.category.chemicalOnly},
     {type="recipe-category", name=MomoLib.category.advChemical},
@@ -28,9 +31,13 @@ data:extend{
     {type="recipe-category", name=MomoLib.category.quantumComputer},
     {type="recipe-category", name=MomoLib.category.indFurnace},
     {type="recipe-category", name=MomoLib.category.manufacture},
+    {type="recipe-category", name=MomoLib.category.photometric},
+    {type="recipe-category", name=MomoLib.category.photometricCrafting},
 }
 MomoLib.machine.AddCategory(MomoLib.itemNames.chemicalPlant.n, MomoLib.category.chemicalOnly)
 MomoLib.machine.AddCategory(MomoLib.itemNames.researchServer.n, MomoLib.category.researchServer)
 MomoLib.machine.AddCategory(MomoLib.itemNames.quantumComputer.n, MomoLib.category.quantumComputer)
 MomoLib.machine.AddCategory(MomoLib.itemNames.indFurnace.n, MomoLib.category.indFurnace)
 MomoLib.machine.AddCategory(MomoLib.itemNames.advChemicalPlant.n, MomoLib.category.advChemical)
+MomoLib.machine.AddCategory(MomoLib.itemNames.assembly3.n, MomoLib.category.photometricCrafting)
+MomoLib.machine.AddCategory(MomoLib.itemNames.assembly4.n, MomoLib.category.photometricCrafting)
