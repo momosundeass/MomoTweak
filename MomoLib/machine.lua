@@ -42,6 +42,7 @@ function funcs.FluidBoxes(prototypeName, fluidBoxes, insertMode)
     if not MomoLib.IsArray(fluidBoxes) then fluidBoxes = {fluidBoxes} end
     insertMode = insertMode or false
     local prototype = funcs.GetPrototype(prototypeName)
+    if not prototype then MoLog("No machine with name "..prototypeName) return end
     if insertMode then
         for _, f in pairs(fluidBoxes) do
             table.insert(prototype.fluid_boxes, f)
@@ -51,19 +52,25 @@ function funcs.FluidBoxes(prototypeName, fluidBoxes, insertMode)
     end
 end
 
+---@class FluidBox
+---@field pipe_connections table
 funcs.fluidbox = {}
 function funcs.fluidbox:New(o)
     setmetatable(o, self)
     self.__index = self
     return o
 end
----@alias production
+
+---@alias flow
 ---| '"input"'
 ---| '"output"'
 ---| '"input-output"'
----@param production_type production
+---@param production_type flow
+---@param direction any
+---| 'defines.direction' #defines direction
 ---@param picture? table
 ---@param cover? table 
+---@return FluidBox
 function funcs.FluidBox(position, production_type, direction, picture, cover)
     if direction == nil then direction = defines.direction.north end
     if picture == nil then
@@ -81,27 +88,28 @@ function funcs.FluidBox(position, production_type, direction, picture, cover)
         secondary_draw_orders = { north = -1 }
     }
 end
+---@return FluidBox
 function funcs.fluidbox:FILTER(filter)
     self.filter = filter
 return self end
+---@return FluidBox
 function funcs.fluidbox:SUPERHOT()
     self.max_temperature = 10000000
 return self end
+---@return FluidBox
 function funcs.fluidbox:CATEGORY(categories)
     for _, pc in pairs(self.pipe_connections) do
         pc.connection_category = categories    
     end
 return self end
----@alias flow
----| '"input"'
----| '"output"'
----| '"input-output"'
+
 ---@param flow_direction flow
+---@return FluidBox
 function funcs.fluidbox:FLOW(flow_direction)
     for _, pc in pairs(self.pipe_connections) do
         pc.flow_direction = flow_direction
     end
-end
+return self end
 function funcs.PipeEmptyPictures()
     return {
         north = util.empty_sprite(),
@@ -113,6 +121,7 @@ end
 
 function funcs.CopySounds(sourceName, pasteAtName)
     local source = funcs.GetPrototype(sourceName)
+    if not source then MoLog("No machine with name "..sourceName) return end
     local pasteAt = funcs.GetPrototype(pasteAtName)
     
     if source.working_sound then pasteAt.working_sound = source.working_sound end
@@ -152,6 +161,7 @@ end
 
 function funcs.AddCategory(prototypeName, categories)
     local prototype = funcs.GetPrototype(prototypeName)
+    if not prototype then MoLog("No machine with name "..prototypeName) return end
     if prototype.crafting_categories == nil then prototype.additionalcrafting_categories_categories = {} end
 	if type(categories) ~= "table" then categories = {categories} end
 	for _, c in pairs(categories) do
@@ -159,8 +169,13 @@ function funcs.AddCategory(prototypeName, categories)
 	end
 end
 
-function funcs.ModuleSlot(prototypeName, slot)
-    funcs.GetPrototype(prototypeName).module_slots = slot
+---@param positioning? table see MomoLib.entity.IconPositioning
+function funcs.ModuleSlot(prototypeName, slot, positioning)
+    local prototype = funcs.GetPrototype(prototypeName)
+    if not prototype then MomoLib.Log("No machine with name "..prototypeName) return end 
+    prototype.module_slots = slot
+    if not prototype.icons_positioning then prototype.icons_positioning = {} end
+    prototype.icons_positioning[#prototype.icons_positioning + 1] = positioning
 end
 
 function funcs.EnableQualityModuleSlot(machine)
@@ -180,11 +195,25 @@ function funcs.ModuleCategory(prototypeName, allowed)
 end
 function funcs.GetPrototype(prototypeName)
     if type(prototypeName) ~= "string" then prototypeName = prototypeName.name end
-    return data.raw["assembling-machine"][prototypeName] 
-        or data.raw["furnace"][prototypeName] 
-        or data.raw["mining-drill"][prototypeName]
-        or data.raw["beacon"][prototypeName]
-        or data.raw["lab"][prototypeName]
+    return MomoLib.Raw("assembling-machine",prototypeName) 
+        or MomoLib.Raw("furnace",prototypeName) 
+        or MomoLib.Raw("mining-drill",prototypeName)
+        or MomoLib.Raw("offshore-pump",prototypeName)
+        or MomoLib.Raw("beacon",prototypeName)
+        or MomoLib.Raw("lab",prototypeName)
+        or MomoLib.Raw("roboport",prototypeName)
+        or MomoLib.Raw("radar",prototypeName)
+        or MomoLib.Raw("pump",prototypeName)
+        or MomoLib.Raw("lamp",prototypeName)
+        or MomoLib.Raw("boiler",prototypeName)
+        or MomoLib.Raw("generator",prototypeName)
+        or MomoLib.Raw("fusion-generator",prototypeName)
+        or MomoLib.Raw("burner-generator",prototypeName)
+        or MomoLib.Raw("reactor",prototypeName)
+        or MomoLib.Raw("fusion-reactor",prototypeName)
+        or MomoLib.Raw("solar-panel",prototypeName)
+        or MomoLib.Raw("accumulator",prototypeName)
+        or MomoLib.Raw("rocket-silo",prototypeName)
 end
 
 function funcs.MinerDrainRate(minerName, drainRate) 

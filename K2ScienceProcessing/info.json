@@ -5,7 +5,7 @@
 	"title": "K2:Advanced Science Processing",
 	"author": "Momosundeass, Earendel(art), hurricane046(art), unused-renders(art)",
 	"homepage": "https://github.com/momosundeass/MomoTweak",
-	"description": "In the world where tedium exists. Ever want to automate steam engine at a grand scale. Included space-age features without going to space.",
+	"description": "In the world where tedium exists. Ever want to automate steam engine at a grand scale. Included space-age features without going to space. WARNING:This mod contain lot of by-products",
 	"dependencies": [
 		"base >= 2.0.65",
 		"! quality",

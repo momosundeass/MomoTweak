@@ -30,4 +30,5 @@ function MomoLib.ManufacturerDataFinal()
     MomoLib.GetRecipe(Item.atmospheric.n, function (p) p:CATEGORY{"crafting", MomoLib.category.manufacture} end)
     MomoLib.GetRecipe(Item.lab.n, function (p) p:CATEGORY{"crafting", MomoLib.category.manufacture} end)
     MomoLib.GetRecipe(Item.satellite.n, function (p) p:CATEGORY{"crafting", MomoLib.category.manufacture} end)
+    MomoLib.recipe.SetCategory(Item.turret, {false, MomoLib.category.manufacture})
 end

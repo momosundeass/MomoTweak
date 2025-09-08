@@ -1,8 +1,11 @@
--- item
+---@class Item : Prototype
+---@field auto_recycle boolean
+---@field place_result string
 local funcs = {}
 funcs.isNew = true
 funcs.isEmpty = true
 
+---@return Item
 function funcs:_New(tbl)
    tbl = tbl or {}
    setmetatable(tbl, self)
@@ -10,6 +13,7 @@ function funcs:_New(tbl)
    tbl.isEmpty = false
    return tbl
 end
+---@return Item
 function funcs:FromPrototype(tblorname)
 	if type(tblorname) == "string" then MomoLib.GetIngredient(tblorname, function (p) tblorname = p end) end
 	local obj = funcs:_New(tblorname)
@@ -18,6 +22,9 @@ function funcs:FromPrototype(tblorname)
 	return obj
 end
 
+---@param itemType? string default at "item"
+---@param color? table required when type is "fluid"
+---@return Item
 function funcs.Create(name, icon, stackSize, itemType, color)
 	itemType = itemType or "item"
 	local prototype = {
@@ -74,34 +81,42 @@ function funcs.RocketProduct(name, results)
 end
 
 ---@param effs table use 'MomoLib.NewEffect()' or see 'MomoLib.effect.lua'
+---@return Item
 function funcs:MODULEEFFECT(effs)
 	if self.type ~= "module" then error("change effect required 'module' for : " .. self.name) end
 	self.effect = effs
-	return self 
-end
+return self end
 
+---@return Item
 function funcs:NORECYCLE()
 	funcs.NoRecycle(self.name)
-	return self
-end
-
+return self end
+---@return Item
 function funcs:SUBGROUP(subgroup, order)
 	self.subgroup = subgroup
-	if order ~= nil then self.order = order end
-	return self
-end
+	if order ~= nil then self.order = order == "auto" and MomoLib.order.Auto(subgroup) or order end
+	if self.place_result ~= nil then
+		local entity = MomoLib.entity.GetPrototype(self.place_result)
+		if entity then 
+			entity.subgroup = subgroup
+			entity.order = self.order
+		end
+	end
+return self end
 
+---@return Item
 function funcs:SUPERHOT()
 	self.default_temperature = 1000000
     self.max_temperature = 10000000
     self.heat_capacity = "25J"
 return self end
-
+---@return Item
 function funcs:ROCKETPRODUCT(results)
 	self.rocket_launch_products = results
 	self.send_to_orbit_mode = "automated"
 return self end
 
+---@return Item
 function funcs:FUEL(energy, result, category)
 	self.fuel_value = energy
 	self.burnt_result = result.name or result
@@ -113,4 +128,5 @@ return self end
 function funcs:Extend()
 	data:extend{self}
 end
+
 MomoLib.item = funcs

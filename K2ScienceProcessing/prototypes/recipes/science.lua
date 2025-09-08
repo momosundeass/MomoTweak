@@ -28,6 +28,7 @@ MomoLib.recipe.New({
 }, "red-sci-1"):UNLOCK(Item.redSci.n):TIME(4)
 :ICON(MomoLib.icon.RecycleIcons(Item.redSci1:Prototype())):Extend()
 
+
 -- green
 MomoLib.recipe.New({
     Item.greenSci1:I(2),
@@ -41,8 +42,8 @@ MomoLib.recipe.New({
 
 MomoLib.recipe.New({
     Item.greenSci1:I(4),
-    Item.engine:I(4),
-    Item.sulfur:I(12),
+    Item.engine:I(3),
+    Item.steamEngine:I(2),
     Item.sulfuricAcid:F(300)
 },{
     Item.greenSci2:I(10),
@@ -83,15 +84,17 @@ MomoLib.recipe.New({
     Item.blueSci2:I(6),
     Item.assembly2:I(1)
 },{
-    Item.blueSci1:I(6),
-    Item.assembly2:I(1, 0.75)
+    Item.blueSci1:I(3),
+    Item.assembly2:I(1, 0.75),
+    Item.water:I(60)
 }, "blue-sci-2"):CATEGORY(cat.researchCenter):UNLOCK(Item.blueSci.n):TIME(4)
 :ICON(MomoLib.icon.RecycleIcons(Item.blueSci2:Prototype())):Extend()
+
 
 -- purple
 MomoLib.recipe.New({
     Item.redSci:I(10),
-    Item.chemicalPlant:I(2),
+    Item.chemicalPlant:I(),
     Item.sulfuricAcid:I(80)
 }, Item.redSci1:I(6), "red-sci-1-2"):TIME(6):UNLOCK(Item.purpleSci.n)
 :CATEGORY(cat.filtration):ICON(Item.redSci1):Extend()

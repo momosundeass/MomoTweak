@@ -10,7 +10,7 @@ MomoLib.recipe.AddProduct(Item.redSci, {Item.redSci1:I(2)})
 
 -- Green sci
 MomoLib.recipe.SetIngredients(Item.greenSci, {
-    Item.inserter:I(5),
+    Item.inserter:I(2),
     Item.belt:I(10),
     Item.greenChip:I(4)
 }):NORECYCLE()
@@ -20,9 +20,9 @@ MomoLib.recipe.AddProduct(Item.greenSci, {Item.greenSci1:I(2)})
 -- Black sci
 MomoLib.recipe.SetIngredients(Item.blackSci, {
     Item.turret:I(),
-    Item.grenade:I(2),
+    Item.grenade:I(3),
     Item.biterResearch:I(1),
-    Item.memoryBlock:I(5),
+    Item.memoryBlock:I(3),
 })
 MomoLib.recipe.AddProduct(Item.blackSci, {Item.blackSci1:I(2)})
 MomoLib.recipe.ReplaceIngredient(Item.biterResearch, Item.coke.n, Item.eComponent:I(5))
@@ -42,7 +42,7 @@ MomoLib.technology.AddRequired(Item.purpleSci.n, Item.lithium.tech)
 MomoLib.recipe.SetIngredients(Item.purpleSci, Item.purpleSci.ingredients):AMOUNT(2):ADDPRODUCT{Item.purpleSci1:I(1), Item.purpleSci2:I(32)}:NORECYCLE()
 
 -- Yellow sci
-MomoLib.technology.AddRequired(Item.yellowSci.n, Item.steamTurbine.tech)
+MomoLib.technology.AddRequired(Item.yellowSci.n, {Item.steamTurbine.tech, Item.airPurifier.tech})
 MomoLib.recipe.SetIngredients(Item.yellowSci, {
     Item.steamTurbine:I(2),
     Item.airPurifier:I(4),
@@ -52,7 +52,7 @@ MomoLib.recipe.SetIngredients(Item.yellowSci, {
 }):AMOUNT(1):ADDPRODUCT({Item.yellowSci1:I(2), Item.yellowSci2:I(9), Item.yellowSci4:I(2)}):NORECYCLE()
 
 -- White sci
-MomoLib.recipe.ReplaceIngredient("rocket-part", Item.lds.n, {Item.hdpeAlloy:I(10), Item.consBot:I(2)})
+MomoLib.recipe.SetIngredients("rocket-part", {Item.rcu:I(5), Item.rocketFuel:I(12), Item.rocketSection:I(10), Item.consBot:I(2)})
 
 MomoLib.recipe.SetIngredients(Item.whiteSci, {
     Item.spaceResearch:I(20),

@@ -24,7 +24,13 @@ MomoLib.technology.AddRequired(Item.station.tech, Item.speaker.tech)
 MomoLib.recipe.SetIngredients(Item.station, {Item.ironBeam:I(4), Item.steelPlate:I(2), Item.speaker:I(8), Item.signal:I(2)})
 -- TODO: locomotive?
 
-MomoLib.technology.SetRequired(Item.beltIm.tech, {Item.titaniumPlate.tech})
+MomoLib.technology.SetRequired(Item.beltIm.tech, {Item.redChip.tech, "modular-armor"})
+MomoLib.technology.RemoveIngredient(Item.beltIm.tech, Item.blueSci.n)
+MomoLib.recipe.SetIngredients(Item.beltIm, {
+    Item.redChip:I(2),
+    Item.ironPlate:I(4),
+    Item.engine:I(),
+})
 MomoLib.technology.AddRequired(Item.robotFrame.tech, {Item.beltIm.tech})
 MomoLib.recipe.SetIngredients(Item.robotFrame, {
     Item.titaniumPlate:I(12),

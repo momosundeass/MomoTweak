@@ -1,7 +1,13 @@
+---@class ItemNames
 local item = {}
+---@class ItemName
+---@field tech string
+---@field n string name in short
 local itemName = {
     name = "invalid"
 }
+
+---@return ItemName 
 function itemName:New(nameOrTbl, tech)
     local obj = {}
     obj.name = nameOrTbl.name or nameOrTbl
@@ -19,6 +25,7 @@ end
 item.ItemType = {}
 item.Prototypes = {}
 
+---@return Prototype
 function itemName:Prototype()
     if item.Prototypes[self] ~= nil then
         return item.Prototypes[self]
@@ -113,6 +120,7 @@ item.repair = itemName:New("repair-pack")
 -- logistic
 item.pipe            = itemName:New("pipe")
 item.undergroundPipe = itemName:New("pipe-to-ground")
+item.barrel          = itemName:New("barrel")
 
 item.inserterPart   = itemName:New("kr-inserter-parts")
 item.inserter       = itemName:New("inserter")
@@ -209,7 +217,7 @@ item.oreCrusher2      = itemName:New("crusher2")
 item.oreCrusher3      = itemName:New("crusher3")
 item.fuelProc         = itemName:New("fuel-processor")
 item.greenHouse       = itemName:New("kr-greenhouse")
-item.biolab           = itemName:New("kr-bio-lab")
+item.biolab           = itemName:New("kr-bio-lab", "kr-bio-processing")
 item.burnerLab        = itemName:New("burner-lab")
 item.lab              = itemName:New("lab")
 item.lab2             = itemName:New("kr-advanced-lab")
@@ -227,7 +235,7 @@ item.atmospheric      = itemName:New("kr-atmospheric-condenser", "kr-atmosphere-
 item.mineralWaterPump = itemName:New("kr-mineral-water-pumpjack", "kr-mineral-water-gathering")
 item.oilPump          = itemName:New("pumpjack")
 item.pump             = itemName:New("pump")
-item.steelPump        = itemName:New("kr-steel-pump")
+item.steelPump        = itemName:New("kr-steel-pump", "kr-steel-fluid-handling")
 item.filtration       = itemName:New("kr-filtration-plant")
 item.echamber1        = itemName:New("echamber1")
 item.echamber2        = itemName:New("echamber2")
@@ -261,7 +269,11 @@ item.fusionPlant   = itemName:New("kr-fusion-reactor", "kr-fusion-energy")
 item.fusionCellEmpty = itemName:New("kr-empty-dt-fuel-cell", "kr-fusion-energy")
 item.fusionCell    = itemName:New("kr-dt-fuel-cell", "kr-fusion-energy")
 item.gasPower      = itemName:New("kr-gas-power-station", "kr-gas-power-station")
-item.solar         = itemName:New("solar-panel")
+item.solar         = itemName:New("solar-panel", "solar-energy")
+item.eqSolar       = itemName:New("solar-panel-equipment", "solar-panel-equipment")
+item.eqBigSolar    = itemName:New("kr-big-solar-panel-equipment", "solar-panel-equipment")
+item.eqSolar2      = itemName:New("kr-superior-solar-panel-equipment", "kr-superior-solar-panel-equipment")
+item.eqBigSolar    = itemName:New("kr-big-superior-solar-panel-equipment", "kr-superior-solar-panel-equipment")
 item.solar2        = itemName:New("kr-advanced-solar-panel", "kr-advanced-solar-panel")
 item.bigPole       = itemName:New("big-electric-pole")
 item.accumulator   = itemName:New("accumulator")
@@ -278,8 +290,8 @@ item.eqBigBattery3 = itemName:New("kr-big-battery-mk3-equipment", "kr-battery-mk
 -- miner
 item.burnerMiner  = itemName:New("burner-mining-drill")
 item.miningDrill  = itemName:New("electric-mining-drill")
-item.miningDrill2 = itemName:New("kr-electric-mining-drill-mk2")
-item.miningDrill3 = itemName:New("kr-electric-mining-drill-mk3")
+item.miningDrill2 = itemName:New("kr-electric-mining-drill-mk2", "kr-electric-mining-drill-mk2")
+item.miningDrill3 = itemName:New("kr-electric-mining-drill-mk3", "kr-electric-mining-drill-mk3")
 item.quarry       = itemName:New("kr-quarry-drill")
 
 -- military
@@ -328,5 +340,8 @@ item.ammonia       = itemName:New("kr-ammonia")
 item.methanol      = itemName:New("kr-biomethanol")
 item.hChloride     = itemName:New("kr-hydrogen-chloride")
 
+---@class ItemNames
 MomoLib.itemNames = item    
+
+---@class ItemName
 MomoLib.itemName = itemName

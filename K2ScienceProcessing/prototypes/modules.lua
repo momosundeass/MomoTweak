@@ -38,7 +38,7 @@ function MomoLib.ModulesTechRecipe()
         MomoLib.MakeResearchIngredient(item.purpleSci),
         MomoLib.MakeResearchIngredient(item.yellowSci),
         MomoLib.MakeResearchIngredient(item.matterSci),
-    }:EFFECTS():PRE{item.imersiteBeam.tech, item.ecu.tech}:ICON{MomoLib.SpaceExGraphics("technology/modules/productivity-3"), 128}:Extend()
+    }:EFFECTS():COUNT(1000):PRE{item.imersiteBeam.tech, item.ecu.tech}:ICON{MomoLib.SpaceExGraphics("technology/modules/productivity-3"), 128}:Extend()
     MomoLib.recipe.New({
         item.productivityModule3:I(3),
         item.speedModule3:I(2),
@@ -53,7 +53,7 @@ function MomoLib.ModulesTechRecipe()
         MomoLib.MakeResearchIngredient(item.yellowSci),
         MomoLib.MakeResearchIngredient(item.whiteSci),
         MomoLib.MakeResearchIngredient(item.matterSci),
-    }:EFFECTS():PRE{"yield-module-1", "pure-module-1"}:ICON{MomoLib.SpaceExGraphics("technology/modules/productivity-6"), 128}:Extend()
+    }:EFFECTS():COUNT(2500):PRE{"yield-module-1", "pure-module-1"}:ICON{MomoLib.SpaceExGraphics("technology/modules/productivity-6"), 128}:Extend()
     MomoLib.recipe.New({
         item.yieldModule1:I(4),
         item.pureModule1:I(1),
@@ -70,7 +70,7 @@ function MomoLib.ModulesTechRecipe()
         MomoLib.MakeResearchIngredient(item.purpleSci),
         MomoLib.MakeResearchIngredient(item.yellowSci),
         MomoLib.MakeResearchIngredient(item.whiteSci),
-    }:EFFECTS():PRE(item.copper2.tech):ICON{MomoLib.SpaceExGraphics("technology/modules/speed-3"), 128}:Extend()
+    }:EFFECTS():COUNT(1500):PRE(item.copper2.tech):ICON{MomoLib.SpaceExGraphics("technology/modules/speed-3"), 128}:Extend()
     MomoLib.recipe.New({
         item.speedModule3:I(3),
         item.efficiencyModule3:I(5),
@@ -87,7 +87,7 @@ function MomoLib.ModulesTechRecipe()
         MomoLib.MakeResearchIngredient(item.yellowSci),
         MomoLib.MakeResearchIngredient(item.whiteSci),
         MomoLib.MakeResearchIngredient(item.matterSci),
-    }:EFFECTS():PRE{"yield-module-1", "pure-module-1", item.beacon.tech, item.eqBattery3.tech}:ICON{MomoLib.SpaceExGraphics("technology/wide-beacon-2"), 128}:Extend()
+    }:EFFECTS():COUNT(3500):PRE{"yield-module-1", "pure-module-1", item.beacon.tech, item.eqBattery3.tech}:ICON{MomoLib.SpaceExGraphics("technology/wide-beacon-2"), 128}:Extend()
     MomoLib.recipe.New({
         item.beacon:I(4),
         item.matterStabilizer:I(4),
@@ -147,11 +147,15 @@ function MomoLib.UpdateModulesEffect()
     MomoLib.SetEffect(item.efficiencyModule.n,  "consumption", -0.80)
     MomoLib.SetEffect(item.efficiencyModule2.n, "consumption", -1.60)
     MomoLib.SetEffect(item.efficiencyModule3.n, "consumption", -2.80)
-
-    MomoLib.SetEffect(item.qualityModule.n,  "quality", 0.02)
-    MomoLib.SetEffect(item.qualityModule2.n, "quality", 0.05)
-    MomoLib.SetEffect(item.qualityModule3.n, "quality", 0.08)
-
+    if settings.startup["momo-super-quality"].value then
+        MomoLib.SetEffect(item.qualityModule.n,  "quality", 0.05)
+        MomoLib.SetEffect(item.qualityModule2.n, "quality", 0.10)
+        MomoLib.SetEffect(item.qualityModule3.n, "quality", 0.16)
+    else
+        MomoLib.SetEffect(item.qualityModule.n,  "quality", 0.02)
+        MomoLib.SetEffect(item.qualityModule2.n, "quality", 0.05)
+        MomoLib.SetEffect(item.qualityModule3.n, "quality", 0.08)
+    end
     MomoLib.GetPrototype("beacon", "beacon", function (p)
         p.allowed_module_categories = {"efficiency", "speed"}
     end)

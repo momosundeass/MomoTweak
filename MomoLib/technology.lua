@@ -1,6 +1,10 @@
+---@class Technology : Prototype
+---@field upgrade boolean
 local funcs = {}
 
 funcs.isNewTechnology = true
+
+---@return Technology
 function funcs:_New(tbl)
 	tbl = tbl or {}
 	setmetatable(tbl, self)
@@ -8,6 +12,7 @@ function funcs:_New(tbl)
 	return tbl
 end
 
+---@return Technology
 function funcs:FromPrototype(tbl)
 	local obj = funcs:_New(tbl)
 	obj.isNewTechnology = false
@@ -50,7 +55,7 @@ function funcs.RemoveAllRecipe(recipeName)
 	end
 end
 
----@return table|nil prototype "technology prototype"
+---@return Technology|nil prototype "technology prototype"
 function funcs.FindUnlock(itemName)
 	for _, r in pairs(MomoLib.recipe.AllFromResult(itemName)) do
 		for _, t in pairs(data.raw.technology) do
@@ -91,14 +96,7 @@ end
 
 function funcs.SetRequired(name, requires, ...)
 	MomoLib.GetTechnology(name, function(proto)
-		requires = MomoLib.ToTable(requires)
-		local newReqs = {}
-		for _, t in pairs(requires) do
-			if MomoLib.GetTechnology(t, nil) then
-				table.insert(newReqs, t)
-			end
-		end
-		proto.prerequisites = newReqs
+		proto:PRE(requires)
 	end)
 end
 
@@ -110,6 +108,7 @@ function funcs.AddIngredient(name, ing)
 	MomoLib.GetTechnology(name, function(p) p:ADDINGREDIENT(ing) end)
 end
 
+---@return table<string, number>|nil
 function funcs.GetIngredient(tech, ingredient)
 	local ingredientName = ingredient
 	if type(ingredient) == "table" then
@@ -143,8 +142,9 @@ function funcs.RemoveIngredient(tech, ingredientName)
 	end
 end
 
----@param sciencePackOrder string[] of science pack name
+---@param sciencePackOrder string[] array of science pack name
 ---@param useFromTechIcon? boolean
+---@return Technology[] ordered array of technologies
 function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, additionLevel, useFromTechIcon)
 	if type(fromTech) == "string" then MomoLib.GetTechnology(fromTech, function(p) fromTech = p end) end
 	if type(recipes) ~= "table" then recipes = { recipes } end
@@ -208,6 +208,7 @@ function funcs.MakeProductivity(fromTech, recipes, sciencePackOrder, additionLev
 	return techs
 end
 
+---@param prototype table table of technology prototype
 ---@param mathExpression string see https://lua-api.factorio.com/latest/types/MathExpression.html
 function funcs.Infinity(prototype, mathExpression)
 	prototype.max_level = "infinite"
@@ -216,6 +217,9 @@ function funcs.Infinity(prototype, mathExpression)
 	prototype.unit.count = nil
 end
 
+---@param sourceName string
+---@param newName string
+---@return Technology newTechnology new technology prototype without extend
 function funcs.Clone(sourceName, newName)
 	local tech = data.raw.technology[sourceName]  
 	if not tech then error("No source technology with name "..sourceName) end
@@ -223,6 +227,7 @@ function funcs.Clone(sourceName, newName)
 	return newTech
 end
 
+---@return Technology
 function funcs:PRODUCTIVITY(recipes, amount)
 	if type(recipes) ~= "table" then recipes = { recipes } end
 	if amount == nil then amount = 0.10 end
@@ -230,20 +235,21 @@ function funcs:PRODUCTIVITY(recipes, amount)
 	for _, recipe in pairs(recipes) do
 		self.effects[#self.effects + 1] = { type = "change-recipe-productivity", use_icon_overlay_constant = true, recipe = recipe, change = amount }
 	end
-end
+return self end
 
+---@return Technology
 function funcs:TIME(timePerCount)
 	if self.unit == nil then self.unit = {} end
 	self.unit.time = timePerCount
-	return self
-end
+return self end
 
+---@return Technology
 function funcs:COUNT(count)
 	if self.unit == nil then self.unit = {} end
 	self.unit.count = count
-	return self
-end
+return self end
 
+---@return Technology
 function funcs:INGREDIENTS(ings)
 	if self.unit == nil then self.unit = {} end
 	if type(ings[1]) == "string" then 
@@ -254,24 +260,24 @@ function funcs:INGREDIENTS(ings)
 		ings = casted
 	end
 	self.unit.ingredients = ings
-	return self
-end
+return self end
 
+---@return Technology
 function funcs:ADDINGREDIENT(ing)
 	if self.unit == nil then self.unit = {} end
 	table.insert(self.unit.ingredients, ing)
-	return self
-end
+return self end
 
----@param effects table an array of Modifier see https://lua-api.factorio.com/latest/types/Modifier.html
+---@param effects? table an array of Modifier see https://lua-api.factorio.com/latest/types/Modifier.html
+---@return Technology
 function funcs:EFFECTS(effects)
 	if effects == nil then effects = {} end
 	if not MomoLib.IsArray(effects) and effects.type then effects = {effects} end 
 	self.effects = effects
-	return self
-end
+return self end
 
 ---@function only working with Modifier with "modifier" value
+---@return Technology
 function funcs:EFFECTAMOUNT(amount)
 	if not self.effects then return self end 
 	for _, e in pairs(self.effects) do
@@ -281,20 +287,27 @@ function funcs:EFFECTAMOUNT(amount)
 	end
 return self end
 
+---@return Technology
 function funcs:RECIPE(recipes)
 	if self.effects == nil then self.effects = {} end
 	for _, recipe in pairs(recipes) do
 		self.effects[#self.effects + 1] = { type = "unlock-recipe", recipe = recipe }
 	end
-	return self
-end
+return self end
 
-function funcs:PRE(pres)
-	if not MomoLib.IsArray(pres) then pres = {pres} end
-	self.prerequisites = pres
-	return self
-end
+---@return Technology
+function funcs:PRE(requires)
+	requires = MomoLib.ToTable(requires)
+	local newReqs = {}
+	for _, t in pairs(requires) do
+		if MomoLib.GetTechnology(t, nil) then
+			table.insert(newReqs, t)
+		end
+	end
+	self.prerequisites = newReqs
+return self end
 
+---@return Technology
 function funcs:ICON(icon)
 	MomoLib.icon.Assign(self, icon)
 return self end

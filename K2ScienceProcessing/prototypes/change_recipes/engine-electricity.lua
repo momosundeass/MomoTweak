@@ -1,4 +1,8 @@
-MomoLib.recipe.ReplaceIngredient(Item.engine, {Item.ironGear, Item.motor}, {Item.inserter:I(2), Item.motor:I(4)})
+MomoLib.recipe.SetIngredients(Item.engine, {
+    Item.ironPlate:I(2),
+    Item.core:I(1),
+    Item.motor:I(4)
+})
 MomoLib.recipe.ReplaceIngredient(Item.electricEngine, {Item.steelPlate, Item.greenChip, Item.electricMotor}, {
     Item.redChip:I(2), 
     Item.electricMotor:I(4), 
@@ -6,11 +10,13 @@ MomoLib.recipe.ReplaceIngredient(Item.electricEngine, {Item.steelPlate, Item.gre
     Item.chest:I()
 }):INTERMEDIATE()
 
+MomoLib.technology.RemoveIngredient(Item.airPurifier.tech, Item.blackSci.n)
 MomoLib.recipe.ReplaceIngredient(Item.airPurifier, {
     Item.steelBeam.n,
     Item.engine.n,
 }, {
-    Item.mineralWaterPump:I(2)
+    Item.mineralWaterPump:I(1),
+    Item.pump:I(2)
 }):TIME(8):CATEGORY(MomoLib.category.refinery):INTERMEDIATE()
 
 MomoLib.recipe.SetIngredients(Item.steamEngine.n, {
@@ -63,10 +69,6 @@ MomoLib.recipe.SetIngredients(Item.steamTurbine2, {
     Item.steelGear:I(100)
 }):TIME(60):INTERMEDIATE()
 MomoLib.recipe.SafeAddIngredients(Item.fusionCell, { Item.rocketFuel:I()})
-
--- miner
-MomoLib.technology.SetRequired(Item.miningDrill2.n, Item.electricEngine.tech)
-MomoLib.recipe.ReplaceIngredient(Item.miningDrill2, Item.steelGear, {Item.bulkInserter:I(8), Item.jawCrusher:I(4), Item.electricEngine:I(4)})
 
 local b2, b3
 MomoLib.GetTechnology(Item.eqBigBattery2.tech, function (p) b2 = p end)

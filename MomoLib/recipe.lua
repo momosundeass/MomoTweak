@@ -1,7 +1,14 @@
+---@class Recipe : Prototype
+---@field auto_recycle boolean
+---@field main_product string
+---@field ingredients table
+---@field results table
+---@field category string
 local funcs = {}
 if not MomoLib.recipes then MomoLib.recipes = {} end
 funcs.isNewRecipe = true
 
+---@return Recipe
 function funcs:_New(tbl)
 	tbl = tbl or {}
 	setmetatable(tbl, self)
@@ -9,12 +16,14 @@ function funcs:_New(tbl)
 	return tbl
 end
 
+---@return Recipe
 function funcs:FromPrototype(tbl)
 	local obj = funcs:_New(tbl)
 	obj.isNewRecipe = false
 	return obj
 end
 
+---@return Recipe
 function funcs.SafeAddIngredients(recipeName, ingredients)
 	if type(recipeName) == "table" and recipeName.name then recipeName = recipeName.name end
 	local prototype = {}
@@ -33,6 +42,7 @@ function funcs.SafeAddIngredients(recipeName, ingredients)
 	return prototype
 end
 
+---@return Recipe
 function funcs.ReplaceIngredient(recipeName, ingName, newIng)
 	if not MomoLib.IsArray(ingName) then ingName = { ingName } end
 	for _, i in pairs(ingName) do
@@ -53,6 +63,7 @@ function funcs.RemoveIngredient(recipeName, ingName, isPostProcessingMode)
 	funcs._RemoveFromRecipe("ingredients", recipeName, ingName, isPostProcessingMode)
 end
 
+---@private
 function funcs._RemoveFromRecipe(key, recipeName, ingName, isPostProcessingMode)
 	if type(recipeName) == "table" and recipeName.name then recipeName = recipeName.name end
 	MomoLib.GetRecipe(recipeName, function(proto)
@@ -71,6 +82,7 @@ function funcs._RemoveFromRecipe(key, recipeName, ingName, isPostProcessingMode)
 	end)
 end
 
+---@return Recipe
 function funcs.SetIngredients(recipeName, ingredients)
 	if type(recipeName) == "table" and recipeName.name then recipeName = recipeName.name end
 	local prototype = {}
@@ -87,6 +99,7 @@ function funcs.ReplaceProduct(recipeName, productNameToReplace, product)
 	funcs.AddProduct(recipeName, product)
 end
 
+---@return Recipe
 function funcs.SetProducts(recipeName, products, overrideMainProduct)
 	if type(recipeName) == "table" and recipeName.name then recipeName = recipeName.name end
 	local prototype
@@ -128,21 +141,6 @@ end
 
 function funcs.RemoveResult(recipeName, resultName, isPostProcessingMode)
 	funcs._RemoveFromRecipe("results", recipeName, resultName, isPostProcessingMode)
-	-- if type(recipeName) == "table" and recipeName.name then recipeName = recipeName.name end
-	-- MomoLib.GetRecipe(recipeName, function(proto)
-	-- 	if not isPostProcessingMode then funcs._AddToRecipes(recipeName) end
-	-- 	local normals = {}
-	-- 	MomoLib.Foreach(proto.results, function(res)
-	-- 		normals[#normals + 1] = funcs.NormalizedIngredient(res)
-	-- 	end)
-
-	-- 	for i, res in pairs(normals) do
-	-- 		if res.name == resultName then
-	-- 			table.remove(proto.results, i)
-	-- 			return
-	-- 		end
-	-- 	end
-	-- end)
 end
 
 function funcs._AddIngredientsIfExist(prototype, ingredient)
@@ -199,7 +197,7 @@ function funcs.SetTime(recipe, _time)
 	end)
 end
 
----@param categories string|table [1] can be false to skip setting main category 
+---@param categories (string|string[]) [1] can be false to skip setting main category 
 function funcs.SetCategory(recipe, categories)
 	local prototype
 	if type(recipe) == "string" or (type(recipe) == "table" and recipe.type ~= "recipe") then 
@@ -208,16 +206,19 @@ function funcs.SetCategory(recipe, categories)
 		prototype = recipe
 	end
 
+---@diagnostic disable-next-line: assign-type-mismatch
 	if not MomoLib.IsArray(categories) then categories = { categories } end
 	if (categories[1] ~= nil and categories[1] ~= false) then
 		prototype.category = categories[1]
 	end
 	if #categories > 1 then
+---@diagnostic disable-next-line: param-type-mismatch
 		table.remove(categories, 1)
 		prototype.additional_categories = categories
 	end
 end
 
+---@return Recipe
 function funcs.New(ingredients, results, name)
 	local recipeIngredients = (MomoLib.IsArray(ingredients) and ingredients or { ingredients })
 	local recipeResults = results
@@ -310,6 +311,7 @@ function funcs.DeExtend(name)
 	end
 end
 
+---@private
 function funcs._AddToRecipes(name)
 	if not MomoLib.recipes[name] then
 		MomoLib.recipes[name] = true
@@ -340,11 +342,13 @@ function funcs:Extend()
 	data:extend { self }
 end
 
+---@return Recipe
 function funcs:CATEGORY(category)
 	funcs.SetCategory(self, category)
 	return self
 end
 
+---@return Recipe
 function funcs:ADDCATEGORY(categories)
 	if self.additional_categories == nil then self.additional_categories = {} end
 	if type(categories) ~= "table" then categories = { categories } end
@@ -354,11 +358,13 @@ function funcs:ADDCATEGORY(categories)
 	return self
 end
 
+---@return Recipe
 function funcs:TIME(energy_required)
 	self.energy_required = energy_required
 	return self
 end
 
+---@return Recipe
 function funcs:ICON(icon)
 	if MomoLib.IsArray(icon) and #icon == 2 and type(icon[2]) ~= "number" then
 		self.icons = MomoLib.icon.MakeLayeredItemIcon(icon[1], icon[2])
@@ -372,6 +378,7 @@ function funcs:ICON(icon)
 	return self
 end
 
+---@return Recipe
 function funcs:SUBGROUP(subgroup, order)
 	self.subgroup = subgroup
 	if order ~= nil then
@@ -382,7 +389,9 @@ function funcs:SUBGROUP(subgroup, order)
 	return self
 end
 
-function funcs:UNLOCK(technologies)
+---@param updateTechPrereqs? boolean -- TODO: implement this
+---@return Recipe
+function funcs:UNLOCK(technologies, updateTechPrereqs)
 	if type(technologies) == "string" then
 		MomoLib.technology.AddRecipe(technologies, self.name)
 		return self
@@ -397,30 +406,35 @@ function funcs:UNLOCK(technologies)
 	return self
 end
 
+---@return Recipe
 function funcs:PRODUCTIVITY(isAllow)
 	if isAllow == nil then isAllow = true end
 	self.allow_productivity = isAllow
 return self end
 
+---@return Recipe
 function funcs:INTERMEDIATE()
 	self:PRODUCTIVITY(true)
 	self.allow_decomposition = true
 	self.allow_as_intermediate = true
 	self.allow_intermediates = true
-	return self end
+return self end
 
+---@return Recipe
 function funcs:SPEED(isAllow)
 	if isAllow == nil then isAllow = true end
 	self.allow_speed = isAllow
 return self end
 
+---@return Recipe
 function funcs:CONSUMPTION(isAllow)
 	if isAllow == nil then isAllow = true end
 	self.allow_consumption = isAllow
 return self end
 
 ---@param tbl table ingredients
----@param additive boolean is additive to ingredient
+---@param additive? boolean is additive to ingredient
+---@return Recipe
 function funcs:INGREDIENTS(tbl, additive)
 	additive = additive or false 
 	if additive then
@@ -430,20 +444,27 @@ function funcs:INGREDIENTS(tbl, additive)
 	end
 return self end
 
+---@return Recipe
 function funcs:AMOUNT(amount)
 	self.SetProductAmount(self.name, amount)
-	return self
-end
+return self end
 
+---@return Recipe
 function funcs:ADDPRODUCT(products)
 	funcs.AddProduct(self.name, products)
-	return self
-end
+return self end
 
+---@return Recipe
+function funcs:HIDDEN(player)
+	self.hide_from_player_crafting = player or true 
+return self end
+
+---@return Recipe
 function funcs:NORECYCLE()
 	funcs.NoRecycle(self)
 return self end
 
+---@return Recipe
 function funcs:RECYCLEABLE()
 	self.auto_recycle = true
 return self end

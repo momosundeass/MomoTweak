@@ -8,10 +8,10 @@ MomoLib.recipe.New({
     Item.constant:I(2),
     Item.repair:I(1),
 }, {
-    Item.stone:I(2),
+    Item.stone:I(1),
     Item.ironPlate:I(3),
     Item.copperPlate:I(3)
-}, "constant-recycle"):UNLOCK("circuit-network"):SUBGROUP(subgroup):ICON(MomoLib.icon.RecycleIcons(Item.constant:Prototype())):Extend()
+}, "constant-recycle"):TIME(6):UNLOCK("circuit-network"):SUBGROUP(subgroup):ICON(MomoLib.icon.RecycleIcons(Item.constant:Prototype())):Extend()
 
 MomoLib.technology.AddRequired("advanced-circuit", "circuit-network")
 MomoLib.item.NoRecycle(Item.powerSwitch)
@@ -22,7 +22,7 @@ MomoLib.recipe.New({
 }, {
     Item.constant:I(),
     Item.inserterPart:I(1, 0.6),
-}, "switch-recycle"):UNLOCK("circuit-network"):SUBGROUP(subgroup):ICON(MomoLib.icon.RecycleIcons(Item.powerSwitch:Prototype())):Extend()
+}, "switch-recycle"):TIME(24):UNLOCK("circuit-network"):SUBGROUP(subgroup):ICON(MomoLib.icon.RecycleIcons(Item.powerSwitch:Prototype())):Extend()
 MomoLib.item.NoRecycle(Item.speaker)
 MomoLib.recipe.New({
     Item.speaker:I(5),
@@ -32,7 +32,7 @@ MomoLib.recipe.New({
 }, {
     Item.powerSwitch:I(),
     Item.inserterPart:I(2, 0.6)
-}, "speaker-recycle"):UNLOCK{Item.yellowSci.n, Item.efficiencyModule3.n, Item.speedModule3.n}:SUBGROUP(subgroup):CATEGORY(MomoLib.category.chemicalOnly)
+}, "speaker-recycle"):TIME(60):UNLOCK{Item.yellowSci.n, Item.efficiencyModule3.n, Item.speedModule3.n}:SUBGROUP(subgroup):CATEGORY(MomoLib.category.chemicalOnly)
 :ICON(MomoLib.icon.RecycleIcons(Item.speaker:Prototype())):Extend()
 
 MomoLib.recipe.New({
@@ -49,7 +49,7 @@ MomoLib.recipe.New({
     Item.sulfuricAcid:F(50),
     Item.water:F(100)
 }, {
-    Item.redSci:I(5)
+    Item.redSci:I(3)
 }, "green-sci-recycle"):CATEGORY(cat.refinery):UNLOCK(Item.blueSci.n):TIME(12):SUBGROUP(re, "auto")
 :ICON(MomoLib.icon.RecycleIcons(MomoLib.K2Card("logistic-tech-card"))):Extend()
 

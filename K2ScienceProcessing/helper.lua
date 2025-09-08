@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global, inject-field, need-check-nil, undefined-field
 
 function MomoLib.K2Card(icon) return "__Krastorio2Assets__/icons/cards/" .. icon .. ".png" end
 function MomoLib.K2ItemIcon(icon) return "__Krastorio2Assets__/icons/items/" .. icon .. ".png" end

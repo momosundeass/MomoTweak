@@ -1,7 +1,7 @@
 local item = MomoLib.itemNames
 
-require("prototypes.mech")
-require("prototypes.quality")
+require("prototypes.update.mech")
+require("prototypes.update.quality")
 
 if mods["bobinserters"] or mods["Smart_Inserters"] then 
     MomoLib.item.DisableRecipe("long-handed-inserter")
@@ -24,7 +24,10 @@ MomoLib.recipe.SetCategory(item.steelPipeGround, "pressing")
 -- entities update
 MomoLib.UpdateUndergroundBeltNextUpgrade()
 MomoLib.MomoProcessing.Update()
-require("prototypes.chemical")
+
+
+--chemical
+MomoLib.ChemicalUpdate()
 
 
 -- productivity and mining drain rate

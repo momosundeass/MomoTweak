@@ -10,6 +10,20 @@ MomoLib.recipe.ReplaceIngredient(Item.crusher, {Item.cable, Item.core}, {Item.be
 
 -- Miner
 MomoLib.recipe.ReplaceIngredient(Item.miningDrill, Item.electricMotor, Item.inserter:I(2))
+MomoLib.machine.ModuleSlot(Item.miningDrill.n, 3)
+
+MomoLib.technology.SetRequired(Item.miningDrill2.tech, {Item.atmospheric.tech})
+MomoLib.recipe.SetIngredients(Item.miningDrill2, {
+    Item.miningDrill:I(2),
+    Item.fastInserter:I(16), 
+    Item.engine:I(12),
+    Item.jawCrusher:I(10), 
+    Item.atmospheric:I()
+}):AMOUNT(2)
+MomoLib.machine.ModuleSlot(Item.miningDrill2.n, 4)
+
+MomoLib.machine.ModuleSlot(Item.miningDrill3.n, 6, MomoLib.entity.IconPositioning(defines.inventory.mining_drill_modules, 3))
+
 
 MomoLib.recipe.ReplaceIngredient(Item.lamp, Item.ironPlate, Item.ironStick:I(2)):INTERMEDIATE()
 
@@ -52,7 +66,7 @@ MomoLib.recipe.SetIngredients(Item.assembly2, {
 MomoLib.technology.SetRequired("automation-2", {"fast-inserter", Item.greenSci.n})
 MomoLib.recipe.SetIngredients(Item.flareStack, {
     Item.boiler:I(2),
-    Item.engine:I(2),
+    Item.engine:I(1),
     Item.steelBeam:I(2),
     Item.greenChip:I(5)
 }):TIME(10):INTERMEDIATE()
@@ -60,10 +74,10 @@ MomoLib.recipe.SetIngredients(Item.flareStack, {
 MomoLib.technology.SetRequired("kr-silicon-processing", "kr-fluid-excess-handling")
 MomoLib.recipe.SetIngredients(Item.filtration, {
     Item.flareStack:I(2),
-    Item.steamEngine:I(2),
+    Item.steamEngine:I(1),
     Item.storageTank:I(2),
     Item.lamp:I(8),
-}):ADDPRODUCT(Item.windmill:I())
+}):ADDPRODUCT(Item.windmill:I(2))
 MomoLib.technology.SetRequired(Item.atmospheric.tech, {"kr-mineral-water-gathering", Item.flareStack.tech, Item.blueSci.n, Item.strongBox.tech})
 MomoLib.recipe.SetIngredients(Item.atmospheric, {
     Item.filtration:I(1),
@@ -89,17 +103,18 @@ MomoLib.recipe.SetIngredients(Item.oilPump, {
 
 MomoLib.recipe.SetIngredients(Item.electrolyser, {
     Item.redChip:I(10),
-    Item.chemicalPlant:I(4),
+    Item.chemicalPlant:I(2),
     Item.atmospheric:I(),
     Item.electricMotor:I(16),
-    Item.plastic:I(25),
+    Item.plastic:I(40),
 }):TIME(20):ADDPRODUCT(Item.windmill:I(3))
 
+MomoLib.technology.RemoveIngredient(Item.biolab.tech, Item.blackSci.n)
 MomoLib.recipe.SetIngredients(Item.biolab, {
     Item.greenHouse:I(),
     Item.lab:I(4),
     Item.lamp:I(8),
-    Item.refinery:I(2),
+    Item.refinery:I(),
     Item.concrete:I(100)
 }):ADDPRODUCT(Item.windmill:I())
 MomoLib.recipe.SetIngredients(Item.fuelRef, {
@@ -128,15 +143,16 @@ MomoLib.recipe.SetIngredients(Item.radar, {
     MomoLib.MakeIngredient("kr-sentinel", 2),
 }):CATEGORY("crafting-with-fluid"):INTERMEDIATE()
 
-MomoLib.technology.SetRequired(Item.lab2.n, {Item.blueChip.n})
+MomoLib.technology.SetRequired(Item.lab2.n, {Item.blueChip.n, Item.biolab.tech})
 MomoLib.recipe.SetIngredients(Item.lab2, {
     Item.blueChip:I(14),
     Item.fastSplitter:I(6),
-    Item.lab:I(3),
+    Item.eqSolar:I(20),
     Item.biolab:I(),
     Item.assembly2:I(3)
-}):AMOUNT(3):INTERMEDIATE():ADDPRODUCT(Item.windmill:I(3))
+}):AMOUNT(2):ADDPRODUCT(Item.windmill:I(3)):INTERMEDIATE()
 
+MomoLib.technology.AddRequired(Item.gasPower.tech, Item.steelPump.tech)
 MomoLib.recipe.SetIngredients(Item.gasPower, {
     Item.steamEngine:I(2),
     Item.refinery:I(1),

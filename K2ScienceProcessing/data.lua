@@ -1,15 +1,19 @@
+---@diagnostic disable-next-line: different-requires
 require("MomoLib.data-init")
 MomoLib.ModName = "K2ScienceProcessing"
 require("helper")
 require("item-name")
 MomoLib.recipe.AlwaysProductivity = true
-require("prototypes.category")
-require("prototypes.subgroup")
-require("prototypes.item-helper")
-require("prototypes.items")
-require("prototypes.advanced-ore")
+require("prototypes.data.category")
+require("prototypes.data.subgroup")
+require("prototypes.data.item-helper")
+require("prototypes.data.items")
+require("prototypes.data.advanced-ore")
 require("prototypes.entities.machines")
+require("prototypes.entities.big-mining-drill")
 require("prototypes.entities.underground-belt")
+require("prototypes.casting")
+require("prototypes.chemical")
 require("prototypes.modules")
 MomoLib.WideBeacon()
 MomoLib.NewModules()
@@ -30,10 +34,14 @@ require("prototypes.recipes.science-2")
 
 require("prototypes.recipes.machine")
 require("prototypes.recipes.recycle")
-require("prototypes.infinite-technologies")
-require("prototypes.productivity-technologies")
+require("prototypes.data.infinite-technologies")
+require("prototypes.data.productivity-technologies")
 require("prototypes.stack-inserter")
 MomoLib.StackBeltData()
 require("prototypes.entities.manufacturer")
 MomoLib.ManufacturerData()
+
+MomoLib.CastingData()
+MomoLib.ChemicalData()
+
 Item = tempItem

@@ -7,25 +7,26 @@ end
 local function OpenNearbyPowerPole(player)
 	player.opened = nil
 	
-	local playerPos = player.position
+	local playerPos = player.render_position
 	local reach = player.reach_distance
-	
+	local surface = player.surface
+
 	local minDis = reach
-	local nearest = nil
+	local pole = nil
 	
-	for _, entity in ipairs(player.surface.find_entities_filtered{position = player.position, radius = reach, type = "electric-pole", force = player.force}) do
+	for _, entity in ipairs(surface.find_entities_filtered{position = player.position, radius = reach, type = "electric-pole", force = player.force}) do
 		local dis = GetDistance(playerPos, entity.position)
 		if (dis < minDis) then
 			minDis = dis
-			nearest = entity
+			pole = entity
 		end
 	end
 	
-	if (nearest) then
-		player.opened = nearest
+	if (pole) then
+		player.opened = pole
 		player.create_local_flying_text{
 		  text = {"eni.opening"},
-		  position = nearest.position,
+		  position = pole.position,
 		}
 	else
 		player.create_local_flying_text{

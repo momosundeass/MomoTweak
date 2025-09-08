@@ -54,11 +54,8 @@ function MomoLib.MakeAltUndergroundGraphic(prototype)
     if (prototype.structure.frozen_patch_out) then MomoLib.ApplyAltGraphics(prototype.structure.frozen_patch_out) end
 end
 
-
+---@param sprite4Way table "https://lua-api.factorio.com/latest/types/Sprite4Way.html"
 function MomoLib.ApplyAltGraphics(sprite4Way)
-    --[[
-        @param sprite4Way "https://lua-api.factorio.com/latest/types/Sprite4Way.html"
-    ]]
     local gray = 0.01
     local color = {r =gray, g=gray, b=gray, a=0.01}
     local brown = {r=115/255, g=83/255, b=13/255, a=1}

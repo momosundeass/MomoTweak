@@ -7,6 +7,20 @@
 --     | Alternate pocket 4th-dimension searching
 3 new advanced ore (holmium space-age) Done:2
 
+oil 
+-- heavy oil residue
+-- bottom resid oil
+-- naphtha
+-- kerosene 
+-- netural gas
+-- reformate
+
+
+---| heavy oil residue = fuel + coke
+---| naphtha + water = light oil  
+---| kerosene + steam = naphtha + petro gas
+---| crude oil + steam = kerosene + netural gas
+
 
 
 Quantum computer and research server loop. Use percentage result and ingredients loop to create a pair of buildings.

@@ -226,7 +226,7 @@ local manufacturer = MomoLib.machine.CreateEntity("assembling-machine", "assembl
     }
 })
 MomoLib.itemNames.manufacturer = MomoLib.itemName:New(manufacturer.item)
-MomoLib.machine.CopySounds("k11-advanced-centrifuge", manufacturer.machine.name)
+MomoLib.machine.CopySounds(MomoLib.itemNames.crusher.n, manufacturer.machine.name)
 MomoLib.machine.Power(manufacturer.machine.name, "1MW")
 MomoLib.machine.Speed(manufacturer.machine.name, 2)
 MomoLib.machine.ProductivityAdded(manufacturer.machine.name, 0.25)

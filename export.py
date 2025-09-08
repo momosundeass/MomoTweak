@@ -1,6 +1,7 @@
 import shutil
 import os
 import json
+import sys
 import time
 import subprocess
 from pathlib import Path
@@ -66,7 +67,6 @@ def ExportModDirectory(mod):
   print("\n")
   return mod.Name + "_" + version
 
-        
 def GetVersion(mod):
   json_data = open(GitPath + mod.Directory + INFO).read()
   info = json.loads(json_data)
@@ -93,7 +93,7 @@ def RunFactorio():
   for factorio in FactorioPath :
     if os.path.isfile(factorio) :
       os.startfile(factorio)
-      subprocess.popen([factorio, "--start-server-load-latest"])
+      # subprocess.popen([factorio, "--start-server-load-latest"])
       print("Run Factorio")
       return
   print("No Factorio in path.")
@@ -132,8 +132,8 @@ InitLib("\\MomoIRTweak\\function", "function")
 # ExoticIndTweak = MOD("MomoExoticIndTweak", "\\MomoExoticIndTweak", libPath=LibPath)
 # ExportModDirectory(ExoticIndTweak)
 
-# ENI = MOD("ElectricNetworkInfoHotkey", "\\ElectricNetworkInfoHotkey")
-# ExportModDirectory(ENI)
+ENI = MOD("ElectricNetworkInfoHotkey", "\\ElectricNetworkInfoHotkey")
+ExportModDirectory(ENI)
 
 # AESoftcore = MOD("PyAESoftcoreLogistics", "\\PyAESoftcoreLogistics", libPath=LibPath)
 # ExportModDirectory(AESoftcore)
@@ -149,6 +149,12 @@ ExportModDirectory(MOD("K2ScienceProcessing", "\\K2ScienceProcessing", libPath=L
 # NoMoreUseless = MOD("248kExpensiveMachine", "\\248kExpensiveMachine", libPath=LibPath)
 # ExportModDirectory(NoMoreUseless)
 
+a = ""
+if __name__ == "__main__":
+  if len(sys.argv) > 1:
+    a = sys.argv[1]
+  
+
 print("\nExport completed.")
 time.sleep(.500)
 if not (FindFactorioInSystem()):
@@ -156,9 +162,10 @@ if not (FindFactorioInSystem()):
   print("")
 else:
   print("\nFactorio already running please close") 
-  subprocess.call("TASKKILL /F /IM " + FACTORIO, shell=True)
+  if a != "-norestart":
+    subprocess.call("TASKKILL /F /IM " + FACTORIO, shell=True)
   time.sleep(1.000) 
   RunFactorio()
     
-time.sleep(5.000)
+# time.sleep(5.000)
 

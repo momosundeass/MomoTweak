@@ -16,14 +16,6 @@ MomoLib.recipe.SetIngredients(Item.radar2, {
     Item.strongBox:I(1),
     Item.electricEngine:I(10)
 })
-MomoLib.technology.SetRequired(Item.aiCore.tech, {Item.emPlant.tech, Item.speedModule3.tech})
-MomoLib.recipe.SetIngredients(Item.aiCore, {
-    Item.speedModule3:I(3),
-    Item.imersiteCrystal:I(3),
-    Item.researchServer:I(),
-    Item.nitricAcid:I(60),
-    Item.ionizedMatter:I(4000)
-}):ADDPRODUCT(Item.researchServer:I(1, 0.64)):CATEGORY(MomoLib.category.electromagnetic)
 MomoLib.recipe.New({
     Item.ionMatter:I(40),
     Item.carbon:I(2),

@@ -28,11 +28,11 @@ function MomoLib.StackBeltData()
 end 
 
 function MomoLib.StackBeltDataFinal()
-    MomoLib.technology.SetRequired(Item.stackInserter.tech, {"logistic-system", })
+    MomoLib.technology.SetRequired(Item.stackInserter.tech, {"logistic-system", Item.eqSolar2.tech})
     MomoLib.recipe.SetIngredients(Item.stackInserter, {
         Item.bulkInserter:I(),
         Item.blueChip:I(),
-        Item.advancedSplitter:I(),
+        Item.eqSolar2:I(2),
         Item.robotFrame:I(),
         Item.batteryLithium:I(6)
     })
