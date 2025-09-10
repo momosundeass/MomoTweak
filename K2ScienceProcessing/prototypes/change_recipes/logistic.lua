@@ -42,8 +42,8 @@ MomoLib.recipe.SetIngredients(Item.robotFrame, {
 
 
 -- bots
-MomoLib.technology.AddRequired(Item.consBot.tech,{Item.radar.tech, Item.strongBox.tech, Item.eqBattery.tech})
-MomoLib.recipe.ReplaceIngredient(Item.consBot, Item.greenChip,{
+MomoLib.technology.SetRequired(Item.consBot.tech, {Item.radar.tech, Item.strongBox.tech, Item.eqBattery.tech})
+MomoLib.recipe.ReplaceIngredient(Item.consBot, Item.greenChip, {
     Item.eqBigBattery:I(),
     Item.fastInserter:I(4)
 })

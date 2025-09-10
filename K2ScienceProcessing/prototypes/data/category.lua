@@ -1,4 +1,5 @@
 MomoLib.category = {}
+MomoLib.category.handcraft = "handcraft-only"
 MomoLib.category.crusher = "kr-crushing"
 MomoLib.category.fluidCrafting = "crafting-with-fluid"
 MomoLib.category.chemical = "chemistry"
@@ -31,6 +32,7 @@ MomoLib.category.manufacture = "manufacture"
 MomoLib.category.photometric = "photometric"
 MomoLib.category.photometricCrafting = "photometric-crafting"
 data:extend{
+    {type="recipe-category", name=MomoLib.category.handcraft},
     {type="recipe-category", name=MomoLib.category.chemicalOnly},
     {type="recipe-category", name=MomoLib.category.advChemical},
     {type="recipe-category", name=MomoLib.category.centrifugeOnly},
@@ -44,6 +46,8 @@ data:extend{
     {type="recipe-category", name=MomoLib.category.photometric},
     {type="recipe-category", name=MomoLib.category.photometricCrafting},
 }
+
+table.insert(data.raw.character.character.crafting_categories, MomoLib.category.handcraft)
 MomoLib.machine.AddCategory(MomoLib.itemNames.chemicalPlant.n, MomoLib.category.chemicalOnly)
 MomoLib.machine.AddCategory(MomoLib.itemNames.researchServer.n, MomoLib.category.researchServer)
 MomoLib.machine.AddCategory(MomoLib.itemNames.quantumComputer.n, MomoLib.category.quantumComputer)

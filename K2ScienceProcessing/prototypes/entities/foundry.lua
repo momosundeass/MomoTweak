@@ -26,6 +26,9 @@ MomoLib.GetRecipe(Item.fastInserter.n,           function(p) p:ADDCATEGORY{"meta
 MomoLib.GetRecipe(Item.assembly.n,               function(p) p:ADDCATEGORY{"metallurgy"} end)
 MomoLib.GetRecipe(Item.assembly2.n,              function(p) p:ADDCATEGORY{"metallurgy"} end)
 MomoLib.GetRecipe(Item.assembly3.n,              function(p) p:ADDCATEGORY{"metallurgy"} end)
+MomoLib.GetRecipe(Item.oilPump.n,                function(p) p:ADDCATEGORY{"metallurgy"} end)
+MomoLib.GetRecipe(Item.mineralWaterPump.n,       function(p) p:ADDCATEGORY{"metallurgy"} end)
+MomoLib.GetRecipe(Item.flareStack.n,             function(p) p:ADDCATEGORY{"metallurgy"} end)
 
 MomoLib.GetRecipe(Item.advancedBelt.n,              function(p) p:CATEGORY("metallurgy") end)
 MomoLib.GetRecipe(Item.advancedUndergroundBelt.n,   function(p) p:CATEGORY("metallurgy") end)

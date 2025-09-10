@@ -18,7 +18,7 @@ MomoLib.item.NoRecycle(Item.powerSwitch)
 MomoLib.recipe.New({
     Item.powerSwitch:I(),
     Item.inserter:I(),
-    Item.plastic:I(4)
+    Item.plastic:I(2)
 }, {
     Item.constant:I(),
     Item.inserterPart:I(1, 0.6),

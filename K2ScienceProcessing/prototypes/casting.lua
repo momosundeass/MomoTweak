@@ -52,7 +52,7 @@ function MomoLib.CastingData()
 
     MomoLib.recipe.New({
         Item.steelPlate:I(2),
-        Item.chlorine:I(10),
+        Item.chlorine:I(5),
     }, Item.steelPipe:I(4), "chlorine-steel-pipe"):TIME(1)
     :PRODUCTIVITY():UNLOCK(Item.assembly4.tech):CATEGORY(Item.assembly4.category):SUBGROUP(Item.assembly4.category, "auto")
     :HIDDEN():ICON{Item.chlorine.n, Item.steelPipe.n}:Extend()

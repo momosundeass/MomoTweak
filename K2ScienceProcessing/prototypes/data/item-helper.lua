@@ -28,6 +28,7 @@ function MomoLib.NewScience(name, icon, stackSize, subgroup, recycleable)
     return item, prototype
 end  
 
+---@param isSuperHot? boolean
 function MomoLib.NewFluid(name, icon, color, isSuperHot)
     local prototype = MomoLib.item.Create(name, icon, 100, "fluid", color)
     if isSuperHot then prototype:SUPERHOT() end

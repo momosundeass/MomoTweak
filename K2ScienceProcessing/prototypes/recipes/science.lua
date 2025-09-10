@@ -73,8 +73,8 @@ MomoLib.recipe.New({
 -- blue
 MomoLib.recipe.New({
     Item.blueSci1:I(24),
-    Item.flareStack:I(1),
-    Item.oilPump:I(2),
+    Item.engine:I(2),
+    Item.oilPump:I(4),
 },{
     Item.blueSci:I(9),
     Item.powerSwitch:I(4)

@@ -1,5 +1,5 @@
 MomoLib.recipe.ReplaceIngredient(Item.fuelProc.n, Item.ironPlate.n, Item.chest:I(2))
-MomoLib.recipe.ReplaceIngredient(Item.burnerAssembly.n, Item.ironPlate, Item.chest:I()):TIME(2)
+MomoLib.recipe.ReplaceIngredient(Item.burnerAssembly.n, {Item.ironPlate, Item.core:I()}, {Item.chest:I(), Item.core:I(1)}):TIME(2)
 MomoLib.recipe.ReplaceIngredient(Item.assembly.n, Item.ironGear.n, Item.inserter:I(6))
 MomoLib.recipe.ReplaceIngredient(Item.assembly.n, Item.electricMotor, Item.steamEngine:I()):AMOUNT(2):INTERMEDIATE()
 
@@ -89,8 +89,8 @@ MomoLib.recipe.SetIngredients(Item.atmospheric, {
 MomoLib.technology.SetRequired("kr-mineral-water-gathering", {"plastics", Item.flareStack.tech})
 MomoLib.recipe.SetIngredients(Item.mineralWaterPump, {
     Item.steelPipe:I(8),
-    Item.burnerMiner:I(2),
     Item.plastic:I(12),
+    Item.oilPump:I(),
     Item.flareStack:I(),
 }):AMOUNT(2):TIME(10):INTERMEDIATE():ADDPRODUCT(Item.windmill:I())
 
