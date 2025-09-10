@@ -16,6 +16,7 @@ function funcs.AfterRecipe(itemName)
 end
 
 ---@param key string
+---@return string
 function funcs.Auto(key)
     local order 
     if MomoLib.autoOrder[key] == nil then

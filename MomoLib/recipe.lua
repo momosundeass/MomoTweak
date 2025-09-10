@@ -219,12 +219,16 @@ function funcs.SetCategory(recipe, categories)
 end
 
 ---@return Recipe
+---@param name? string
+---@param results {name:string}[]|{name:string}
+---@param ingredients {name:string}[]
 function funcs.New(ingredients, results, name)
 	local recipeIngredients = (MomoLib.IsArray(ingredients) and ingredients or { ingredients })
 	local recipeResults = results
 	if not MomoLib.IsArray(results) then
 		recipeResults = { results }
 	end
+	if name ~= nil and type(name) ~= "string" then error("[recipe.New] name must be string : got "..type(name)) end
 	local recipeName = name or MomoLib.First(recipeResults).name
 	funcs._AddToRecipes(recipeName)
 	local recipe = MomoLib.recipe:_New {

@@ -58,6 +58,7 @@ MomoLib.recipe.New({
 }):CATEGORY(MomoLib.category.indFurnace):TIME(240):UNLOCK("caterium"):Extend()
 
 
+-- iron 2
 MomoLib.itemNames.iron2Raw = MomoLib.NewRawResource("iron-2-raw", {
     pictures = { 
         MomoLib.UnusedRenders("material-crystal-pyrite-1"),
@@ -79,3 +80,38 @@ MomoLib.recipe.New({
     Item.iron2Raw:I(),
     Item.hChloride:I(300),
 }, {Item.iron2:I(2), Item.chlorine:I(100)}):CATEGORY(MomoLib.category.chemical):TIME(60):UNLOCK(Item.imersiteBeam.tech):Extend()
+
+
+-- diamond
+MomoLib.itemNames.diamond = MomoLib.NewIntermediate("diamond", {
+    pictures = {
+        MomoLib.UnusedRenders("material-crystal-diamond-1"),
+    }
+}, 100)
+MomoLib.itemNames.oilResidue = MomoLib.NewFluid("heavy-oil-residue", {
+    pictures = {
+        MomoLib.UnusedRenders("fluid-droplet-orange-goo"),
+    }
+}, {r=192/255 ,g=82/255, b=41/255, a=1})
+MomoLib.itemNames.diamond.tech = "laser" 
+MomoLib.itemNames.oilResidue.tech = "laser"
+MomoLib.technology.SetRequired(MomoLib.itemNames.diamond.tech, {
+    Item.lightOil.tech
+})
+
+MomoLib.recipe.New({
+    Item.enrichedCoal:I(10),
+    Item.oilResidue:I(80),
+    Item.chlorine:I(5)
+}, {Item.diamond:I(2), Item.dirtyWater:I(100)}):TIME(160):UNLOCK(Item.diamond.tech)
+:CATEGORY(MomoLib.category.chemicalOnly):ADDCATEGORY(MomoLib.category.advancedCentrifugeOnly)
+:Extend()
+
+MomoLib.recipe.New({
+    Item.oil:I(40),
+    Item.heavyOil:I(80),
+}, {Item.oilResidue:I(80), Item.petroGas:I(30), Item.coal:I(5)}):TIME(40)
+:SUBGROUP("fluid-recipes", "auto")
+:UNLOCK(Item.diamond.tech):CATEGORY(MomoLib.category.refinery)
+:Extend()
+

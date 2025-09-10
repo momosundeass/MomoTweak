@@ -84,6 +84,29 @@ function MomoLib.ChangeGroup(targetGroup, newGroup, prefix)
 	end
 end
 
+---@param subgroup string|{name:string, [any]:any}
+---@param newGroup string
+---@param order? string
+function MomoLib.SetGroup(subgroup, newGroup, order)
+	local prototype
+	if type(subgroup) == "string" then
+		local name = tostring(subgroup)
+		prototype = data.raw["item-subgroup"][name]
+	else
+		prototype = subgroup
+	end
+	if prototype ~= nil then 
+		prototype.group = newGroup
+		if order == "auto" then
+			prototype.order = MomoLib.order.Auto(newGroup)
+		else
+			prototype.order = order or prototype.order
+		end
+	else
+		MoLog("[SetGroup] No subgroup with name " + tostring(subgroup))
+	end
+end
+
 ---@param size? integer
 ---@return {[1]:string, [2]:number, icon:string, icon_size:integer}|string icon 
 function MomoLib.Graphics(path, size) 

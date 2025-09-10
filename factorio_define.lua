@@ -8,6 +8,7 @@ settings.startup = {}
 mods = {}
 data = {}
 defines = {}
+defines.direction = {}
 util = {}
 
 default_circuit_wire_max_distance = {}

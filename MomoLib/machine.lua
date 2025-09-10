@@ -68,24 +68,23 @@ end
 ---@param production_type flow
 ---@param direction any
 ---| 'defines.direction' #defines direction
----@param picture? table
----@param cover? table 
+---@param aug? {picture:table, cover:table, drawOrder:(table|nil)}
 ---@return FluidBox
-function funcs.FluidBox(position, production_type, direction, picture, cover)
+function funcs.FluidBox(position, production_type, direction, aug)
     if direction == nil then direction = defines.direction.north end
-    if picture == nil then
-       picture = assembler2pipepictures()
-    end
-    if cover == nil then
-        cover = pipecoverspictures()
-    end
+    local picture = assembler2pipepictures()
+    if aug ~= nil and aug.picture ~= nil then picture = aug.picture end
+    local cover = pipecoverspictures()
+    if aug ~= nil and aug.cover ~= nil then cover = aug.cover end
+    local draw_order = { north = -1 }
+    if aug ~= nil and aug.drawOrder ~= nil then draw_order = aug.drawOrder end
     return funcs.fluidbox:New{
         production_type = production_type,
         pipe_picture = picture,
         pipe_covers = cover,
         volume = 100,
         pipe_connections = {{ flow_direction = production_type, direction = direction, position = position }},
-        secondary_draw_orders = { north = -1 }
+        secondary_draw_orders = draw_order
     }
 end
 ---@return FluidBox

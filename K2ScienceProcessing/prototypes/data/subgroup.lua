@@ -95,3 +95,15 @@ function MomoLib.UpdateMachineSubgroup()
         m.order = MomoLib.order.Auto(sg)
     end
 end
+
+MomoLib.SetGroup("steel-processing", "kr-smelting-crafting")
+MomoLib.SetGroup("coal-processing", "kr-smelting-crafting")
+MomoLib.SetGroup("stone-processing", "kr-smelting-crafting")
+MomoLib.SetGroup("ore-chunk", "kr-smelting-crafting")
+MomoLib.SetGroup("ore-clump", "kr-smelting-crafting")
+MomoLib.SetGroup("ore-dust", "kr-smelting-crafting")
+MomoLib.SetGroup("alternative-smelting", "kr-smelting-crafting")
+MomoLib.SetGroup("ore-transitions3", "kr-smelting-crafting")
+MomoLib.SetGroup("ore-transitions2", "kr-smelting-crafting")
+MomoLib.SetGroup("ore-transitions1", "kr-smelting-crafting")
+MomoLib.SetGroup("ore-transitions4", "kr-smelting-crafting")

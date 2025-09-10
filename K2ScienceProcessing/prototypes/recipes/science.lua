@@ -107,13 +107,14 @@ MomoLib.recipe.New({
     Item.explosive:I(2),
     Item.blueSci1:I(3),
     Item.lithium:I(6),
-    Item.fastBelt:I(2),
+    Item.diamond:I(),
     Item.u238:I(4),
     Item.ionMatter:F(40)
 },{
     Item.inconShape:I(2),
     Item.powerSwitch:I(4),
 }):CATEGORY(cat.researchCenter):UNLOCK(Item.purpleSci.n):TIME(4):Extend()
+MomoLib.technology.AddRequired(Item.purpleSci.n, Item.diamond.tech)
 
 MomoLib.recipe.New({
     Item.purpleSci1:I(),
