@@ -59,7 +59,7 @@ MomoLib.recipe.New({
 
 
 MomoLib.itemNames.iron2Raw = MomoLib.NewRawResource("iron-2-raw", {
-    pictures = {
+    pictures = { 
         MomoLib.UnusedRenders("material-crystal-pyrite-1"),
         MomoLib.UnusedRenders("material-crystal-pyrite-2"),
         MomoLib.UnusedRenders("material-crystal-pyrite-3"),

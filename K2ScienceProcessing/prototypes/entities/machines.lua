@@ -237,13 +237,6 @@ MomoLib.machine.FluidBoxes(manufacturer.machine, {
 manufacturer.machine.allowed_effects = MomoLib.EffectLimitation(false)
 
 
--- filtration
-MomoLib.machine.FluidBoxes(MomoLib.itemNames.filtration.n, {
-    MomoLib.machine.FluidBox({-3, 0}, "input", defines.direction.west, MomoLib.machine.PipeEmptyPictures()),
-    MomoLib.machine.FluidBox({3, 0}, "input", defines.direction.east, MomoLib.machine.PipeEmptyPictures()),
-}, true)
-
-
 -- photometric-lab
 shift = {0,-0.5}
 line_length = 8
