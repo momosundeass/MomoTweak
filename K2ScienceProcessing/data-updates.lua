@@ -22,6 +22,7 @@ MomoLib.recipe.SetCategory(item.steelPipeGround, "pressing")
 
 
 -- entities update
+require("prototypes.entities.machine-update")
 MomoLib.UpdateUndergroundBeltNextUpgrade()
 MomoLib.MomoProcessing.Update()
 

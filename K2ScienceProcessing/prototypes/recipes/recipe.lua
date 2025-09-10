@@ -20,7 +20,7 @@ MomoLib.recipe.New({
 }, {
     Item.plastic:I(3),
     Item.hydrogen:I(20)
-}, "pvc"):CATEGORY(MomoLib.category.cryogenicOrChemical):UNLOCK(Item.electrolyser)
+}, "pvc"):CATEGORY(MomoLib.category.cryogenicOrChemical):UNLOCK(Item.electrolyser.tech)
 :ICON{Item.hChloride.n, Item.plastic.n,}:Extend()
 MomoLib.GetRecipe(Item.plastic.n, function (p) p.category = MomoLib.category.cryogenicOrChemical end)
 
@@ -36,3 +36,12 @@ MomoLib.recipe.New({
     Item.steelPipe:I(2),
     Item.hdpeAlloy:I()
 }, {Item.rocketSection:I(), Item.barrel:I(2)}):TIME(45):UNLOCK(Item.rocketSilo.tech):Extend()
+
+-- consBot
+MomoLib.recipe.New({
+    Item.redChip:I(16),
+    Item.atmospheric:I(),
+    Item.fastInserter:I(4),
+    Item.eqBigBattery:I(4),
+}, Item.consBot:I(1), "expensive-construction-bot"):TIME(50):CATEGORY(MomoLib.category.handcraft):UNLOCK(Item.consBot.tech)
+:ICON(MomoLib.icon.MakeLayeredItemIcon("__base__/graphics/icons/signal/signal-hourglass.png", Item.consBot.n)):Extend()

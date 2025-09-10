@@ -27,7 +27,7 @@ MomoLib.vanillaSciences = {Item.redSci.n, Item.greenSci.n, Item.blueSci.n, Item.
 MomoLib.k2Sciences = {Item.purpleSci.n, Item.yellowSci.n, Item.whiteSci.n, Item.matterSci.n, Item.advSci.n, Item.singularitySci.n}
 
 MomoLib.MomoProcessing.Data()
-require("prototypes.recipes.recipes")
+require("prototypes.recipes.recipe")
 require("prototypes.recipes.Intermediate")
 require("prototypes.recipes.science")
 require("prototypes.recipes.science-2")
@@ -43,5 +43,4 @@ MomoLib.ManufacturerData()
 
 MomoLib.CastingData()
 MomoLib.ChemicalData()
-
 Item = tempItem

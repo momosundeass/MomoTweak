@@ -364,6 +364,7 @@ function funcs:TIME(energy_required)
 	return self
 end
 
+---@param icon string[]|{name:string}|{icon:string, icon_size:integer}[]
 ---@return Recipe
 function funcs:ICON(icon)
 	if MomoLib.IsArray(icon) and #icon == 2 and type(icon[2]) ~= "number" then

@@ -3,6 +3,7 @@
 ---@field name string
 ---@field order string
 ---@field subgroup string
+---@field group string
 ---@field enabled boolean
 ---@field hidden boolean
 ---@field hidden_in_factoriopedia boolean
