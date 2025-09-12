@@ -1,5 +1,7 @@
 ---@class Technology : Prototype
 ---@field upgrade boolean
+---@field prerequisites string[]|nil
+---@field effects table[]|nil
 local funcs = {}
 
 funcs.isNewTechnology = true
@@ -71,9 +73,12 @@ function funcs.FindUnlock(itemName)
 	return nil
 end
 
-function funcs.AddRequired(name, required)
+---@param requires string|string[]
+function funcs.AddRequired(name, requires, ...)
 	MomoLib.GetTechnology(name, function(prototype)
-		for _, req in pairs(type(required) == "table" and required or { required }) do
+		---@type string[]
+		local tbl = type(requires) == "table" and requires or { requires }
+		for _, req in pairs(tbl) do
 			if MomoLib.GetTechnology(req, nil) and not funcs.AlreadyRequired(prototype, req) then
 				table.insert(prototype.prerequisites, req)
 			end
@@ -97,6 +102,16 @@ end
 function funcs.SetRequired(name, requires, ...)
 	MomoLib.GetTechnology(name, function(proto)
 		proto:PRE(requires)
+	end)
+end
+
+---@param requires string|string[]
+function funcs.RemoveRequired(name, requires, ...)
+		MomoLib.GetTechnology(name, function(prototype)
+			if prototype.prerequisites == nil then return end
+			---@type string[]
+			local tbl = type(requires) == "table" and requires or { requires }
+			MomoLib.RemoveObj(prototype.prerequisites, tbl)
 	end)
 end
 

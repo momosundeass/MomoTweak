@@ -1,7 +1,5 @@
 
 
-MomoLib.technology.RemoveAllRecipe(Item.oxygen.n)
-MomoLib.technology.AddRecipe("coal-enriching", Item.oxygen.n)
 
 MomoLib.technology.AddRequired(Item.lubricant.n, "kr-mineral-water-gathering")
 MomoLib.recipe.SafeAddIngredients(Item.lubricant, Item.mineralWater:F(5))
@@ -20,3 +18,26 @@ Item.hdpeAlloy.tech = Item.lds.tech
 MomoLib.recipe.SafeAddIngredients(Item.hdpeAlloy, Item.lds:I(6))
 
 MomoLib.recipe.SetCategory("gravel-to-sand", MomoLib.category.crusher)
+
+
+-- ore processing
+MomoLib.recipe.SetIngredients("kr-iron-plate-from-enriched-iron", {
+    Item.ironEnriched:I(2),
+    Item.ironDust:I(5),
+}):AMOUNT(10)
+MomoLib.recipe.SetProductAmount("enriched-iron-processing", 20)
+MomoLib.recipe.SetIngredients("kr-copper-plate-from-enriched-copper", {
+    Item.copperEnriched:I(2),
+    Item.copperDust:I(5),
+}):AMOUNT(10)
+MomoLib.recipe.SetProductAmount("enriched-copper-processing", 20)
+MomoLib.recipe.SetIngredients("kr-rare-metals-from-enriched-rare-metals", {
+    Item.rareMetalEnriched:I(2),
+    Item.rareMetalDust:I(5),
+}):AMOUNT(10)
+MomoLib.recipe.SetProductAmount("enriched-rare-metals-processing", 20)
+
+MomoLib.recipe.SetIngredients("enriched-titanium-plate", {
+    Item.titaniumEnriched:I(4),
+    Item.titaniumDust:I(10)
+}):AMOUNT(20)

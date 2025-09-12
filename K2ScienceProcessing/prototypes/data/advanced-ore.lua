@@ -83,6 +83,13 @@ MomoLib.recipe.New({
 
 
 -- diamond
+MomoLib.itemNames.impureDiamond = MomoLib.NewRawResource("impure-diamond", {
+    pictures = {
+        MomoLib.UnusedRenders("pile-dust-salt-4"),
+        MomoLib.UnusedRenders("pile-dust-salt-5"),
+        MomoLib.UnusedRenders("pile-dust-salt-6"),
+    }
+}, 100)
 MomoLib.itemNames.diamond = MomoLib.NewIntermediate("diamond", {
     pictures = {
         MomoLib.UnusedRenders("material-crystal-diamond-1"),
@@ -93,6 +100,8 @@ MomoLib.itemNames.oilResidue = MomoLib.NewFluid("heavy-oil-residue", {
         MomoLib.UnusedRenders("fluid-droplet-orange-goo"),
     }
 }, {r=192/255 ,g=82/255, b=41/255, a=1})
+
+MomoLib.itemNames.impureDiamond.tech = "laser" 
 MomoLib.itemNames.diamond.tech = "laser" 
 MomoLib.itemNames.oilResidue.tech = "laser"
 MomoLib.technology.SetRequired(MomoLib.itemNames.diamond.tech, {
@@ -100,18 +109,21 @@ MomoLib.technology.SetRequired(MomoLib.itemNames.diamond.tech, {
 })
 
 MomoLib.recipe.New({
-    Item.enrichedCoal:I(10),
-    Item.oilResidue:I(80),
-    Item.chlorine:I(5)
-}, {Item.diamond:I(2), Item.dirtyWater:I(100)}):TIME(160):UNLOCK(Item.diamond.tech)
-:CATEGORY(MomoLib.category.chemicalOnly):ADDCATEGORY(MomoLib.category.advancedCentrifugeOnly)
+    Item.oil:I(40),
+    Item.heavyOil:I(80),
+}, {Item.oilResidue:I(80), Item.petroGas:I(30), Item.coal:I(3)}):TIME(40)
+:SUBGROUP("fluid-recipes", "auto")
+:UNLOCK(Item.diamond.tech):CATEGORY(MomoLib.category.refinery)
 :Extend()
 
 MomoLib.recipe.New({
-    Item.oil:I(40),
-    Item.heavyOil:I(80),
-}, {Item.oilResidue:I(80), Item.petroGas:I(30), Item.coal:I(5)}):TIME(40)
-:SUBGROUP("fluid-recipes", "auto")
-:UNLOCK(Item.diamond.tech):CATEGORY(MomoLib.category.refinery)
+    Item.impureDiamond:I(4),
+}, Item.diamond:I(2)):TIME(160):UNLOCK(Item.diamond.tech):CATEGORY(MomoLib.category.furnace):Extend()
+
+MomoLib.recipe.New({
+    Item.enrichedCoal:I(10),
+    Item.oilResidue:I(80)
+}, {Item.impureDiamond:I(8), Item.dirtyWater:I(100)}):TIME(160):UNLOCK(Item.diamond.tech)
+:CATEGORY(MomoLib.category.chemicalOnly):ADDCATEGORY(MomoLib.category.advancedCentrifugeOnly)
 :Extend()
 

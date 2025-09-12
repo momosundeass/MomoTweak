@@ -8,7 +8,9 @@ MomoLib.category.cryogenicOrChemical = "chemistry-or-cryogenics"
 MomoLib.category.chemicalOnly = "chemistry-only"
 MomoLib.category.advChemical = "adv-chemistry"
 
+MomoLib.category.atmospheric = "kr-atmosphere-condensation"
 MomoLib.category.electrolysis = "kr-electrolysis"
+
 
 MomoLib.category.electronics = "electronics"
 MomoLib.category.electromagnetic = "electromagnetics"
@@ -25,6 +27,7 @@ MomoLib.category.centrifuge = "centrifuging"
 MomoLib.category.centrifugeOnly = "centrifuge-only"
 MomoLib.category.advancedCentrifugeOnly = "advanced-centrifuge-only"
 
+MomoLib.category.furnace = "smelting"
 MomoLib.category.indFurnace = "industrial-furnace-only"
 
 MomoLib.category.oxidizer = "oxidize"

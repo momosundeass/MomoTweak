@@ -1,6 +1,23 @@
 local Item = MomoLib.itemNames
 
 function MomoLib.ChemicalData() 
+    MomoLib.itemNames.air = MomoLib.NewFluid("air", {
+        pictures = { MomoLib.UnusedRenders("gas-cloud-air"), }
+    }, {.9, .9, 1, 0.7})
+    MomoLib.recipe.New({}, Item.air:I(30)):TIME(30):CATEGORY(MomoLib.category.atmospheric):UNLOCK(Item.atmospheric.tech):Extend()
+    MomoLib.itemNames.co2 = MomoLib.NewFluid("carbon-dioxide", {
+        pictures = { MomoLib.UnusedRenders("molecule-carbon-dioxide"), }
+    },  {.9, .2, .2, 1})
+    MomoLib.recipe.New({Item.air:I(90)}, 
+    {Item.co2:I(30), Item.nitrogen:I(60)}):TIME(30):CATEGORY(MomoLib.category.refinery):UNLOCK(Item.atmospheric.tech):Extend()
+    MomoLib.itemNames.air.tech = Item.atmospheric.tech
+    MomoLib.itemNames.co2.tech = Item.atmospheric.tech
+
+    MomoLib.recipe.Remove(Item.nitrogen.name)
+    MomoLib.recipe.SafeAddIngredients(Item.impureDiamond, Item.co2:I(90))
+    MomoLib.technology.AddRequired(Item.diamond.tech, Item.co2.tech)
+
+    -- recycle
     MomoLib.recipe.New({
         Item.electrolytic:I(5),
         Item.lubricant:I(20),
@@ -48,6 +65,11 @@ function MomoLib.ChemicalUpdate()
 end
 
 function MomoLib.ChemicalDataFinal()
+    MomoLib.technology.RemoveAllRecipe(Item.oxygen.n)
+    MomoLib.technology.AddRecipe("coal-enriching", Item.oxygen.n)
+    MomoLib.recipe.SafeAddIngredients(Item.oxygen.n, {Item.air:I(1)}):TIME(1):AMOUNT(60):ADDPRODUCT(Item.nitrogen:I(1)):CATEGORY(MomoLib.category.refinery)
+
+
     -- chemical by-products to deal with
     local burn = "kr-burn-"
     MomoLib.recipe.Remove(burn..Item.chlorine.n)

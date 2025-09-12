@@ -147,22 +147,21 @@ function MomoLib.UpdateModulesEffect()
     MomoLib.SetEffect(item.efficiencyModule.n,  "consumption", -0.80)
     MomoLib.SetEffect(item.efficiencyModule2.n, "consumption", -1.60)
     MomoLib.SetEffect(item.efficiencyModule3.n, "consumption", -2.80)
-    if settings.startup["momo-super-quality"].value then
-        MomoLib.SetEffect(item.qualityModule.n,  "quality", 0.05)
-        MomoLib.SetEffect(item.qualityModule2.n, "quality", 0.10)
-        MomoLib.SetEffect(item.qualityModule3.n, "quality", 0.16)
-    else
-        MomoLib.SetEffect(item.qualityModule.n,  "quality", 0.02)
-        MomoLib.SetEffect(item.qualityModule2.n, "quality", 0.05)
-        MomoLib.SetEffect(item.qualityModule3.n, "quality", 0.08)
-    end
+
+    MomoLib.SetEffect(item.productivityModule.n, "speed", 0)
+    MomoLib.SetEffect(item.productivityModule2.n, "speed", 0)
+    MomoLib.SetEffect(item.productivityModule3.n, "speed", 0)
+
+    MomoLib.SetEffect(item.qualityModule.n,  "quality", 0.02)
+    MomoLib.SetEffect(item.qualityModule2.n, "quality", 0.05)
+    MomoLib.SetEffect(item.qualityModule3.n, "quality", 0.08)
     MomoLib.GetPrototype("beacon", "beacon", function (p)
         p.allowed_module_categories = {"efficiency", "speed"}
     end)
 
     MomoLib.GetPrototype("beacon", MomoLib.itemNames.beacon2.name, function (p)
-        p.allowed_effects = MomoLib.EffectLimitation(true, true, true, true, false)
-        p.allowed_module_categories = {"efficiency", "speed", "productivity" }
+        p.allowed_effects = MomoLib.EffectLimitation(true, true, true, true, true)
+        p.allowed_module_categories = {"efficiency", "speed", "productivity", "quality" }
         p.quality_affects_module_slots = true
     end)
 end

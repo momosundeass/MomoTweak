@@ -131,6 +131,7 @@ MomoLib.recipe.New({
 MomoLib.recipe.New({
     Item.purpleSci3:I(2),
     Item.blueChip:I(3),
+    Item.diamond:I(4)
 },{
     Item.purpleSci:I()
 }, Item.purpleSci3.n):CATEGORY(cat.researchServer):UNLOCK(Item.purpleSci.n):TIME(2)

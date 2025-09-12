@@ -70,6 +70,7 @@ MomoLib.recipe.SetIngredients(Item.flareStack, {
     Item.steelBeam:I(2),
     Item.greenChip:I(5)
 }):TIME(10):INTERMEDIATE()
+MomoLib.machine.Speed(Item.flareStack.n, 0.2)
 
 MomoLib.technology.SetRequired("kr-silicon-processing", "kr-fluid-excess-handling")
 MomoLib.recipe.SetIngredients(Item.filtration, {
@@ -84,12 +85,11 @@ MomoLib.recipe.SetIngredients(Item.atmospheric, {
     Item.redChip:I(20),
     Item.mineralWaterPump:I(8),
     Item.strongBox:I(1)
-}):TIME(10):INTERMEDIATE():ADDPRODUCT(Item.windmill:I())
+}):TIME(20):AMOUNT(2):INTERMEDIATE():ADDPRODUCT(Item.windmill:I())
 
 MomoLib.technology.SetRequired("kr-mineral-water-gathering", {"plastics", Item.flareStack.tech})
 MomoLib.recipe.SetIngredients(Item.mineralWaterPump, {
     Item.steelPipe:I(8),
-    Item.plastic:I(12),
     Item.oilPump:I(),
     Item.flareStack:I(),
 }):AMOUNT(2):TIME(10):INTERMEDIATE():ADDPRODUCT(Item.windmill:I())
@@ -219,6 +219,8 @@ MomoLib.recipe.ReplaceIngredient(Item.oreCrusher2, {
     Item.mineralWaterPump:I(4),
     Item.bulkInserter:I(6)
 })
+
+MomoLib.technology.AddRequired(Item.echamber1.tech, {"enriched-titanium"})
 MomoLib.recipe.ReplaceIngredient(Item.echamber1, {
     Item.redChip.n,
     Item.brick.n,

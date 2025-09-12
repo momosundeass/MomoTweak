@@ -84,6 +84,19 @@ function MomoLib.DeepCopy(orig)
 	return copy
 end
 
+---@param tbl table
+---@param objects any[]|any
+---@param ... any
+function MomoLib.RemoveObj(tbl, objects, ...)
+	---@type any[]
+	local removers = type(objects) == "table" and objects or {objects}
+	for _, r in pairs(removers) do
+		for i, c in ipairs(tbl) do
+			if c == r then table.remove(tbl, i) break end
+		end
+	end
+end
+
 function MomoLib.First(tbl)
 	for _, e in pairs(tbl) do
 		return e

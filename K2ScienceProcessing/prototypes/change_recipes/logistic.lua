@@ -5,9 +5,8 @@ MomoLib.recipe.SetIngredients(Item.bulkInserter, { Item.fastInserter:I(1), Item.
 
 
 -- chest
-MomoLib.recipe.SafeAddIngredients(Item.chest.n, Item.woodenChest:I())
-
-MomoLib.recipe.SafeAddIngredients(Item.steelChest.n, { Item.chest:I(), Item.ironBeam:I(4) } )
+MomoLib.recipe.SetIngredients(Item.chest.n, {Item.ironPlate:I(4), Item.woodenChest:I()})
+MomoLib.recipe.SetIngredients(Item.steelChest.n, { Item.steelPlate:I(4), Item.chest:I(), Item.ironBeam:I(2) } )
 
 MomoLib.technology.AddRequired(Item.strongBox.tech, "concrete")
 MomoLib.recipe.SafeAddIngredients(Item.strongBox, {Item.concrete:I(50)})

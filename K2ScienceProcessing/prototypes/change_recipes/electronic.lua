@@ -28,19 +28,19 @@ MomoLib.recipe.NoRecycle(Item.constant)
 MomoLib.recipe.NoRecycle(Item.powerSwitch)
 MomoLib.recipe.NoRecycle(Item.speaker)
 
+MomoLib.technology.RemoveRequired(Item.eqSolar.tech, Item.titaniumPlate.tech)
 MomoLib.recipe.SetIngredients(Item.eqSolar, {
     Item.glass:I(8),
-    Item.titaniumPlate:I(2),
     Item.redChip:I(),
     Item.solar:I()
 }):AMOUNT(4)
-MomoLib.technology.AddRequired(Item.selector.tech, Item.eqSolar.tech)
+MomoLib.technology.AddRequired(Item.selector.tech, Item.eqSolar.tech, Item.nitrogen.tech)
 MomoLib.recipe.SetIngredients(Item.selector, {
     Item.rareMetal:I(8),
     Item.eqSolar:I(4),
-    Item.redChip:I(),
+    Item.nitrogen:I(30),
     Item.arithmetic:I(4)
-}):AMOUNT(6):ADDPRODUCT(Item.constant:I(3)):TIME(12)
+}):AMOUNT(6):ADDPRODUCT(Item.constant:I(3)):TIME(12):CATEGORY(MomoLib.category.electronics)
 
 MomoLib.technology.AddRequired("processing-unit", Item.selector.tech)
 MomoLib.recipe.SetIngredients(Item.blueChip, {
@@ -51,7 +51,11 @@ MomoLib.recipe.SetIngredients(Item.blueChip, {
     Item.nitricAcid:I(40),
 })
 
-MomoLib.recipe.ReplaceIngredient(Item.eqSolar2, {Item.imersiteCrystal, Item.eqSolar}, {Item.imersiteCrystal:I(), Item.eqSolar:I(2)})
+MomoLib.recipe.ReplaceIngredient(Item.eqSolar2, {Item.imersiteCrystal, Item.eqSolar}, {
+    Item.imersiteCrystal:I(), 
+    Item.eqSolar:I(2),
+    Item.titaniumPlate:I(2)
+})
 
 MomoLib.technology.SetRequired(Item.aiCore.tech, {Item.emPlant.tech, Item.speedModule3.tech, Item.eqSolar2.tech})
 MomoLib.recipe.SetIngredients(Item.aiCore, {
