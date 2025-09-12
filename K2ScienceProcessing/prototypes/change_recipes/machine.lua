@@ -139,7 +139,7 @@ MomoLib.recipe.SetIngredients(Item.radar, {
     Item.redChip:I(10),
     Item.steelChest:I(),
     Item.accumulator:I(3),
-    Item.ammonia:I(300),
+    Item.ammonia:I(100),
     MomoLib.MakeIngredient("kr-sentinel", 2),
 }):CATEGORY("crafting-with-fluid"):INTERMEDIATE()
 
