@@ -25,8 +25,6 @@ function MomoLib.ManufacturerDataFinal()
     MomoLib.GetRecipe(Item.electricEngine.n, function (p) p:CATEGORY{"crafting-with-fluid", MomoLib.category.manufacture} end)
 
     MomoLib.GetRecipe(Item.steamEngine.n, function (p) p:CATEGORY{"crafting", MomoLib.category.manufacture} end)
-    MomoLib.GetRecipe(Item.flareStack.n, function (p) p:CATEGORY{"crafting", MomoLib.category.manufacture} end)
-    MomoLib.GetRecipe(Item.mineralWaterPump.n, function (p) p:CATEGORY{"crafting", MomoLib.category.manufacture} end)
     MomoLib.GetRecipe(Item.atmospheric.n, function (p) p:CATEGORY{"crafting", MomoLib.category.manufacture} end)
     MomoLib.GetRecipe(Item.lab.n, function (p) p:CATEGORY{"crafting", MomoLib.category.manufacture} end)
     MomoLib.GetRecipe(Item.satellite.n, function (p) p:CATEGORY{"crafting", MomoLib.category.manufacture} end)

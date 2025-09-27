@@ -20,7 +20,7 @@ MomoLib.recipe.SafeAddIngredients(Item.warehouse, {Item.refConcrete:I(200)})
 MomoLib.recipe.SetIngredients(Item.signal, {Item.lamp:I(1), Item.ironPlate:I(5), Item.greenChip:I(1)})
 MomoLib.recipe.SetIngredients(Item.chainSignal, {Item.steelPlate:I(2), Item.signal:I(1), Item.lamp:I(2)})
 MomoLib.technology.AddRequired(Item.station.tech, Item.speaker.tech)
-MomoLib.recipe.SetIngredients(Item.station, {Item.ironBeam:I(4), Item.steelPlate:I(2), Item.speaker:I(8), Item.signal:I(2)})
+MomoLib.recipe.SetIngredients(Item.station, {Item.ironBeam:I(4), Item.steelPlate:I(2), Item.speaker:I(2), Item.signal:I(2)})
 -- TODO: locomotive?
 
 MomoLib.technology.SetRequired(Item.beltIm.tech, {Item.redChip.tech, "modular-armor"})
@@ -29,7 +29,7 @@ MomoLib.recipe.SetIngredients(Item.beltIm, {
     Item.redChip:I(2),
     Item.ironPlate:I(4),
     Item.engine:I(),
-})
+}):TIME(40)
 MomoLib.technology.AddRequired(Item.robotFrame.tech, {Item.beltIm.tech})
 MomoLib.recipe.SetIngredients(Item.robotFrame, {
     Item.titaniumPlate:I(12),
@@ -45,12 +45,12 @@ MomoLib.technology.SetRequired(Item.consBot.tech, {Item.radar.tech, Item.strongB
 MomoLib.recipe.ReplaceIngredient(Item.consBot, Item.greenChip, {
     Item.eqBigBattery:I(),
     Item.fastInserter:I(4)
-})
+}):TIME(15)
 MomoLib.technology.AddRequired(Item.logisticBot.tech, {Item.radar.tech, Item.strongBox.tech, Item.bulkInserter.tech, Item.eqBattery.tech})
 MomoLib.recipe.ReplaceIngredient(Item.logisticBot, Item.redChip, {
     Item.eqBigBattery:I(),
     Item.bulkInserter:I(2),
-})
+}):TIME(15)
 MomoLib.recipe.SetIngredients(Item.roboport, {
     Item.radar:I(),
     Item.strongBox:I(),

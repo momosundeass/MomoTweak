@@ -129,12 +129,12 @@ MomoLib.recipe.New({
 :ICON(MomoLib.icon.RecycleIcons(Item.purpleSci1:Prototype())):Extend()
 
 MomoLib.recipe.New({
-    Item.purpleSci3:I(2),
-    Item.blueChip:I(3),
-    Item.diamond:I(4)
+    Item.purpleSci3:I(6),
+    Item.steelChest:I(),
+    Item.diamond:I(6)
 },{
-    Item.purpleSci:I()
-}, Item.purpleSci3.n):CATEGORY(cat.researchServer):UNLOCK(Item.purpleSci.n):TIME(2)
+    Item.purpleSci:I(3)
+}, Item.purpleSci3.n):CATEGORY(cat.researchServer):UNLOCK(Item.purpleSci.n):TIME(40)
 :ICON(MomoLib.icon.RecycleIcons(Item.purpleSci3:Prototype())):Extend()
 
 MomoLib.recipe.New({

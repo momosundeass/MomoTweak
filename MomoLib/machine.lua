@@ -134,6 +134,7 @@ function funcs.CopySounds(sourceName, pasteAtName)
     if source.ambient_sounds then pasteAt.ambient_sounds = source.ambient_sounds end
 end
 
+---@param prod float 0.5 mean 50% productivity
 function funcs.ProductivityAdded(machine, prod)
 	local prototype = data.raw["assembling-machine"][machine] or data.raw["furnace"][machine]
 	if prototype == nil then error("No assembling-machine or furnace; with name : " .. machine) end

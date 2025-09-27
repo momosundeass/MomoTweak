@@ -41,7 +41,7 @@ MomoLib.recipe.New({
 MomoLib.recipe.New({
     Item.redChip:I(16),
     Item.atmospheric:I(),
-    Item.fastInserter:I(4),
+    Item.fastInserter:I(8),
     Item.eqBigBattery:I(4),
-}, Item.consBot:I(1), "expensive-construction-bot"):TIME(50):CATEGORY(MomoLib.category.handcraft):UNLOCK(Item.consBot.tech)
+}, Item.consBot:I(2), "expensive-construction-bot"):TIME(50):CATEGORY(MomoLib.category.handcraft):UNLOCK(Item.consBot.tech)
 :ICON(MomoLib.icon.MakeLayeredItemIcon("__base__/graphics/icons/signal/signal-hourglass.png", Item.consBot.n)):Extend()

@@ -1,3 +1,5 @@
+---@class float:number
+
 DEBUG = false
 if not MomoLib then 
 	MomoLib = {} 
@@ -7,6 +9,7 @@ else
 end
 
 if not MomoLib.helper then require("helper") end
+if not MomoLib.vec then require("vector") end
 if not MomoLib.prototype then require("prototype") end
 if not MomoLib.icon then require("icon") end
 if not MomoLib.subgroup then MomoLib.subgroup = {} end

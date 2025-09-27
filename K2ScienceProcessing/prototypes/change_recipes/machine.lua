@@ -194,6 +194,7 @@ MomoLib.recipe.SetIngredients(Item.assembly3, {
     Item.electricEngine:I(3),
     Item.speedModule:I()
 }):INTERMEDIATE()
+MomoLib.machine.Speed(Item.assembly3.n, 1.5)
 
 MomoLib.recipe.SafeAddIngredients(Item.heatPipe, Item.steelPipe:I(4))
 MomoLib.recipe.SetIngredients(Item.heatExchange, {

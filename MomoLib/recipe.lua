@@ -8,6 +8,24 @@ local funcs = {}
 if not MomoLib.recipes then MomoLib.recipes = {} end
 funcs.isNewRecipe = true
 
+---@class MissingRecipe : Recipe
+MomoLib.MISSING_RECIPE = {
+	type = "recipe",
+	name = "_MISSING_RECIPE",
+	auto_recycle = false,
+	main_product = "",
+	ingredients = {},
+	results = {},
+	category = "",
+	enabled = false,
+	hidden = true,
+	hidden_in_factoriopedia = false,
+	localised_name = "",
+	group = "",
+	icon = "",
+	icon_size = 0
+}
+
 ---@return Recipe
 function funcs:_New(tbl)
 	tbl = tbl or {}
@@ -23,10 +41,10 @@ function funcs:FromPrototype(tbl)
 	return obj
 end
 
----@return Recipe
+---@return Recipe|MissingRecipe
 function funcs.SafeAddIngredients(recipeName, ingredients)
 	if type(recipeName) == "table" and recipeName.name then recipeName = recipeName.name end
-	local prototype = {}
+	local prototype
 	MomoLib.GetRecipe(recipeName, function(proto)
 		funcs._AddToRecipes(recipeName)
 		if not MomoLib.IsArray(ingredients) then
@@ -39,10 +57,10 @@ function funcs.SafeAddIngredients(recipeName, ingredients)
 		end
 		prototype = proto
 	end)
-	return prototype
+	return prototype or MomoLib.MISSING_RECIPE
 end
 
----@return Recipe
+---@return Recipe|MissingRecipe
 function funcs.ReplaceIngredient(recipeName, ingName, newIng)
 	if not MomoLib.IsArray(ingName) then ingName = { ingName } end
 	for _, i in pairs(ingName) do
@@ -56,7 +74,7 @@ function funcs.ReplaceIngredient(recipeName, ingName, newIng)
 	for _, i in pairs(newIng) do
 		recipe = funcs.SafeAddIngredients(recipeName, i)
 	end
-	return recipe
+	return recipe or MomoLib.MISSING_RECIPE
 end
 
 function funcs.RemoveIngredient(recipeName, ingName, isPostProcessingMode)
@@ -82,16 +100,16 @@ function funcs._RemoveFromRecipe(key, recipeName, ingName, isPostProcessingMode)
 	end)
 end
 
----@return Recipe
+---@return Recipe|MissingRecipe
 function funcs.SetIngredients(recipeName, ingredients)
 	if type(recipeName) == "table" and recipeName.name then recipeName = recipeName.name end
-	local prototype = {}
+	local prototype 
 	MomoLib.GetRecipe(recipeName, function(proto)
 		funcs._AddToRecipes(recipeName)
 		proto.ingredients = ingredients
 		prototype = proto
 	end)
-	return prototype
+	return prototype or MomoLib.MISSING_RECIPE
 end
 
 function funcs.ReplaceProduct(recipeName, productNameToReplace, product)
@@ -99,7 +117,7 @@ function funcs.ReplaceProduct(recipeName, productNameToReplace, product)
 	funcs.AddProduct(recipeName, product)
 end
 
----@return Recipe
+---@return Recipe|MissingRecipe
 function funcs.SetProducts(recipeName, products, overrideMainProduct)
 	if type(recipeName) == "table" and recipeName.name then recipeName = recipeName.name end
 	local prototype
@@ -111,7 +129,7 @@ function funcs.SetProducts(recipeName, products, overrideMainProduct)
 		end
 		prototype = proto
 	end)
-	return prototype
+	return prototype or MomoLib.MISSING_RECIPE
 end
 
 function funcs.AddProduct(recipeName, product)
@@ -197,7 +215,8 @@ function funcs.SetTime(recipe, _time)
 	end)
 end
 
----@param categories (string|string[]) [1] can be false to skip setting main category 
+---@param categories (string|(string|boolean)[]) [1] can be false to skip setting main category 
+---@return Recipe|MissingRecipe
 function funcs.SetCategory(recipe, categories)
 	local prototype
 	if type(recipe) == "string" or (type(recipe) == "table" and recipe.type ~= "recipe") then 
@@ -205,6 +224,7 @@ function funcs.SetCategory(recipe, categories)
 	else
 		prototype = recipe
 	end
+	if (prototype == nil) then return nil end
 
 ---@diagnostic disable-next-line: assign-type-mismatch
 	if not MomoLib.IsArray(categories) then categories = { categories } end
@@ -216,7 +236,7 @@ function funcs.SetCategory(recipe, categories)
 		table.remove(categories, 1)
 		prototype.additional_categories = categories
 	end
-end
+return prototype or MomoLib.MISSING_RECIPE end
 
 ---@return Recipe
 ---@param name? string
@@ -343,7 +363,9 @@ function funcs.PostProcessMissingItem()
 end
 
 function funcs:Extend()
-	data:extend { self }
+	if self.name ~= MomoLib.MISSING_RECIPE.name then 
+		data:extend { self }
+	end
 end
 
 ---@return Recipe

@@ -59,7 +59,7 @@ function MomoLib.ChemicalUpdate()
         p:ADDCATEGORY{MomoLib.category.chemicalOnly}:TIME(25)
     end)
 
-    MomoLib.machine.Power(Item.electrolyser.n, "2MW")
+    MomoLib.machine.Power(Item.electrolyser.n, "1.1MW")
     MomoLib.machine.Speed(Item.electrolyser.n, 5)
     MomoLib.machine.ModuleLimit(Item.electrolyser.n, MomoLib.EffectLimitation(false))
 end

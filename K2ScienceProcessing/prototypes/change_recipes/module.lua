@@ -32,19 +32,21 @@ MomoLib.technology.SetRequired(Item.qualityModule.tech, {Item.productivityModule
 MomoLib.recipe.SetIngredients(Item.qualityModule, {
     Item.productivityModule:I(),
     Item.redChip:I(10),
-    Item.repair:I(5)
+    Item.repair:I(5)    
 })
 
 MomoLib.technology.AddRequired(Item.speedModule2, Item.eqSolar.tech)
 MomoLib.recipe.SetIngredients(Item.speedModule2, {
     Item.eqSolar:I(4),
     Item.speedModule:I(5),
+    Item.plastic:I(6),
     Item.arithmetic:I(8),
 }):ADDPRODUCT{Item.powerSwitch:I(2)}
 MomoLib.technology.AddRequired(Item.efficiencyModule2, Item.eqSolar.tech)
 MomoLib.recipe.SetIngredients(Item.efficiencyModule2, {
     Item.eqBigSolar:I(),
     Item.efficiencyModule:I(10),
+    Item.plastic:I(6),
     Item.arithmetic:I(16),
 }):AMOUNT(2):ADDPRODUCT{Item.powerSwitch:I(2)}
 MomoLib.technology.AddRequired(Item.productivityModule2.tech, {Item.speedModule2.tech, Item.efficiencyModule2.tech, Item.selector.tech})

@@ -146,10 +146,11 @@ MomoLib.machine.ModuleSlot(resCenter.machine, 4)
 
 
 -- manufacturer
-shift = {0,-0.5}
+shift = {0,-0.35}
 line_length = 8
 length = 64 * 2
 ingameScale = 1.25
+local animationSpeed = 0.6
 local manufacturer = MomoLib.machine.CreateEntity("assembling-machine", "assembling-machine-2", {
     name = "manufacturer",
     icon = MomoLib.Graphics("manufacturer/manufacturer-icon.png"),
@@ -168,14 +169,14 @@ local manufacturer = MomoLib.machine.CreateEntity("assembling-machine", "assembl
                     line_length = 1,
                     repeat_count = length,
                     draw_as_shadow = true,
-                    animation_speed = 0.8,
-                    shift = shift,
+                    animation_speed = animationSpeed,
+                    shift = MomoLib.vec.Add(shift, {0, -0.05}),
                 },
                 {
                     size = { 2160 / 8, 2256 / 8 },
                     scale = 0.5 * ingameScale,
                     frame_count = length,
-                    animation_speed = 0.8,
+                    animation_speed = animationSpeed,
                     shift = shift,
                     stripes = {
                         {
@@ -204,7 +205,7 @@ local manufacturer = MomoLib.machine.CreateEntity("assembling-machine", "assembl
                             frame_count = length,
                             draw_as_glow = true,
                             blend_mode = "additive",
-                            animation_speed = 0.8,
+                            animation_speed = animationSpeed,
                             shift = shift,
                             stripes = {
                                 {

@@ -1,5 +1,5 @@
 MomoLib.recipe.SetIngredients(Item.engine, {
-    Item.ironPlate:I(2),
+    Item.chest:I(),
     Item.core:I(1),
     Item.motor:I(4)
 })
