@@ -1,15 +1,19 @@
 data:extend{MomoLib.subgroup.New("unused", "logistics", "zzzzzzzzzzzzz")}
 
-local function Remove(recipe)
-	MomoLib.recipe.Remove(recipe)
-	MomoLib.subgroup.ChangeItem(recipe, "unused", "z")
-	MomoLib.subgroup.ChangeRecipe(recipe, "unused", "z")
+local function Remove(entity)
+	if data.raw["pipe-to-ground"][entity] then
+		data.raw["pipe-to-ground"][entity].next_upgrade = nil
+	end
 	
-	MomoLib.GetItem(recipe, function (item)
+	MomoLib.recipe.Remove(entity)
+	MomoLib.subgroup.ChangeItem(entity, "unused", "z")
+	MomoLib.subgroup.ChangeRecipe(entity, "unused", "z")
+	
+	MomoLib.GetItem(entity, function (item)
 		item.hidden = true
 		item.hidden_in_factoriopedia = true
 	end)
-	MomoLib.GetRecipe(recipe, function (item)
+	MomoLib.GetRecipe(entity, function (item)
 		item.hidden = true
 		item.hidden_in_factoriopedia = true
 	end)
@@ -34,7 +38,11 @@ Remove("underground-cross-pipe")
 Remove("underground-cross-t2-pipe")
 Remove("underground-cross-t3-pipe")
 
-
+if mods["configurable-valves"] then
+	Remove("check-valve")
+	Remove("80-top-up-valve")
+	Remove("80-overflow-valve")
+end
 
 local bob = mods["boblogistics"]
 local k2 = mods["Krastorio2"]
@@ -80,3 +88,4 @@ Set("underground-t-t3-pipe", { item(gPipe), item("underground-L-t3-pipe")})
 Set("underground-mini-pump", {item("pump", 1), item("stone-brick", 4)})
 Set("underground-mini-pump-t2", {item("pump", 2), item("concrete", 4)})
 Set("underground-mini-pump-t3", {item("pump", 4), item("refined-concrete", 4)})
+
