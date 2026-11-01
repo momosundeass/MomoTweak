@@ -1,12 +1,12 @@
 {
 	"name": "ElectricNetworkInfoHotkey",
-	"version": "2.0.1",
-	"factorio_version": "2.0",
+	"version": "2.1.1",
+	"factorio_version": "2.1",
 	"title": "Electric Network Info Hotkey",
 	"author": "Momosundeass",
 	"homepage": "https://github.com/momosundeass/MomoTweak",
 	"description": "Click power pole no more. Open nearby Electric Network Info GUI via keyboard hotkey",
 	"dependencies": [
-		"base >= 2.0"
+		"base >= 2.1"
 	]
 }
