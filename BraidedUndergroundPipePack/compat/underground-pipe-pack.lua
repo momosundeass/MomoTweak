@@ -24,7 +24,7 @@ function ChangeFluidBoxesCategory(entities, undergroundCategory)
 			end
 		end
 		
-		en.next_upgrade = ""
+		en.next_upgrade = nil
 		::continue::
 	end
 end
